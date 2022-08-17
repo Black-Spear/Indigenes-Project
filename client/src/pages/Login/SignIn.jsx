@@ -31,6 +31,7 @@ function SignIn() {
   const titleColor = useColorModeValue('E3BF3E', 'E3BF3E');
   const textColor = useColorModeValue('gray.500', 'gray.400');
   let [users , setUsers] = useState([]);
+  let [user,setUser] = useState([]);
 
   useEffect(() => {
     return () => {
@@ -53,7 +54,7 @@ function SignIn() {
     setform({ ...form, [e.target.name]: e.target.value })
   }
 
-  const submitButton = (e) => {
+  const submitButton = async(e) => {
     console.log(users)
     e.preventDefault()
     console.log(form)
@@ -62,14 +63,22 @@ function SignIn() {
     }
     const response = axios.get('/getUser', request)
     console.log(response)
+    const verif = users.filter((obj) => { 
+      return (
+        obj.email_c == form.email && obj.mot_de_passe_c == form.password
+    )     
+    })
     if (form.email === '' || form.password === '') {
       alert('Please fill all the fields')  
     }
-    else if (users[3].email_c != form.email || users[3].mot_de_passe_c != form.password) {
+    else if (verif == null) {
       alert('wrong')
     }
     else {
+      localStorage.setItem("current_user",JSON.stringify(verif));
+      setUser(verif)
       alert("Connected Successfully !!")
+      
     }
   }
 

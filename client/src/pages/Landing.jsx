@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Hero } from '../sections/Landing/Hero/Hero'
 import Map from '../sections/Landing/Map/Map'
 import { Pricing } from '../sections/Landing/Pricing/Pricing'
@@ -8,6 +8,13 @@ import { Box } from '@chakra-ui/react'
 import Contact from '../sections/Landing/Contact/Contact'
 const Landing = () => {
   const colors = "#1a202c"
+  var user = localStorage.getItem("current_user");
+  useEffect(() => {
+    return () => {
+      console.log(user)
+    }
+  }, [])
+  
   return (
     <>
       <Hero />
