@@ -326,8 +326,10 @@ const Map = () => {
             </ModalBody>
             <ModalFooter>
               <Button colorScheme='yellow' mx={3} onClick={() => {
-        navigate({pathname: `/projects/${sampleObject.id}`})
-      }}>See Projects</Button>
+                navigate({pathname: `/projects/${sampleObject.id}`})
+              }}>
+                See Projects
+              </Button>
               <Button onClick={onClose}>Close</Button>
             </ModalFooter>
           </ModalContent>

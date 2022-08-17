@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // Chakra imports
 import { BsArrowReturnLeft } from 'react-icons/bs';
 
@@ -21,11 +21,58 @@ import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import { Link as RLink } from 'react-router-dom';
 // Assets
 import signInImage from '../../assets/img/signInImage.png';
+import axios from 'axios'
+
+const baseURL = 'http://localhost:5000/getall';
+
 
 function SignIn() {
   // Chakra color mode
   const titleColor = useColorModeValue('E3BF3E', 'E3BF3E');
   const textColor = useColorModeValue('gray.500', 'gray.400');
+  let [users , setUsers] = useState([]);
+
+  useEffect(() => {
+    return () => {
+      axios.get(baseURL)
+     .then((res) => {
+      setUsers(res.data)
+      console.log(res.data)
+     }
+    )
+    }
+  }, [])
+  
+
+  const [form, setform] = useState({
+    email: '',
+    password: ''
+  })
+
+  const inputHandler = (e) => {
+    setform({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const submitButton = (e) => {
+    console.log(users)
+    e.preventDefault()
+    console.log(form)
+    const request = {
+      ...form
+    }
+    const response = axios.get('/getUser', request)
+    console.log(response)
+    if (form.email === '' || form.password === '') {
+      alert('Please fill all the fields')  
+    }
+    else if (users[3].email_c != form.email || users[3].mot_de_passe_c != form.password) {
+      alert('wrong')
+    }
+    else {
+      alert("Connected Successfully !!")
+    }
+  }
+
   return (
     <Flex position="relative" mb="40px">
       <RLink to='/'>  
@@ -89,23 +136,31 @@ function SignIn() {
                 Email
               </FormLabel>
               <Input
+              id='email'
                 borderRadius="15px"
                 mb="10px"
                 fontSize="md"
+                name='email'
                 type="text"
                 placeholder="Your email adress"
                 size="lg"
+                value={form.email}
+                onChange={inputHandler}
               />
               <FormLabel ms="4px" fontSize="md" fontWeight="semibold">
                 Password
               </FormLabel>
               <Input
+              id='password'
                 borderRadius="15px"
                 mb="15px"
                 fontSize="md"
+                name='password'
                 type="password"
                 placeholder="Your password"
                 size="lg"
+                value={form.password}
+                onChange={inputHandler}
               />
               <FormControl display="flex" alignItems="center">
                 <Switch id="remember-login" colorScheme="yellow" me="10px" />
@@ -133,6 +188,7 @@ function SignIn() {
                 _active={{
                   bg: '#A38F4A',
                 }}
+                onClick={submitButton}
               >
                 SIGN IN
               </Button>

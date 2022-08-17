@@ -76,13 +76,12 @@ function SignUp() {
       const request = {
         ...form
       }
-
       const db_request = api.get('/createdb')
       console.log(db_request)
       const table_request = api.get('/createtable')
       console.log(table_request)
-      const response = api.post('/createUser', request)
-      console.log(response)
+      const res = api.post('/createUser', request)
+      console.log(res)
     }
   }
 

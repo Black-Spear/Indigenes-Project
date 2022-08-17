@@ -44,7 +44,7 @@ app.get('/createdb', (req, res) => {
 });
 
 app.get('/createtable', (req, res) => {
-    let sql = 'CREATE TABLE IF NOT EXISTS Users(id int AUTO_INCREMENT, FName VARCHAR(255),LName VARCHAR(255), Email VARCHAR(255), Password VARCHAR(255), Country VARCHAR(255), PRIMARY KEY(id))';
+    let sql = 'CREATE TABLE IF NOT EXISTS client(id_c int AUTO_INCREMENT, nom_c VARCHAR(255),prenom_c VARCHAR(255), email_c VARCHAR(255), mot_de_passe_c VARCHAR(255), pays_c VARCHAR(255), PRIMARY KEY(id_c))';
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
@@ -53,7 +53,7 @@ app.get('/createtable', (req, res) => {
 });
 
 app.get('/getall', (req, res) => {
-    let sql = 'SELECT * FROM Users';
+    let sql = 'SELECT * FROM client';
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
@@ -61,9 +61,9 @@ app.get('/getall', (req, res) => {
     });
 });
 
-app.get('/getbyid', (req, res) => {
+app.get('/getUser', (req, res) => {
     let form = req.body;
-    let sql = `SELECT * FROM Users where Email like '${form.email}'`;
+    let sql = `SELECT * FROM client where email_c like '${form.email}' and mot_de_pass_c like '${form.password}`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
@@ -74,10 +74,10 @@ app.get('/getbyid', (req, res) => {
 app.post('/createUser', (req, res) => {
     console.log(req.body);
     let form = req.body;
-    let sql = `INSERT INTO Users(FName,LName, Email, Password, Country) VALUES ('${form.fname}', '${form.lname}', '${form.email}', '${form.password}', '${form.country}')`;
+    let sql = `INSERT INTO client(nom_c,prenom_c,email_c,mot_de_passe_c,pays_c) VALUES ('${form.fname}', '${form.lname}', '${form.email}', '${form.password}', '${form.country}')`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
-        res.send('Post added...');
+        res.send('User created...');
     });
 });
