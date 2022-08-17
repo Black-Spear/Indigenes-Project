@@ -1,16 +1,18 @@
 
 import { Avatar, background, Box, Button, Center,Image,Grid, Checkbox, CheckboxGroup, Flex, Heading, Input, InputGroup, InputRightElement, LightMode, Select, Stack, Text, useColorModeValue, VStack, Modal, ModalContent, ModalHeader, HStack, Divider, ModalCloseButton, ModalBody, List, ModalFooter, Badge, ModalOverlay, useDisclosure } from '@chakra-ui/react'
-import { Link as RLink, useLocation, useParams } from 'react-router-dom'
+import { Link as RLink, useLocation, useNavigate, useParams } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa'
 import '../sections/Projects/Banner/style.css'
 import React from 'react'
 import { FiSearch } from 'react-icons/fi'
 import img from '../assets/img/projects/test.png';
 import Map from '../sections/Landing/Map/Map'
+import { Header } from '../components/Header/Header'
 // import './style.css'
 
 
 const PageProjects = () => {
+  const navigate = useNavigate();
 
   const OverlayOne = () => (
     <ModalOverlay
@@ -25,6 +27,8 @@ const {id} = useParams();
   console.log('data', id )
 
   return (
+    <>
+    <Header />
     <Flex
       direction="column"
       alignSelf="center"
@@ -187,6 +191,11 @@ const {id} = useParams();
                   <Text fontWeight={600}>Achim Rolle</Text>
                   <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
                 </Stack>
+                <Button colorScheme='yellow' mx={3} onClick={() => {
+                  navigate({pathname: `/project_Details/${id}`})
+                }}>
+                  See details
+                </Button>
               </Stack>
             </Box>
           </Center>
@@ -274,6 +283,7 @@ const {id} = useParams();
           </ModalContent>
         </Modal>
     </Flex>
+    </>
   )
 }
 
