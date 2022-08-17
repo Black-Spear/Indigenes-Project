@@ -1,0 +1,11 @@
+@media (orientation:portrait) {
+
+    #root > div > div > div.chakra-stack.css-b5leqj > div.css-gmuwbf > a > svg {
+
+      height: 7vh;
+    }
+    #root > div > div > div.chakra-stack.css-owjkmg > a:nth-child(1) > svg{
+        height: 7vh; 
+    }
+
+}

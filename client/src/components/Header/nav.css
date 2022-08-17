@@ -1,0 +1,11 @@
+.header {
+    transition: all 0.5s;
+    background: transparent;
+    z-index: 1000;
+}
+
+.header.active{
+/* background: rgba(31, 31, 31, 0.671); */
+background: #1a202c;
+box-shadow: 2px 10px 10px #000000af;
+}

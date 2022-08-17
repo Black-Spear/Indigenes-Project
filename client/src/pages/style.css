@@ -1,0 +1,66 @@
+.card {
+    height: 254px;
+    width: 190px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 1em;
+    ;
+   }
+   
+    /*Image*/
+   .card-image {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+   }
+   
+
+   #chakra-modal--body-\:r3\: > div > div > div.card-description.css-14uh61d {
+
+
+
+   }
+
+   #chakra-modal--body-\:r3\: > div > div > div.card-description.css-14uh61d:hover {
+
+   
+   
+    
+   }
+   /*Description */
+   .card-description {
+    display: flex;
+    position: absolute;
+    gap: 1em;
+    flex-direction: column;
+    height: 100%;
+    bottom: 0;
+    border-radius: 1em 1em 0 0;
+    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 1rem;
+        
+    background: #484848;
+    width: 100%;
+   }
+   
+   /*Text*/
+   .text-title {
+    font-size: 1.4em;
+    font-weight: 700;
+   }
+   
+   .text-body {
+    font-size: 1em;
+    line-height: 150%;
+   }
+   
+   
+   /* Hover states */
+   
+   .card:hover .card-description {
+    /*transform: translateY(70%);*/
+    height: 100%;
+    top: 235px;
+   }
+   
