@@ -81,9 +81,10 @@ function SignUp() {
         status: 'success',
         duration: 2000,
         isClosable: true,
+        colorScheme : 'yellow'
       })
       
-      setTimeout(navigate('/'),5000)
+      setTimeout(navigate('/signin'),5000)
       
     }
   }

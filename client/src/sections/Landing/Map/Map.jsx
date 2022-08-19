@@ -10,6 +10,7 @@ const Map = () => {
   const navigate = useNavigate();
   const colores = useColorModeValue('#e2e8f0', '#2d3748')
   const [sampleObject, setSampleObject] = useState({});
+  const [scrollBehavior, setScrollBehavior] = useState('inside')
   const OverlayOne = () => (
     <ModalOverlay
       bg='blackAlpha.300'
@@ -308,7 +309,7 @@ const Map = () => {
 
             </svg>
             </Flex>
-          <Modal isCentered isOpen={isOpen} onClose={onClose} size='xl'>
+          <Modal isCentered isOpen={isOpen} onClose={onClose} size='xl' scrollBehavior={scrollBehavior} >
           {overlay}
           <ModalContent>
             <ModalHeader fontSize={28} textAlign='center'><Text py={3}>{sampleObject.name}</Text>

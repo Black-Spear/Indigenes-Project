@@ -16,6 +16,7 @@ import {
   Text,
   HStack,
   useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import { Link as RLink } from 'react-router-dom';
@@ -32,6 +33,7 @@ function SignIn() {
   const textColor = useColorModeValue('gray.500', 'gray.400');
   let [users , setUsers] = useState([]);
   let [user,setUser] = useState([]);
+  const toast = useToast();
 
   useEffect(() => {
     return () => {
@@ -77,7 +79,14 @@ function SignIn() {
     else {
       localStorage.setItem("current_user",JSON.stringify(verif));
       setUser(verif)
-      alert("Connected Successfully !!")
+      toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+        colorScheme : 'yellow'
+      })
       
     }
   }
