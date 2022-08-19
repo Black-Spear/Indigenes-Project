@@ -35,7 +35,7 @@ export const Header = () => {
   }, [])
   var Status ;
   if (user != null){
-    Status = <><Flex alignItems={'center'}>
+    Status = <>
     <Button
       variant={'solid'}
       colorScheme={'yellow'}
@@ -66,8 +66,8 @@ export const Header = () => {
         <MenuDivider />
         <MenuItem onClick={() => {localStorage.clear(); window.location.reload(true);}}>Sign out</MenuItem>
       </MenuList>
-    </Menu>
-  </Flex></>
+      <ColorModeSwitcher/>
+    </Menu></>
   } else {
     Status = <><HStack
     spacing="3"

@@ -14,31 +14,22 @@ import {
   Switch,
   Text,
   useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
-import { Link as RLink } from 'react-router-dom';
+import { Link as RLink, useNavigate } from 'react-router-dom';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import {
   Popover,
   PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor,
 } from '@chakra-ui/react';
-import { Logo } from './Logo';
 import viddark from '../../assets/video/gold2.png';
 import vidlight from '../../assets/video/gold.png';
 import './vid.css';
 import axios from 'axios'
 
 // Assets
-import BgSignUp from '../../assets/img/BgSignUp.png';
 import React from 'react';
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
-import { BsArrowReturnLeft } from 'react-icons/bs';
 import { useState } from 'react';
 
 // ! Code starts here
@@ -49,6 +40,8 @@ const api = axios.create({
 function SignUp() {
   const titleColor = useColorModeValue('#E3BF3E', '#E3BF3E');
   const textColor = useColorModeValue('gray.700', 'gray.200');
+  const toast = useToast();
+  const navigate = useNavigate();
   const bgColor = useColorModeValue('white', 'gray.700');
   const bgIcons = useColorModeValue('#E3BF3E', 'rgba(255, 255, 255, 0.5)');
   const vid = useColorModeValue(viddark, vidlight);
@@ -82,6 +75,16 @@ function SignUp() {
       console.log(table_request)
       const res = api.post('/createUser', request)
       console.log(res)
+      toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
+      
+      setTimeout(navigate('/'),5000)
+      
     }
   }
 
