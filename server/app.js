@@ -80,4 +80,17 @@ app.post('/createUser', (req, res) => {
         console.log(result);
         res.send('User created...');
     });
+
+});
+
+app.post('/contact', (req, res) => {
+    console.log(req.body);
+    let form = req.body;
+    let sql = `INSERT INTO contact(full_name,email,message) VALUES ('${form.fname}', '${form.email}', '${form.message}')`;
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(result);
+        res.send('Sent mail contact...');
+    });
+
 });

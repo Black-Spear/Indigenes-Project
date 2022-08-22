@@ -16,6 +16,7 @@ import {
     InputGroup,
     InputLeftElement,
     Textarea,
+    useToast,
   } from '@chakra-ui/react';
   import {
     MdPhoneIphone,
@@ -25,8 +26,58 @@ import {
 
   } from 'react-icons/md';
   import { FaGithub, FaDiscord, FaPersonBooth ,FaFacebook} from 'react-icons/fa';
+import axios from 'axios';
+import { useState } from 'react';
+
+  export default function Contact() {
+    const api = axios.create({
+      baseURL: 'http://localhost:5000'
+    })
+    
+    
+    const toast = useToast();
+    const [form, setform] = useState({
+      fname: '',
+      email: '',
+      message: '',
+    })
   
-  export default function contact() {
+    const inputHandler = (e) => {
+      setform({ ...form, [e.target.name]: e.target.value })
+    }
+  
+    const submitButton = (e) => {
+      e.preventDefault()
+      console.log(form)
+  
+      if (form.fname === '' || form.email === '' || form.message === '') {
+        toast({
+          title: 'Please fill the form ! ',
+          description: "All field are obligation",
+          status: 'warning',
+          duration: 2000,
+          isClosable: true,
+          colorScheme : 'yellow'
+        })  
+      }
+      else {
+        const request = {
+          ...form
+        }
+        const res = api.post('/contact', request)
+        console.log(res)
+        toast({
+          title: 'Message Sent! ',
+          description: "We will responde as soon as possible.",
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          colorScheme : 'yellow'
+        })
+        
+        
+      }
+    }
     return (
       <Container bg="#E3BF3E" maxW="full" mt={0} centerContent overflow="hidden">
         <Flex>
@@ -114,27 +165,27 @@ import {
                   <Box bg="#E7E7E7" borderRadius="lg">
                     <Box m={8} color="#0B0E3F">
                       <VStack spacing={5}>
-                        <FormControl id="name">
+                        <FormControl>
                           <FormLabel>Your Name</FormLabel>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement
                               pointerEvents="none"
                               children={<FaPersonBooth color="gray.800" />}
                             />
-                            <Input type="text" size="md" />
+                            <Input type="text" size="md" id='fname' name='fname' onChange={inputHandler} value={form.fname}/>
                           </InputGroup>
                         </FormControl>
-                        <FormControl id="name">
+                        <FormControl>
                           <FormLabel>Mail</FormLabel>
                           <InputGroup borderColor="#E0E1E7">
                             <InputLeftElement
                               pointerEvents="none"
                               children={<MdMail color="gray.800" />}
                             />
-                            <Input type="text" size="md" />
+                            <Input type="text" size="md" id='email' name='email' onChange={inputHandler} value={form.email}/>
                           </InputGroup>
                         </FormControl>
-                        <FormControl id="name">
+                        <FormControl>
                           <FormLabel>Message</FormLabel>
                           <Textarea
                             borderColor="gray.300"
@@ -142,14 +193,16 @@ import {
                               borderRadius: 'gray.300',
                             }}
                             placeholder="message"
+                            id='message' name='message' onChange={inputHandler} value={form.message}
                           />
                         </FormControl>
-                        <FormControl id="name" float="right">
+                        <FormControl float="right">
                           <Button
                             variant="solid"
                             bg="#E3BF3E"
                             color="white"
-                            _hover={{}}>
+                            _hover={{}}
+                            onClick={submitButton}>
                             Send Message
                           </Button>
                         </FormControl>
