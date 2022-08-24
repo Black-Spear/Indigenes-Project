@@ -4,11 +4,12 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 export const About = () => {
+  
   const MotionGrid = motion(SimpleGrid);
   const MotionButton = motion(Button);
   const MotionHeading = motion(Heading);
   const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
-  const animation = useAnimation();
+  const animation = useAnimation(); 
 
   useEffect(() => {
     if (inView) {
