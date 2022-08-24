@@ -27,10 +27,6 @@ export const Main = () => {
 
 
 
-  
-
-
-
 
    </>
   )
