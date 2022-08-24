@@ -1,13 +1,14 @@
 
-import { Avatar, background, Box, Button, Center,Image,Grid, Checkbox, CheckboxGroup, Flex, Heading, Input, InputGroup, InputRightElement, LightMode, Select, Stack, Text, useColorModeValue, VStack, Modal, ModalContent, ModalHeader, HStack, Divider, ModalCloseButton, ModalBody, List, ModalFooter, Badge, ModalOverlay, useDisclosure } from '@chakra-ui/react'
-import { Link as RLink, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Avatar, Box, Button, Center,Image,Grid, CheckboxGroup, Flex, Heading, Input, InputGroup, InputRightElement, LightMode, Select, Stack, Text, useColorModeValue, Modal, ModalContent, ModalHeader, HStack, Divider, ModalCloseButton, ModalBody, ModalFooter, Badge, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import {useNavigate, useParams } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa'
 import '../sections/Projects/Banner/style.css'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import img from '../assets/img/projects/test.png';
-import Map from '../sections/Landing/Map/Map'
+
 import { Header } from '../components/Header/Header'
+import axios from 'axios'
 // import './style.css'
 
 
@@ -25,6 +26,22 @@ const PageProjects = () => {
 
 const {id} = useParams();
   console.log('data', id )
+
+  useEffect(() => {
+    return () => {
+      const api = axios.create({
+        baseURL: 'http://localhost:5000'
+      })
+      const x = id.toLowerCase()
+      const request ={
+        x
+      } 
+      const res = api.get('/getDelegation',request)
+      console.log(res)
+
+
+    }
+  }, [])
 
   return (
     <>

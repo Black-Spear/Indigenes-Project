@@ -19,7 +19,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
-import { Link as RLink } from 'react-router-dom';
+import { Link as RLink, Navigate, useNavigate } from 'react-router-dom';
 // Assets
 import signInImage from '../../assets/img/signInImage.png';
 import axios from 'axios'
@@ -34,6 +34,7 @@ function SignIn() {
   let [users , setUsers] = useState([]);
   let [user,setUser] = useState([]);
   const toast = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     return () => {
@@ -80,14 +81,15 @@ function SignIn() {
       localStorage.setItem("current_user",JSON.stringify(verif));
       setUser(verif)
       toast({
-        title: 'Account created.',
-        description: "We've created your account for you.",
+        title: 'Connected!',
+        description: "Have a nice day.",
         status: 'success',
         duration: 2000,
         isClosable: true,
-        colorScheme : 'yellow'
       })
-      
+      setTimeout(() => {
+        Navigate('/')
+      }, 2000);
     }
   }
 
