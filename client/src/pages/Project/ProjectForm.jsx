@@ -290,7 +290,8 @@ Enter the location that best describes where your project is based.
                 width={'225%'}
                 value={form.fname}
                 onChange={inputHandler}
-              /></Stack></HStack> <Divider />
+              /></Stack></HStack>
+               <Divider />
                <HStack  mt={'5vh'}mb={'5vh'} spacing={350} >
             <Text
             fontSize="xl"
