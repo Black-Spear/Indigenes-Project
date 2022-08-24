@@ -1,37 +1,29 @@
-import  React from "react";
-import { Box, Button, chakra, Heading, SimpleGrid, } from '@chakra-ui/react';
-import { motion,useAnimation} from 'framer-motion';
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import React from 'react';
+import { Box, Button, chakra, Heading, SimpleGrid } from '@chakra-ui/react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 export const About = () => {
+  const MotionGrid = motion(SimpleGrid);
+  const MotionButton = motion(Button);
+  const MotionHeading = motion(Heading);
+  const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
+  const animation = useAnimation();
 
-  
-   const MotionGrid = motion(SimpleGrid);
-   const MotionButton = motion(Button);
-   const MotionHeading = motion(Heading);
-   const {ref,inView} = useInView({threshold:0.1}); //variable of useInView declaration
-   const animation= useAnimation(); 
+  useEffect(() => {
+    if (inView) {
+      animation.start({});
+    }
 
-   useEffect ( () => {
-    if(inView){
+    if (!inView) {
       animation.start({
-        
+        x: '-100vw',
       });
     }
-
-    if(!inView){
-    animation.start({
-      x:'-100vw'
-    }
-      );}
-   },[animation,inView]
-   );
-  
-  
-
+  }, [animation, inView]);
 
   return (
-    <Box ref={ref}  maxW={'7xl'} px={8} mx="auto">
+    <Box ref={ref} maxW={'7xl'} px={8} mx="auto">
       <MotionHeading
         as="h1"
         size="3xl"
@@ -52,9 +44,8 @@ export const About = () => {
         spacingY={{ base: 10, md: 32 }}
         spacingX={{ base: 10, md: 24 }}
         initial={{ opacity: 0, x: '-150vw', scale: 0.5 }} //First box animation
-        animate={{ opacity: 1, x: 0, scale: 1 }} //foufou kesa7 #t3alm ya balti 
-        transition={{  type:'spring', duration: 1,bounce:0.3 }}
-       
+        animate={{ opacity: 1, x: 0, scale: 1 }} //foufou kesa7 #t3alm ya balti
+        transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
       >
         <Box>
           <chakra.h2
@@ -101,9 +92,8 @@ export const About = () => {
           _dark={{ bg: 'gray.700' }}
         ></Box>
       </MotionGrid>
-      
+
       <MotionGrid
-        
         alignItems="center"
         columns={{ base: 1, md: 2 }}
         flexDirection="column-reverse"
@@ -112,9 +102,8 @@ export const About = () => {
         spacingX={{ base: 10, md: 24 }}
         initial={{ opacity: 0, x: '-150vw', scale: 0.5 }} //second box animation
         animate={{ opacity: 1, x: 0, scale: 1 }} //foufou kesa7 #t3alm ya balti
-        transition={{ type:'spring',duration: 1 ,bounce:0.3}}
+        transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
       >
-      
         <Box order={{ base: 'initial', md: 2 }}>
           <chakra.h2
             mb={4}
@@ -161,7 +150,6 @@ export const About = () => {
           _dark={{ bg: 'gray.700' }}
         ></Box>
       </MotionGrid>
-      
     </Box>
   );
-}
+};
