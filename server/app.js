@@ -71,6 +71,17 @@ app.get('/getUser', (req, res) => {
     });
 });
 
+app.get('/getDelegation', (req, res) => {
+    console.log(req.body)
+    let sql = `SELECT id_g FROM gouvernorat where libelle like '${req.body.x}'`;
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    });
+});
+
+
 app.post('/createUser', (req, res) => {
     console.log(req.body);
     let form = req.body;

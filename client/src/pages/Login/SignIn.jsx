@@ -82,7 +82,7 @@ function SignIn() {
       setUser(verif)
       toast({
         title: 'Connected!',
-        description: "Have a nice time.",
+        description: "Have a nice day.",
         status: 'success',
         duration: 2000,
         isClosable: true,
