@@ -2,7 +2,8 @@ import React from 'react';
 import { Header } from '../components/Header/Header';
 import Landing from '../pages/Landing';
 import Footer from '../components/Footer/Footer';
-import { background, Box, color } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+
 export const Main = () => {
   return (
     <>

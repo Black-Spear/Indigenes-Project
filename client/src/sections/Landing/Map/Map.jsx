@@ -124,7 +124,7 @@ const Map = () => {
                 onClick={() => {
                   setOverlay(<OverlayOne />)
                   onOpen()
-                  const el = document.getElementById('Kebili');
+                  const el = document.getElementById('kebili');
                   getInfo(el.id)
                   console.log(el)}
                 }>Trigger - {open ? 'Opened' : 'Closed'}</path>)} 

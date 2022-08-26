@@ -23,7 +23,7 @@ export const About = () => {
   }, [animation, inView]);
 
   return (
-    <Box ref={ref} maxW={'7xl'} px={8} mx="auto">
+    <Box ref={ref} maxW={'7xl'} px={8} mx="auto" id='about'>
       <MotionHeading
         as="h1"
         size="3xl"

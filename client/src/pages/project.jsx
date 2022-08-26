@@ -23,14 +23,17 @@ import {
   StatLabel,
   StatNumber,
   Stat,
+  Divider,
+  HStack,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import { Header } from '../components/Header/Header';
 import { FiSearch } from 'react-icons/fi';
+import  Footer  from '../components/Footer/Footer';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { MdLocalShipping } from 'react-icons/md';
+import { MdLocalShipping, MdLocationOn } from 'react-icons/md';
 import { ReactNode } from 'react';
-import { BsPerson } from 'react-icons/bs';
+import { BsFillPersonFill, BsPerson } from 'react-icons/bs';
 import { FiServer } from 'react-icons/fi';
 import { GoLocation } from 'react-icons/go';
 
@@ -69,31 +72,9 @@ function StatsCard(props) {
 export default function Simple() {
   return (
     <>
-      <Header /> {/* navbar*/}
-      {/* THIS IS OUR CODE start */}
-      <Container maxW={'7xl'}>
-        {/* searchbar start */}
-        <Box mt="12vh" mb="5vh">
-          <InputGroup
-            mt="-8.8vh"
-            borderRadius="100px"
-            maxW={{
-              md: 'auto',
-            }}
-            w="78vw"
-          >
-            <InputRightElement color="gray.400" w="auto" justify="center">
-              <Button bg="transparent">
-                <FiSearch />
-              </Button>
-            </InputRightElement>
-            <Input
-              bg={useColorModeValue('white', 'gray.700')}
-              placeholder="Search for project"
-            />
-          </InputGroup>
-          {/* end searchbar */}
-        </Box>
+      <Header /> 
+      <Container maxW={'6xl'}>
+        
 
         <Heading
           align="center"
@@ -101,19 +82,10 @@ export default function Simple() {
           fontWeight={600}
           fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
         >
-          Automatic Watch
+          El Faouar Project
         </Heading>
-        <Box as={'header'}>
-          <Text
-            align="center"
-            color={useColorModeValue('gray.900', 'gray.400')}
-            fontWeight={300}
-            fontSize={'2xl'}
-          >
-            $350.00 USD
-          </Text>
-        </Box>
-          {/* grid start */}
+      
+
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
@@ -124,7 +96,7 @@ export default function Simple() {
               rounded={'md'}
               alt={'product image'}
               src={
-                'https://ksr-ugc.imgix.net/assets/037/295/698/64846d87c792e21faed34c536a75dc3f_original.jpg?ixlib=rb-4.0.2&crop=faces&w=1024&h=576&fit=crop&v=1652452581&auto=format&frame=1&q=92&s=a3d8a82b82b7b21374dfc3b052692f93'
+                'https://www.viaggiaresempre.it/wp-content/uploads/2017/12/16OasiMontagnaTamarza-1024x658.jpg'
               }
               fit={'cover'}
               align={'center'}
@@ -139,14 +111,53 @@ export default function Simple() {
             <Stack
               spacing={{ base: 4, sm: 6 }}
               direction={'column'}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue('gray.200', 'gray.600')}
-                />
-              }
             >
-              <Progress value={20} size="xs" colorScheme="yellow" />
-
+              <Progress value={20} h="1vh" colorScheme="yellow" mb={2} />
+              
+              <Box as={'header'}>
+          <Text
+            align="left"
+            mb={'4vh'}
+            color={useColorModeValue('gray.900', 'gray.400')}
+            fontWeight={300}
+            fontSize={'2xl'}
+            
+          >
+            <span><b>$350.00 USD</b></span>/$5000.00 USD
+          </Text>
+          <HStack mb={'4vh'} spacing={2}>
+          <HStack  spacing={2} mr={'10%'}>
+          <BsFillPersonFill size="40" color='#E3BF3E' />
+          <Text
+            align="left"
+            mb={'4vh'}
+            color={useColorModeValue('gray.900', 'gray.400')}
+            fontWeight={300}
+            fontSize={'2xl'}
+          > <span style={{fontSize : '50px',fontWeight:'bold'}}>5</span>/12 Local
+          </Text></HStack>
+          <HStack spacing={2} mr={'5vw'}>
+          <BsFillPersonFill size="40" color='#E3BF3E'/>
+          <Text
+            align="left"
+            mb={'4vh'}
+            color={useColorModeValue('gray.900', 'gray.400')}
+            fontWeight={300}
+            fontSize={'2xl'}
+          > <span style={{fontSize : '50px',fontWeight:'bold'}}>7</span>/12 Overseas
+          </Text></HStack></HStack>
+          <HStack spacing={2}>
+          <MdLocationOn size="40" color='#E3BF3E'/>
+          <Text
+            align="left"
+            color={useColorModeValue('gray.900', 'gray.400')}
+            fontWeight={300}
+            fontSize={'2xl'}
+          >
+            Location: <span>El Faouar, Tunisia</span>
+          </Text>
+          </HStack>
+        </Box>
               <VStack spacing={{ base: 4, sm: 6 }}>
                 <Box
                   maxW="7xl"
@@ -154,43 +165,36 @@ export default function Simple() {
                   pt={5}
                   px={{ base: 2, sm: 12, md: 17 }}
                 >
-                  <SimpleGrid
-                    mr="10vw"
-                    columns={{ base: 3, md: 1 }}
-                    spacing={{ base: 5, lg: 8 }}
-                  >
-                    <StatsCard
-                      title={'Users'}
-                      stat={'5,000'}
-                      icon={<BsPerson size={'3em'} />}
-                    />
-                    <StatsCard
-                      title={'Servers'}
-                      stat={'1,000'}
-                      icon={<FiServer size={'3em'} />}
-                    />
-                    <StatsCard
-                      title={'Datacenters'}
-                      stat={'7'}
-                      icon={<GoLocation size={'3em'} />}
-                    />
+                    
                     <Button
                       as="a"
                       href="#"
                       size="lg"
-                      color="blackAlpha.900"
-                      colorScheme="yellow"
+                      height='50px'
+                      width='500px'
                       px="8"
                       fontWeight="bold"
-                      fontSize="md"
+                      fontSize="lg"
+                      bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
+                      color={useColorModeValue('#ffffff', '#171717')}
+                      _hover={{
+                        transform: 'translateY(1px)',
+                        backgroundColor:'#E3BF3E98' 
+                      }}
                     >
-                      Get started free
+                      Invest Now
                     </Button>
-                  </SimpleGrid>
                 </Box>
+                
               </VStack>
-              <Box>
-                <Text
+              
+              
+            </Stack>
+
+          </Stack>
+        </SimpleGrid><Divider />
+        <Box >
+                <Text mt={'5vh'}
                   fontSize={{ base: '16px', lg: '18px' }}
                   color={useColorModeValue('yellow.500', 'yellow.300')}
                   fontWeight={'500'}
@@ -213,8 +217,9 @@ export default function Simple() {
                   </List>
                 </SimpleGrid>
               </Box>
-              <Box>
+        <Box>
                 <Text
+                mt={'2vh'}
                   fontSize={{ base: '16px', lg: '18px' }}
                   color={useColorModeValue('yellow.500', 'yellow.300')}
                   fontWeight={'500'}
@@ -270,23 +275,21 @@ export default function Simple() {
                   </ListItem>
                 </List>
               </Box>
-            </Stack>
-
             <Button
               rounded={'none'}
               w={'full'}
               mt={8}
               size={'lg'}
               py={'7'}
-              bg={useColorModeValue('gray.900', 'gray.50')}
-              color={useColorModeValue('white', 'gray.900')}
+              bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
+              color={useColorModeValue('#ffffff', '#171717')}
               textTransform={'uppercase'}
               _hover={{
                 transform: 'translateY(2px)',
-                boxShadow: 'lg',
+                boxShadow: 'sm',
               }}
             >
-              Add to cart
+              Invest Now
             </Button>
 
             <Stack
@@ -297,9 +300,8 @@ export default function Simple() {
               <MdLocalShipping />
               <Text>2-3 business days delivery</Text>
             </Stack>
-          </Stack>
-        </SimpleGrid>
       </Container>
+      <Footer/>
     </>
   );
 }

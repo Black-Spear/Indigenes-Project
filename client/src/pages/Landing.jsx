@@ -16,7 +16,7 @@ const Landing = () => {
       <About />
       <Feature />
       </Box>
-      <Box bg="gray.100" _dark={{ bg: "blackAlpha.700" }}>
+      <Box bg="gray.100" _dark={{ bg: "gray.800" }}>
       <Pricing />
       <Contact />
       </Box>

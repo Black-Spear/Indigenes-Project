@@ -3,13 +3,13 @@ import { Avatar, Box, Button, Center,Image,Grid, CheckboxGroup, Flex, Heading, I
 import {useNavigate, useParams } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa'
 import '../sections/Projects/Banner/style.css'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import img from '../assets/img/projects/test.png';
 
 import { Header } from '../components/Header/Header'
 import axios from 'axios'
-// import './style.css'
+import './style.css'
 
 
 const PageProjects = () => {
@@ -23,23 +23,22 @@ const PageProjects = () => {
   )
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
+  const [gouv, setGouv] = useState([])
+
 
 const {id} = useParams();
-  console.log('data', id )
+
+const api = axios.create({
+  baseURL: 'http://localhost:5000'
+})
 
   useEffect(() => {
     return () => {
-      const api = axios.create({
-        baseURL: 'http://localhost:5000'
-      })
-      const x = id.toLowerCase()
-      const request ={
-        x
-      } 
-      const res = api.get('/getDelegation',request)
-      console.log(res)
-
-
+      api.get('/getDelegation')
+      .then((response) => {
+        setGouv(response.data);
+        console.log(response.data)
+      });
     }
   }, [])
 
@@ -105,6 +104,7 @@ const {id} = useParams();
                   onOpen()}}
               >
                 <Text>Choose a District</Text>
+                {console.log(gouv.filter(gouv => gouv.libelle == id.toLowerCase()).map(deleg => deleg.libelle_d))}
                 <FaArrowRight />
               </Button>
             </LightMode>
@@ -120,7 +120,8 @@ const {id} = useParams();
           borderRadius="15px"
           p="40px"
           mx={{ base: '100px' }}
-          bg='gray.800'
+          bg='gray.200'
+          _dark={{bg : 'gray.800'}}
           boxShadow="0px 0px 20px 20px rgb(0 0 0 / 5%)"
         >
             <InputGroup mt='-8.8vh' borderRadius='100px'
@@ -137,12 +138,9 @@ const {id} = useParams();
                   bg='gray.600'
                   w='auto'
                   color='white'
-                  placeholder='Mateur'
                   
                 >
-                  <option value='option1'>Option 1</option>
-                  <option value='option2'>Option 2</option>
-                  <option value='option3'>Option 3</option>
+                  {gouv.filter(gouv => gouv.libelle == id.toLowerCase()).map(deleg => (<option value={deleg.libelle_d}>{deleg.libelle_d}</option>))}
                 </Select>
               </InputRightElement>
               <Input bg={useColorModeValue('white', 'gray.700')} placeholder="Search for project"/>
@@ -229,12 +227,12 @@ const {id} = useParams();
             <HStack><Divider w='50%' size={5} /><Badge colorScheme='yellow'>Select one</Badge><Divider w='50%' size={5} /></HStack></ModalHeader>
             <ModalCloseButton />
             <ModalBody >
-                <Center py={6}>
+            <Center py={6}>
                 <Box
                  className='card'
                  maxW={'256px'}
                   w={'100%'}
-                  bg={useColorModeValue('white', 'gray.900')}
+                  bg={useColorModeValue('#ecc94b', '#4a5568')}
                   boxShadow={'2xl'}
                   rounded={'xl'}
                   px={6}
@@ -243,7 +241,7 @@ const {id} = useParams();
                   <Box
                   className='card-image'
                     h={'20%'}
-                    bg={useColorModeValue('white','#E3BF3E')}
+                    bg={useColorModeValue('#ecc94b','#E3BF3E')}
                     w={'100v'}
                     mx={-6}
                     mb={6}
@@ -272,24 +270,95 @@ const {id} = useParams();
                   </Box>
                   <Box
                     className='card-description'
-                    bg={useColorModeValue('white','gray.600')}
+                    bg={useColorModeValue('white','#4a5568')}
                     mt={-6}
                     mx={-6}
                     p='8%'
                     pos={'relative'}
                     textAlign='center'
                     zIndex={100}
-                    _hover={{h: '256px', top: '-100px'}}
+                    //_hover={{h: '256px', top: '-100px'}}
                   >
                     <Heading
                       color={useColorModeValue('gray.700', 'white')}
                       fontSize={'md'}
                       fontFamily={'body'}
+                      mt='1vh'
+                      mb='5vh'
+                      
                     >
-                      <span>10 </span>
+                      <span >10 </span>
                        Available Projects
-                    </Heading>
+                    </Heading>  
                     <Text className="text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
+                    <Button mt='5vh'>See more</Button>
+                  </Box>
+                </Box>
+                <Box
+                ml={4}
+                 className='card'
+                 maxW={'256px'}
+                  w={'100%'}
+                  bg={useColorModeValue('#ecc94b', '#4a5568')}
+                  boxShadow={'2xl'}
+                  rounded={'xl'}
+                  px={6}
+                  overflow={'hidden'}
+                >
+                  <Box
+                  className='card-image'
+                    h={'20%'}
+                    bg={useColorModeValue('#ecc94b','#E3BF3E')}
+                    w={'100v'}
+                    mx={-6}
+                    mb={6}
+                    p='5%'
+                    pos={'relative'}
+                    textAlign='center'
+                  >
+                    <Heading
+                      color={useColorModeValue('gray.700', 'gray.800')}
+                      fontSize={'2xl'}
+                      fontFamily={'body'}
+                      fontWeight={800}
+                    >
+                      Mateur
+                    </Heading>
+                  </Box>
+                  <Box
+                    h={'80%'}
+                    bg={'gray.100'}
+                    mt={-6}
+                    mx={-6}
+                    pos={'relative'}
+                    
+                  >
+                    <Image src={img} layout={'fill'} />
+                  </Box>
+                  <Box
+                    className='card-description'
+                    bg={useColorModeValue('white','#4a5568')}
+                    mt={-6}
+                    mx={-6}
+                    p='8%'
+                    pos={'relative'}
+                    textAlign='center'
+                    zIndex={100}
+                    //_hover={{h: '256px', top: '-100px'}}
+                  >
+                    <Heading
+                      color={useColorModeValue('gray.700', 'white')}
+                      fontSize={'md'}
+                      fontFamily={'body'}
+                      mt='1vh'
+                      mb='5vh'
+                      
+                    >
+                      <span >10 </span>
+                       Available Projects
+                    </Heading>  
+                    <Text className="text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
+                    <Button mt='5vh'>See more</Button>
                   </Box>
                 </Box>
               </Center>
