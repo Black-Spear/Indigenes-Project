@@ -87,23 +87,29 @@ export const Header = () => {
     </HStack></>
   }
 
-  function reveal() {
-    var header = document.querySelectorAll(".header");
-  
-    for (var i = 0; i < header.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = header[i].getBoundingClientRect().top;
-      var elementVisible = 150;
-  
-      if (elementTop < windowHeight - elementVisible) {
-          header[i].classList.add("active");
-      } else {
-        header[i].classList.remove("active");
+    function reveal() {
+      var header = document.querySelectorAll(".header");
+    
+      for (var i = 0; i < header.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = header[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+    
+        if (elementTop < windowHeight - elementVisible) {
+            header[i].classList.add("active");
+        } else {
+          if(elementTop> windowHeight - elementVisible){
+            header.css({
+              "transition": "all 0.5s",
+              "background": "transparent",
+             " z-index": "1000"
+            });
+          }
+        }
       }
     }
-  }
-  
-  window.addEventListener("scroll", reveal);
+    
+    window.addEventListener("scroll", reveal);
   return (
     <Flex justify="space-between">
       
@@ -132,10 +138,10 @@ export const Header = () => {
                   md: 'flex',
                 }}
               > 
-              <NavLink.Desktop href="#"> About </NavLink.Desktop>
-              <NavLink.Desktop href="#"> Features </NavLink.Desktop>
-              <NavLink.Desktop href="#"> Pricing </NavLink.Desktop>
-              <NavLink.Desktop href="#"> Contact </NavLink.Desktop>
+               <NavLink.Desktop href="#about"> About </NavLink.Desktop>
+               <NavLink.Desktop href="#stats"> Statistics </NavLink.Desktop>
+             <NavLink.Desktop href="#feature"> Features </NavLink.Desktop>
+              <NavLink.Desktop href="#contact"> Contact </NavLink.Desktop>
               </HStack>
             
               </Flex>

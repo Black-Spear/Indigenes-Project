@@ -8,9 +8,12 @@ import {
   Flex,
   SimpleGrid,
   Center,
-} from '@chakra-ui/react';
-import * as React from 'react';
-import { Link as RLink } from 'react-router-dom';
+  Grid,
+  GridItem,
+  Container,
+} from '@chakra-ui/react'
+import * as React from 'react'
+import { Link as RLink }  from 'react-router-dom'
 
 import '../Map/style.css';
 import vid from '../../../assets/video/cover.mp4';
@@ -114,7 +117,44 @@ export const Hero = () => {
             </Stack>
           </Box>
         </Center>
-      </Flex>
+        </Flex>
+        <Container py={5} maxW={'container.lg'}>
+      <Grid id="stats" paddingTop={'10vh'}
+        templateColumns={{
+          base: 'repeat(1, 1fr)',
+          sm: 'repeat(2, 1fr)',
+          md: 'repeat(4, 1fr)',
+        }}
+        mb='5vh'
+        gap={6}>
+        <GridItem w="100%" colSpan={{ base: 1, sm: 2, md: 2 }}mr={'5vw'} >
+          <Heading width={'150%'} mb={3} >Safe <span fontWeight=''>Investment</span><br/></Heading>
+          <Heading width={'150%'} >Accessible to everyone</Heading>
+        </GridItem>
+        <GridItem w="100%"  ml={'4vw'}>
+          <Flex flexDirection={'column'}>
+            <Text fontSize={'4xl'} fontWeight={'bold'}>
+             <span>20%</span> 
+            </Text>
+            <Box fontSize={'sm'}>
+              Description for the number. People always pay attention to
+              numbers.
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem w="100%"  ml={'4vw'}>
+          <Flex flexDirection={'column'}>
+            <Text fontSize={'4xl'} fontWeight={'bold'}>
+            <span>20%</span> 
+            </Text>
+            <Box fontSize={'sm'}>
+              Description for the number. People always pay attention to
+              numbers.
+            </Box>
+          </Flex>
+        </GridItem>
+      </Grid>
+    </Container>
     </Box>
   );
 };

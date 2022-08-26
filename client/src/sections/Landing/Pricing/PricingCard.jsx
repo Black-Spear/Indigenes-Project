@@ -7,6 +7,7 @@ import {
   ListItem,
   Text,
   useColorModeValue as mode,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import * as React from 'react'
 const CheckIcon = createIcon({
@@ -19,7 +20,7 @@ const PricingDetail = (props) => {
   return (
     <ListItem display="flex" alignItems="flex-start" fontWeight="medium" maxW="260px" {...rest}>
       <CheckIcon mr="4" mt="1" color={mode('yellow.500', 'yellow.300')} />
-      <Text as="span" display="inline-block">
+      <Text as="span" display="inline-block" color={useColorModeValue('gray.800','gray.100')}>
         {children}
       </Text>
     </ListItem>
@@ -78,7 +79,7 @@ const PricingWrapper = (props) => {
       w="full"
       maxW="md"
       mx="auto"
-      bg={mode('white', 'gray.800')}
+      bg={mode('white', 'gray.700')}
       px="10"
       pt="8"
       pb="8"

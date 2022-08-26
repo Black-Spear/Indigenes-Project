@@ -7,5 +7,8 @@
 .header.active{
 /* background: rgba(31, 31, 31, 0.671); */
 background: #1a202c;
-box-shadow: 2px 10px 10px #000000af;
+box-shadow: 2px 10px 10px #00000028;
 }
+* {
+    scroll-behavior: smooth;
+  }

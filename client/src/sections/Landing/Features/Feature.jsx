@@ -32,7 +32,7 @@ import {
   
   export const Feature = () => {
     return (
-      <Container maxW={"7xl"} py={20}>
+      <Container maxW={"7xl"} py={20} id='feature'>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4}>
             <Text

@@ -72,8 +72,7 @@ app.get('/getUser', (req, res) => {
 });
 
 app.get('/getDelegation', (req, res) => {
-    console.log(req.body)
-    let sql = `SELECT id_g FROM gouvernorat where libelle like '${req.body.x}'`;
+    let sql = `SELECT id_g, libelle, id_d, libelle_d FROM gouvernorat JOIN delegation USING (id_g)`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);

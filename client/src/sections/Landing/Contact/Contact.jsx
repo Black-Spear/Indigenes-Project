@@ -17,6 +17,7 @@ import {
     InputLeftElement,
     Textarea,
     useToast,
+    useColorModeValue,
   } from '@chakra-ui/react';
   import {
     MdPhoneIphone,
@@ -79,10 +80,11 @@ import { useState } from 'react';
       }
     }
     return (
-      <Container bg="#E3BF3E" maxW="full" mt={0} centerContent overflow="hidden">
+      <Container id='contact' bg={useColorModeValue('gray.200','gray.800')} maxW="full" mt={0} centerContent overflow="hidden">
         <Flex>
           <Box
-            bg="#171717"
+            bg="gray.700"
+            _dark={{bg : 'gray.900'}}
             color="white"
             borderRadius="lg"
             m={{ sm: 4, md: 16, lg: 10 }}
