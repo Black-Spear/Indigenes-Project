@@ -19,6 +19,7 @@
     "react-intersection-observer": "^9.4.0",
     "react-scripts": "5.0.1",
     "react-svg-popover": "^1.0.10",
+    "react-wavify": "^1.6.1",
     "reactjs-popup": "^2.0.5",
     "web-vitals": "^0.2.4"
   },

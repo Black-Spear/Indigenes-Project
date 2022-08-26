@@ -65,9 +65,9 @@ export const Hero = () => {
                 mx="auto"
                 lineHeight="1.2"
                 letterSpacing="tight"
-                initial={{ opacity: 0, x: '-10vw', scale: 0.5 }} //animation inizaiale lel ktiba main
+                initial={{ opacity: 0, x: '-2vw', scale: 0.5 }} //animation inizaiale lel ktiba main
                 animate={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-                transition={{ duration: 1.2, bounce: 0.2 }}
+                transition={{ duration: 1.5, bounce: 0.2 }}
               >
                 Earn <span>Benefits</span> from investing in projects in{' '}
                 <span>Tunisia</span>
@@ -106,8 +106,7 @@ export const Hero = () => {
                   fontSize="md"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  transition={{ duration:0.1 }}
-
+                  transition={{ duration: 0.1 }}
                 >
                   <RLink to="/projects">Get started</RLink>
                 </MotionButton>

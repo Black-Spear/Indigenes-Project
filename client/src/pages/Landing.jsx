@@ -14,6 +14,8 @@ const Landing = () => {
       <Box bg="gray.50" _dark={{ bg: colors }} mt='3%'>
       <Map />
       <About />
+      
+
       <Feature />
       </Box>
       <Box bg="gray.100" _dark={{ bg: "blackAlpha.700" }}>
