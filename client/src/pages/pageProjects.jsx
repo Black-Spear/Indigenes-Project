@@ -135,9 +135,9 @@ const api = axios.create({
                 <Button bg='transparent'><FiSearch /></Button>
               
                 <Select size='md'
-                  bg='gray.600'
+                  bg={useColorModeValue('gray.100','gray.800')}
                   w='auto'
-                  color='white'
+                  color={useColorModeValue('gray.800','gray.100')}
                   
                 >
                   {gouv.filter(gouv => gouv.libelle == id.toLowerCase()).map(deleg => (<option value={deleg.libelle_d}>{deleg.libelle_d}</option>))}
@@ -146,15 +146,15 @@ const api = axios.create({
               <Input bg={useColorModeValue('white', 'gray.700')} placeholder="Search for project"/>
               
             </InputGroup>
-            <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={['naruto', 'kakashi']} >
+            <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={['Agriculture', 'Water']} >
               <Stack spacing={[1, 5]} direction={['column', 'row']}>
-                <Button value='naruto'  _checked={{
+                <Button value='agriculture'  _checked={{
                     bg: '#dddfe2',
                     transform: 'scale(0.98)',
                     borderColor: '#bec3c9',
-                  }}>Naruto</Button>
-                <Button value='sasuke'>Sasuke</Button>
-                <Button value='kakashi'>Kakashi</Button>
+                  }}>Agriculture</Button>
+                <Button value='water'>Water</Button>
+                <Button value='categorie'>Categorie</Button>
               </Stack>
             </CheckboxGroup></Box>
             <Box py='10px'><Grid position='absolute' templateColumns="repeat(3, 1fr)" gap={6} mx='50px'>
