@@ -5,6 +5,11 @@ import Popup from 'reactjs-popup';
 import data from './data.json'
 import {MdCheckCircle} from 'react-icons/md'
 import { Link as RLink , useNavigate } from 'react-router-dom';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+
+// ! CODE STARTS HERE
 
 const Map = () => {
   const navigate = useNavigate();
@@ -25,9 +30,26 @@ const Map = () => {
     setSampleObject(sampleObject)
   }
 
-  
+  const MotionButton = motion(Button);
+  const MotionFlex = motion(Flex);
+
+  const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({});
+    }
+
+    if (!inView) {
+      animation.start({
+        x: '-100vw',
+      });
+    }
+  }, [animation, inView]);
+
   return (
-    <Box textAlign="center">
+    <Box textAlign="center" pt='4vh'>
       
             <Heading
               as="h1"
