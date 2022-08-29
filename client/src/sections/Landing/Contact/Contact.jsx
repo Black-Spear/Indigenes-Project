@@ -80,7 +80,7 @@ import { useState } from 'react';
       }
     }
     return (
-      <Container id='contact' bg={useColorModeValue('gray.200','gray.800')} maxW="full" mt={0} centerContent overflow="hidden">
+      <Container id='contact' bg={useColorModeValue('gray.50','gray.800')} maxW="full" mt={0} centerContent overflow="hidden">
         <Flex>
           <Box
             bg="gray.700"

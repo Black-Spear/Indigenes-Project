@@ -4,9 +4,10 @@ import { Main } from './pages/Main';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from './pages/Login/SignIn';
 import SignupCard from './pages/sign up/Signup';
-import PageProjects from './pages/pageProjects';
+import CreateProject from './pages/Project/ProjectForm';
 import Simple from './pages/project';
 import axios from 'axios';
+import PageProjects from './pages/pageProjects';
 //ena ashref
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/signup" element={<SignupCard />} />
           <Route path="/projects/:id" element={<PageProjects />} />
           <Route path="/project_details/:id" element={<Simple />} />
+          <Route path="/create_project" element={<CreateProject />} />
         </Routes>
       </Router>
     </ChakraProvider>

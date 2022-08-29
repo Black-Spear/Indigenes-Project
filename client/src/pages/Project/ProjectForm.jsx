@@ -84,7 +84,7 @@ import {
       // Send formData object
       axios.post("api/uploadfile", formData);
     };
-  function SignUp() {
+  function CreateProject() {
     const titleColor = useColorModeValue('#E3BF3E', '#E3BF3E');
     const textColor = useColorModeValue('gray.700', 'gray.200');
     const bgColor = useColorModeValue('white', 'gray.700');
@@ -378,5 +378,5 @@ Describe what you're raising funds to do, why you care about it, how you plan to
     );
   }
   
-  export default SignUp;
+  export default CreateProject;
   
