@@ -27,7 +27,6 @@ import vidlight from '../../assets/video/gold.png';
 import './vid.css';
 import axios from 'axios';
 
-// Assets
 import React from 'react';
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
@@ -114,6 +113,7 @@ function SignUp() {
   `;
 
   const MotionButton = motion(Button);
+  const MotionFlex = motion(Flex);
 
   const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
   const animation = useAnimation();
@@ -129,6 +129,8 @@ function SignUp() {
       });
     }
   }, [animation, inView]);
+
+
   return (
     <>
       <Flex
@@ -211,13 +213,16 @@ function SignUp() {
           </WaveContainer>
         </Box>
 
-        <Flex
+        <MotionFlex
           direction="column"
           textAlign="center"
           justifyContent="center"
           align="center"
           mt="6.5rem"
           mb="30px"
+          initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main
+          animate={{ opacity: 1, y: 0, scale: 1 }} //#foufou_kesa7
+          transition={{ duration: 1.2, bounce: 0.4 }}
         >
           <Text
             fontSize="6xl"
@@ -238,10 +243,10 @@ function SignUp() {
           >
             Enter the required information and become a member
           </Text>
-        </Flex>
+        </MotionFlex>
 
         <Flex alignItems="center" justifyContent="center" mb="60px" mt="20px">
-          <Flex
+          <MotionFlex
             direction="column"
             w="445px"
             background="transparent"
@@ -250,6 +255,9 @@ function SignUp() {
             mx={{ base: '100px' }}
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
+            initial={{ opacity: 0, x: '-25vw', scale: 1 }} //animation inizaiale lel ktiba main
+            animate={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
+            transition={{ type: 'spring', duration: 2, bounce: 0.5 }}
           >
             <Flex
               justify="center"
@@ -473,7 +481,7 @@ function SignUp() {
                 </Link>
               </Text>
             </Flex>
-          </Flex>
+          </MotionFlex>
         </Flex>
       </Flex>
       <Footer />
