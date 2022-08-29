@@ -120,9 +120,10 @@ const api = axios.create({
           borderRadius="15px"
           p="40px"
           mx={{ base: '100px' }}
-          bg='gray.200'
+          bg='#f0f0f0'
           _dark={{bg : 'gray.800'}}
           boxShadow="0px 0px 20px 20px rgb(0 0 0 / 5%)"
+          position={'relative'}
         >
             <InputGroup mt='-8.8vh' borderRadius='100px'
               maxW={{
@@ -146,7 +147,7 @@ const api = axios.create({
               <Input bg={useColorModeValue('white', 'gray.700')} placeholder="Search for project"/>
               
             </InputGroup>
-            <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={['Agriculture', 'Water']} >
+            <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={'Agriculture'} >
               <Stack spacing={[1, 5]} direction={['column', 'row']}>
                 <Button value='agriculture'  _checked={{
                     bg: '#dddfe2',
@@ -157,7 +158,7 @@ const api = axios.create({
                 <Button value='categorie'>Categorie</Button>
               </Stack>
             </CheckboxGroup></Box>
-            <Box py='10px'><Grid position='absolute' templateColumns="repeat(3, 1fr)" gap={6} mx='50px'>
+            <Box py='10px'><Grid position='relative' templateColumns="repeat(3, 1fr)" gap={6} >
           <Center py={6}>
             <Box
               maxW={'445px'}
@@ -169,7 +170,7 @@ const api = axios.create({
               overflow={'hidden'}
             >
               <Box
-                h={'210px'}
+                h={'30%'}
                 bg={'gray.100'}
                 mt={-6}
                 mx={-6}
