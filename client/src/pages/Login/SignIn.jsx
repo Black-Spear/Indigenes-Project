@@ -27,6 +27,8 @@ import axios from 'axios';
 import Wave from 'react-wavify';
 import styled from '@emotion/styled';
 import Footer from '../../components/Footer/Footer';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const baseURL = 'http://localhost:5000/getall';
 
@@ -99,6 +101,29 @@ function SignIn() {
     z-index: -1;
     transform: rotate(360deg);
   `;
+
+  const MotionBox = motion(Box);
+
+  const line1 = " 'and the abyss gazes back...' ";
+  const line2 = " gazes into you...'";
+
+  const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        staggerChildren: 0.08,
+      },
+    },
+  };
+  const letter = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
 
   //! RETURN IS HERE :
   return (
@@ -180,7 +205,7 @@ function SignIn() {
               w="100%"
               background="transparent"
               p="5px"
-              mt={{ md: '150px', lg: '100px' }}
+              mt={{ md: '150px', lg: '100px', xl: '40px' }}
             >
               <Heading
                 color={titleColor}
@@ -200,6 +225,7 @@ function SignIn() {
               >
                 Enter your email and password to sign in
               </Text>
+              
 
               <FormControl>
                 <FormLabel ms="4px" fontSize="md" fontWeight="semibold">
@@ -309,27 +335,35 @@ function SignIn() {
           </Flex>
           <Box
             display={{ base: 'none', md: 'block' }}
-            overflowX="hidden"
+            // overflowX="hidden"
             h="100vh"
             w="50vw"
             position="absolute"
             right="0px"
           >
-            <Box
+            <MotionBox
               bgImage={signInImage}
-              w="100%"
-              h="100%"
+              top="5vh"
+              left="10vh"
+              w="70%"
+              h="70%"
               bgSize="cover"
               bgPosition="50%"
               position="absolute"
-              //borderBottomLeftRadius="20px"
-            ></Box>
+              borderRadius={'50px'}
+              drag
+              dragConstraints={{
+                top: -5,
+                left: -5,
+                right: 5,
+                bottom: 5,
+              }}
+            ></MotionBox>
           </Box>
         </Flex>
       </Flex>
-      <Box pr={{ base: '0', md: '15%', lg: '22%' ,xl:'28%' }}>
-        <Footer />
-      </Box>
+
+      <Footer />
     </>
   );
 }
