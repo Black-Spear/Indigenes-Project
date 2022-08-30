@@ -17,6 +17,10 @@
 span{
     color: #E3BF3E;
 }
+.animText{
+  color: white;
+  
+}
 video{
     position: absolute;
     z-index: -10;

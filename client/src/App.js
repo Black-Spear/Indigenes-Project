@@ -8,7 +8,8 @@ import CreateProject from './pages/Project/ProjectForm';
 import Simple from './pages/project';
 import axios from 'axios';
 import PageProjects from './pages/pageProjects';
-//ena ashref
+//ScrollToTop Imports
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/create_project" element={<CreateProject />} />
         </Routes>
       </Router>
+      <ScrollToTop />
     </ChakraProvider>
   );
 }
