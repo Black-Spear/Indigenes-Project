@@ -24,9 +24,12 @@ import './nav.css';
 import { useEffect } from 'react';
 import { AddIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
+import logoLight from '../../logoLight.svg';
 import logoDark from '../../logoDark.svg';
 
 export const Header = () => {
+  const theme = useColorModeValue('light', 'dark');
+  const logoImg = useColorModeValue(logoLight, logoDark);
   var user = JSON.parse(localStorage.getItem('current_user'));
   useEffect(() => {
     return () => {
@@ -110,34 +113,21 @@ export const Header = () => {
     );
   }
 
-  function reveal() {
-    var header = document.querySelectorAll('.header');
-
-    for (var i = 0; i < header.length; i++) {
-      var windowHeight = window.innerHeight;
-      var elementTop = header[i].getBoundingClientRect().top;
-      var elementVisible = 150;
-
-      if (elementTop < windowHeight - elementVisible) {
-        header[i].classList.add('active');
-      } else {
-        if (elementTop > windowHeight - elementVisible) {
-          header.css({
-            transition: 'all 0.5s',
-            background: 'transparent',
-            ' z-index': '1000',
-          });
-        }
-      }
-    }
-  }
-
-  window.addEventListener('scroll', reveal);
+    const [colorChange, setColorchange] = useState(false);
+    const changeNavbarColor = () =>{
+       if(window.scrollY >= 80){
+         setColorchange(true);
+       }
+       else{
+         setColorchange(false);
+       }
+    };
+    window.addEventListener('scroll', changeNavbarColor);
   return (
     <Flex justify="space-between">
       <Flex
         as="header"
-        className="header"
+        className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
         style={{ backdropFilter: 'blur(3px)' }}
         position="fixed"
         justify="center"
@@ -157,7 +147,7 @@ export const Header = () => {
             <HStack spacing="8">
               <Box as="a" href="/" rel="home" w='20vh' >
                 {/* <VisuallyHidden>Indigenes</VisuallyHidden> */}
-                <Image src={logoDark}  />
+                <Image src={colorChange ? logoImg : logoDark}  />
                 
               </Box>
             </HStack>

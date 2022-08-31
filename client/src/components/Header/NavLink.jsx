@@ -8,7 +8,7 @@ const DesktopNavLink = (props) => {
       href={href}
       aria-current={active ? 'page' : undefined}
       fontWeight="semibold"
-      color={mode('gray.300', 'gray.300')}
+      color={mode('gray.700', 'gray.300')}
       _hover={{color: "yellow.400"}}
       {...rest}
       _activeLink={{
