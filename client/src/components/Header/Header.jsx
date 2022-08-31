@@ -47,7 +47,8 @@ export const Header = () => {
           mr={4}
           leftIcon={<AddIcon />}
         >
-          Add Project
+          <Link to={'/create_project'}>Add Project</Link>
+          
         </Button>
         <Menu>
           <MenuButton

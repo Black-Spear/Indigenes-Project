@@ -74,13 +74,12 @@ export default function Simple() {
     <>
       <Header /> 
       <Container maxW={'6xl'}>
-        
-
         <Heading
           align="center"
           lineHeight={1.1}
           fontWeight={600}
           fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
+          mt='100px'
         >
           El Faouar Project
         </Heading>
