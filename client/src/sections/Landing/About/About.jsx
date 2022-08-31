@@ -11,7 +11,9 @@ export const About = () => {
   const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
   const animation = useAnimation(); 
 
+
   useEffect(() => {
+    console.log('el hook ye5dem',inView);
     if (inView) {
       animation.start({});
     }
@@ -23,6 +25,7 @@ export const About = () => {
     }
   }, [animation, inView]);
 
+  
   return (
     <Box ref={ref} maxW={'7xl'} px={8} mx="auto" id='about'>
       <MotionHeading
