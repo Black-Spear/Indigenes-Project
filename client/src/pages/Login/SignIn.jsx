@@ -17,6 +17,7 @@ import {
   HStack,
   useColorModeValue,
   useToast,
+  Spinner,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import { Link as RLink, Navigate, useNavigate } from 'react-router-dom';
@@ -38,6 +39,7 @@ function SignIn() {
   const textColor = useColorModeValue('gray.500', 'gray.400');
   let [users, setUsers] = useState([]);
   let [user, setUser] = useState([]);
+  let [press, setPress] = useState(false);
   const toast = useToast();
   const navigate = useNavigate();
 
@@ -54,12 +56,13 @@ function SignIn() {
     email: '',
     password: '',
   });
-
+  const spiner = (<><Spinner /></>);
   const inputHandler = e => {
     setform({ ...form, [e.target.name]: e.target.value });
   };
 
   const submitButton = async e => {
+    setPress(true);
     console.log(users);
     e.preventDefault();
     console.log(form);
@@ -78,16 +81,17 @@ function SignIn() {
     } else {
       localStorage.setItem('current_user', JSON.stringify(verif));
       setUser(verif);
-      toast({
+
+      setTimeout(() => {
+        toast({
         title: 'Connected!',
         description: 'Have a nice day.',
         status: 'success',
         duration: 2000,
         isClosable: true,
-      });
-      setTimeout(() => {
-        Navigate('/');
-      }, 2000);
+      })
+        navigate('/')
+      }, 3000);
     }
   };
 
@@ -286,7 +290,7 @@ function SignIn() {
                   }}
                   onClick={submitButton}
                 >
-                  SIGN IN
+                  {press ? spiner : 'SIGN IN'}
                 </Button>
               </FormControl>
               <Flex

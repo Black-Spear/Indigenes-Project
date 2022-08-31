@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Heading, SimpleGrid, Stack, Text, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
 
-import { PricingCard } from './PricingCard'
+
 
 export const Pricing = () => {
   return (
@@ -44,7 +44,8 @@ export const Pricing = () => {
             <Flex
               rounded="md"
               mx={10}
-              bg={'gray.900'}
+              bg={'white'}
+              _dark={{bg : 'gray.900'}}
               shadow="xl"
               mb="100px"
               textAlign="left"
@@ -74,7 +75,7 @@ export const Pricing = () => {
                     whiteSpace="nowrap"
                     fontWeight="semibold"
                     textTransform="uppercase"
-                    color="brand.400"
+                    color="yellow.400"
                   >
                     What's included
                   </Text>
@@ -113,7 +114,7 @@ export const Pricing = () => {
                   fontWeight={["bold", , "extrabold"]}
                   lineHeight="tight"
                 >
-                  $500
+                  500
                   <span
                     ml={2}
                     fontSize="2xl"
@@ -124,7 +125,7 @@ export const Pricing = () => {
                     }}
                   >
                     {" "}
-                    USD
+                    DT
                   </span>
                 </Flex>
                 <Stack spacing={6}>
@@ -137,7 +138,7 @@ export const Pricing = () => {
                   >
                     Learn more about our membership
                   </Text>
-                  <Button w="300px" colorScheme="brand" py={6}>
+                  <Button w="300px" colorScheme="yellow" py={6}>
                     Get Access
                   </Button>
                   <Text align="center" fontWeight="semibold">
