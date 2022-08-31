@@ -212,7 +212,7 @@ export const Hero = () => {
           >
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
-                <CountUp start={0} end={25} duration={2} delay={0.6} />
+                <CountUp start={0} end={25} enableScrollSpy />
                 <span>%</span>
               </Text>
               <Box fontSize={'sm'}>
@@ -231,7 +231,7 @@ export const Hero = () => {
           >
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
-                <CountUp start={0} end={55} duration={3} />
+                <CountUp start={0} end={55} duration={3} enableScrollSpy/>
                 <span>%</span>
               </Text>
               <Box fontSize={'sm'}>
