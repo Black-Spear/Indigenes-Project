@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cardFeature {
+  position: relative;
+  width: 320px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 30px;
+  transition: 0.4s;
+}
+
+.cardFeature::before {
+  content: '';
+  position: absolute;
+  background: white;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50px;
+  border-radius: 10px;
+  transform: skewx(15deg);
+  transition: 0.4s;
+}
+
+.cardFeature::after {
+  content: '';
+  position: absolute;
+  background: white;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 50px;
+  border-radius: 10px;
+  transform: skewx(15deg);
+  transition: 0.4s;
+  filter: blur(30px);
+  
+}
+
+.cardFeature:hover::before,
+.cardFeature:hover::after {
+  transform: skewx(0);
+  left: 20px;
+  width: calc(100% - 80px);
+  
+}
+
+.cardFeature:nth-child(1)::before,
+.cardFeature:nth-child(1)::after {
+  background: linear-gradient(315deg, #ffd600, #fbb41a);
+}
+
+.cardFeature:nth-child(2)::before,
+.cardFeature:nth-child(2)::after {
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+
+.cardFeature:nth-child(3)::before,
+.cardFeature:nth-child(3)::after {
+  background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+
+.cardFeature span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardFeature span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.cardFeatureFeature:hover span::before {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  left: 50px;
+  top: -50px;
+  animation: swing 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cardFeature span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.cardFeature:hover span::after {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  right: -20px;
+  bottom: -50px;
+  animation: swing 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation-delay: -1s;
+}
+
+.content {
+  z-index: 1;
+  position: relative;
+  left: 0;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  padding: 20px 50px;
+  transition: 0.4s;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardFeature:hover .content {
+  left: -25px;
+  padding: 40px 50px;
+}
+
+.cardFeature h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cardFeature p {
+  font-size: 0.95em;
+  font-weight: 300;
+  
+}
+
+.cardFeature a {
+  display: inline-block;
+  text-decoration: none;
+  background: white;
+  color: #222;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+@keyframes swing {
+  0% {
+    transform: translatey(10px);
+  }
+
+  50% {
+    transform: translatey(-10px);
+  }
+
+  100% {
+    transform: translatey(10px);
+  }
+}
