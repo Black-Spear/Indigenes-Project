@@ -26,6 +26,7 @@ import { Logo } from './Logo'
 import { NavLink } from './NavLink'
 import {ColorModeSwitcher} from '../../ColorModeSwitcher'
 import { Link } from 'react-router-dom'
+
 const variants = {
   show: {
     display: 'revert',
