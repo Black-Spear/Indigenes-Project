@@ -100,8 +100,8 @@ export const Hero = () => {
                 transition={{ duration: 2 }}
                 viewport={{ once: true }}
               >
-                Earn <span>Benefits</span> from investing in projects in{' '}
-                <span>Tunisia</span>
+                Earn <span className='gradientspan'>Benefits</span> from investing in projects in{' '}
+                <span className='gradientspan'>Tunisia</span>
               </MotionHeading>
 
               <MotionText
@@ -158,7 +158,7 @@ export const Hero = () => {
                   color="blackAlpha.900"
                   colorScheme="yellow"
                   px="8"
-                  mt='1.5rem'
+                  mt="1.5rem"
                   fontWeight="bold"
                   fontSize="md"
                   whileHover={{ scale: 1.1 }} // these two don't work
@@ -212,12 +212,11 @@ export const Hero = () => {
           >
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
-                <CountUp start={0} end={25} duration={2} delay={0.6} />
+                <CountUp start={0} end={25} enableScrollSpy />
                 <span>%</span>
               </Text>
               <Box fontSize={'sm'}>
-                Description for the number. People always pay attention to
-                numbers.
+                More profit on average for every adhering business.
               </Box>
             </Flex>
           </MotionGridItem>
@@ -231,12 +230,11 @@ export const Hero = () => {
           >
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
-                <CountUp start={0} end={55} duration={3} />
+                <CountUp start={0} end={55} duration={3} enableScrollSpy />
                 <span>%</span>
               </Text>
               <Box fontSize={'sm'}>
-                Description for the number. People always pay attention to
-                numbers.
+                Less risk compared to traditional investment methods.
               </Box>
             </Flex>
           </MotionGridItem>
