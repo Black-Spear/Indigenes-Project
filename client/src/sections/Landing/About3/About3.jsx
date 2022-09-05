@@ -16,6 +16,7 @@ export function About3() {
           bg="gray.100"
           loading="lazy"
           opacity={0.4}
+          borderRadius='2vh'
         />
       </Flex>
       <Flex
