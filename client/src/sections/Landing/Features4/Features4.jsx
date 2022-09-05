@@ -11,9 +11,9 @@ import {
 
 const features = [
   {
-    heading: 'Payments',
+    heading: 'Investments',
     content:
-      'Choose from Stripe, Paddle, Braintree, or PayPal to launch your product quickly.',
+      'Get access to the entirety of the Tunisian investment community and find your match.',
     icon: (
       <svg
         width={36}
@@ -33,9 +33,9 @@ const features = [
     ),
   },
   {
-    heading: 'Invoicing',
+    heading: 'Analysis',
     content:
-      'Webhooks are wired up to automatically email customers PDF receipts and invoices.',
+      'Our team of curated experts will help in perfecting every aspect of your project study.',
     icon: (
       <svg
         width={36}
@@ -55,9 +55,9 @@ const features = [
     ),
   },
   {
-    heading: 'API Included',
+    heading: 'Statistics',
     content:
-      'Roll your own API to easily connect with other apps or services. Pull in updates.',
+      'Follow you project in real-time with our advanced statistics and information system.',
     icon: (
       <svg
         width={36}
@@ -83,7 +83,7 @@ const Features4 = () => {
   return (
     <Container maxW="6xl" p={{ base: 5, md: 10 }}>
       <chakra.h3 fontSize="4xl" fontWeight="bold" mb={20} textAlign="center">
-        Everything your app needs and more
+        Everything your project needs and more
       </chakra.h3>
       <SimpleGrid
         columns={{ base: 1, sm: 2, md: 3 }}

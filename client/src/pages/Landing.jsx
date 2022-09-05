@@ -3,7 +3,6 @@ import { Hero } from '../sections/Landing/Hero/Hero';
 import Map from '../sections/Landing/Map/Map';
 import { Pricing } from '../sections/Landing/Pricing/Pricing';
 import { Feature } from '../sections/Landing/Features/Feature';
-import { Features2 } from '../sections/Landing/Features2/Features2';
 import { Features4 } from '../sections/Landing/Features4/Features4';
 import { Testimonial } from '../sections/Landing/Testimonial/Testimonial';
 import { Popular } from '../sections/Landing/Popular/Popular';
@@ -27,6 +26,7 @@ const Landing = () => {
   return (
     <>
       <Hero />
+
       <Box bg="gray.50" _dark={{ bg: colors }} mt="3%">
         <Map />
 
@@ -48,9 +48,15 @@ const Landing = () => {
           <Divider w={'40%'}></Divider>
         </HStack>
 
-        <About />
-        <About3 />
-        <Features4 />
+        <About //Two pictures and 2 description paragraphs
+         />
+
+        <About3 //We're here to help. (visit help center) 
+        />
+
+        <Features4 //Everything your app needs (3 cards with features)
+        />
+
         <About2 //what does it mean to be part of indignees?
         />
 
@@ -64,13 +70,18 @@ const Landing = () => {
 
         <QuestionCards />
 
-        <Stats1 />
+        <Stats1 // 3 cards with stats
+        />
 
         <Testimonial />
-        <Feature />
+
+        <Feature //to be removed
+         />
+
       </Box>
 
       <Box bg="gray.50" _dark={{ bg: 'gray.800' }}>
+
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'30%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
@@ -78,6 +89,7 @@ const Landing = () => {
           </Text>
           <Divider w={'30%'}></Divider>
         </HStack>
+
         <Pricing />
 
         <HStack align={'center'} justify="center" spacing={6}>
@@ -87,7 +99,9 @@ const Landing = () => {
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
+
         <Contact />
+
       </Box>
     </>
   );

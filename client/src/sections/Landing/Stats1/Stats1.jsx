@@ -21,24 +21,24 @@ import { AiOutlineLike, AiOutlineEye } from 'react-icons/ai';
 const statData = [
   {
     id: 1,
-    label: 'Total post reactions',
-    score: 1730,
+    label: 'Total successful investments',
+    score:87,
     icon: AiOutlineLike,
     percentage: '10%',
   },
   {
     id: 2,
-    label: 'Total post views',
+    label: 'Total projects views',
     score: 3245,
     icon: AiOutlineEye,
     percentage: '30%',
   },
   {
     id: 3,
-    label: 'Total messages',
-    score: 100,
+    label: 'Total investors that contacted',
+    score: 248,
     icon: HiOutlineMail,
-    percentage: '30%',
+    percentage: '25%',
   },
 ];
 
@@ -103,9 +103,9 @@ const Card = ({ data }) => {
               </Text>
               <Flex>
                 {Number(data.score) > 100 ? (
-                  <Icon as={BsArrowUpShort} w={6} h={6} color="yellow.400" />
+                  <Icon as={BsArrowUpShort} w={6} h={6} color="green.400" />
                 ) : (
-                  <Icon as={BsArrowDownShort} w={6} h={6} color="green.400" />
+                  <Icon as={BsArrowUpShort} w={6} h={6} color="green.400" />
                 )}
                 <Text as="h2" fontSize="md">
                   {data.percentage}
