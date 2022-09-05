@@ -10,9 +10,10 @@ import img from '../assets/img/projects/test.png';
 import { Header } from '../components/Header/Header'
 import axios from 'axios'
 import './style.css'
-
+import data from'../sections/Landing/Map/data.json'
 
 const PageProjects = () => {
+
   const navigate = useNavigate();
 
   const OverlayOne = () => (
@@ -24,6 +25,7 @@ const PageProjects = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
   const [gouv, setGouv] = useState([])
+  const [sampleObject, setSampleObject] = useState({});
 
 
 const {id} = useParams();
@@ -31,6 +33,12 @@ const {id} = useParams();
 const api = axios.create({
   baseURL: 'http://localhost:5000'
 })
+
+
+
+  const x = data.find(e => e.id == id)
+
+  console.log('img',)
 
   useEffect(() => {
     return () => {
@@ -61,7 +69,7 @@ const api = axios.create({
         overflow="hidden"
         zIndex="-1"
         top="0"
-        bgImage='https://upload.wikimedia.org/wikipedia/commons/c/c6/Ksiba%2C_Bizerte_1.jpg'
+        bgImage={x.img}
         bgSize="cover"
         mx={{ md: 'auto' }}
         className='back'
