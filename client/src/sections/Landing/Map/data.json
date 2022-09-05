@@ -1,3 +1,4 @@
+
 [
     {
         "id" : "Bizerte",
@@ -359,7 +360,7 @@
             }
         ],
         "nbrDistructs" : 7,
-        "img" : "https://i.pinimg.com/564x/25/b5/89/25b5892d2523d2536bfc9130edb2c382.jpg"
+        "img" : "https://i.ibb.co/pL1qfQf/attafi.jpg"
     }, {
         "id" : "Tunis",
         "name" : "Tunis",
@@ -2106,7 +2107,7 @@
             }
         ],
         "nbrDistructs" : 6,
-        "img" : "https://www.voyage-tunisie.info/wp-content/uploads/2017/11/Gab%C3%A8s-centre-ville.jpg"
+        "img" : "https://i.ibb.co/ZWW53h6/gabes.jpg"
     },    {
         "id" : "kebili",
         "name" : "kebili",
