@@ -1,5 +1,5 @@
 
-import { Avatar, Box, Button, Center,Image,Grid, CheckboxGroup, Flex, Heading, Input, InputGroup, InputRightElement, LightMode, Select, Stack, Text, useColorModeValue as mode, Modal, ModalContent, ModalHeader, HStack, Divider, ModalCloseButton, ModalBody, ModalFooter, Badge, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import { Avatar, Box, Button, Center,Image,Grid, CheckboxGroup, Flex, Heading, Input, InputGroup, InputRightElement, LightMode, Select, Stack, Text, useColorModeValue as mode, Modal, ModalContent, ModalHeader, HStack, Divider, ModalCloseButton, ModalBody, ModalFooter, Badge, ModalOverlay, useDisclosure, SimpleGrid } from '@chakra-ui/react'
 import {useNavigate, useParams } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa'
 import '../sections/Projects/Banner/style.css'
@@ -227,11 +227,16 @@ const api = axios.create({
             <ModalHeader fontSize={28} textAlign='center'><Text py={3}>All Districts of <b><span color='E3BF3E' >{id}</span></b></Text>
             <HStack><Divider w='50%' size={5} /><Badge colorScheme='yellow'>Select one</Badge><Divider w='50%' size={5} /></HStack></ModalHeader>
             <ModalCloseButton />
-            <ModalBody >
+            <ModalBody>
+              <SimpleGrid
+              templateColumns={'2fr 2fr'}
+              gap={'2vw'}
+              
+              >
            
             {gouv.filter(gouv => gouv.libelle == id.toLowerCase()).map(deleg => (
                
-               <Center py={10}>
+               <Center  py={10}>
                 
                 <Box
                  className='card'
@@ -303,7 +308,7 @@ const api = axios.create({
                 </Center>
               
                ))}
-            
+            </SimpleGrid>
             </ModalBody>
             <ModalFooter>
               <Button onClick={onClose}>Close</Button>
