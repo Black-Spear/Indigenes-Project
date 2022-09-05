@@ -10,7 +10,7 @@ export const QuestionCards = () => {
         alignItems="center"
         alignContent={'center'}
         flexDirection="column"
-        my={'15vh'}
+        my={'12vh'}
       >
         <div className="containerQ">
           <div className="cardQ">

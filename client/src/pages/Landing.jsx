@@ -2,13 +2,16 @@ import React from 'react';
 import { Hero } from '../sections/Landing/Hero/Hero';
 import Map from '../sections/Landing/Map/Map';
 import { Pricing } from '../sections/Landing/Pricing/Pricing';
-import { About } from '../sections/Landing/About/About';
 import { Feature } from '../sections/Landing/Features/Feature';
-import { Testimonial } from '../sections/Landing/Testimonial/Testimonial';
 import { Features2 } from '../sections/Landing/Features2/Features2';
+import { Features4 } from '../sections/Landing/Features4/Features4';
+import { Testimonial } from '../sections/Landing/Testimonial/Testimonial';
 import { Popular } from '../sections/Landing/Popular/Popular';
+import { About } from '../sections/Landing/About/About';
 import { About2 } from '../sections/Landing/About2/About2';
 import { About3 } from '../sections/Landing/About3/About3';
+import { Stats1 } from '../sections/Landing/Stats1/Stats1';
+
 import { QuestionCards } from '../sections/Landing/QuestionCards/QuestionCards';
 import {
   Box,
@@ -26,6 +29,7 @@ const Landing = () => {
       <Hero />
       <Box bg="gray.50" _dark={{ bg: colors }} mt="3%">
         <Map />
+
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
@@ -33,7 +37,9 @@ const Landing = () => {
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
+
         <Popular />
+
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
@@ -41,8 +47,12 @@ const Landing = () => {
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
+
         <About />
-        <About2 />
+        <About3 />
+        <Features4 />
+        <About2 //what does it mean to be part of indignees?
+        />
 
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
@@ -51,8 +61,10 @@ const Landing = () => {
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
+
         <QuestionCards />
-        <About3 />
+
+        <Stats1 />
 
         <Testimonial />
         <Feature />
