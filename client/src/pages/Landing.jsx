@@ -67,26 +67,29 @@ const Landing = () => {
         </HStack>
 
         <Vision />
+
         <About2 //what does it mean to be part of indignees?
         />
+
+        
+
+        <QuestionCards />
 
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
-            What do we do ?
+            Our results
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
-
-        <QuestionCards />
 
         <Stats1 // 3 cards with stats
         />
 
         <Testimonial />
 
-        <Feature //to be removed
-        />
+        {/* <Feature //to be removed
+        /> */}
       </Box>
 
       <Box bg="gray.50" _dark={{ bg: 'gray.800' }}>

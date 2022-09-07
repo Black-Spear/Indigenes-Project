@@ -37,14 +37,21 @@ const Vision = () => {
             rounded="lg"
             justify="center"
           >
-            <Box width="30rem" pos="relative" d={{ base: 'none', sm: 'block' }}>
+            <Box
+              width={{ base: '5rem', md: '25rem', lg: '30rem' }}
+              pos="relative"
+              d={{ base: 'none', sm: 'block' }}
+            >
               <Image
+               width={{ base: '5rem', md: '25rem', lg: '30rem' }}
+               height={{ base: '5rem',  }}
                 size="2xl"
                 pos="absolute"
                 rounded="lg"
                 src={image}
                 top="-3.8rem"
                 boxShadow="lg"
+                objectFit={'cover'}
               />
             </Box>
 
