@@ -97,9 +97,9 @@ export const About = () => {
         mb={24}
         spacingY={{ base: 10, md: 32 }}
         spacingX={{ base: 10, md: 24 }}
-        initial={{ opacity: 0, x: '-150vw', scale: 0.5 }} //second box animation
-        animate={{ opacity: 1, x: 0, scale: 1 }} //foufou kesa7 #t3alm ya balti
-        transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
+        // initial={{ opacity: 0, x: '-150vw', scale: 0.5 }} //second box animation
+        // animate={{ opacity: 1, x: 0, scale: 1 }} //foufou kesa7 #t3alm ya balti
+        // transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
       >
         <Box order={{ base: 'initial', md: 2 }}>
           <chakra.h2
