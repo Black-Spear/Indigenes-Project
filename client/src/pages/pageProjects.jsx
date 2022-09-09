@@ -1,5 +1,5 @@
 
-import { Avatar, Box, Button, Center,Image,Grid, CheckboxGroup, Flex, Heading, Input, InputGroup, InputRightElement, LightMode, Select, Stack, Text, useColorModeValue, Modal, ModalContent, ModalHeader, HStack, Divider, ModalCloseButton, ModalBody, ModalFooter, Badge, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import { Avatar, Box, Button, Center,Image,Grid, CheckboxGroup, Flex, Heading, Input, InputGroup, InputRightElement, LightMode, Select, Stack, Text, useColorModeValue as mode, Modal, ModalContent, ModalHeader, HStack, Divider, ModalCloseButton, ModalBody, ModalFooter, Badge, ModalOverlay, useDisclosure, SimpleGrid } from '@chakra-ui/react'
 import {useNavigate, useParams } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa'
 import '../sections/Projects/Banner/style.css'
@@ -10,9 +10,10 @@ import img from '../assets/img/projects/test.png';
 import { Header } from '../components/Header/Header'
 import axios from 'axios'
 import './style.css'
-
+import data from'../sections/Landing/Map/data.json'
 
 const PageProjects = () => {
+
   const navigate = useNavigate();
 
   const OverlayOne = () => (
@@ -24,6 +25,7 @@ const PageProjects = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
   const [gouv, setGouv] = useState([])
+  const [sampleObject, setSampleObject] = useState({});
 
 
 const {id} = useParams();
@@ -31,6 +33,12 @@ const {id} = useParams();
 const api = axios.create({
   baseURL: 'http://localhost:5000'
 })
+
+
+
+  const x = data.find(e => e.id == id)
+
+  console.log('img',)
 
   useEffect(() => {
     return () => {
@@ -61,7 +69,7 @@ const api = axios.create({
         overflow="hidden"
         zIndex="-1"
         top="0"
-        bgImage='https://upload.wikimedia.org/wikipedia/commons/c/c6/Ksiba%2C_Bizerte_1.jpg'
+        bgImage={x.img}
         bgSize="cover"
         mx={{ md: 'auto' }}
         className='back'
@@ -136,18 +144,18 @@ const api = axios.create({
                 <Button bg='transparent'><FiSearch /></Button>
               
                 <Select size='md'
-                  bg={useColorModeValue('gray.100','gray.800')}
+                  bg={mode('gray.100','gray.800')}
                   w='auto'
-                  color={useColorModeValue('gray.800','gray.100')}
+                  color={mode('gray.800','gray.100')}
                   
                 >
                   {gouv.filter(gouv => gouv.libelle == id.toLowerCase()).map(deleg => (<option value={deleg.libelle_d}>{deleg.libelle_d}</option>))}
                 </Select>
               </InputRightElement>
-              <Input bg={useColorModeValue('white', 'gray.700')} placeholder="Search for project"/>
+              <Input bg={mode('white', 'gray.700')} placeholder="Search for project"/>
               
             </InputGroup>
-            <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={'Agriculture'} >
+            {/* <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={'Agriculture'} >
               <Stack spacing={[1, 5]} direction={['column', 'row']}>
                 <Button value='agriculture'  _checked={{
                     bg: '#dddfe2',
@@ -157,13 +165,13 @@ const api = axios.create({
                 <Button value='water'>Water</Button>
                 <Button value='categorie'>Categorie</Button>
               </Stack>
-            </CheckboxGroup></Box>
+            </CheckboxGroup></Box> */}
             <Box py='10px'><Grid position='relative' templateColumns="repeat(3, 1fr)" gap={6} >
           <Center py={6}>
             <Box
               maxW={'445px'}
               w={'full'}
-              bg={useColorModeValue('white', 'gray.900')}
+              bg={mode('white', 'gray.900')}
               boxShadow={'2xl'}
               rounded={'md'}
               p={6}
@@ -190,7 +198,7 @@ const api = axios.create({
                   Blog
                 </Text>
                 <Heading
-                  color={useColorModeValue('gray.700', 'white')}
+                  color={mode('gray.700', 'white')}
                   fontSize={'2xl'}
                   fontFamily={'body'}
                 >
@@ -221,19 +229,28 @@ const api = axios.create({
         </Flex>
         
       </Flex>
-      <Modal isCentered isOpen={isOpen} onClose={onClose} size='xl'>
+      <Modal isCentered isOpen={isOpen} onClose={onClose} size='xll' scrollBehavior='inside'>
           {overlay}
           <ModalContent>
             <ModalHeader fontSize={28} textAlign='center'><Text py={3}>All Districts of <b><span color='E3BF3E' >{id}</span></b></Text>
             <HStack><Divider w='50%' size={5} /><Badge colorScheme='yellow'>Select one</Badge><Divider w='50%' size={5} /></HStack></ModalHeader>
             <ModalCloseButton />
-            <ModalBody >
-            <Center py={6}>
+            <ModalBody>
+              <SimpleGrid
+              templateColumns={'2fr 2fr'}
+              gap={'2vw'}
+              
+              >
+           
+            {gouv.filter(gouv => gouv.libelle == id.toLowerCase()).map(deleg => (
+               
+               <Center  py={10}>
+                
                 <Box
                  className='card'
                  maxW={'256px'}
                   w={'100%'}
-                  bg={useColorModeValue('#ecc94b', '#4a5568')}
+                  bg={mode('#ecc94b', '#4a5568')}
                   boxShadow={'2xl'}
                   rounded={'xl'}
                   px={6}
@@ -242,7 +259,7 @@ const api = axios.create({
                   <Box
                   className='card-image'
                     h={'20%'}
-                    bg={useColorModeValue('#ecc94b','#E3BF3E')}
+                    bg={mode('#ecc94b','#E3BF3E')}
                     w={'100v'}
                     mx={-6}
                     mb={6}
@@ -251,12 +268,12 @@ const api = axios.create({
                     textAlign='center'
                   >
                     <Heading
-                      color={useColorModeValue('gray.700', 'gray.800')}
+                      color={mode('gray.700', 'gray.800')}
                       fontSize={'2xl'}
                       fontFamily={'body'}
                       fontWeight={800}
                     >
-                      Mateur
+                     {deleg.libelle_d}
                     </Heading>
                   </Box>
                   <Box
@@ -271,7 +288,7 @@ const api = axios.create({
                   </Box>
                   <Box
                     className='card-description'
-                    bg={useColorModeValue('white','#4a5568')}
+                    bg={mode('white','#4a5568')}
                     mt={-6}
                     mx={-6}
                     p='8%'
@@ -281,7 +298,7 @@ const api = axios.create({
                     //_hover={{h: '256px', top: '-100px'}}
                   >
                     <Heading
-                      color={useColorModeValue('gray.700', 'white')}
+                      color={mode('gray.700', 'white')}
                       fontSize={'md'}
                       fontFamily={'body'}
                       mt='1vh'
@@ -295,74 +312,11 @@ const api = axios.create({
                     <Button mt='5vh'>See more</Button>
                   </Box>
                 </Box>
-                <Box
-                ml={4}
-                 className='card'
-                 maxW={'256px'}
-                  w={'100%'}
-                  bg={useColorModeValue('#ecc94b', '#4a5568')}
-                  boxShadow={'2xl'}
-                  rounded={'xl'}
-                  px={6}
-                  overflow={'hidden'}
-                >
-                  <Box
-                  className='card-image'
-                    h={'20%'}
-                    bg={useColorModeValue('#ecc94b','#E3BF3E')}
-                    w={'100v'}
-                    mx={-6}
-                    mb={6}
-                    p='5%'
-                    pos={'relative'}
-                    textAlign='center'
-                  >
-                    <Heading
-                      color={useColorModeValue('gray.700', 'gray.800')}
-                      fontSize={'2xl'}
-                      fontFamily={'body'}
-                      fontWeight={800}
-                    >
-                      Mateur
-                    </Heading>
-                  </Box>
-                  <Box
-                    h={'80%'}
-                    bg={'gray.100'}
-                    mt={-6}
-                    mx={-6}
-                    pos={'relative'}
-                    
-                  >
-                    <Image src={img} layout={'fill'} />
-                  </Box>
-                  <Box
-                    className='card-description'
-                    bg={useColorModeValue('white','#4a5568')}
-                    mt={-6}
-                    mx={-6}
-                    p='8%'
-                    pos={'relative'}
-                    textAlign='center'
-                    zIndex={100}
-                    //_hover={{h: '256px', top: '-100px'}}
-                  >
-                    <Heading
-                      color={useColorModeValue('gray.700', 'white')}
-                      fontSize={'md'}
-                      fontFamily={'body'}
-                      mt='1vh'
-                      mb='5vh'
-                      
-                    >
-                      <span >10 </span>
-                       Available Projects
-                    </Heading>  
-                    <Text className="text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
-                    <Button mt='5vh'>See more</Button>
-                  </Box>
-                </Box>
-              </Center>
+                
+                </Center>
+              
+               ))}
+            </SimpleGrid>
             </ModalBody>
             <ModalFooter>
               <Button onClick={onClose}>Close</Button>

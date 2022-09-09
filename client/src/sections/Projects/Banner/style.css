@@ -6,7 +6,7 @@
     width: 100vw;
     height: 60vh;
     content: " ";
-   backdrop-filter: blur(3px);
+   backdrop-filter: blur(0.25px);
 }
 
 @media (orientation:portrait) {
