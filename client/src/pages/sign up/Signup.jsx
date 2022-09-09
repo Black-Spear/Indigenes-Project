@@ -27,7 +27,7 @@ import vidlight from '../../assets/video/gold.png';
 import './vid.css';
 import axios from 'axios';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
 import Wave from 'react-wavify';
@@ -38,6 +38,7 @@ import Footer from '../../components/Footer/Footer';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import countryList from 'react-select-country-list'
 
 // ! Code starts here
 const api = axios.create({
@@ -53,6 +54,10 @@ function SignUp() {
   const bgIcons = useColorModeValue('#E3BF3E', 'rgba(255, 255, 255, 0.5)');
   let iconStyles = { color: useColorModeValue('black', 'white') };
   const vid = useColorModeValue(viddark, vidlight);
+
+
+  const options = useMemo(() => countryList().getData(), [])
+
 
   const [form, setform] = useState({
     fname: '',
@@ -220,9 +225,9 @@ function SignUp() {
           align="center"
           mt="6.5rem"
           mb="30px"
-          initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main
-          animate={{ opacity: 1, y: 0, scale: 1 }} //#foufou_kesa7
-          transition={{ duration: 1.2, bounce: 0.4 }}
+          // initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main
+          // animate={{ opacity: 1, y: 0, scale: 1 }} //#foufou_kesa7
+          // transition={{ duration: 1.2, bounce: 0.4 }}
         >
           <Text
             fontSize="6xl"
@@ -255,9 +260,9 @@ function SignUp() {
             mx={{ base: '100px' }}
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
-            initial={{ opacity: 0, x: '-25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            animate={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-            transition={{ type: 'spring', duration: 2, bounce: 0.5 }}
+            // initial={{ opacity: 0, x: '-25vw', scale: 1 }} //animation inizaiale lel ktiba main
+            // animate={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
+            // transition={{ type: 'spring', duration: 2, bounce: 0.5 }}
           >
             <Flex
               justify="center"
@@ -420,15 +425,17 @@ function SignUp() {
                 value={form.password}
                 onChange={inputHandler}
               />
+              <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                Country
+              </FormLabel>
               <Select
                 placeholder="Select option"
                 name="country"
+                mb="24px"
                 value={form.country}
                 onChange={inputHandler}
               >
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                {options.map(option => (<option value={option.label}>{option.label}</option>))}
               </Select>
               <FormControl display="flex" alignItems="center" mb="24px">
                 <Switch id="remember-login" colorScheme="yellow" me="10px" />

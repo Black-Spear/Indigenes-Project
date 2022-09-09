@@ -108,7 +108,7 @@ app.post('/contact', (req, res) => {
 app.post('/createProject', (req, res) => {
     console.log(req.body);
     let form = req.body;
-    let sql = `INSERT INTO client(nom_c,prenom_c,email_c,mot_de_passe_c,pays_c) VALUES ('${form.fname}', '${form.lname}', '${form.email}', '${form.password}', '${form.country}')`;
+    let sql = `INSERT INTO project(titre,subtitle,categorie,id_g,description) VALUES ('${form.titre}', '${form.subtitle}', '${form.categorie}', '${form.location}', '${form.descripton}')`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
