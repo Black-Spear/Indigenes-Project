@@ -18,7 +18,7 @@
 
 .containerQ .cardQ .face.face1 {
   position: relative;
-  background: #2d3748;
+
   display: flex;
   justify-content: center;
   align-content: center;
@@ -53,11 +53,12 @@
   display: inline-block;
 }
 
-.containerQ .cardQ .face.face1 .contentQ h3 {
+.containerQ .cardQ .face.face1 .contentQ .titleText {
   font-size: 1em;
-  color: white;
+  line-height: normal;
   text-align: center;
   position: relative;
+  font-family: Poppins, sans-serif;
   bottom: 2vh;
   margin: 60px;
 }

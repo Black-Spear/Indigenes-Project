@@ -1,8 +1,9 @@
 import React from 'react';
 import './QuestionCards.css';
-import { Box } from '@chakra-ui/react';
+import { Box, useColorModeValue, Heading } from '@chakra-ui/react';
 
 export const QuestionCards = () => {
+  const bgcolor = useColorModeValue('#f1f1f1', '#2d3748');
   return (
     <>
       <Box
@@ -10,20 +11,21 @@ export const QuestionCards = () => {
         alignItems="center"
         alignContent={'center'}
         flexDirection="column"
-        my={'12vh'}
+        mt={'2vh'}
+        mb={'10vh'}
       >
         <div className="containerQ">
           <div className="cardQ">
-            <div className="face face1">
+            <Box className="face face1" background={bgcolor}>
               <div className="contentQ">
                 <i
                   className="fab fa-windows" // !This is an  icon
                 />
-                <h3>
+                <h3 className="titleText" >
                   What are the benefits of investing in Tunisian agriculture ?
                 </h3>
               </div>
-            </div>
+            </Box>
             <div className="face face2">
               <div className="contentQ">
                 <p>
@@ -37,11 +39,12 @@ export const QuestionCards = () => {
             </div>
           </div>
           <div className="cardQ">
-            <div className="face face1">
+            <Box className="face face1" background={bgcolor}>
               <div className="contentQ">
-                <i className="fab fa-android" /> <h3>How much do I need to invest to join the platform ?</h3>
+                <i className="fab fa-android" />{' '}
+                <h3 className='titleText'>How much do I need to invest to join the platform ?</h3>
               </div>
-            </div>
+            </Box>
             <div className="face face2">
               <div className="contentQ">
                 <p>
@@ -55,12 +58,12 @@ export const QuestionCards = () => {
             </div>
           </div>
           <div className="cardQ">
-            <div className="face face1">
+            <Box className="face face1" background={bgcolor}>
               <div className="contentQ">
                 <i className="fab fa-apple" />
-                <h3>What's the investment process like with Indigenes ?</h3>
+                <h3 className='titleText'>What's the investment process like with Indigenes ?</h3>
               </div>
-            </div>
+            </Box>
             <div className="face face2">
               <div className="contentQ">
                 <p>

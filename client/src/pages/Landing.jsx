@@ -71,8 +71,6 @@ const Landing = () => {
         <About2 //what does it mean to be part of indignees?
         />
 
-        
-
         <QuestionCards />
 
         <HStack align={'center'} justify="center" spacing={6}>
