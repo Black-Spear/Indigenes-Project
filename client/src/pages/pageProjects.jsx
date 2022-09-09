@@ -155,7 +155,7 @@ const api = axios.create({
               <Input bg={mode('white', 'gray.700')} placeholder="Search for project"/>
               
             </InputGroup>
-            <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={'Agriculture'} >
+            {/* <Box my='10px'><CheckboxGroup colorScheme='green' defaultValue={'Agriculture'} >
               <Stack spacing={[1, 5]} direction={['column', 'row']}>
                 <Button value='agriculture'  _checked={{
                     bg: '#dddfe2',
@@ -165,7 +165,7 @@ const api = axios.create({
                 <Button value='water'>Water</Button>
                 <Button value='categorie'>Categorie</Button>
               </Stack>
-            </CheckboxGroup></Box>
+            </CheckboxGroup></Box> */}
             <Box py='10px'><Grid position='relative' templateColumns="repeat(3, 1fr)" gap={6} >
           <Center py={6}>
             <Box
@@ -229,7 +229,7 @@ const api = axios.create({
         </Flex>
         
       </Flex>
-      <Modal isCentered isOpen={isOpen} onClose={onClose} size='xl' scrollBehavior='inside'>
+      <Modal isCentered isOpen={isOpen} onClose={onClose} size='xll' scrollBehavior='inside'>
           {overlay}
           <ModalContent>
             <ModalHeader fontSize={28} textAlign='center'><Text py={3}>All Districts of <b><span color='E3BF3E' >{id}</span></b></Text>

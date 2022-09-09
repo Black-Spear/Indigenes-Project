@@ -10,6 +10,8 @@ import axios from 'axios';
 import PageProjects from './pages/pageProjects';
 //ScrollToTop Imports
 import ScrollToTop from './components/ScrollToTop';
+//profile Imports
+import Profile from './pages/Profil/Index';
 
 function App() {
   useEffect(() => {
@@ -30,6 +32,7 @@ function App() {
           <Route path="/projects/:id" element={<PageProjects />} />
           <Route path="/project_details/:id" element={<Simple />} />
           <Route path="/create_project" element={<CreateProject />} />
+          <Route path="/profil" element={<Profile/>} />
         </Routes>
       </Router>
       <ScrollToTop />
