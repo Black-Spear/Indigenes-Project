@@ -43,8 +43,8 @@ const Vision = () => {
               d={{ base: 'none', sm: 'block' }}
             >
               <Image
-               width={{ base: '5rem', md: '25rem', lg: '30rem' }}
-               height={{ base: '5rem',  }}
+              //  width={{ base: '5rem', md: '25rem', lg: '30rem' }}
+              //  height={{ base: '5rem',  }}
                 size="2xl"
                 pos="absolute"
                 rounded="lg"

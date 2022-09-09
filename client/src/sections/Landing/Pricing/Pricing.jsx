@@ -137,16 +137,16 @@ export const Pricing = () => {
                   color={useColorModeValue('gray.800', 'gray.300')}
                   w={71}
                   position={'relative'}
-                  right={-180}
-                  top={'-450px'}
+                  right={-200}
+                  top={'-490px'}
                   transform={'rotate(-60deg)'}
                 />
                 <Text
                   fontSize={'lg'}
                   fontFamily={'Caveat'}
                   position={'relative'}
-                  right={'-140px'}
-                  top={'-516px'}
+                  right={'-160px'}
+                  top={'-560px'}
                   transform={'rotate(-20deg)'}
                   color={useColorModeValue('gray.800', 'gray.300')}
                 >
