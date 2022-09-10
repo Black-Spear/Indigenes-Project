@@ -68,7 +68,7 @@ const Map = () => {
             <Flex justify="center" align="center" py="3%" pb={20}>
             <svg
                 className='map'
-                height={1500}
+                height={900}
                 baseprofile="tiny"
                 stroke-linecap="round" 
                 version="1.2" 
