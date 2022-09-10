@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'db_indigenes'
+    database: 'indigenes'
 });
 
 db.connect((err) => {
@@ -71,6 +71,7 @@ app.get('/getUser', (req, res) => {
     });
 });
 
+
 app.get('/getDelegation', (req, res) => {
     let sql = `SELECT id_g, libelle, id_d, libelle_d FROM gouvernorat JOIN delegation USING (id_g)`;
     db.query(sql, (err, result) => {
@@ -80,6 +81,15 @@ app.get('/getDelegation', (req, res) => {
     });
 });
 
+app.get('/getproject', (req, res) => {
+    let sql = `SELECT projet.id_P, client.nom_c, projet.titre, projet.subtitle ,projet.categorie ,projet.id_g, gouvernorat.libelle, projet.img_P,projet.decription,projet.id_d  FROM projet,client,delegation,gouvernorat where projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g`;
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(result);
+     
+        res.send(result);
+    });
+});
 
 app.post('/createUser', (req, res) => {
     console.log(req.body);
@@ -108,7 +118,7 @@ app.post('/contact', (req, res) => {
 app.post('/createProject', (req, res) => {
     console.log(req.body);
     let form = req.body;
-    let sql = `INSERT INTO project(titre,subtitle,categorie,id_g,description) VALUES ('${form.titre}', '${form.subtitle}', '${form.categorie}', '${form.location}', '${form.descripton}')`;
+    let sql = `INSERT INTO client(nom_c,prenom_c,email_c,mot_de_passe_c,pays_c) VALUES ('${form.fname}', '${form.lname}', '${form.email}', '${form.password}', '${form.country}')`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
