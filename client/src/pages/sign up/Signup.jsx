@@ -35,10 +35,7 @@ import styled from '@emotion/styled';
 import { BsArrowReturnLeft } from 'react-icons/bs';
 import Footer from '../../components/Footer/Footer';
 
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
-import countryList from 'react-select-country-list'
+import countryList from 'react-select-country-list';
 
 // ! Code starts here
 const api = axios.create({
@@ -55,9 +52,7 @@ function SignUp() {
   let iconStyles = { color: useColorModeValue('black', 'white') };
   const vid = useColorModeValue(viddark, vidlight);
 
-
-  const options = useMemo(() => countryList().getData(), [])
-
+  const options = useMemo(() => countryList().getData(), []);
 
   const [form, setform] = useState({
     fname: '',
@@ -117,24 +112,8 @@ function SignUp() {
     transform: rotate(180deg);
   `;
 
-  const MotionButton = motion(Button);
-  const MotionFlex = motion(Flex);
-
-  const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({});
-    }
-
-    if (!inView) {
-      animation.start({
-        x: '-100vw',
-      });
-    }
-  }, [animation, inView]);
-
+  // const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
+  // const animation = useAnimation();
 
   return (
     <>
@@ -145,7 +124,7 @@ function SignUp() {
         overflow="hidden"
       >
         <RLink to="/">
-          <MotionButton
+          <Button
             leftIcon={<BsArrowReturnLeft style={iconStyles} />}
             colorScheme="bgIcons"
             variant="outline"
@@ -154,12 +133,9 @@ function SignUp() {
             ml="2em"
             mt="2em"
             z-index="500"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.1 }}
           >
             Go back
-          </MotionButton>
+          </Button>
         </RLink>
         <Box
           position="absolute"
@@ -218,7 +194,7 @@ function SignUp() {
           </WaveContainer>
         </Box>
 
-        <MotionFlex
+        <Flex
           direction="column"
           textAlign="center"
           justifyContent="center"
@@ -226,8 +202,9 @@ function SignUp() {
           mt="6.5rem"
           mb="30px"
           // initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main
-          // animate={{ opacity: 1, y: 0, scale: 1 }} //#foufou_kesa7
+          // whileInView={{ opacity: 1, y: 0, scale: 1 }} //#foufou_kesa7 -- hethi heya animate
           // transition={{ duration: 1.2, bounce: 0.4 }}
+          // viewport={{ once: true }}
         >
           <Text
             fontSize="6xl"
@@ -248,10 +225,10 @@ function SignUp() {
           >
             Enter the required information and become a member
           </Text>
-        </MotionFlex>
+        </Flex>
 
         <Flex alignItems="center" justifyContent="center" mb="60px" mt="20px">
-          <MotionFlex
+          <Flex
             direction="column"
             w="445px"
             background="transparent"
@@ -261,8 +238,9 @@ function SignUp() {
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
             // initial={{ opacity: 0, x: '-25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            // animate={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-            // transition={{ type: 'spring', duration: 2, bounce: 0.5 }}
+            // whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7 -- hethi heya animate
+            // transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
+            // viewport={{ once: true }}
           >
             <Flex
               justify="center"
@@ -435,7 +413,9 @@ function SignUp() {
                 value={form.country}
                 onChange={inputHandler}
               >
-                {options.map(option => (<option value={option.label}>{option.label}</option>))}
+                {options.map(option => (
+                  <option value={option.label}>{option.label}</option>
+                ))}
               </Select>
               <FormControl display="flex" alignItems="center" mb="24px">
                 <Switch id="remember-login" colorScheme="yellow" me="10px" />
@@ -488,7 +468,7 @@ function SignUp() {
                 </Link>
               </Text>
             </Flex>
-          </MotionFlex>
+          </Flex>
         </Flex>
       </Flex>
       <Footer />

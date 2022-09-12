@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     name: 'Ahmed Attafi',
-    role: 'Alonge Haba Haba Expert',
+    role: 'Agriculteur',
     content:
       "I didn't even need training. We've used Indigenes for the last five years. I have gotten at least 50 times the value from Indigenes.",
     avatar:
