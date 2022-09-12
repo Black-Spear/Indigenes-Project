@@ -8,7 +8,15 @@ import {
   Link,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
+const variants = {
+  open: { 
+    opacity: 1, scale: 1,
+    transition:{ 
+    type: 'spring', duration: 1, bounce: 0.3  }},
+  closed: { opacity: 0, scale: 0.5 },
+};
 const features = [
   {
     heading: 'Investments',
@@ -92,39 +100,47 @@ const Features4 = () => {
         mb={4}
       >
         {features.map((feature, index) => (
-          <Box
-            key={index}
-            bg={color}
-            p={6}
-            rounded="lg"
-            textAlign="center"
-            pos="relative"
+          <motion.div
+            initial="closed" //animation
+            whileInView="open"
+            viewport={{ once: true, amount: 0.2 }}
+            
+            variants={variants}
           >
-            <Flex
-              p={2}
-              w="max-content"
-              color="white"
-              bgGradient="linear(to-br, #FFD600, #FBB41A)"
-              rounded="md"
-              marginInline="auto"
-              pos="absolute"
-              left={0}
-              right={0}
-              top="-1.5rem"
-              boxShadow="lg"
+            <Box
+              key={index}
+              bg={color}
+              p={6}
+              rounded="lg"
+              textAlign="center"
+              pos="relative"
             >
-              {feature.icon}
-            </Flex>
-            <chakra.h3 fontWeight="semibold" fontSize="2xl" mt={6}>
-              {feature.heading}
-            </chakra.h3>
-            <Text fontSize="md" mt={4}>
-              {feature.content}
-            </Text>
-            <Link href="#" mt={4} fontSize="sm" color="yellow.400">
-              Learn more →
-            </Link>
-          </Box>
+              <Flex
+                p={2}
+                w="max-content"
+                color="white"
+                bgGradient="linear(to-br, #FFD600, #FBB41A)"
+                rounded="md"
+                marginInline="auto"
+                pos="absolute"
+                left={0}
+                right={0}
+                top="-1.5rem"
+                boxShadow="lg"
+              >
+                {feature.icon}
+              </Flex>
+              <chakra.h3 fontWeight="semibold" fontSize="2xl" mt={6}>
+                {feature.heading}
+              </chakra.h3>
+              <Text fontSize="md" mt={4}>
+                {feature.content}
+              </Text>
+              <Link href="#" mt={4} fontSize="sm" color="yellow.400">
+                Learn more →
+              </Link>
+            </Box>
+          </motion.div>
         ))}
       </SimpleGrid>
     </Container>
