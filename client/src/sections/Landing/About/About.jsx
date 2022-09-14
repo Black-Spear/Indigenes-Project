@@ -7,32 +7,31 @@ import {
   SimpleGrid,
   Image,
 } from '@chakra-ui/react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const variants = {
+  open: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      duration: 1,
+      bounce: 0.3,
+    },
+  },
+  closed: { opacity: 0, scale: 0.5 },
+};
 export const About = () => {
   const MotionGrid = motion(SimpleGrid);
-  const MotionButton = motion(Button);
-  const MotionHeading = motion(Heading);
-  const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
-  const animation = useAnimation();
+  
+  
+  
 
-  useEffect(() => {
-    console.log('el hook ye5dem', inView);
-    if (inView) {
-      animation.start({});
-    }
-
-    if (!inView) {
-      animation.start({
-        x: '-100vw',
-      });
-    }
-  }, [animation, inView]);
+  
 
   return (
-    <Box ref={ref} maxW={'7xl'} px={8} mx="auto" id="about">
-      <MotionHeading
+    <Box maxW={'7xl'} px={8} mx="auto" id="about">
+      <Heading
         as="h1"
         size="3xl"
         fontWeight="bold"
@@ -44,13 +43,17 @@ export const About = () => {
         py={10}
       >
         About <span>us</span>
-      </MotionHeading>
+      </Heading>
       <MotionGrid
         alignItems="start"
         columns={{ base: 1, md: 2 }}
         mb={24}
         spacingY={{ base: 10, md: 32 }}
         spacingX={{ base: 10, md: 24 }}
+        initial="closed"
+        whileInView="open"
+        viewport={{ once: true ,amount: 0.2 }}
+       variants={variants}
       >
         <Box mt={'12vh'}>
           <chakra.h2
@@ -97,9 +100,10 @@ export const About = () => {
         mb={24}
         spacingY={{ base: 10, md: 32 }}
         spacingX={{ base: 10, md: 24 }}
-        // initial={{ opacity: 0, x: '-150vw', scale: 0.5 }} //second box animation
-        // animate={{ opacity: 1, x: 0, scale: 1 }} //foufou kesa7 #t3alm ya balti
-        // transition={{ type: 'spring', duration: 1, bounce: 0.3 }}
+        initial="closed"//second box animation
+        whileInView="open"
+        viewport={{ once: true }}
+        variants={variants}
       >
         <Box order={{ base: 'initial', md: 2 }}>
           <chakra.h2
