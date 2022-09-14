@@ -18,12 +18,10 @@ export function About3() {
         <Grid
           alignItems="start"
           columns={{ base: 1, md: 2 }}
-          
           spacingY={{ base: 10, md: 32 }}
           spacingX={{ base: 10, md: 24 }}
         >
           <Box
-            // ! this is the picture number 1
             display={'flex'} 
             alignContent='center'
             alignItems={'center'}
@@ -38,7 +36,7 @@ export function About3() {
               h={{ base: 64, md: 'full' }}
               bg="gray.100"
               loading="lazy"
-              opacity={0.4}
+              opacity={1}
               borderRadius="2vh"
             />
           </Box>
