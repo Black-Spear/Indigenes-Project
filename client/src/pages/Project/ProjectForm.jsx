@@ -50,53 +50,24 @@ import {
   })
   
   
-   let state = {
- 
-      // Initially, no file is selected
-      selectedFile: null
-    };
-    
-    // On file select (from the pop up)
-    const onFileChange = event => {
-    
-      // Update the state
-      this.setState({ selectedFile: event.target.files[0] });
-    
-    };
-    
-    // On file upload (click the upload button)
-    const onFileUpload = () => {
-    
-      // Create an object of formData
-      const formData = new FormData();
-    
-      // Update the formData object
-      formData.append(
-        "myFile",
-        this.state.selectedFile,
-        this.state.selectedFile.name
-      );
-    
-      // Details of the uploaded file
-      console.log(this.state.selectedFile);
-    
-      // Request made to the backend api
-      // Send formData object
-      axios.post("api/uploadfile", formData);
-    };
-  function CreateProject() {
-    const titleColor = useColorModeValue('#E3BF3E', '#E3BF3E');
-    const textColor = useColorModeValue('gray.700', 'gray.200');
-    const bgColor = useColorModeValue('white', 'gray.700');
-    const bgIcons = useColorModeValue('#E3BF3E', 'rgba(255, 255, 255, 0.5)');
-    
+      
+    function CreateProject() {
+      const titleColor = useColorModeValue('#E3BF3E', '#E3BF3E');
+      const textColor = useColorModeValue('gray.700', 'gray.200');
+      const bgColor = useColorModeValue('white', 'gray.700');
+      const bgIcons = useColorModeValue('#E3BF3E', 'rgba(255, 255, 255, 0.5)');
+      
+      const [selectedFile , setSelectedFile] = useState(null);
   
     const [form, setform] = useState({
-      fname: '',
-      lname: '',
-      email: '',
-      password: '',
-      country: ''
+      titre: '',
+      subtitle: '',
+      category: '',
+      gouv: '',
+      deleg: '',
+      img: '',
+      description: '',
+
     })
   
     const inputHandler = (e) => {
@@ -106,22 +77,39 @@ import {
     const submitButton = (e) => {
       e.preventDefault()
       console.log(form)
-      onFileUpload();
-      if (form.fname === '' || form.lname === '' || form.email === '' || form.password === '' || form.country === '') {
+        
+      if (form.titre === '' || form.subtitle === '' || form.category === '' || form.gouv === '' || form.deleg === ''|| form.img === ''|| form.description === '') {
         alert('Please fill all the fields')  
       }
       else {
         const request = {
           ...form
         }
-        const db_request = api.get('/createdb')
-        console.log(db_request)
-        const table_request = api.get('/createtable')
-        console.log(table_request)
-        const res = api.post('/createUser', request)
+        const res = api.post('/createProject', request)
         console.log(res)
       }
     }
+     // On file select (from the pop up)
+  const onFileChange = e => {
+    
+    // Update the state
+    setform({ ...form, img : e.target.files[0] });
+    
+  };
+
+  const onFileUpload = async e => {
+    let body = new FormData()
+      body.set('key', 'be2c37dfc0a7461c1318889df51967a1')
+      body.append('image', e.target.files[0])
+  
+      const res = await axios({
+      method: 'post',
+      url: 'https://api.imgbb.com/1/upload',
+      data: body
+    });
+    setform({ ...form, img: res.data.data.url });
+      }
+
   
     return (
       <><Header/>
@@ -208,32 +196,32 @@ Potential backers will also see them if your project appears on category pages, 
               Title
               </FormLabel>
               <Input
-              id='fname'
+              id='titre'
                 fontSize="sm"
                 ms="4px"
                 borderRadius="15px"
                 type="text"
-                name='fname'
+                name='titre'
                 placeholder="Your First name"
                 mb="5vh"
                 size="lg"
                 width={'200%'}
-                value={form.fname}
+                value={form.titre}
                 onChange={inputHandler}
               /><FormLabel ms="4px" fontSize="md" fontWeight="normal" mt={'2vh'} mb={'-0.5vh'}>
               Subtitle
             </FormLabel> <Input
-              id='fname'
+              id='subtitle'
                 fontSize="sm"
                 ms="4px"
                 borderRadius="15px"
                 type="text"
-                name='fname'
+                name='subtitle'
                 placeholder="Your First name"
                 mb="24px"
                 size="lg"
                 width={'200%'}
-                value={form.fname}
+                value={form.subtitle}
                 onChange={inputHandler}
               /></Stack></HStack> <Divider />
                <HStack  mt={'5vh'}mb={'5vh'} spacing={350} >
@@ -253,10 +241,9 @@ You can change these anytime before and during your campaign.          </Text>
               <FormLabel ms="4px" fontSize="md" fontWeight="normal">
                 Category
               </FormLabel>
-              <Select placeholder='Select option'>
-  <option value='option1'>Option 1</option>
-  <option value='option2'>Option 2</option>
-  <option value='option3'>Option 3</option>
+              <Select placeholder='Select option' value={form.category}
+                onChange={inputHandler} name='category'>
+  <option value='agriculture' name='agriculture'>Agriculture</option>
 
 </Select>
 </Stack></HStack> <Divider />
@@ -275,22 +262,37 @@ Enter the location that best describes where your project is based.
           </Text>
           <Stack ml={'5vh'} spacing={{ base: 10, md: 2 }}>
               <FormLabel ms="4px" fontSize="md" fontWeight="normal">
-                Project Location
+                Location
               </FormLabel>
-              <Input
-              id='fname'
+              <HStack><Input
+              id='gouv'
                 fontSize="sm"
                 ms="4px"
                 borderRadius="15px"
                 type="text"
-                name='fname'
-                placeholder="Your First name"
+                name='gouv'
+                placeholder="Gouvernorat"
                 mb="24px"
                 size="lg"
                 width={'225%'}
-                value={form.fname}
+                value={form.gouv}
                 onChange={inputHandler}
-              /></Stack>
+              />
+              <Input
+              id='deleg'
+                fontSize="sm"
+                ms="4px"
+                borderRadius="15px"
+                type="text"
+                name='deleg'
+                placeholder="delegation"
+                mb="24px"
+                size="lg"
+                width={'225%'}
+                value={form.deleg}
+                onChange={inputHandler}
+              /></HStack>
+              </Stack>
               </HStack>
                <Divider />
                <HStack  mt={'5vh'}mb={'5vh'} spacing={350} >
@@ -315,47 +317,14 @@ Avoid images with banners, badges, or text—they are illegible at smaller sizes
                 Upload File
               </FormLabel>
               <Input
-              id='fname'
+                id='img'
                 fontSize="sm"
                 ms="4px"
                 type="file"
                 mb="24px"
-                onChange={onFileChange}
+                onChange={onFileUpload}
               /></Stack></HStack> <Divider />
-               <HStack  mt={'5vh'}mb={'5vh'} spacing={350} >
-            <Text
-            fontSize="xl"
-            mb={'5vh'}
-            ml={'10vh'}
-            color="textColor"
-            fontWeight="md"
-            w={{ base: '90%', sm: '60%', lg: '40%', xl: '30%' }}
-          ><span fontWeight="semibold">Project video (optional)</span> <br/>
-            
-Add a video that describes your project.<br/>
-
-Tell people what you’re raising funds to do, how you plan to make it happen, who you are, and why you care about this project.<br/>
-
-After you’ve uploaded your video, use our editor to add captions and subtitles so your project is more accessible to everyone.<br/> 
-          </Text>
-          <Stack ml={'5vh'} spacing={{ base: 10, md: 2 }}>
-              <FormLabel ms="4px" fontSize="md" fontWeight="normal">
-                First Name
-              </FormLabel>
-              <Input
-              id='fname'
-                fontSize="sm"
-                ms="4px"
-                borderRadius="15px"
-                type="text"
-                name='fname'
-                placeholder="Your First name"
-                mb="24px"
-                size="lg"
-                width={'225%'}
-                value={form.fname}
-                onChange={inputHandler}
-              /></Stack></HStack> <Divider /><HStack  mt={'5vh'}mb={'5vh'} spacing={350} >
+              <HStack  mt={'5vh'}mb={'5vh'} spacing={350} >
               <Text
               fontSize="xl"
               mb={'5vh'}
@@ -369,9 +338,27 @@ After you’ve uploaded your video, use our editor to add captions and subtitles
 Describe what you're raising funds to do, why you care about it, how you plan to make it happen, and who you are.<br/> Your description should tell backers everything they need to know.<br/> If possible, include images to show them what your project is all about and what rewards look like.<br/>
             </Text>
             <Stack ml={'5vh'} spacing={{ base: 10, md: 2 }}>
-                <Textarea size='lg'width={'225%'} placeholder='Here is a sample placeholder' /></Stack></HStack> <Divider />
+                <Textarea name='description' value={form.description} onChange={inputHandler} size='lg'width={'225%'} placeholder='Here is a sample placeholder' /></Stack></HStack> <Divider />
             </FormControl>
-            
+            <Button
+                    type="submit"
+                    bg="#E3BF3E"
+                    fontSize="10px"
+                    color="white"
+                    fontWeight="bold"
+                    w="100%"
+                    h="45"
+                    mb="24px"
+                    _hover={{
+                      bg: '#FFE27D',
+                    }}
+                    _active={{
+                      bg: '#A38F4A',
+                    }}
+                    onClick={submitButton}
+                  >
+                    Add Project
+                  </Button>
           </Flex>
           <Footer/>
           </>
