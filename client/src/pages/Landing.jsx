@@ -2,7 +2,6 @@ import React from 'react';
 import { Hero } from '../sections/Landing/Hero/Hero';
 import Map from '../sections/Landing/Map/Map';
 import { Pricing } from '../sections/Landing/Pricing/Pricing';
-import { Feature } from '../sections/Landing/Features/Feature';
 import { Features4 } from '../sections/Landing/Features4/Features4';
 import { Testimonial } from '../sections/Landing/Testimonial/Testimonial';
 import { Popular } from '../sections/Landing/Popular/Popular';

@@ -14,34 +14,32 @@ import { FiExternalLink } from 'react-icons/fi';
 export function About3() {
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={0} py="10vh">
-      
-        <Grid
-          alignItems="start"
-          columns={{ base: 1, md: 2 }}
-          spacingY={{ base: 10, md: 32 }}
-          spacingX={{ base: 10, md: 24 }}
+      <Grid
+        alignItems="start"
+        columns={{ base: 1, md: 2 }}
+        spacingY={{ base: 10, md: 32 }}
+        spacingX={{ base: 10, md: 24 }}
+      >
+        <Box
+          display={'flex'}
+          alignContent="center"
+          alignItems={'center'}
+          flexDirection="column"
         >
-          <Box
-            display={'flex'} 
-            alignContent='center'
-            alignItems={'center'}
-            flexDirection='column'
-          >
-          
-            <Image
-              src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
-              alt="3 women looking at a laptop"
-              fit="cover"
-              w={{ base: '90%', md: 'full' }}
-              h={{ base: 64, md: 'full' }}
-              bg="gray.100"
-              loading="lazy"
-              opacity={1}
-              borderRadius="2vh"
-            />
-          </Box>
-        </Grid>
-      
+          <Image
+            src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
+            alt="3 women looking at a laptop"
+            fit="cover"
+            w={{ base: '90%', md: 'full' }}
+            h={{ base: 64, md: 'full' }}
+            bg="gray.100"
+            loading="lazy"
+            opacity={1}
+            borderRadius="2vh"
+          />
+        </Box>
+      </Grid>
+
       <Flex
         direction="column"
         alignItems="start"
