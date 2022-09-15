@@ -11,9 +11,9 @@ import {
   ButtonGroup,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Header } from '../components/Header/Header';
+import { Header } from './components/Header/Header';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
-import Footer from '../components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 
 export default function SocialProfileWithImage() {
   return (
