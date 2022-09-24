@@ -36,7 +36,7 @@ import {
   
   // Assets
   import BgSignUp from '../../assets/img/BgSignUp.png';
-  import React from 'react';
+  import React, { useEffect } from 'react';
   import { Header } from '../../components/Header/Header';
   import  Footer  from '../../components/Footer/Footer';
   import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
@@ -52,12 +52,14 @@ import {
   
       
     function CreateProject() {
+      var user = JSON.parse(localStorage.getItem('current_user'));
       const titleColor = useColorModeValue('#E3BF3E', '#E3BF3E');
       const textColor = useColorModeValue('gray.700', 'gray.200');
       const bgColor = useColorModeValue('white', 'gray.700');
       const bgIcons = useColorModeValue('#E3BF3E', 'rgba(255, 255, 255, 0.5)');
       
       const [selectedFile , setSelectedFile] = useState(null);
+      const [gouvernorat, setGouvernorat] = useState([]);
   
     const [form, setform] = useState({
       titre: '',
@@ -77,7 +79,6 @@ import {
     const submitButton = (e) => {
       e.preventDefault()
       console.log(form)
-        
       if (form.titre === '' || form.subtitle === '' || form.category === '' || form.gouv === '' || form.deleg === ''|| form.img === ''|| form.description === '') {
         alert('Please fill all the fields')  
       }
@@ -109,6 +110,19 @@ import {
     });
     setform({ ...form, img: res.data.data.url });
       }
+
+      const uniqueBy = (arr, prop) => {
+        return [...new Map(arr.map((m) => [m[prop], m])).values()];
+      };
+
+      useEffect(() => {
+        return () => {
+          api.get('/getDelegation').then(response => {
+            setGouvernorat(response.data);
+            console.log(response.data);
+          });
+        };
+      }, []);
 
   
     return (
@@ -171,11 +185,6 @@ import {
           </Text>
         </Flex>
   
-
-            
-        
-  
-          
             <FormControl>
               <HStack  mt={'5vh'}mb={'5vh'}spacing={350} >
             <Text
@@ -243,7 +252,7 @@ You can change these anytime before and during your campaign.          </Text>
               </FormLabel>
               <Select placeholder='Select option' value={form.category}
                 onChange={inputHandler} name='category'>
-  <option value='agriculture' name='agriculture'>Agriculture</option>
+  <option value='agriculture'>Agriculture</option>
 
 </Select>
 </Stack></HStack> <Divider />
@@ -264,34 +273,26 @@ Enter the location that best describes where your project is based.
               <FormLabel ms="4px" fontSize="md" fontWeight="normal">
                 Location
               </FormLabel>
-              <HStack><Input
-              id='gouv'
-                fontSize="sm"
-                ms="4px"
-                borderRadius="15px"
-                type="text"
-                name='gouv'
-                placeholder="Gouvernorat"
-                mb="24px"
-                size="lg"
-                width={'225%'}
-                value={form.gouv}
-                onChange={inputHandler}
-              />
-              <Input
-              id='deleg'
-                fontSize="sm"
-                ms="4px"
-                borderRadius="15px"
-                type="text"
-                name='deleg'
-                placeholder="delegation"
-                mb="24px"
-                size="lg"
-                width={'225%'}
-                value={form.deleg}
-                onChange={inputHandler}
-              /></HStack>
+              <HStack align="center" justify="center">
+                <Select placeholder='Select option' value={form.gouv}
+                onChange={inputHandler} name='gouv'>
+                  {uniqueBy(gouvernorat,'id_g')
+                    .map(deleg => (
+                      <option value={deleg.libelle}>{deleg.libelle}</option>
+                    ))}
+
+              </Select>
+              <Select placeholder='Select delegation' value={form.deleg}
+                onChange={inputHandler} name='deleg'>
+                {gouvernorat
+                    .filter(gouv => gouv.libelle === form.gouv)
+                    .map(deleg => (
+                      <option value={deleg.libelle_d}>{deleg.libelle_d}</option>
+                    ))}
+                
+                
+              </Select>
+              </HStack>
               </Stack>
               </HStack>
                <Divider />
@@ -306,7 +307,7 @@ Enter the location that best describes where your project is based.
           >
             <span fontWeight="semibold">Project image</span> <br/>
             
-Add an image that clearly represents your project. Choose one that looks good at different sizes—it’ll appear on your project page, across the Kickstarter website and mobile apps, and (when shared) on social channels.<br/><br/>
+Add an image that clearly represents your project. Choose one that looks good at different sizes—it will appear on your project page, across the Kickstarter website and mobile apps, and (when shared) on social channels.<br/><br/>
 
 Your image should be at least 1024x576 pixels. It will be cropped to a 16:9 ratio.<br/><br/>
 
@@ -317,6 +318,7 @@ Avoid images with banners, badges, or text—they are illegible at smaller sizes
                 Upload File
               </FormLabel>
               <Input
+                
                 id='img'
                 fontSize="sm"
                 ms="4px"

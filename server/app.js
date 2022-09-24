@@ -73,13 +73,14 @@ app.get("/getUser", (req, res) => {
 });
 
 app.get("/getDelegation", (req, res) => {
-  let sql = `SELECT id_g, libelle, id_d, libelle_d FROM gouvernorat JOIN delegation USING (id_g)`;
+  let sql = `SELECT DISTINCT id_g, libelle, id_d, libelle_d FROM gouvernorat JOIN delegation USING (id_g)`;
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log(result);
     res.send(result);
   });
 });
+
 
 app.get("/getproject", (req, res) => {
   let sql = `SELECT projet.id_P, client.nom_c, projet.titre, projet.subtitle ,projet.categorie ,projet.id_g, gouvernorat.libelle, projet.img_P,projet.decription,projet.id_d  FROM projet,client,delegation,gouvernorat where projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g`;
@@ -118,7 +119,7 @@ app.post('/contact', (req, res) => {
 app.post('/createProject', (req, res) => {
     console.log(req.body);
     let form = req.body;
-    let sql = `INSERT INTO projet(titre,subtitle,categorie,gouvernorat,delegation,img_P,description) VALUES ('${form.titre}', '${form.subtitle}', '${form.categorie}', '${form.gouv}', '${form.deleg}', '${form.img}', '${form.descripton}')`;
+    let sql = `INSERT INTO projet(titre,subtitle,categorie,gouvernorat,delegation,img_P,description) VALUES ('${form.titre}', '${form.subtitle}', '${form.category}', '${form.gouv}', '${form.deleg}', '${form.img}', '${form.description}')`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);
