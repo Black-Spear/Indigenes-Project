@@ -15,7 +15,7 @@ import {
   Select,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue as mode,
   Modal,
   ModalContent,
   ModalHeader,
@@ -185,9 +185,9 @@ const PageProjects = () => {
 
                 <Select
                   size="md"
-                  bg={useColorModeValue('gray.100', 'gray.800')}
+                  bg={mode('gray.100', 'gray.800')}
                   w="auto"
-                  color={useColorModeValue('gray.800', 'gray.100')}
+                  color={mode('gray.800', 'gray.100')}
                 >
                   {gouv
                     .filter(gouv => gouv.libelle == id.toLowerCase())
@@ -197,7 +197,7 @@ const PageProjects = () => {
                 </Select>
               </InputRightElement>
               <Input
-                bg={useColorModeValue('white', 'gray.700')}
+                bg={mode('white', 'gray.700')}
                 onChange={event => {
                   SetSearchTerm(event.target.value);
                 }}
@@ -227,7 +227,7 @@ const PageProjects = () => {
                         <Box
                           maxW={'445px'}
                           w={'full'}
-                          bg={useColorModeValue('white', 'gray.900')}
+                          bg={mode('white', 'gray.900')}
                           boxShadow={'2xl'}
                           rounded={'md'}
                           p={6}
@@ -254,7 +254,7 @@ const PageProjects = () => {
                               {e.subtitle}
                             </Text>
                             <Heading
-                              color={useColorModeValue('gray.700', 'white')}
+                              color={mode('gray.700', 'white')}
                               fontSize={'2xl'}
                               fontFamily={'body'}
                             >
@@ -324,7 +324,7 @@ const PageProjects = () => {
                         className="card"
                         maxW={'256px'}
                         w={'100%'}
-                        bg={useColorModeValue('#ecc94b', '#4a5568')}
+                        bg={mode('#ecc94b', '#4a5568')}
                         boxShadow={'2xl'}
                         rounded={'xl'}
                         px={6}
@@ -333,7 +333,7 @@ const PageProjects = () => {
                         <Box
                           className="card-image"
                           h={'20%'}
-                          bg={useColorModeValue('#ecc94b', '#E3BF3E')}
+                          bg={mode('#ecc94b', '#E3BF3E')}
                           w={'100v'}
                           mx={-6}
                           mb={6}
@@ -342,7 +342,7 @@ const PageProjects = () => {
                           textAlign="center"
                         >
                           <Heading
-                            color={useColorModeValue('gray.700', 'gray.800')}
+                            color={mode('gray.700', 'gray.800')}
                             fontSize={'2xl'}
                             fontFamily={'body'}
                             fontWeight={800}
@@ -361,7 +361,7 @@ const PageProjects = () => {
                         </Box>
                         <Box
                           className="card-description"
-                          bg={useColorModeValue('white', '#4a5568')}
+                          bg={mode('white', '#4a5568')}
                           mt={-6}
                           mx={-6}
                           p="8%"
@@ -371,7 +371,7 @@ const PageProjects = () => {
                           //_hover={{h: '256px', top: '-100px'}}
                         >
                           <Heading
-                            color={useColorModeValue('gray.700', 'white')}
+                            color={mode('gray.700', 'white')}
                             fontSize={'md'}
                             fontFamily={'body'}
                             mt="1vh"

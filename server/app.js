@@ -35,7 +35,7 @@ app.listen(5000, () => {
 });
 
 app.get("/createdb", (req, res) => {
-  let sql = "CREATE DATABASE IF NOT EXISTS db_indigenes";
+  let sql = "CREATE DATABASE IF NOT EXISTS indigenes";
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log(result);
