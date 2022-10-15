@@ -83,7 +83,7 @@ app.get("/getDelegation", (req, res) => {
 
 
 app.get("/getproject", (req, res) => {
-  let sql = `SELECT projet.id_P, client.nom_c, projet.titre, projet.subtitle ,projet.categorie ,projet.id_g, gouvernorat.libelle, projet.img_P,projet.decription,projet.id_d  FROM projet,client,delegation,gouvernorat where projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g`;
+  let sql = `SELECT projet.id_P, client.nom_c, projet.titre, projet.subtitle ,projet.categorie ,projet.id_g, gouvernorat.libelle, projet.img_P,projet.decription,projet.id_d ,delegation.libelle_d FROM projet,client,delegation,gouvernorat where projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g`;
   db.query(sql, (err, result) => {
     if (err) throw err;
     console.log(result);
