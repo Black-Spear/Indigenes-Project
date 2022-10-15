@@ -70,7 +70,10 @@ const Landing = () => {
 
         <HStack align={'center'} justify="center" spacing={6} my="10vh">
           <Divider w={'40%'}></Divider>
-          <Text minWidth={'5em'} color={useColorModeValue('gray.500', 'gray.600')}>
+          <Text
+            minWidth={'5em'}
+            color={useColorModeValue('gray.500', 'gray.600')}
+          >
             Our vision
           </Text>
           <Divider w={'40%'}></Divider>
