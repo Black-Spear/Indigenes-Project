@@ -32,7 +32,7 @@ function App() {
           <Route path="/projects/:id" element={<PageProjects />} />
           <Route path="/project_details/:id" element={<Simple />} />
           <Route path="/create_project" element={<CreateProject />} />
-          <Route path="/profil" element={<Profile/>} />
+          <Route path="/profil" element={<Profile />} />
         </Routes>
       </Router>
       <ScrollToTop />

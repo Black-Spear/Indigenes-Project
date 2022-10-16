@@ -51,8 +51,7 @@ const PageProjects = () => {
   const [gouv, setGouv] = useState([]);
   const [proj, setProj] = useState([]);
   const [SearchTerm, SetSearchTerm] = useState('');
-  const[Idd,setidd]=useState('')
-
+  const [idd, setidd] = useState();
   const api = axios.create({
     baseURL: 'http://localhost:5000',
   });
@@ -63,10 +62,6 @@ const PageProjects = () => {
 
   let x = proj.filter(val => val.libelle == id.toLowerCase());
   console.log('eyy', x);
-  console.log('idddd',Idd)
-
-
-
 
   useEffect(() => {
     return () => {
@@ -120,9 +115,7 @@ const PageProjects = () => {
         >
           <Text fontSize="5rem" color="white" fontWeight="extrabold">
             {id}
-         
           </Text>
-          
 
           <Stack
             justify="center"
@@ -149,7 +142,6 @@ const PageProjects = () => {
                   onOpen();
                 }}
               >
-                
                 <Text>Choose a District</Text>
                 {console.log(
                   gouv
@@ -191,6 +183,18 @@ const PageProjects = () => {
                   <FiSearch />
                 </Button>
 
+                <Select
+                  size="md"
+                  bg={mode('gray.100', 'gray.800')}
+                  w="auto"
+                  color={mode('gray.800', 'gray.100')}
+                >
+                  {gouv
+                    .filter(gouv => gouv.libelle == id.toLowerCase())
+                    .map(deleg => (
+                      <option value={deleg.libelle_d}>{deleg.libelle_d}</option>
+                    ))}
+                </Select>
               </InputRightElement>
               <Input
                 bg={mode('white', 'gray.700')}
@@ -207,31 +211,16 @@ const PageProjects = () => {
                 templateColumns="repeat(3, 1fr)"
                 gap={6}
               >
-               {x.filter((e)=>{
-
-  if (Idd=="") {
-    if(SearchTerm==""){
-      return e
-    
-    }else if (e.titre.toLowerCase().includes(SearchTerm.toLocaleLowerCase())){
-      return e
-    }
-
-    
-  }else if (Idd==e.libelle_d) {
-    
-    if(SearchTerm==""){
-      return e
-    
-    }else if (e.titre.toLowerCase().includes(SearchTerm.toLocaleLowerCase())){
-      return e
-    }
-  }
-  
-  
- 
- 
-})
+                {x
+                  .filter(e => {
+                    if (SearchTerm == '') {
+                      return e;
+                    } else if (
+                      e.titre.toLowerCase().includes(SearchTerm.toLowerCase())
+                    ) {
+                      return e;
+                    }
+                  })
                   .map((e, key) => {
                     return (
                       <Center py={6} key={key}>
@@ -395,14 +384,7 @@ const PageProjects = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor.
                           </Text>
-                          {console.log('deleg',deleg.libelle_d)}
-                          <Button mt="5vh"
-      onClick={()=>{
-       setidd(deleg.libelle_d)
-       onClose()
-      }}
-                          
-                          >See more</Button>
+                          <Button mt="5vh">See more</Button>
                         </Box>
                       </Box>
                     </Center>
