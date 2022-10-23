@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Flex,
   Heading,
   SimpleGrid,
@@ -41,14 +40,7 @@ export const Pricing = () => {
           md: '8',
         }}
       >
-        <Heading
-          as="h1"
-          size="2xl"
-          fontWeight="bold"
-          textAlign={{
-            sm: 'center',
-          }}
-        >
+        <Heading as="h1" size="2xl" fontWeight="bold" textAlign={'center'}>
           Membership <span>Plan</span>
         </Heading>
         <Text
@@ -58,6 +50,7 @@ export const Pricing = () => {
           fontSize="xl"
           color={mode('gray.600', 'gray.400')}
           textAlign={{
+            base: 'center',
             sm: 'center',
           }}
         >
@@ -68,7 +61,10 @@ export const Pricing = () => {
         <Box mt={8}>
           <Flex
             rounded="md"
-            mx={10}
+            mx={{
+              base: '7',
+              xl: '10',
+            }}
             bg={'white'}
             _dark={{ bg: 'gray.900' }}
             shadow="xl"
@@ -80,7 +76,15 @@ export const Pricing = () => {
             }}
           >
             <Stack spacing={8} p="45px" flex="0.7">
-              <Text fontSize="3xl" fontWeight="bold" lineHeight="tight">
+              <Text
+                fontSize="3xl"
+                fontWeight="bold"
+                lineHeight="tight"
+                textAlign={{
+                  base: 'center',
+                  sm: 'left',
+                }}
+              >
                 Invest with less risk
               </Text>
               <Text
@@ -96,7 +100,7 @@ export const Pricing = () => {
               </Text>
               <Flex align="center">
                 <Text
-                  fontFamily="body"
+                  fontFamily="body" 
                   whiteSpace="nowrap"
                   fontWeight="semibold"
                   textTransform="uppercase"
@@ -127,7 +131,7 @@ export const Pricing = () => {
               borderRightRadius="md"
             >
               <CardCTA />
-              <Text fontSize="xs"  textAlign="center" color="gray.600" >
+              <Text fontSize="xs" textAlign="center" color="gray.600">
                 By signing up you agree to our{' '}
                 <Text color="gray.600">Terms of Service</Text>
               </Text>
@@ -153,7 +157,6 @@ export const Pricing = () => {
                   Starting at 30£/mo
                 </Text>
               </Box>
-              
 
               {/* <Text fontSize="xl" fontWeight="semibold">
                   Pay once, use anytime
