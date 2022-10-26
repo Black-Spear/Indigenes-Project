@@ -17,7 +17,7 @@ const testimonials = [
     content:
       'The Indigenes program has been critical to us for funding our project, we were able to find investors from all around Tunisia thanks to the platform !',
     avatar:
-      'https://scontent.ftun2-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=fZ5YRsJePpoAX9sdmkx&_nc_ht=scontent.ftun2-1.fna&oh=00_AT_2O_MvXCIJL54cX4yX9_JHQLpyZP5DtJHSpxaxgGVl2g&oe=63176DF1',
+      'https://scontent.ftun4-2.fna.fbcdn.net/v/t39.30808-1/274480513_1179989572537674_7273953419814914029_n.jpg?stp=dst-jpg_p240x240&_nc_cat=108&ccb=1-7&_nc_sid=7206a8&_nc_ohc=YM3ITAK_VQoAX8PWMTh&_nc_ht=scontent.ftun4-2.fna&oh=00_AT8xCzw2JFWxy3FyUmUFUVqAWG1r3al89V4SA7H6jqYx0w&oe=63514EB3',
   },
   {
     name: 'Ahmed Attafi',
@@ -25,20 +25,15 @@ const testimonials = [
     content:
       "I didn't even need training. We've used Indigenes for the last five years. I have gotten at least 50 times the value from Indigenes.",
     avatar:
-      'https://scontent.ftun2-2.fna.fbcdn.net/v/t39.30808-6/300271287_3263415900639724_6982472569732085284_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Wct0fBuekH4AX8id5gw&_nc_ht=scontent.ftun2-2.fna&oh=00_AT8hYQmip6Q0bYIUr961JzGUPmYNMpwRkNEMY5_qsgFQYA&oe=6317C812',
+      'https://scontent.ftun13-1.fna.fbcdn.net/v/t39.30808-1/305129813_3273454626302518_7407516586219852141_n.jpg?stp=dst-jpg_s320x320&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=bOthISNX7bEAX-q7qJN&_nc_ht=scontent.ftun13-1.fna&oh=00_AT_hJKmHoWX4KSYTAlMc_AGquPRDbhSeuwQVLO35DLbbcQ&oe=6357A1D5',
   },
 ];
 
-const backgrounds = [
-  `url("data:image/svg+xml, %3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'560\' height=\'185\' viewBox=\'0 0 560 185\' fill=\'none\'%3E%3Cellipse cx=\'102.633\' cy=\'61.0737\' rx=\'102.633\' ry=\'61.0737\' fill=\'%23ED64A6\' /%3E%3Cellipse cx=\'399.573\' cy=\'123.926\' rx=\'102.633\' ry=\'61.0737\' fill=\'%23F56565\' /%3E%3Cellipse cx=\'366.192\' cy=\'73.2292\' rx=\'193.808\' ry=\'73.2292\' fill=\'%2338B2AC\' /%3E%3Cellipse cx=\'222.705\' cy=\'110.585\' rx=\'193.808\' ry=\'73.2292\' fill=\'%23ED8936\' /%3E%3C/svg%3E")`,
-  `url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='185' viewBox='0 0 560 185' fill='none'%3E%3Cellipse cx='457.367' cy='123.926' rx='102.633' ry='61.0737' transform='rotate(-180 457.367 123.926)' fill='%23ED8936'/%3E%3Cellipse cx='160.427' cy='61.0737' rx='102.633' ry='61.0737' transform='rotate(-180 160.427 61.0737)' fill='%2348BB78'/%3E%3Cellipse cx='193.808' cy='111.771' rx='193.808' ry='73.2292' transform='rotate(-180 193.808 111.771)' fill='%230BC5EA'/%3E%3Cellipse cx='337.295' cy='74.415' rx='193.808' ry='73.2292' transform='rotate(-180 337.295 74.415)' fill='%23ED64A6'/%3E%3C/svg%3E")`,
-];
-
 function TestimonialCard(props) {
-  const { name, role, content, avatar, index } = props;
+  const { name, role, content, avatar } = props;
   return (
     <Flex
-      boxShadow={'lg'}
+      boxShadow=" -10px 15px 60px 0px #ecc94b85"
       maxW={'640px'}
       direction={{ base: 'column-reverse', md: 'row' }}
       width={'full'}
@@ -47,33 +42,21 @@ function TestimonialCard(props) {
       justifyContent={'space-between'}
       position={'relative'}
       bg={useColorModeValue('white', 'gray.800')}
-      _after={{
-        content: '""',
-        position: 'absolute',
-        height: '21px',
-        width: '29px',
-        left: '35px',
-        top: '-10px',
-        backgroundSize: 'cover',
-      }}
-      _before={{
-        content: '""',
-        position: 'absolute',
-        zIndex: '-1',
-        height: 'full',
-        maxW: '640px',
-        width: 'full',
-        filter: 'blur(40px)',
-        transform: 'scale(0.98)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        top: 0,
-        left: 0,
-        backgroundImage: backgrounds[index % 4],
-      }}
     >
-      <Box width="10em" position="relative " top="-65px">
-        <Image postion="absolute" src={quote} />
+      <Box
+        position="absolute "
+        top={{
+          base: '-2.5em',
+          md: '-2.5em',
+          xl: '-2.5em',
+        }}
+        width={{
+          base: '4em',
+          md: '4em',
+          xl: '4em',
+        }}
+      >
+        <Image postion="relative" src={quote} objectFit="fill" />
       </Box>
       <Flex
         direction={'column'}
@@ -157,7 +140,7 @@ export function Testimonial() {
         columns={{ base: 1, xl: 2 }}
         spacing={'20'}
         mt={16}
-        mx={'auto'}
+        mx={{ base: '1em', sm: 'auto' }}
       >
         {testimonials.map((cardInfo, index) => (
           <TestimonialCard {...cardInfo} index={index} />

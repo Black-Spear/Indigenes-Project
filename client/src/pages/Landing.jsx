@@ -35,7 +35,10 @@ const Landing = () => {
 
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
-          <Text color={useColorModeValue('gray.500', 'gray.600')}>
+          <Text
+            color={useColorModeValue('gray.500', 'gray.600')}
+            minWidth={'10.5em'}
+          >
             Popular investments
           </Text>
           <Divider w={'40%'}></Divider>
@@ -45,7 +48,10 @@ const Landing = () => {
 
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
-          <Text color={useColorModeValue('gray.500', 'gray.600')}>
+          <Text
+            color={useColorModeValue('gray.500', 'gray.600')}
+            minWidth={'7em'}
+          >
             Who we are ?
           </Text>
           <Divider w={'40%'}></Divider>
@@ -88,7 +94,10 @@ const Landing = () => {
 
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
-          <Text color={useColorModeValue('gray.500', 'gray.600')}>
+          <Text
+            color={useColorModeValue('gray.500', 'gray.600')}
+            minWidth={'6em'}
+          >
             Our results
           </Text>
           <Divider w={'40%'}></Divider>
@@ -98,13 +107,10 @@ const Landing = () => {
         />
 
         <Testimonial />
-
-        {/* <Feature //to be removed
-        /> */}
       </Box>
 
       <Box bg="gray.50" _dark={{ bg: 'gray.800' }}>
-        <HStack align={'center'} justify="center" spacing={6}>
+        <HStack align={'center'} justify="center" spacing={6} mt='2.5em'>
           <Divider w={'30%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
             Do you want to be a member?
