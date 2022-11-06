@@ -52,7 +52,7 @@ const PageProjects = () => {
   const [proj, setProj] = useState([]);
   const [SearchTerm, SetSearchTerm] = useState('');
   const [idd, setidd] = useState('');
-  const [details,setdetails]=useState([]);
+  const [details, setdetails] = useState([]);
   const api = axios.create({
     baseURL: 'http://localhost:5000',
   });
@@ -60,40 +60,30 @@ const PageProjects = () => {
   const { id } = useParams();
   console.log(id);
   console.log('leee', proj);
- 
-console.log("details",details)
+
+  console.log('details', details);
   let x = proj.filter(val => val.libelle == id.toLowerCase());
 
-    let z= x.filter((a)=>{
-      if(idd===''){
-     return a
-      }else if(idd==a.libelle_d) {
-       
-          return a;
-        
-      }
-    })
-  console.log('eyy',x);
-
-  console.log('ma3tamdeya', z);
-  let r= z
-  .filter((a) => {
-
-       if (SearchTerm == '') {
+  let z = x.filter(a => {
+    if (idd === '') {
       return a;
-     
-    } else if (
-      a.titre.toLowerCase().includes(SearchTerm.toLowerCase())
-    ) {
+    } else if (idd == a.libelle_d) {
       return a;
     }
- 
-   
-  })
+  });
+  console.log('eyy', x);
 
+  console.log('ma3tamdeya', z);
+  let r = z.filter(a => {
+    if (SearchTerm == '') {
+      return a;
+    } else if (a.titre.toLowerCase().includes(SearchTerm.toLowerCase())) {
+      return a;
+    }
+  });
 
   console.log('search', r);
-console.log('idddd',idd)
+  console.log('idddd', idd);
   useEffect(() => {
     return () => {
       api.get('/getDelegation').then(response => {
@@ -111,9 +101,8 @@ console.log('idddd',idd)
       });
     };
   }, []);
-let gouvv=gouv
-.filter(gouv => gouv.libelle == id.toLowerCase())
-console.log('gouv',gouvv)
+  let gouvv = gouv.filter(gouv => gouv.libelle == id.toLowerCase());
+  console.log('gouv', gouvv);
 
   return (
     <>
@@ -246,74 +235,70 @@ console.log('gouv',gouvv)
                 templateColumns="repeat(3, 1fr)"
                 gap={6}
               >
-                {r
-                  .map((a, key) => {
-                    return (
-                      <Center py={6} key={key}>
+                {r.map((a, key) => {
+                  return (
+                    <Center py={6} key={key}>
+                      <Box
+                        maxW={'445px'}
+                        w={'full'}
+                        bg={mode('white', 'gray.900')}
+                        boxShadow={'2xl'}
+                        rounded={'md'}
+                        p={6}
+                        overflow={'hidden'}
+                      >
                         <Box
-                          maxW={'445px'}
-                          w={'full'}
-                          bg={mode('white', 'gray.900')}
-                          boxShadow={'2xl'}
-                          rounded={'md'}
-                          p={6}
-                          overflow={'hidden'}
+                          h={'30%'}
+                          bg={'gray.100'}
+                          mt={-6}
+                          mx={-6}
+                          mb={6}
+                          pos={'relative'}
                         >
-                          <Box
-                            h={'30%'}
-                            bg={'gray.100'}
-                            mt={-6}
-                            mx={-6}
-                            mb={6}
-                            pos={'relative'}
-                          >
-                            <Image src={a.img_P} layout={'fill'} />
-                          </Box>
-                          <Stack>
-                            <Text
-                              color={'green.500'}
-                              textTransform={'uppercase'}
-                              fontWeight={800}
-                              fontSize={'sm'}
-                              letterSpacing={1.1}
-                            >
-                              {a.subtitle}
-                            </Text>
-                            <Heading
-                              color={mode('gray.700', 'white')}
-                              fontSize={'2xl'}
-                              fontFamily={'body'}
-                            >
-                              {a.titre}
-                            </Heading>
-                          </Stack>
-
-                          <Stack
-                            direction={'column'}
-                            spacing={0}
-                            fontSize={'sm'}
-                          >
-                            <Text fontWeight={600}>{a.nom_c}</Text>
-                            <Text color={'gray.500'}>
-                              Feb 08, 2021 · 6min read
-                            </Text>
-                          </Stack>
-                          <Button
-                            colorScheme="yellow"
-                            mx={3}
-                            onClick={() => {
-                              setdetails(a)
-                              navigate({ pathname: `/project_Details/${id}`,details } );
-                              
-                              
-                            }}
-                          >
-                            See details
-                          </Button>
+                          <Image src={a.img_P} layout={'fill'} />
                         </Box>
-                      </Center>
-                    );
-                  })}
+                        <Stack>
+                          <Text
+                            color={'green.500'}
+                            textTransform={'uppercase'}
+                            fontWeight={800}
+                            fontSize={'sm'}
+                            letterSpacing={1.1}
+                          >
+                            {a.subtitle}
+                          </Text>
+                          <Heading
+                            color={mode('gray.700', 'white')}
+                            fontSize={'2xl'}
+                            fontFamily={'body'}
+                          >
+                            {a.titre}
+                          </Heading>
+                        </Stack>
+
+                        <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+                          <Text fontWeight={600}>{a.nom_c}</Text>
+                          <Text color={'gray.500'}>
+                            Feb 08, 2021 · 6min read
+                          </Text>
+                        </Stack>
+                        <Button
+                          colorScheme="yellow"
+                          mx={3}
+                          onClick={() => {
+                            setdetails(a);
+                            navigate({
+                              pathname: `/project_Details/${id}`,
+                              details,
+                            });
+                          }}
+                        >
+                          See details
+                        </Button>
+                      </Box>
+                    </Center>
+                  );
+                })}
               </Grid>
             </Box>
           </Flex>
@@ -343,90 +328,88 @@ console.log('gouv',gouvv)
             <ModalCloseButton />
             <ModalBody>
               <SimpleGrid columns={{ base: 10, lg: 3 }}>
-                {gouvv
-                  .map(deleg => (
-                    <Center py={6}>
+                {gouvv.map(deleg => (
+                  <Center py={6}>
+                    <Box
+                      mr={2}
+                      ml={2}
+                      className="card"
+                      maxW={'256px'}
+                      w={'100%'}
+                      bg={mode('#ecc94b', '#4a5568')}
+                      boxShadow={'2xl'}
+                      rounded={'xl'}
+                      px={6}
+                      overflow={'hidden'}
+                    >
                       <Box
-                        mr={2}
-                        ml={2}
-                        className="card"
-                        maxW={'256px'}
-                        w={'100%'}
-                        bg={mode('#ecc94b', '#4a5568')}
-                        boxShadow={'2xl'}
-                        rounded={'xl'}
-                        px={6}
-                        overflow={'hidden'}
+                        className="card-image"
+                        h={'20%'}
+                        bg={mode('#ecc94b', '#E3BF3E')}
+                        w={'100v'}
+                        mx={-6}
+                        mb={6}
+                        p="5%"
+                        pos={'relative'}
+                        textAlign="center"
                       >
-                        <Box
-                          className="card-image"
-                          h={'20%'}
-                          bg={mode('#ecc94b', '#E3BF3E')}
-                          w={'100v'}
-                          mx={-6}
-                          mb={6}
-                          p="5%"
-                          pos={'relative'}
-                          textAlign="center"
+                        <Heading
+                          color={mode('gray.700', 'gray.800')}
+                          fontSize={'2xl'}
+                          fontFamily={'body'}
+                          fontWeight={800}
                         >
-                          <Heading
-                            color={mode('gray.700', 'gray.800')}
-                            fontSize={'2xl'}
-                            fontFamily={'body'}
-                            fontWeight={800}
-                          >
-                            {deleg.libelle_d}
-                          </Heading>
-                        </Box>
-                        <Box
-                          h={'80%'}
-                          bg={'gray.100'}
-                          mt={-6}
-                          mx={-6}
-                          pos={'relative'}
-                        >
-                          <Image src={img} layout={'fill'} />
-                        </Box>
-                        <Box
-                          className="card-description"
-                          bg={mode('white', '#4a5568')}
-                          mt={-6}
-                          mx={-6}
-                          p="8%"
-                          pos={'relative'}
-                          textAlign="center"
-                          zIndex={100}
-                          //_hover={{h: '256px', top: '-100px'}}
-                        >
-                          <Heading
-                            color={mode('gray.700', 'white')}
-                            fontSize={'md'}
-                            fontFamily={'body'}
-                            mt="1vh"
-                            mb="5vh"
-                          >
-                           
-                            10
-                            Available Projects
-                          </Heading>
-                          <Text className="text-body">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor.
-                          </Text>
-                          {console.log('rayen',deleg.libelle_d)
-                          }
-                          
-                          <Button mt="5vh"
-      onClick={()=>{
-       setidd(deleg.libelle_d)
-       onClose()
-      }}
-                          
-                          >See more</Button>
-                        </Box>
+                          {deleg.libelle_d}
+                        </Heading>
                       </Box>
-                    </Center>
-                  ))}
+                      <Box
+                        h={'80%'}
+                        bg={'gray.100'}
+                        mt={-6}
+                        mx={-6}
+                        pos={'relative'}
+                      >
+                        <Image src={img} layout={'fill'} />
+                      </Box>
+                      <Box
+                        className="card-description"
+                        bg={mode('white', '#4a5568')}
+                        mt={-6}
+                        mx={-6}
+                        p="8%"
+                        pos={'relative'}
+                        textAlign="center"
+                        zIndex={100}
+                        //_hover={{h: '256px', top: '-100px'}}
+                      >
+                        <Heading
+                          color={mode('gray.700', 'white')}
+                          fontSize={'md'}
+                          fontFamily={'body'}
+                          mt="1vh"
+                          mb="5vh"
+                        >
+                          10 Available Projects
+                        </Heading>
+                        <Text className="text-body">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor.
+                        </Text>
+                        {console.log('rayen', deleg.libelle_d)}
+
+                        <Button
+                          mt="5vh"
+                          onClick={() => {
+                            setidd(deleg.libelle_d);
+                            onClose();
+                          }}
+                        >
+                          See more
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Center>
+                ))}
               </SimpleGrid>
             </ModalBody>
             <ModalFooter>
