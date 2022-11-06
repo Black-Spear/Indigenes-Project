@@ -36,9 +36,12 @@ import { ReactNode } from 'react';
 import { BsFillPersonFill, BsPerson } from 'react-icons/bs';
 import { FiServer } from 'react-icons/fi';
 import { GoLocation } from 'react-icons/go';
+import { useState } from 'react';
 
 function StatsCard(props) {
   const { title, stat, icon } = props;
+  const [details,setdetails]=useState([])
+  console.log("dd",setdetails)
   return (
     <Stat
       px={{ base: 2, md: 4 }}

@@ -29,7 +29,7 @@ import {
   useDisclosure,
   SimpleGrid,
 } from '@chakra-ui/react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import '../sections/Projects/Banner/style.css';
 import React, { useEffect, useState } from 'react';
@@ -51,7 +51,8 @@ const PageProjects = () => {
   const [gouv, setGouv] = useState([]);
   const [proj, setProj] = useState([]);
   const [SearchTerm, SetSearchTerm] = useState('');
-  const [idd, setidd] = useState();
+  const [idd, setidd] = useState('');
+  const [details,setdetails]=useState([]);
   const api = axios.create({
     baseURL: 'http://localhost:5000',
   });
@@ -59,10 +60,40 @@ const PageProjects = () => {
   const { id } = useParams();
   console.log(id);
   console.log('leee', proj);
-
+ 
+console.log("details",details)
   let x = proj.filter(val => val.libelle == id.toLowerCase());
-  console.log('eyy', x);
 
+    let z= x.filter((a)=>{
+      if(idd===''){
+     return a
+      }else if(idd==a.libelle_d) {
+       
+          return a;
+        
+      }
+    })
+  console.log('eyy',x);
+
+  console.log('ma3tamdeya', z);
+  let r= z
+  .filter((a) => {
+
+       if (SearchTerm == '') {
+      return a;
+     
+    } else if (
+      a.titre.toLowerCase().includes(SearchTerm.toLowerCase())
+    ) {
+      return a;
+    }
+ 
+   
+  })
+
+
+  console.log('search', r);
+console.log('idddd',idd)
   useEffect(() => {
     return () => {
       api.get('/getDelegation').then(response => {
@@ -80,6 +111,10 @@ const PageProjects = () => {
       });
     };
   }, []);
+let gouvv=gouv
+.filter(gouv => gouv.libelle == id.toLowerCase())
+console.log('gouv',gouvv)
+
   return (
     <>
       <Header />
@@ -211,17 +246,8 @@ const PageProjects = () => {
                 templateColumns="repeat(3, 1fr)"
                 gap={6}
               >
-                {x
-                  .filter(e => {
-                    if (SearchTerm == '') {
-                      return e;
-                    } else if (
-                      e.titre.toLowerCase().includes(SearchTerm.toLowerCase())
-                    ) {
-                      return e;
-                    }
-                  })
-                  .map((e, key) => {
+                {r
+                  .map((a, key) => {
                     return (
                       <Center py={6} key={key}>
                         <Box
@@ -241,7 +267,7 @@ const PageProjects = () => {
                             mb={6}
                             pos={'relative'}
                           >
-                            <Image src={e.img_P} layout={'fill'} />
+                            <Image src={a.img_P} layout={'fill'} />
                           </Box>
                           <Stack>
                             <Text
@@ -251,14 +277,14 @@ const PageProjects = () => {
                               fontSize={'sm'}
                               letterSpacing={1.1}
                             >
-                              {e.subtitle}
+                              {a.subtitle}
                             </Text>
                             <Heading
                               color={mode('gray.700', 'white')}
                               fontSize={'2xl'}
                               fontFamily={'body'}
                             >
-                              {e.titre}
+                              {a.titre}
                             </Heading>
                           </Stack>
 
@@ -267,7 +293,7 @@ const PageProjects = () => {
                             spacing={0}
                             fontSize={'sm'}
                           >
-                            <Text fontWeight={600}>{e.nom_c}</Text>
+                            <Text fontWeight={600}>{a.nom_c}</Text>
                             <Text color={'gray.500'}>
                               Feb 08, 2021 · 6min read
                             </Text>
@@ -276,7 +302,10 @@ const PageProjects = () => {
                             colorScheme="yellow"
                             mx={3}
                             onClick={() => {
-                              navigate({ pathname: `/project_Details/${id}` });
+                              setdetails(a)
+                              navigate({ pathname: `/project_Details/${id}`,details } );
+                              
+                              
                             }}
                           >
                             See details
@@ -314,8 +343,7 @@ const PageProjects = () => {
             <ModalCloseButton />
             <ModalBody>
               <SimpleGrid columns={{ base: 10, lg: 3 }}>
-                {gouv
-                  .filter(gouv => gouv.libelle == id.toLowerCase())
+                {gouvv
                   .map(deleg => (
                     <Center py={6}>
                       <Box
@@ -377,14 +405,24 @@ const PageProjects = () => {
                             mt="1vh"
                             mb="5vh"
                           >
-                            <span>10 </span>
+                           
+                            10
                             Available Projects
                           </Heading>
                           <Text className="text-body">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor.
                           </Text>
-                          <Button mt="5vh">See more</Button>
+                          {console.log('rayen',deleg.libelle_d)
+                          }
+                          
+                          <Button mt="5vh"
+      onClick={()=>{
+       setidd(deleg.libelle_d)
+       onClose()
+      }}
+                          
+                          >See more</Button>
                         </Box>
                       </Box>
                     </Center>
