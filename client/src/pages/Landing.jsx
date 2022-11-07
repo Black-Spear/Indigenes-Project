@@ -110,7 +110,7 @@ const Landing = () => {
       </Box>
 
       <Box bg="gray.50" _dark={{ bg: 'gray.800' }}>
-        <HStack align={'center'} justify="center" spacing={6} mt='2.5em'>
+        <HStack align={'center'} justify="center" spacing={6} mt="2.5em">
           <Divider w={'30%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
             Do you want to be a member?
@@ -120,9 +120,12 @@ const Landing = () => {
 
         <Pricing />
 
-        <HStack align={'center'} justify="center" spacing={6}>
+        <HStack align={'center'} justify="center" spacing={6} pb="3em">
           <Divider w={'40%'}></Divider>
-          <Text color={useColorModeValue('gray.500', 'gray.600')}>
+          <Text
+            color={useColorModeValue('gray.500', 'gray.600')}
+            minWidth={'6em'}
+          >
             Need Help ?
           </Text>
           <Divider w={'40%'}></Divider>

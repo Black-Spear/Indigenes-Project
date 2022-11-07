@@ -56,7 +56,11 @@ function SignIn() {
     email: '',
     password: '',
   });
-  const spiner = (<><Spinner /></>);
+  const spinner = (
+    <>
+      <Spinner />
+    </>
+  );
   const inputHandler = e => {
     setform({ ...form, [e.target.name]: e.target.value });
   };
@@ -84,13 +88,13 @@ function SignIn() {
 
       setTimeout(() => {
         toast({
-        title: 'Connected!',
-        description: 'Have a nice day.',
-        status: 'success',
-        duration: 2000,
-        isClosable: true,
-      })
-        navigate('/')
+          title: 'Connected!',
+          description: 'Have a nice day.',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        });
+        navigate('/');
       }, 3000);
     }
   };
@@ -110,7 +114,6 @@ function SignIn() {
 
   const line1 = " 'and the abyss gazes back...' ";
   const line2 = " gazes into you...'";
-
 
   //! RETURN IS HERE :
   return (
@@ -212,7 +215,6 @@ function SignIn() {
               >
                 Enter your email and password to sign in
               </Text>
-              
 
               <FormControl>
                 <FormLabel ms="4px" fontSize="md" fontWeight="semibold">
@@ -273,7 +275,7 @@ function SignIn() {
                   }}
                   onClick={submitButton}
                 >
-                  {press ? spiner : 'SIGN IN'}
+                  {press ? spinner : 'SIGN IN'}
                 </Button>
               </FormControl>
               <Flex
