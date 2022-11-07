@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import { Main } from './pages/Main';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,7 +8,6 @@ import CreateProject from './pages/Project/ProjectForm';
 import Simple from './pages/project';
 import axios from 'axios';
 import PageProjects from './pages/pageProjects';
-// import Loading from './pages/Loading';
 //ScrollToTop Imports
 import ScrollToTop from './components/ScrollToTop';
 //profile Imports

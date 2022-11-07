@@ -143,7 +143,7 @@ export function Testimonial() {
         mx={{ base: '1em', sm: 'auto' }}
       >
         {testimonials.map((cardInfo, index) => (
-          <TestimonialCard {...cardInfo} index={index} />
+          <TestimonialCard {...cardInfo} key={index} />
         ))}
       </SimpleGrid>
       <Box>

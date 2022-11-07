@@ -140,7 +140,9 @@ const PageProjects = () => {
           <Text fontSize="5rem" color="white" fontWeight="extrabold">
             {id}
           </Text>
-
+          <Text fontSize="1rem" color="white" fontWeight="extrabold">
+            {idd}
+          </Text>
           <Stack
             justify="center"
             direction={{
@@ -207,7 +209,7 @@ const PageProjects = () => {
                   <FiSearch />
                 </Button>
 
-                <Select
+                {/* <Select
                   size="md"
                   bg={mode('gray.100', 'gray.800')}
                   w="auto"
@@ -218,7 +220,7 @@ const PageProjects = () => {
                     .map(deleg => (
                       <option value={deleg.libelle_d}>{deleg.libelle_d}</option>
                     ))}
-                </Select>
+                </Select> */}
               </InputRightElement>
               <Input
                 bg={mode('white', 'gray.700')}
