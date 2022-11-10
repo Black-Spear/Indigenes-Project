@@ -3,7 +3,6 @@ import {
   Button,
   Flex,
   HStack,
-  VisuallyHidden,
   LightMode,
   useColorModeValue,
   Menu,
@@ -15,7 +14,7 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 import * as React from 'react';
-import { Logo } from './Logo';
+import { Logo } from './Logo'; // TODO: remove this logo thingy
 import { MobileNav } from './MobileNav';
 import { NavLink } from './NavLink';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
@@ -30,12 +29,12 @@ import logoDark from '../../logoDark.svg';
 export const Header = () => {
   const theme = useColorModeValue('light', 'dark');
   const logoImg = useColorModeValue(logoLight, logoDark);
-  var user = JSON.parse(localStorage.getItem('current_user'));
+  let user = JSON.parse(localStorage.getItem('current_user'));
   useEffect(() => {
     return () => {
       console.log(user);
     };
-  }, []);
+  }, []); //is it missing a dependancy here?? maybe add 'user' to the array (ashref)
   var Status;
   if (user != null) {
     Status = (
@@ -48,7 +47,6 @@ export const Header = () => {
           leftIcon={<AddIcon />}
         >
           <Link to={'/create_project'}>Add Project</Link>
-          
         </Button>
         <Menu>
           <MenuButton
@@ -99,7 +97,6 @@ export const Header = () => {
               <Link to="/signin">Sign in</Link>{' '}
             </NavLink.Desktop>
           </Box>
-
           <LightMode>
             <Link to="/signup">
               {' '}
@@ -109,28 +106,27 @@ export const Header = () => {
             </Link>
           </LightMode>
           <ColorModeSwitcher />
+          position="fixed"
         </HStack>
       </>
     );
   }
 
-    const [colorChange, setColorchange] = useState(false);
-    const changeNavbarColor = () =>{
-       if(window.scrollY >= 80){
-         setColorchange(true);
-       }
-       else{
-         setColorchange(false);
-       }
-    };
-    window.addEventListener('scroll', changeNavbarColor);
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener('scroll', changeNavbarColor);
   return (
     <Flex justify="space-between">
       <Flex
         as="header"
         className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
         style={{ backdropFilter: 'blur(3px)' }}
-        position="fixed"
         justify="center"
         rowGap={22}
         w="100vw"
@@ -146,10 +142,8 @@ export const Header = () => {
         >
           <Flex as="nav" gap="17vw">
             <HStack spacing="8">
-              <Box as="a" href="/" rel="home" w='20vh' >
-                {/* <VisuallyHidden>Indigenes</VisuallyHidden> */}
-                <Image src={colorChange ? logoImg : logoDark}  />
-                
+              <Box as="a" href="/" rel="home" w="20vh">
+                <Image src={colorChange ? logoImg : logoDark} />
               </Box>
             </HStack>
             <Flex align="center">
