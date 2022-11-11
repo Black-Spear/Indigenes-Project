@@ -13,13 +13,12 @@ import {
   Image,
   MenuDivider,
 } from '@chakra-ui/react';
+import './nav.css';
 import * as React from 'react';
-import { Logo } from './Logo'; // TODO: remove this logo thingy
 import { MobileNav } from './MobileNav';
 import { NavLink } from './NavLink';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import { Link } from 'react-router-dom';
-import './nav.css';
 import { useEffect } from 'react';
 import { AddIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
@@ -154,10 +153,10 @@ export const Header = () => {
                   md: 'flex',
                 }}
               >
-                <NavLink.Desktop href="#about"> About </NavLink.Desktop>
-                <NavLink.Desktop href="#stats"> Statistics </NavLink.Desktop>
-                <NavLink.Desktop href="#feature"> Features </NavLink.Desktop>
-                <NavLink.Desktop href="#contact"> Contact </NavLink.Desktop>
+                <NavLink.Desktop href="/#"> About </NavLink.Desktop>
+                <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
+                <NavLink.Desktop href="/#feature"> Features </NavLink.Desktop>
+                <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
               </HStack>
             </Flex>
             <Flex alignItems="center" justify="flex-end">
