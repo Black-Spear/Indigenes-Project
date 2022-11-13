@@ -39,6 +39,7 @@ import img from '../assets/img/projects/test.png';
 import { Header } from '../components/Header/Header';
 import axios from 'axios';
 import './style.css';
+import data from '../sections/Landing/Map/data.json';
 
 const PageProjects = () => {
   const navigate = useNavigate();
@@ -62,6 +63,15 @@ const PageProjects = () => {
   console.log('leee', proj);
 
   console.log('details', details);
+
+  let dataid = data.find(e => {
+    //bg img fi koll wileya
+    if (e.id === id) {
+      return e.img;
+    }
+  });
+  console.log('dataid', dataid.img);
+
   let x = proj.filter(val => val.libelle == id.toLowerCase());
 
   let z = x.filter(a => {
@@ -123,7 +133,7 @@ const PageProjects = () => {
           overflow="hidden"
           zIndex="-1"
           top="0"
-          bgImage="https://upload.wikimedia.org/wikipedia/commons/c/c6/Ksiba%2C_Bizerte_1.jpg"
+          bgImage={dataid.img} // sa7a rayen
           bgSize="cover"
           mx={{ md: 'auto' }}
           className="back"
@@ -208,19 +218,6 @@ const PageProjects = () => {
                 <Button bg="transparent">
                   <FiSearch />
                 </Button>
-
-                {/* <Select
-                  size="md"
-                  bg={mode('gray.100', 'gray.800')}
-                  w="auto"
-                  color={mode('gray.800', 'gray.100')}
-                >
-                  {gouv
-                    .filter(gouv => gouv.libelle == id.toLowerCase())
-                    .map(deleg => (
-                      <option value={deleg.libelle_d}>{deleg.libelle_d}</option>
-                    ))}
-                </Select> */}
               </InputRightElement>
               <Input
                 bg={mode('white', 'gray.700')}
@@ -241,7 +238,9 @@ const PageProjects = () => {
                   return (
                     <Center py={6} key={key}>
                       <Box
-                        maxW={'445px'}
+                        maxW={'30em'}
+                        minW={'16em'}
+                        minH={'30em'}
                         w={'full'}
                         bg={mode('white', 'gray.900')}
                         boxShadow={'2xl'}
@@ -250,53 +249,60 @@ const PageProjects = () => {
                         overflow={'hidden'}
                       >
                         <Box
-                          h={'30%'}
                           bg={'gray.100'}
                           mt={-6}
                           mx={-6}
                           mb={6}
                           pos={'relative'}
+                          maxHeight="15em"
+                          d
                         >
-                          <Image src={a.img_P} layout={'fill'} />
+                          <Image src={a.img_P} objectFit={'cover'} />
                         </Box>
-                        <Stack>
-                          <Text
-                            color={'green.500'}
-                            textTransform={'uppercase'}
-                            fontWeight={800}
-                            fontSize={'sm'}
-                            letterSpacing={1.1}
-                          >
-                            {a.subtitle}
-                          </Text>
-                          <Heading
-                            color={mode('gray.700', 'white')}
-                            fontSize={'2xl'}
-                            fontFamily={'body'}
-                          >
-                            {a.titre}
-                          </Heading>
-                        </Stack>
+                        <Box>
+                          <Stack>
+                            <Text
+                              color={'green.500'}
+                              textTransform={'uppercase'}
+                              fontWeight={800}
+                              fontSize={'sm'}
+                              letterSpacing={1.1}
+                            >
+                              {a.subtitle}
+                            </Text>
+                            <Heading
+                              color={mode('gray.700', 'white')}
+                              fontSize={'2xl'}
+                              fontFamily={'body'}
+                            >
+                              {a.titre}
+                            </Heading>
+                          </Stack>
 
-                        <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                          <Text fontWeight={600}>{a.nom_c}</Text>
-                          <Text color={'gray.500'}>
-                            Feb 08, 2021 · 6min read
-                          </Text>
-                        </Stack>
-                        <Button
-                          colorScheme="yellow"
-                          mx={3}
-                          onClick={() => {
-                            setdetails(a);
-                            navigate({
-                              pathname: `/project_Details/${id}`,
-                              details,
-                            });
-                          }}
-                        >
-                          See details
-                        </Button>
+                          <Stack
+                            direction={'column'}
+                            spacing={0}
+                            fontSize={'sm'}
+                          >
+                            <Text fontWeight={600}>{a.nom_c}</Text>
+                            <Text color={'gray.500'}>
+                              Feb 08, 2021 · 6min read
+                            </Text>
+                          </Stack>
+                          <Button
+                            colorScheme="yellow"
+                            mx={3}
+                            onClick={() => {
+                              setdetails(a);
+                              navigate(
+                                { pathname: `/project_Details/${id}` },
+                                { state: { details: a } }
+                              );
+                            }}
+                          >
+                            See details
+                          </Button>
+                        </Box>
                       </Box>
                     </Center>
                   );
