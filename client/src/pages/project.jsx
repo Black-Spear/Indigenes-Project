@@ -37,11 +37,11 @@ import { BsFillPersonFill, BsPerson } from 'react-icons/bs';
 import { FiServer } from 'react-icons/fi';
 import { GoLocation } from 'react-icons/go';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function StatsCard(props) {
   const { title, stat, icon } = props;
-  const [details, setdetails] = useState([]);
-  console.log('dd', setdetails);
+
   return (
     <Stat
       px={{ base: 2, md: 4 }}
@@ -73,6 +73,10 @@ function StatsCard(props) {
 }
 
 export default function Simple() {
+  const location = useLocation(); // sa7a rayen
+  console.log('local', location);
+  const data = location.state?.details;
+  console.log('data', data);
   return (
     <>
       <Header />
@@ -84,7 +88,7 @@ export default function Simple() {
           fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
           mt="100px"
         >
-          El Faouar Project
+          {data.titre}
         </Heading>
 
         <SimpleGrid
@@ -96,9 +100,7 @@ export default function Simple() {
             <Image
               rounded={'md'}
               alt={'product image'}
-              src={
-                'https://www.viaggiaresempre.it/wp-content/uploads/2017/12/16OasiMontagnaTamarza-1024x658.jpg'
-              }
+              src={data.img_P}
               fit={'cover'}
               align={'center'}
               w="100%"
@@ -167,8 +169,12 @@ export default function Simple() {
                     fontWeight={300}
                     fontSize={'2xl'}
                   >
-                    Location: <span>El Faouar, Tunisia</span>
+                    Location:{' '}
+                    <span>
+                      {data.libelle}, {data.libelle_d}
+                    </span>
                   </Text>
+                  p{' '}
                 </HStack>
               </Box>
               <VStack spacing={{ base: 4, sm: 6 }}>
@@ -221,7 +227,7 @@ export default function Simple() {
               <ListItem>Tachymeter</ListItem>
             </List>
             <List spacing={2}>
-              <ListItem>Anti-magnetic</ListItem>
+              <ListItem>Anti‑magnetic</ListItem>
               <ListItem>Chronometer</ListItem>
               <ListItem>Small seconds</ListItem>
             </List>
@@ -274,7 +280,7 @@ export default function Simple() {
               <Text as={'span'} fontWeight={'bold'}>
                 Crystal:
               </Text>{' '}
-              Domed, scratch-resistant sapphire crystal with anti-reflective
+              Domed, scratch‑resistant sapphire crystal with anti‑reflective
               treatment inside
             </ListItem>
             <ListItem>

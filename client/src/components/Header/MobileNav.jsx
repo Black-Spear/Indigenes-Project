@@ -9,10 +9,10 @@ import {
   useFocusOnShow,
   VStack,
   useColorModeValue as mode,
-} from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-import * as React from 'react'
-import FocusLock from 'react-focus-lock'
+} from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import * as React from 'react';
+import FocusLock from 'react-focus-lock';
 import {
   HiBookOpen,
   HiCloudDownload,
@@ -20,12 +20,12 @@ import {
   HiOutlineMenu,
   HiOutlineX,
   HiQuestionMarkCircle,
-} from 'react-icons/hi'
-import { RemoveScroll } from 'react-remove-scroll'
-import { Logo } from './Logo'
-import { NavLink } from './NavLink'
-import {ColorModeSwitcher} from '../../ColorModeSwitcher'
-import { Link } from 'react-router-dom'
+} from 'react-icons/hi';
+import { RemoveScroll } from 'react-remove-scroll';
+import { Logo } from './Logo';
+import { NavLink } from './NavLink';
+import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+import { Link } from 'react-router-dom';
 
 const variants = {
   show: {
@@ -48,7 +48,7 @@ const variants = {
       display: 'none',
     },
   },
-}
+};
 
 const Backdrop = ({ show }) => (
   <Portal>
@@ -79,10 +79,10 @@ const Backdrop = ({ show }) => (
       }}
     />
   </Portal>
-)
+);
 
-const Transition = (props) => {
-  const { in: inProp, ...rest } = props
+const Transition = props => {
+  const { in: inProp, ...rest } = props;
   return (
     <motion.div
       {...rest}
@@ -99,16 +99,16 @@ const Transition = (props) => {
         zIndex: 1,
       }}
     />
-  )
-}
+  );
+};
 
 export const MobileNav = () => {
-  const [show, { toggle, off }] = useBoolean()
-  const ref = React.useRef(null)
+  const [show, { toggle, off }] = useBoolean();
+  const ref = React.useRef(null);
   useFocusOnShow(ref, {
     visible: show,
     shouldFocus: true,
-  })
+  });
   return (
     <>
       <Box
@@ -117,7 +117,7 @@ export const MobileNav = () => {
         p="1"
         fontSize="2xl"
         color="blackAlpha.700"
-        _dark={{color: "white"}}
+        _dark={{ color: 'white' }}
         onClick={toggle}
         display={{
           base: 'block',
@@ -170,22 +170,30 @@ export const MobileNav = () => {
                 }}
               >
                 <NavLink.Mobile icon={HiCloudDownload}>About</NavLink.Mobile>
-                <NavLink.Mobile icon={HiCurrencyDollar}>Features</NavLink.Mobile>
+                <NavLink.Mobile icon={HiCurrencyDollar}>
+                  Features
+                </NavLink.Mobile>
                 <NavLink.Mobile icon={HiBookOpen}>Pricing</NavLink.Mobile>
-                <NavLink.Mobile icon={HiQuestionMarkCircle}>Contact us</NavLink.Mobile>
-                 <ColorModeSwitcher/>
+                <NavLink.Mobile icon={HiQuestionMarkCircle}>
+                  Contact us
+                </NavLink.Mobile>
+                <ColorModeSwitcher />
               </SimpleGrid>
               <VStack mt="8" spacing="4">
-                 <Link to='/signin'><Button w="full" colorScheme="yellow" onClick={CloseEvent}>
-               Sign in
-                </Button></Link> 
-                
+                <Link to="/signin">
+                  <Button w="full" colorScheme="yellow" onClick={CloseEvent}>
+                    Sign in
+                  </Button>
+                </Link>
+
                 <Box textAlign="center" fontWeight="medium">
                   Don't have an account?{' '}
-                  <Link to='/signup'> <Box as="a" color={mode('yellow.400', 'yellow.400')} >
-                    Sign up
-                  </Box></Link>
-                 
+                  <Link to="/signup">
+                    {' '}
+                    <Box as="a" color={mode('yellow.400', 'yellow.400')}>
+                      Sign up
+                    </Box>
+                  </Link>
                 </Box>
               </VStack>
             </Box>
@@ -193,5 +201,5 @@ export const MobileNav = () => {
         </FocusLock>
       </Transition>
     </>
-  )
-}
+  );
+};
