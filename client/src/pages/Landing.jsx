@@ -12,7 +12,6 @@ import { About2 } from '../sections/Landing/About2/About2';
 import { About3 } from '../sections/Landing/About3/About3';
 import { Stats1 } from '../sections/Landing/Stats1/Stats1';
 import { Vision } from '../sections/Landing/Vision/Vision';
-
 import { QuestionCards } from '../sections/Landing/QuestionCards/QuestionCards';
 import {
   Box,

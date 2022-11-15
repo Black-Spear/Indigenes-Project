@@ -395,10 +395,10 @@ const PageProjects = () => {
                           mx={-6}
                           pos={'relative'}
                         >
-                          <Image src={img} layout={'fill'} />
+                          <Image src={img} layout={'cover'} />
                         </Box>
-                        <Box
-                          className="card-description"
+                        <Box // el card elli feha  ktiba ta7t taswira kebili
+                          
                           bg={mode('white', '#4a5568')}
                           mt={-6}
                           mx={-6}
@@ -411,25 +411,22 @@ const PageProjects = () => {
                             color={mode('gray.700', 'white')}
                             fontSize={'md'}
                             fontFamily={'body'}
-                            mt="1vh"
-                            mb="5vh"
+                            m="1vh"
+                            
                           >
                             10 Available Projects
                           </Heading>
-                          <Text className="text-body">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor.
-                          </Text>
+                          
                           {console.log('rayen', deleg.libelle_d)}
 
                           <Button
-                            mt="5vh"
+                            my="1vh"
                             onClick={() => {
                               setidd(deleg.libelle_d);
                               onClose();
                             }}
                           >
-                            See more
+                            Explore
                           </Button>
                         </Box>
                       </Box>
