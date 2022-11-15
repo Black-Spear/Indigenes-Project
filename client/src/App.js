@@ -24,7 +24,6 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      
       <Router>
         <Routes>
           <Route path="/" exact element={<Main />} />
