@@ -1,17 +1,15 @@
 .card-description {
-    transition:all 0.6s;
-    height: 10vh;
-    
-    
-       }
-       
-       .card-description:hover {
-        transform: translateY(-50%);
-        /* transition:all 0.6s; */
-        height: 45.5vh;
-        margin-bottom: -20vh;
-            
-           }
-           .card-description > h2 > span{
-            font-size: large;
-            font-weight: bolder;       }
+  transition: all 0.6s;
+  height: 10vh;
+}
+
+.card-description:hover {
+  transform: translateY(-50%);
+  /* transition:all 0.6s; */
+  height: 45.5vh;
+  margin-bottom: -20vh;
+}
+.card-description > h2 > span {
+  font-size: large;
+  font-weight: bolder;
+}
