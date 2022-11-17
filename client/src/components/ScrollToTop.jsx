@@ -49,17 +49,18 @@ const ScrollToTop = () => {
     <IconButton
       aria-label="scroll to top"
       icon={<ArrowUpIcon />}
-      size="lg"
+      size={{ base: 'sm', sm: 'md' }}
       colorScheme="yellow"
       variant="outline"
       border="2px solid"
       ref={scrollButton}
       onClick={handleClick}
       position="fixed"
-      bottom="4rem"
-      right="4rem"
-      zIndex="-1"
+      bottom={{ base: '1rem', sm: '4rem' }}
+      right={{ base: '10rem', sm: '4rem' }}
+      zIndex="1"
       opacity="0"
+      overflow={'hidden'}
     />
   );
 };
