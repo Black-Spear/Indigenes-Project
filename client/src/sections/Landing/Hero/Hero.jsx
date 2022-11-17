@@ -100,8 +100,9 @@ export const Hero = () => {
                 transition={{ duration: 2 }}
                 viewport={{ once: true }}
               >
-                Earn <span className='gradientspan'>Benefits</span> from investing in projects in{' '}
-                <span className='gradientspan'>Tunisia</span>
+                Earn <span className="gradientspan">Benefits</span> from
+                investing in projects in{' '}
+                <span className="gradientspan">Tunisia</span>
               </MotionHeading>
 
               <MotionText
@@ -175,7 +176,7 @@ export const Hero = () => {
           </Box>
         </Center>
       </Flex>
-      <Container py={5} maxW={'container.lg'}>
+      <Container py={5} maxW={'container.lg'} scrollBehavior="smooth">
         <Grid
           id="stats"
           paddingTop={'10vh'}
@@ -186,15 +187,16 @@ export const Hero = () => {
           }}
           mb="5vh"
           gap={6}
+          maxWidth="100%"
         >
           <MotionGridItem
             w="100%"
             colSpan={{ base: 1, sm: 2, md: 2 }}
             mr={'5vw'}
-            initial={{ opacity: 0, x: '-25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-            transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
-            viewport={{ once: true }}
+            // initial={{ opacity: 0, x: '-25vw', scale: 1 }} //animation inizaiale lel ktiba main
+            // whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
+            // transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
+            // viewport={{ once: true }}
           >
             <Heading width={'150%'} mb={3}>
               Safe <span fontWeight="">Investment</span>
@@ -205,10 +207,10 @@ export const Hero = () => {
           <MotionGridItem
             w="100%"
             ml={'4vw'}
-            initial={{ opacity: 0, x: '25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-            transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
-            viewport={{ once: true }}
+            // initial={{ opacity: 0, x: '25vw', scale: 1 }} //animation inizaiale lel ktiba main
+            // whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
+            // transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
+            // viewport={{ once: true }}
           >
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
@@ -223,10 +225,10 @@ export const Hero = () => {
           <MotionGridItem
             w="100%"
             ml={'4vw'}
-            initial={{ opacity: 0, x: '25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-            transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
-            viewport={{ once: true }}
+            // initial={{ opacity: 0, x: '25vw', scale: 1 }} //animation inizaiale lel ktiba main
+            // whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
+            // transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
+            // viewport={{ once: true }}
           >
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>

@@ -28,7 +28,7 @@ const Arrow = createIcon({
 
 export const Pricing = () => {
   return (
-    <Box as="section" pt="5em" >
+    <Box as="section" pt="5em">
       <Box
         maxW={{
           base: 'xl',
@@ -63,7 +63,7 @@ export const Pricing = () => {
           <Flex
             rounded="md"
             mx={{
-              base: '7',
+              base: '2',
               xl: '10',
             }}
             bg={'white'}
@@ -130,7 +130,6 @@ export const Pricing = () => {
                 <Text>100+ highly vetted expert network</Text>
               </SimpleGrid>
             </Stack>
-
             <Box>
               <Icon
                 as={Arrow}
@@ -168,7 +167,6 @@ export const Pricing = () => {
                 Starting at 30£/mo
               </Text>
             </Box>
-
             <Stack
               pt="4vh"
               pb="2vh"

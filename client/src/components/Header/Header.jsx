@@ -33,7 +33,7 @@ export const Header = () => {
     return () => {
       console.log(user);
     };
-  }, []); //is it missing a dependancy here?? maybe add 'user' to the array (ashref)
+  }, []);
   var Status;
   if (user != null) {
     Status = (
@@ -109,7 +109,7 @@ export const Header = () => {
         </HStack>
       </>
     );
-  }
+  } //!end check user sign in static
 
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {

@@ -111,95 +111,97 @@ export const MobileNav = () => {
   });
   return (
     <>
-      <Box
-        as="button"
-        type="button"
-        p="1"
-        fontSize="2xl"
-        color="blackAlpha.700"
-        _dark={{ color: 'white' }}
-        onClick={toggle}
-        display={{
-          base: 'block',
-          lg: 'none',
-        }}
-      >
-        <HiOutlineMenu />
-      </Box>
+      <Box>
+        <Box
+          as="button"
+          type="button"
+          p="1"
+          fontSize="2xl"
+          color="white"
+          // _dark={{ color: 'white' }}
+          onClick={toggle}
+          display={{
+            base: 'block',
+            lg: 'none',
+          }}
+        >
+          <HiOutlineMenu />
+        </Box>
 
-      <Transition in={show}>
-        <RemoveScroll enabled={show}>
-          <Backdrop show={show} />
-        </RemoveScroll>
-        <FocusLock disabled={!show} returnFocus>
-          <Box
-            bg={mode('white', 'gray.700')}
-            shadow="lg"
-            rounded="lg"
-            ref={ref}
-            tabIndex={0}
-            outline={0}
-          >
-            <Box pt="5" pb="6" px="5">
-              <Flex justify="space-between" align="center">
-                <Logo h="6" iconColor="yellow.400" />
-                <Box mr="-2" mt="-2">
-                  <Center
-                    as="button"
-                    type="button"
-                    onClick={off}
-                    rounded="base"
-                    p="1"
-                    color={mode('gray.600', 'gray.400')}
-                    _hover={{
-                      bg: mode('gray.100', 'gray.600'),
-                    }}
-                  >
-                    <Box srOnly>Close menu</Box>
-                    <HiOutlineX aria-hidden fontSize="1.5rem" />
-                  </Center>
-                </Box>
-              </Flex>
-              <SimpleGrid
-                as="nav"
-                gap="6"
-                mt="8"
-                columns={{
-                  base: 1,
-                  sm: 2,
-                }}
-              >
-                <NavLink.Mobile icon={HiCloudDownload}>About</NavLink.Mobile>
-                <NavLink.Mobile icon={HiCurrencyDollar}>
-                  Features
-                </NavLink.Mobile>
-                <NavLink.Mobile icon={HiBookOpen}>Pricing</NavLink.Mobile>
-                <NavLink.Mobile icon={HiQuestionMarkCircle}>
-                  Contact us
-                </NavLink.Mobile>
-                <ColorModeSwitcher />
-              </SimpleGrid>
-              <VStack mt="8" spacing="4">
-                <Link to="/signin">
-                  <Button w="full" colorScheme="yellow" onClick={CloseEvent}>
-                    Sign in
-                  </Button>
-                </Link>
-
-                <Box textAlign="center" fontWeight="medium">
-                  Don't have an account?{' '}
-                  <Link to="/signup">
-                    {' '}
-                    <Box as="a" color={mode('yellow.400', 'yellow.400')}>
-                      Sign up
-                    </Box>
+        <Transition in={show}>
+          <RemoveScroll enabled={show}>
+            <Backdrop show={show} />
+          </RemoveScroll>
+          <FocusLock disabled={!show} returnFocus>
+            <Box
+              bg={mode('white', 'gray.700')}
+              shadow="lg"
+              rounded="lg"
+              ref={ref}
+              tabIndex={0}
+              outline={0}
+            >
+              <Box pt="5" pb="6" px="5">
+                <Flex justify="space-between" align="center">
+                  <Logo h="6" iconColor="yellow.400" />
+                  <Box mr="-2" mt="-2">
+                    <Center
+                      as="button"
+                      type="button"
+                      onClick={off}
+                      rounded="base"
+                      p="1"
+                      color={mode('gray.600', 'gray.400')}
+                      _hover={{
+                        bg: mode('gray.100', 'gray.600'),
+                      }}
+                    >
+                      <Box srOnly>Close menu</Box>
+                      <HiOutlineX aria-hidden fontSize="1.5rem" />
+                    </Center>
+                  </Box>
+                </Flex>
+                <SimpleGrid
+                  as="nav"
+                  gap="6"
+                  mt="8"
+                  columns={{
+                    base: 1,
+                    sm: 2,
+                  }}
+                >
+                  <NavLink.Mobile icon={HiCloudDownload}>About</NavLink.Mobile>
+                  <NavLink.Mobile icon={HiCurrencyDollar}>
+                    Features
+                  </NavLink.Mobile>
+                  <NavLink.Mobile icon={HiBookOpen}>Pricing</NavLink.Mobile>
+                  <NavLink.Mobile icon={HiQuestionMarkCircle}>
+                    Contact us
+                  </NavLink.Mobile>
+                  <ColorModeSwitcher />
+                </SimpleGrid>
+                <VStack mt="8" spacing="4">
+                  <Link to="/signin">
+                    <Button w="full" colorScheme="yellow" onClick={CloseEvent}>
+                      Sign in
+                    </Button>
                   </Link>
-                </Box>
-              </VStack>
+
+                  <Box textAlign="center" fontWeight="medium">
+                    Don't have an account?{' '}
+                    <Link to="/signup">
+                      {' '}
+                      <Box as="a" color={mode('yellow.400', 'yellow.400')}>
+                        Sign up
+                      </Box>
+                    </Link>
+                  </Box>
+                </VStack>
+              </Box>
             </Box>
-          </Box>
-        </FocusLock>
-      </Transition>
+          </FocusLock>
+        </Transition>
+      </Box>
     </>
   );
 };

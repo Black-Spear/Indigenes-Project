@@ -398,7 +398,6 @@ const PageProjects = () => {
                           <Image src={img} layout={'cover'} />
                         </Box>
                         <Box // el card elli feha  ktiba ta7t taswira kebili
-                          
                           bg={mode('white', '#4a5568')}
                           mt={-6}
                           mx={-6}
@@ -412,11 +411,10 @@ const PageProjects = () => {
                             fontSize={'md'}
                             fontFamily={'body'}
                             m="1vh"
-                            
                           >
                             10 Available Projects
                           </Heading>
-                          
+
                           {console.log('rayen', deleg.libelle_d)}
 
                           <Button
