@@ -10,9 +10,6 @@ import {
   VStack,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import * as React from 'react';
-import FocusLock from 'react-focus-lock';
 import {
   HiBookOpen,
   HiCloudDownload,
@@ -21,6 +18,9 @@ import {
   HiOutlineX,
   HiQuestionMarkCircle,
 } from 'react-icons/hi';
+import { motion } from 'framer-motion';
+import * as React from 'react';
+import FocusLock from 'react-focus-lock';
 import { RemoveScroll } from 'react-remove-scroll';
 import { Logo } from './Logo';
 import { NavLink } from './NavLink';
@@ -144,7 +144,7 @@ export const MobileNav = () => {
               <Box pt="5" pb="6" px="5">
                 <Flex justify="space-between" align="center">
                   <Logo h="6" iconColor="yellow.400" />
-                  <Box mr="-2" mt="-2">
+                  <Box mt="-2">
                     <Center
                       as="button"
                       type="button"

@@ -198,11 +198,11 @@ export const Hero = () => {
             // transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
             // viewport={{ once: true }}
           >
-            <Heading width={'150%'} mb={3}>
+            <Heading width={'100%'} mb={3}>
               Safe <span fontWeight="">Investment</span>
               <br />
             </Heading>
-            <Heading width={'150%'}>Accessible to everyone</Heading>
+            <Heading width={'100%'}>Accessible to everyone</Heading>
           </MotionGridItem>
           <MotionGridItem
             w="100%"

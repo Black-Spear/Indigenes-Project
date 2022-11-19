@@ -1,32 +1,27 @@
-
 * {
-    scroll-behavior: smooth;
-  }
-
-  .navbar{
-	transition: all 0.3s;
-    background: transparent;
-    z-index: 1000;
-    
+  scroll-behavior: smooth;
 }
 
-.navbar.colorChange.dark{
-	background: #1a202c;
-    box-shadow: 2px 10px 10px #00000028;
-}
-.navbar.colorChange.light{
-	background: #f0f0f0;
-    box-shadow: 2px 10px 10px #00000027;
+.navbar {
+  transition: all 0.3s;
+  background: transparent;
+  z-index: 1000;
 }
 
-.navbar a{
-    color: white !important;
-    font-weight: normal;
+.navbar.colorChange.dark {
+  background: #1a202c;
+  box-shadow: 2px 10px 10px #00000028;
+}
+.navbar.colorChange.light {
+  background: #f0f0f0;
+  box-shadow: 2px 10px 10px #00000027;
 }
 
+.navbar a {
+  color: white !important;
+  font-weight: normal;
+}
 
-.navbar.colorChange.light a{
-	
-   
-    color: black !important;
+.navbar.colorChange.light a {
+  color: black !important;
 }
