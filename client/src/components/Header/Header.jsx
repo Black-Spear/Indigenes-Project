@@ -34,8 +34,8 @@ export const Header = () => {
       console.log(user);
     };
   }, []);
-  var Status;
-  if (user != null) {
+  let Status;
+  if (user !== null) {
     Status = (
       <>
         <Button
@@ -105,7 +105,7 @@ export const Header = () => {
             </Link>
           </LightMode>
           <ColorModeSwitcher />
-          position="fixed"
+          position="fixed" //please explain
         </HStack>
       </>
     );
@@ -128,14 +128,14 @@ export const Header = () => {
         style={{ backdropFilter: 'blur(3px)' }}
         justify="center"
         rowGap={22}
-        w="100vw"
+        w="100%"
       >
         <Box
-          maxW="7xl"
-          mx="8"
+          maxW="100%"
+          // mx="8"
           py="4"
           px={{
-            base: '6 ',
+            base: '6',
             md: '8',
           }}
         >

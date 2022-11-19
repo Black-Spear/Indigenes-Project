@@ -57,7 +57,7 @@ const ScrollToTop = () => {
       onClick={handleClick}
       position="fixed"
       bottom={{ base: '1rem', sm: '4rem' }}
-      right={{ base: '10rem', sm: '4rem' }}
+      right={{ base: '1rem', sm: '4rem' }}
       zIndex="1"
       opacity="0"
       overflow={'hidden'}

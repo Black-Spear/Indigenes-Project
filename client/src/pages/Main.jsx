@@ -8,6 +8,7 @@ export const Main = () => {
   return (
     <>
       <Box
+        width={'100%'}
         sx={{
           '&::-webkit-scrollbar': {
             width: '16px',
