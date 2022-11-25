@@ -76,7 +76,7 @@ export const Pricing = () => {
               lg: 'row',
             }}
           >
-            <Stack spacing={8} p="45px" flex="0.7">
+            <Stack spacing={8} p="45px" flex="0.7" overflow="hidden">
               <Text
                 fontSize="3xl"
                 fontWeight="bold"
@@ -150,19 +150,21 @@ export const Pricing = () => {
                 }}
               />
               <Text
+                textAlign={'right'}
                 fontSize={'lg'}
                 fontFamily={'Caveat'}
                 position={'relative'}
                 transform={'rotate(-20deg)'}
                 color={useColorModeValue('gray.800', 'gray.300')}
                 right={{
-                  base: '-9em',
+                  base: '0em',
                   sm: '-20em',
                 }}
                 top={{
-                  base: '-3em',
+                  base: '0em',
                   sm: '-3.8em',
                 }}
+                
               >
                 Starting at 30£/mo
               </Text>
