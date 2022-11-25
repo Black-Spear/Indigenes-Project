@@ -232,7 +232,7 @@ export const Hero = () => {
           >
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
-                <CountUp start={0} end={55} duration={3} enableScrollSpy />
+                <CountUp start={0} end={55} duration={2.5} enableScrollSpy />
                 <span>%</span>
               </Text>
               <Box fontSize={'sm'}>
