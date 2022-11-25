@@ -38,7 +38,8 @@ const Landing = () => {
             color={useColorModeValue('gray.500', 'gray.600')}
             minWidth={'10.5em'}
           >
-            Popular investments
+            {/* Popular investments */}
+            Change number 1 !
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
