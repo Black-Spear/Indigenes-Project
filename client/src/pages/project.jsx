@@ -21,7 +21,7 @@ import { Header } from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import { MdLocationOn } from 'react-icons/md';
 import { BiLogIn } from 'react-icons/bi';
-import { BsFillPersonFill, BsPerson } from 'react-icons/bs';
+import { BsFillPersonFill } from 'react-icons/bs';
 import { useLocation } from 'react-router-dom';
 
 export default function Simple() {
@@ -42,7 +42,6 @@ export default function Simple() {
         >
           {data.titre}
         </Heading>
-
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
@@ -59,13 +58,10 @@ export default function Simple() {
               h={{ base: '100%', sm: '400px', lg: '500px' }}
             />
           </Flex>
-
           <Stack ml="5vw" spacing={{ base: 6, md: 10 }}>
             <Box as={'header'}></Box>
-
             <Stack spacing={{ base: 4, sm: 6 }} direction={'column'}>
               <Progress value={20} h="1vh" colorScheme="yellow" mb={2} />
-
               <Box as={'header'}>
                 <Text
                   align="left"
@@ -171,7 +167,6 @@ export default function Simple() {
           >
             Features
           </Text>
-
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
             <List spacing={2}>
               <ListItem>Chronograph</ListItem>
@@ -196,7 +191,6 @@ export default function Simple() {
           >
             Product Details
           </Text>
-
           <List spacing={2}>
             <ListItem>
               <Text as={'span'} fontWeight={'bold'}>
@@ -260,7 +254,6 @@ export default function Simple() {
             Sign in
           </Button>
         </Center>
-
         <Stack
           direction="row"
           alignItems="center"
