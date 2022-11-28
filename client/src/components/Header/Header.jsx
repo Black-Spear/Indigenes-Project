@@ -129,6 +129,7 @@ export const Header = () => {
         justify="center"
         rowGap={22}
         w="100%"
+        position={'fixed'}
       >
         <Box
           maxW="100%"

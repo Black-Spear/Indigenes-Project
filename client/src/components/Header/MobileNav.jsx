@@ -1,5 +1,6 @@
 import {
   Box,
+  Text,
   Button,
   Center,
   Flex,
@@ -8,6 +9,7 @@ import {
   useBoolean,
   useFocusOnShow,
   VStack,
+  Image,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 import {
@@ -22,7 +24,8 @@ import { motion } from 'framer-motion';
 import * as React from 'react';
 import FocusLock from 'react-focus-lock';
 import { RemoveScroll } from 'react-remove-scroll';
-import { Logo } from './Logo';
+import logoLight from '../../logoLight.svg';
+import logoDark from '../../logoDark.svg';
 import { NavLink } from './NavLink';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import { Link } from 'react-router-dom';
@@ -109,6 +112,9 @@ export const MobileNav = () => {
     visible: show,
     shouldFocus: true,
   });
+
+  const Logo = mode(logoLight, logoDark);
+
   return (
     <>
       <Box>
@@ -143,7 +149,7 @@ export const MobileNav = () => {
             >
               <Box pt="5" pb="6" px="5">
                 <Flex justify="space-between" align="center">
-                  <Logo h="6" iconColor="yellow.400" />
+                  <Image src={Logo} h="10" />
                   <Box mt="-2">
                     <Center
                       as="button"
@@ -170,20 +176,51 @@ export const MobileNav = () => {
                     sm: 2,
                   }}
                 >
-                  <NavLink.Mobile icon={HiCloudDownload}>About</NavLink.Mobile>
-                  <NavLink.Mobile icon={HiCurrencyDollar}>
-                    Features
+                  <NavLink.Mobile icon={HiCloudDownload}>
+                    {' '}
+                    {/* Balti chnowa hetha */}
+                    <Text
+                      fontWeight={'normal'}
+                      textColor={mode('black', 'white.900')}
+                    >
+                      About
+                    </Text>{' '}
                   </NavLink.Mobile>
-                  <NavLink.Mobile icon={HiBookOpen}>Pricing</NavLink.Mobile>
+                  <NavLink.Mobile icon={HiCurrencyDollar}>
+                    <Text
+                      fontWeight={'normal'}
+                      textColor={mode('black', 'white.900')}
+                    >
+                      Features
+                    </Text>
+                  </NavLink.Mobile>
+                  <NavLink.Mobile icon={HiBookOpen}>
+                    <Text
+                      fontWeight={'normal'}
+                      textColor={mode('black', 'white.900')}
+                    >
+                      Pricing
+                    </Text>
+                  </NavLink.Mobile>
                   <NavLink.Mobile icon={HiQuestionMarkCircle}>
-                    Contact us
+                    <Text
+                      fontWeight={'normal'}
+                      textColor={mode('black', 'white.900')}
+                    >
+                      Contact us
+                    </Text>
                   </NavLink.Mobile>
                   <ColorModeSwitcher />
                 </SimpleGrid>
                 <VStack mt="8" spacing="4">
                   <Link to="/signin">
                     <Button w="full" colorScheme="yellow" onClick={CloseEvent}>
-                      Sign in
+                      <Text
+                        fontWeight={'bold'}
+                        textColor={mode('gray.900', 'white.900')}
+                      >
+                        Sign in
+                      </Text>
                     </Button>
                   </Link>
 
@@ -191,8 +228,13 @@ export const MobileNav = () => {
                     Don't have an account?{' '}
                     <Link to="/signup">
                       {' '}
-                      <Box as="a" color={mode('yellow.400', 'yellow.400')}>
-                        Sign up
+                      <Box as="a">
+                        <Text
+                          fontWeight={'extrabold'}
+                          textColor={mode('black', 'white.900')}
+                        >
+                          Sign up
+                        </Text>
                       </Box>
                     </Link>
                   </Box>

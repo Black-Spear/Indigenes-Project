@@ -1,7 +1,7 @@
 import {
   Box,
-  chakra,
   Container,
+  Center,
   Stack,
   Text,
   Button,
@@ -10,67 +10,19 @@ import {
   VStack,
   Heading,
   SimpleGrid,
-  StackDivider,
   useColorModeValue,
-  VisuallyHidden,
   List,
   ListItem,
-  InputRightElement,
-  Input,
-  Select,
-  InputGroup,
   Progress,
-  StatLabel,
-  StatNumber,
-  Stat,
   Divider,
   HStack,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import { Header } from '../components/Header/Header';
-import { FiSearch } from 'react-icons/fi';
 import Footer from '../components/Footer/Footer';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { MdLocalShipping, MdLocationOn } from 'react-icons/md';
-import { ReactNode } from 'react';
+import { MdLocationOn } from 'react-icons/md';
+import { BiLogIn } from 'react-icons/bi';
 import { BsFillPersonFill, BsPerson } from 'react-icons/bs';
-import { FiServer } from 'react-icons/fi';
-import { GoLocation } from 'react-icons/go';
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
-function StatsCard(props) {
-  const { title, stat, icon } = props;
-
-  return (
-    <Stat
-      px={{ base: 2, md: 4 }}
-      py={'5'}
-      shadow={'xl'}
-      border={'1px solid'}
-      borderColor={useColorModeValue('gray.800', 'gray.500')}
-      rounded={'lg'}
-    >
-      <Flex justifyContent={'space-between'}>
-        <Box pl={{ base: 2, md: 4 }}>
-          <StatLabel fontWeight={'medium'} isTruncated>
-            {title}
-          </StatLabel>
-          <StatNumber fontSize={'2xl'} fontWeight={'medium'}>
-            {stat}
-          </StatNumber>
-        </Box>
-        <Box
-          my={'auto'}
-          color={useColorModeValue('gray.800', 'gray.200')}
-          alignContent={'center'}
-        >
-          {icon}
-        </Box>
-      </Flex>
-    </Stat>
-  );
-}
 
 export default function Simple() {
   const location = useLocation(); // sa7a rayen
@@ -189,7 +141,7 @@ export default function Simple() {
                     href="#"
                     size="lg"
                     height="50px"
-                    width="500px"
+                    width="100%"
                     px="8"
                     fontWeight="bold"
                     fontSize="lg"
@@ -291,26 +243,33 @@ export default function Simple() {
             </ListItem>
           </List>
         </Box>
-        <Button
-          rounded={'none'}
-          w={'full'}
-          mt={8}
-          size={'lg'}
-          py={'7'}
-          bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
-          color={useColorModeValue('#ffffff', '#171717')}
-          textTransform={'uppercase'}
-          _hover={{
-            transform: 'translateY(2px)',
-            boxShadow: 'sm',
-          }}
-        >
-          Invest Now
-        </Button>
+        <Center>
+          <Button
+            rounded={'3xl'}
+            mt={8}
+            size={'md'}
+            px={'7'}
+            bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
+            color={useColorModeValue('#ffffff', '#171717')}
+            textTransform={'capitalize'} //!hethi heya elli majus awel 7arf
+            _hover={{
+              transform: 'translateY(2px)',
+              boxShadow: 'sm',
+            }}
+          >
+            Sign in
+          </Button>
+        </Center>
 
-        <Stack direction="row" alignItems="center" justifyContent={'center'}>
-          <MdLocalShipping />
-          <Text>2-3 business days delivery</Text>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent={'center'}
+          mb="2vh"
+        >
+          <BiLogIn />
+          {/*// TODO: baddalha b icon ma 5ir */}
+          <Text>Sign in to access more information.</Text>
         </Stack>
       </Container>
       <Footer />
