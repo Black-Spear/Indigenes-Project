@@ -1,18 +1,15 @@
 import {
-  Avatar,
   Box,
   Button,
   Center,
   Image,
   Grid,
-  CheckboxGroup,
   Flex,
   Heading,
   Input,
   InputGroup,
   InputRightElement,
   LightMode,
-  Select,
   Stack,
   Text,
   useColorModeValue as mode,
@@ -29,13 +26,12 @@ import {
   useDisclosure,
   SimpleGrid,
 } from '@chakra-ui/react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import '../sections/Projects/Banner/style.css';
 import React, { useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import img from '../assets/img/projects/test.png';
-
 import { Header } from '../components/Header/Header';
 import axios from 'axios';
 import './style.css';
@@ -77,7 +73,7 @@ const PageProjects = () => {
   let z = x.filter(a => {
     if (idd === '') {
       return a;
-    } else if (idd == a.libelle_d) {
+    } else if (idd === a.libelle_d) {
       return a;
     }
   });
@@ -85,7 +81,7 @@ const PageProjects = () => {
 
   console.log('ma3tamdeya', z);
   let r = z.filter(a => {
-    if (SearchTerm == '') {
+    if (SearchTerm === '') {
       return a;
     } else if (a.titre.toLowerCase().includes(SearchTerm.toLowerCase())) {
       return a;
@@ -143,10 +139,20 @@ const PageProjects = () => {
             mt="5.5rem"
             mb="30px"
           >
-            <Text fontSize="5rem" color="white" fontWeight="extrabold">
+            <Text
+              fontSize="5rem"
+              color="white"
+              fontWeight="extrabold"
+              textTransform={'capitalize'}
+            >
               {id}
             </Text>
-            <Text fontSize="1rem" color="white" fontWeight="extrabold">
+            <Text
+              fontSize="1.5rem"
+              color="white"
+              fontWeight="extrabold"
+              textTransform={'capitalize'}
+            >
               {idd}
             </Text>
             <Stack
@@ -353,7 +359,7 @@ const PageProjects = () => {
               </ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <SimpleGrid columns={{ base: 10, lg: 3 }}>
+                <SimpleGrid columns={{ base: 1, lg: 3 }}>
                   {gouvv.map(deleg => (
                     <Center py={6}>
                       <Box
