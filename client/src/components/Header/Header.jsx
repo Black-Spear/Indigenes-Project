@@ -63,7 +63,7 @@ export const Header = () => {
             />
           </MenuButton>
           <MenuList>
-            <MenuItem>{user[0].nom_c + ' ' + user[0].prenom_c}</MenuItem>
+            <MenuItem> {user[0].nom_c + ' ' + user[0].prenom_c} </MenuItem>
             <MenuDivider />
             <MenuItem>My Profile</MenuItem>
             <MenuItem>My Projects</MenuItem>
@@ -105,7 +105,6 @@ export const Header = () => {
             </Link>
           </LightMode>
           <ColorModeSwitcher />
-          position="fixed" //please explain
         </HStack>
       </>
     );

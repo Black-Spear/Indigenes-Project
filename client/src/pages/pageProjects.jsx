@@ -50,6 +50,7 @@ const PageProjects = () => {
   const [SearchTerm, SetSearchTerm] = useState('');
   const [idd, setidd] = useState('');
   const [details, setdetails] = useState([]);
+
   const api = axios.create({
     baseURL: 'http://localhost:5000',
   });
@@ -68,7 +69,7 @@ const PageProjects = () => {
   });
   console.log('dataid', dataid.img);
 
-  let x = proj.filter(val => val.libelle == id.toLowerCase());
+  let x = proj.filter(val => val.libelle === id.toLowerCase());
 
   let z = x.filter(a => {
     if (idd === '') {
@@ -232,7 +233,6 @@ const PageProjects = () => {
                   placeholder="Search for project"
                 />
               </InputGroup>
-
               <Box py="10px">
                 <Grid //!el grid elli fih el cardsss
                   position="relative"

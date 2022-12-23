@@ -1,5 +1,3 @@
-import Spline from '@splinetool/react-spline';
-
 import React from 'react';
 import { Hero } from '../sections/Landing/Hero/Hero';
 import Map from '../sections/Landing/Map/Map';
@@ -19,7 +17,6 @@ import {
   HStack,
   Text,
   useColorModeValue,
-  Center,
 } from '@chakra-ui/react';
 import Contact from '../sections/Landing/Contact/Contact';
 
@@ -55,14 +52,6 @@ const Landing = () => {
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
-
-        {/* <Center
-        //SPline 3d model
-        >
-          <Box h={'3xl'} width="100%" my="50px" border-borderRadius={'md'}>
-            <Spline scene="https://prod.spline.design/LEJ8OXadAkb16iFY/scene.splinecode" />
-          </Box>
-        </Center> */}
 
         <About //Two pictures and 2 description paragraphs
         />
