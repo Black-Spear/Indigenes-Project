@@ -179,6 +179,7 @@ export const Hero = () => {
       <Container py={5} maxW={'container.lg'} scrollBehavior="smooth">
         <Grid
           id="stats"
+          scrollMarginTop={'15vh'}
           paddingTop={'10vh'}
           templateColumns={{
             base: 'repeat(1, 1fr)',

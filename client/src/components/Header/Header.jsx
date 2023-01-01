@@ -1,5 +1,6 @@
 import {
   Box,
+  Text,
   Button,
   Flex,
   HStack,
@@ -43,9 +44,11 @@ export const Header = () => {
           colorScheme={'yellow'}
           size={'sm'}
           mr={4}
-          leftIcon={<AddIcon />}
+          leftIcon={<AddIcon color={'blackAlpha.800'} />}
         >
-          <Link to={'/create_project'}>Add Project</Link>
+          <Link to={'/create_project'}>
+            <Text fontSize='sm' color='blackAlpha.800' >Add Project</Text>
+            </Link>
         </Button>
         <Menu>
           <MenuButton
@@ -58,17 +61,20 @@ export const Header = () => {
             <Avatar
               size={'sm'}
               src={
-                'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iHSc5-5mfQsAX8zA6q8&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAzRyUsAZgK0EQcmsEl70DOwqmCmCfnvIqC3IkaNaj_cA&oe=63B79C31'
               }
             />
           </MenuButton>
           <MenuList>
             <MenuItem> {user[0].nom_c + ' ' + user[0].prenom_c} </MenuItem>
             <MenuDivider />
-
-            <MenuItem>
-              <Link to="/profile">My Profile</Link>
-            </MenuItem>
+            <Link to="/profile">
+              <MenuItem>
+                <Text textColor={'Black'} _dark={{ textColor: '#ececec' }} fontSize='md' >
+                  My Profile
+                </Text>
+              </MenuItem>
+            </Link>
 
             <MenuItem>My Projects</MenuItem>
             <MenuDivider />
@@ -159,7 +165,7 @@ export const Header = () => {
               >
                 <NavLink.Desktop href="/#"> About </NavLink.Desktop>
                 <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
-                <NavLink.Desktop href="/#feature"> Features </NavLink.Desktop>
+                <NavLink.Desktop href="/#features"> Features </NavLink.Desktop>
                 <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
               </HStack>
             </Flex>
