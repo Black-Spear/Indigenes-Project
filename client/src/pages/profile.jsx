@@ -11,21 +11,19 @@ import {
   ButtonGroup,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Header } from './components/Header/Header';
+import { Header } from '../components/Header/Header';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
-import Footer from './components/Footer/Footer';
 
 export default function SocialProfileWithImage() {
   return (
     <>
-      <Header />
-      <Center py={6}>
+      <Center py={6} >
         <Stack
           direction={'column'}
           justify={'center'}
           alignItems="center"
           spacing={6}
-          w="full"
+          w="80%"
           h="full"
           py={6}
         >
@@ -68,13 +66,13 @@ export default function SocialProfileWithImage() {
 
               <Stack direction={'row'} justify={'center'} spacing={6}>
                 <Stack spacing={0} align={'center'}>
-                  <Text fontWeight={600}>23k</Text>
+                  <Text fontWeight={600}>7</Text>
                   <Text fontSize={'sm'} color={'gray.500'}>
-                    Personal Projects
+                    Projects
                   </Text>
                 </Stack>
                 <Stack spacing={0} align={'center'}>
-                  <Text fontWeight={600}>23k</Text>
+                  <Text fontWeight={600}>25</Text>
                   <Text fontSize={'sm'} color={'gray.500'}>
                     Investments
                   </Text>
@@ -131,7 +129,6 @@ export default function SocialProfileWithImage() {
           </Box>
         </Stack>
       </Center>
-      <Footer />
     </>
   );
 }

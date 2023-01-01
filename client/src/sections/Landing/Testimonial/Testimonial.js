@@ -17,7 +17,7 @@ const testimonials = [
     content:
       'The Indigenes program has been critical to us for funding our project, we were able to find investors from all around Tunisia thanks to the platform !',
     avatar:
-      'https://scontent.ftun9-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qiNr2NntGDYAX94GAiC&_nc_ht=scontent.ftun9-1.fna&oh=00_AfC4YGr-ROM0erS4eVABfVNQ_j78y_zDJdoVvu1lQG_8Ew&oe=63862BF1',
+      'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iHSc5-5mfQsAX8zA6q8&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAzRyUsAZgK0EQcmsEl70DOwqmCmCfnvIqC3IkaNaj_cA&oe=63B79C31',
   },
   {
     name: 'Ahmed Attafi',
@@ -25,7 +25,7 @@ const testimonials = [
     content:
       "I didn't even need training. We've used Indigenes for the last five years. I have gotten at least 50 times the value from Indigenes.",
     avatar:
-      'https://scontent.ftun9-1.fna.fbcdn.net/v/t39.30808-1/305129813_3273454626302518_7407516586219852141_n.jpg?stp=dst-jpg_s320x320&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=oDeV7ee9ebQAX-6g2Ya&_nc_ht=scontent.ftun9-1.fna&oh=00_AfC-E99cUS-WawdgufSMMgL9Pwe32920u7PZzqaR__Arkw&oe=63851D95',
+      'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-1/305129813_3273454626302518_7407516586219852141_n.jpg?stp=dst-jpg_s320x320&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=YkoP-HI1co4AX9djEm3&_nc_ht=scontent.ftun10-1.fna&oh=00_AfD69Em_ZaxplmBmUkBa8OuCq-1SmZeYke34R_ujEtciVQ&oe=63B68DD5',
   },
 ];
 

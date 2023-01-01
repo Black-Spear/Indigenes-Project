@@ -65,7 +65,11 @@ export const Header = () => {
           <MenuList>
             <MenuItem> {user[0].nom_c + ' ' + user[0].prenom_c} </MenuItem>
             <MenuDivider />
-            <MenuItem>My Profile</MenuItem>
+
+            <MenuItem>
+              <Link to="/profile">My Profile</Link>
+            </MenuItem>
+
             <MenuItem>My Projects</MenuItem>
             <MenuDivider />
             <MenuItem

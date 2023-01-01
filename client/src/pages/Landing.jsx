@@ -11,6 +11,8 @@ import { About3 } from '../sections/Landing/About3/About3';
 import { Stats1 } from '../sections/Landing/Stats1/Stats1';
 import { Vision } from '../sections/Landing/Vision/Vision';
 import { QuestionCards } from '../sections/Landing/QuestionCards/QuestionCards';
+import { Contact } from '../sections/Landing/Contact/Contact';
+import { Partners } from '../sections/Landing/Partners/Partners';
 import {
   Box,
   Divider,
@@ -18,13 +20,13 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-import Contact from '../sections/Landing/Contact/Contact';
 
 const Landing = () => {
   const colors = '#1a202c';
   return (
     <>
       <Hero />
+      <Partners />
 
       <Box bg="gray.50" _dark={{ bg: colors }} mt="3%">
         <Map />
