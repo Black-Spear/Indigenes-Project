@@ -23,6 +23,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { AddIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
+import { UserComponent } from './UserComponent';
 import logoLight from '../../logoLight.svg';
 import logoDark from '../../logoDark.svg';
 
@@ -39,18 +40,27 @@ export const Header = () => {
   if (user !== null) {
     Status = (
       <>
-        <Button
-          variant={'solid'}
-          colorScheme={'yellow'}
-          size={'sm'}
-          mr={4}
-          leftIcon={<AddIcon color={'blackAlpha.800'} />}
-        >
-          <Link to={'/create_project'}>
-            <Text fontSize='sm' color='blackAlpha.800' >Add Project</Text>
-            </Link>
-        </Button>
-        <Menu>
+        <Link to={'/create_project'}>
+          <Button
+            variant={'solid'}
+            colorScheme={'yellow'}
+            size={'md'}
+            leftIcon={<AddIcon color={'blackAlpha.800'} />}
+            borderRadius="11px"
+          >
+            <Text
+              fontSize="sm"
+              color="blackAlpha.800"
+              fontWeight={'medium'}
+              textAlign="left"
+            >
+              Add Project
+            </Text>
+          </Button>
+        </Link>
+
+        {/* //! Here goes the old implementation */}
+        {/* <Menu>
           <MenuButton
             as={Button}
             rounded={'full'}
@@ -70,7 +80,11 @@ export const Header = () => {
             <MenuDivider />
             <Link to="/profile">
               <MenuItem>
-                <Text textColor={'Black'} _dark={{ textColor: '#ececec' }} fontSize='md' >
+                <Text
+                  textColor={'Black'}
+                  _dark={{ textColor: '#ececec' }}
+                  fontSize="md"
+                >
                   My Profile
                 </Text>
               </MenuItem>
@@ -87,8 +101,9 @@ export const Header = () => {
               Sign out
             </MenuItem>
           </MenuList>
-          <ColorModeSwitcher />
-        </Menu>
+        </Menu> */}
+        <UserComponent user={user} />
+        <ColorModeSwitcher />
       </>
     );
   } else {
