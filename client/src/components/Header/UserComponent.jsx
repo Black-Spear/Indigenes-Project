@@ -2,6 +2,7 @@ import {
   IconButton,
   Avatar,
   Box,
+  useToast,
   Flex,
   HStack,
   VStack,
@@ -16,6 +17,7 @@ import {
 import { FiBell, FiChevronDown } from 'react-icons/fi';
 
 const UserComponent = props => {
+  const toast = useToast();
   return (
     <Box
       minWidth={'17vw'}
@@ -24,7 +26,7 @@ const UserComponent = props => {
       borderRadius="xl"
       display="flex"
       justifyContent={'center'}
-      pr='1vw'
+      pr="1vw"
     >
       <HStack spacing={{ base: '0', md: '6' }}>
         <IconButton
@@ -32,6 +34,21 @@ const UserComponent = props => {
           variant="ghost"
           aria-label="open menu"
           icon={<FiBell />}
+          onClick={() =>
+            toast({
+              title: 'No new notifications.',
+              description: 'You have no new notifications.',
+              position: 'top-right',
+              status: 'warning',
+              variant: 'subtle',
+              duration: 2000,
+              isClosable: true,
+              containerStyle: {
+                marginTop: '90px',
+                marginRight: '6.7vw',
+              },
+            })
+          }
         />
         <Flex alignItems={'center'}>
           <Menu>
@@ -67,7 +84,10 @@ const UserComponent = props => {
                     Admin
                   </Text>
                 </VStack>
-                <Box display={{ base: 'none', md: 'flex' }} color={useColorModeValue('#b08a00', '#faf089')}>
+                <Box
+                  display={{ base: 'none', md: 'flex' }}
+                  color={useColorModeValue('#b08a00', '#faf089')}
+                >
                   <FiChevronDown />
                 </Box>
               </HStack>
