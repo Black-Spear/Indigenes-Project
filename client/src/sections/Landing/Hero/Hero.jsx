@@ -8,11 +8,8 @@ import {
   Flex,
   SimpleGrid,
   Center,
-  Grid,
   GridItem,
-  Container,
 } from '@chakra-ui/react';
-import * as React from 'react';
 import { Link as RLink } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -153,15 +150,12 @@ export const Hero = () => {
             >
               <LightMode>
                 <MotionButton
-                  as="a"
-                  href="#"
                   size="lg"
                   color="blackAlpha.900"
                   colorScheme="yellow"
                   px="8"
                   mt="1.5rem"
                   fontWeight="bold"
-                  fontSize="md"
                   whileHover={{ scale: 1.1 }} // these two don't work
                   whileTap={{ scale: 0.9 }} //¯\_(ツ)_/¯
                   initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main
@@ -169,7 +163,7 @@ export const Hero = () => {
                   transition={{ duration: 2, delay: 5.5 }}
                   viewport={{ once: true }}
                 >
-                  <RLink to="/projects">Invest now</RLink>
+                  <RLink to="#">Invest now</RLink>
                 </MotionButton>
               </LightMode>
             </Stack>

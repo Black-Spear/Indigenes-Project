@@ -1,4 +1,3 @@
-import React from 'react';
 import { Hero } from '../sections/Landing/Hero/Hero';
 import Map from '../sections/Landing/Map/Map';
 import { Pricing } from '../sections/Landing/Pricing/Pricing';
@@ -26,8 +25,8 @@ const Landing = () => {
   return (
     <>
       <Hero />
-      <Box bg="gray.50" _dark={{ bg: colors }} >
-      <Partners />
+      <Box bg="gray.50" _dark={{ bg: colors }}>
+        <Partners />
 
         <Map />
 
