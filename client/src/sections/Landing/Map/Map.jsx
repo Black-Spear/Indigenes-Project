@@ -20,15 +20,14 @@ import {
   Divider,
   Badge,
   HStack,
-  Skeleton,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import './style.css';
 import Popup from 'reactjs-popup';
 import data from './data.json';
 import { MdCheckCircle } from 'react-icons/md';
-import { Link as RLink, useNavigate } from 'react-router-dom';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
@@ -46,7 +45,7 @@ const Map = () => {
   const [overlay, setOverlay] = React.useState(<OverlayOne />);
 
   function getInfo(value) {
-    let sampleObject = data.find(e => e.id == value);
+    let sampleObject = data.find(e => e.id === value);
     setSampleObject(sampleObject);
   }
 
@@ -69,7 +68,7 @@ const Map = () => {
   }, [animation, inView]);
 
   return (
-    <Box textAlign="center" pt="4vh">
+    <Box textAlign="center">
       <Heading
         as="h1"
         size="3xl"

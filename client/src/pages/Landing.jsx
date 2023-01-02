@@ -26,9 +26,9 @@ const Landing = () => {
   return (
     <>
       <Hero />
+      <Box bg="gray.50" _dark={{ bg: colors }} >
       <Partners />
 
-      <Box bg="gray.50" _dark={{ bg: colors }} mt="3%">
         <Map />
 
         <HStack align={'center'} justify="center" spacing={6}>

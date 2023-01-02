@@ -3,13 +3,19 @@ import { Container, Text, Wrap, WrapItem, Image } from '@chakra-ui/react';
 
 const Partners = () => {
   return (
-    <Container maxW="container.2xl" centerContent py={[20]}>
+    <Container
+      maxW="container.2xl"
+      centerContent
+      py="12vh"
+      bgColor="#f7fafc"
+      _dark={{ bgColor: '#1a202c' }}
+    >
       <Text
         color="gray.900"
         _dark={{ color: 'gray.100' }}
         fontSize="3xl"
         textAlign={'center'}
-        fontWeight='medium'
+        fontWeight="medium"
       >
         Trusted by partners worldwide
       </Text>
@@ -40,7 +46,11 @@ const Partners = () => {
         </WrapItem>
 
         <WrapItem>
-          <Image src="https://upload.wikimedia.org/wikipedia/commons/5/54/ZITOUNA.png" alt="Zitouna logo" maxH={'10vh'} />
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/5/54/ZITOUNA.png"
+            alt="Zitouna logo"
+            maxH={'10vh'}
+          />
         </WrapItem>
       </Wrap>
     </Container>
