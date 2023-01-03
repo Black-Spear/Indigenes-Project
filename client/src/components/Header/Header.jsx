@@ -15,7 +15,6 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 import './nav.css';
-import * as React from 'react';
 import { MobileNav } from './MobileNav';
 import { NavLink } from './NavLink';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';

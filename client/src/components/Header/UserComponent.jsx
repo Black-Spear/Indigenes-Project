@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   IconButton,
   Avatar,
@@ -96,9 +97,19 @@ const UserComponent = props => {
               bg={useColorModeValue('white', 'gray.900')}
               borderColor={useColorModeValue('gray.200', 'gray.700')}
             >
-              <MenuItem >Profile</MenuItem>
-              <MenuItem>Projects</MenuItem>
-              <MenuItem>Settings</MenuItem>
+              <Link to="/profile">
+                <MenuItem>
+                  {' '}
+                  <Text fontSize={'md'}>Profile</Text>{' '}
+                </MenuItem>
+              </Link>
+
+              <MenuItem>
+                <Text fontSize={'md'}>Projects</Text>
+              </MenuItem>
+              <MenuItem>
+                <Text fontSize={'md'}>Settings</Text>
+              </MenuItem>
               <MenuDivider />
               <MenuItem
                 onClick={() => {
