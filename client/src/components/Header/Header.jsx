@@ -145,7 +145,7 @@ export const Header = () => {
   };
   window.addEventListener('scroll', changeNavbarColor);
   return (
-    <Flex justify="space-between">
+    <Flex>
       <Flex
         as="header"
         className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
@@ -156,8 +156,6 @@ export const Header = () => {
         position={'fixed'}
       >
         <Box
-          maxW="100%"
-          // mx="8"
           py="4"
           px={{
             base: '6',
@@ -166,11 +164,21 @@ export const Header = () => {
         >
           <Flex as="nav" gap="17vw">
             <HStack spacing="8">
-              <Box as="a" href="/" rel="home" w="20vh">
+              <Box
+                href="/"
+                rel="home"
+                w={{
+                  base: '9em',
+                  sm: '12em',
+                }}
+                ml="1vw"
+              >
                 <Image src={colorChange ? logoImg : logoDark} />
               </Box>
             </HStack>
-            <Flex align="center">
+            <Flex
+            //!fix the header
+            >
               <HStack
                 spacing="8"
                 display={{

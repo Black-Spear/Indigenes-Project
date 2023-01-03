@@ -96,11 +96,18 @@ const UserComponent = props => {
               bg={useColorModeValue('white', 'gray.900')}
               borderColor={useColorModeValue('gray.200', 'gray.700')}
             >
-              <MenuItem>Profile</MenuItem>
+              <MenuItem >Profile</MenuItem>
               <MenuItem>Projects</MenuItem>
               <MenuItem>Settings</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  localStorage.clear();
+                  window.location.reload(true);
+                }}
+              >
+                Sign out
+              </MenuItem>
             </MenuList>
           </Menu>
         </Flex>
