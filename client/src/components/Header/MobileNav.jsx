@@ -178,7 +178,6 @@ export const MobileNav = () => {
                 >
                   <NavLink.Mobile icon={HiCloudDownload}>
                     {' '}
-                    {/* Balti chnowa hetha */}
                     <Text
                       fontWeight={'normal'}
                       textColor={mode('black', 'white.900')}

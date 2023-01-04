@@ -38,7 +38,14 @@ export const Header = () => {
   let Status;
   if (user !== null) {
     Status = (
-      <>
+      <Box
+
+        display={{
+          base: 'none',
+          lg: 'flex',
+        }}
+        alignItems='center'
+      >
         <Link to={'/create_project'}>
           <Button
             variant={'solid'}
@@ -103,7 +110,7 @@ export const Header = () => {
         </Menu> */}
         <UserComponent user={user} />
         <ColorModeSwitcher />
-      </>
+      </Box>
     );
   } else {
     Status = (
