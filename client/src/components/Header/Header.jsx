@@ -39,31 +39,32 @@ export const Header = () => {
   if (user !== null) {
     Status = (
       <Box
-
         display={{
           base: 'none',
           lg: 'flex',
         }}
-        alignItems='center'
+        alignItems="center"
       >
-        <Link to={'/create_project'}>
-          <Button
-            variant={'solid'}
-            colorScheme={'yellow'}
-            size={'md'}
-            leftIcon={<AddIcon color={'blackAlpha.800'} />}
-            borderRadius="11px"
-          >
-            <Text
-              fontSize="sm"
-              color="blackAlpha.800"
-              fontWeight={'medium'}
-              textAlign="left"
+        <Box size="md">
+          <Link to={'/create_project'}>
+            <Button
+              variant={'solid'}
+              colorScheme={'yellow'}
+              size={'md'}
+              leftIcon={<AddIcon color={'blackAlpha.800'} />}
+              borderRadius="11px"
             >
-              Add Project
-            </Text>
-          </Button>
-        </Link>
+              <Text
+                fontSize="sm"
+                color="blackAlpha.800"
+                fontWeight={'medium'}
+                textAlign="left"
+              >
+                Add Project
+              </Text>
+            </Button>{' '}
+          </Link>
+        </Box>
 
         {/* //! Here goes the old implementation */}
         {/* <Menu>
@@ -157,7 +158,6 @@ export const Header = () => {
         className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
         style={{ backdropFilter: 'blur(3px)' }}
         justify="center"
-        rowGap={22}
         w="100%"
         position={'fixed'}
       >
@@ -169,9 +169,8 @@ export const Header = () => {
           }}
         >
           <Flex as="nav" gap="17vw">
-            <HStack spacing="8">
+            <HStack spacing="7">
               <Box
-                href="/"
                 rel="home"
                 w={{
                   base: '9em',
@@ -179,24 +178,57 @@ export const Header = () => {
                 }}
                 ml="1vw"
               >
-                <Image src={colorChange ? logoImg : logoDark} />
+                <Link to="/">
+                  <Image src={colorChange ? logoImg : logoDark} />
+                </Link>
               </Box>
             </HStack>
-            <Flex
-            //!fix the header
-            >
-              <HStack
-                spacing="8"
-                display={{
-                  base: 'none',
-                  md: 'flex',
-                }}
-              >
-                <NavLink.Desktop href="/#"> About </NavLink.Desktop>
-                <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
-                <NavLink.Desktop href="/#features"> Features </NavLink.Desktop>
-                <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
-              </HStack>
+            <Flex>
+              {user == null && (
+                <HStack
+                  spacing="8"
+                  display={{
+                    base: 'none',
+                    md: 'flex',
+                  }}
+                >
+                  <NavLink.Desktop href="/#"> About </NavLink.Desktop>
+                  <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
+                  <NavLink.Desktop href="/#features">
+                    {' '}
+                    Features{' '}
+                  </NavLink.Desktop>
+                  <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
+                </HStack>
+              )}
+              {user !== null && (
+                <Box mx='6em' >
+                  <HStack
+                    spacing="6"
+                    display={{
+                      base: 'none',
+                      md: 'flex',
+                    }}
+                    alignSelf='center'
+                    position="fixed"
+                    top="2.5em"
+                  >
+                    <NavLink.Desktop href="/#"> About </NavLink.Desktop>
+                    <NavLink.Desktop href="/#stats">
+                      {' '}
+                      Statistics{' '}
+                    </NavLink.Desktop>
+                    <NavLink.Desktop href="/#features">
+                      {' '}
+                      Features{' '}
+                    </NavLink.Desktop>
+                    <NavLink.Desktop href="/#contact">
+                      {' '}
+                      Contact{' '}
+                    </NavLink.Desktop>
+                  </HStack>
+                </Box>
+              )}
             </Flex>
             <Flex alignItems="center" justify="flex-end">
               {Status}

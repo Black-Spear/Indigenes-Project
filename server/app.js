@@ -5,10 +5,10 @@ const bodyparser = require("body-parser");
 
 // connexion to MySQL
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "indigenes",
+  host: "be7iarfugnyxhtu5a2xr-mysql.services.clever-cloud.com",
+  user: "ucvpubcs8gkq1xex",
+  password: "BIauf3iTjq1YVZTBaJw1",
+  database: "be7iarfugnyxhtu5a2xr",
 });
 
 db.connect((err) => {
