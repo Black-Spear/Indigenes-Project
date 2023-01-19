@@ -13,6 +13,7 @@ import {
   Badge,
   Heading,
   useColorModeValue,
+  Link,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import { HiOutlineBriefcase, HiLocationMarker, HiMail } from 'react-icons/hi';
@@ -23,7 +24,7 @@ const SkeletonCard = () => {
         w={'full'}
         maxW={{ base: '20em', sm: '26em' }}
         h={'30em'}
-        bg={useColorModeValue('white', 'gray.900')}
+        bg={useColorModeValue('white', 'gray.800')}
         boxShadow={'2xl'}
         rounded={'md'}
         p={{ base: '3', sm: '6' }}
@@ -77,7 +78,7 @@ export const Profile = () => {
     <Flex
       p={{ base: '1rem', sm: '5rem' }}
       w="100%"
-      bg="gray.500"
+      bg="#f7fafc"
       _dark={{ bg: 'gray.700' }}
       alignItems="center"
       justifyContent="center"
@@ -131,76 +132,122 @@ export const Profile = () => {
           />
           <ColorModeSwitcher h="6.5vh" w="4vw" />
         </Box>
-        <Box
-          gridColumn="span 8"
-          p={{base:'5',sm:'8'}}
-          width="full"
-          height="full"
-          borderRadius="lg"
-          textAlign="left"
-          mt={10}
-        >
-          <HStack spacing={5}>
-            <Text
-              my={'1rem'}
-              fontSize={{base:'xl',md:'lg',lg:'xl'}}
-              fontWeight="bold"
-              color="gray.800"
-              _dark={{
-                color: 'white',
-              }}
-            >
-              Mohamed Ashref Ben Abdallah
-            </Text>
+        <HStack spacing={5} alignSelf={'flex-start'} mt={10} ml="2rem">
+          <Text
+            mt={'1rem'}
+            fontSize={{ base: 'xl', md: 'lg', lg: '4xl' }}
+            fontWeight="bold"
+            color="gray.800"
+            _dark={{
+              color: 'white',
+            }}
+          >
+            Mohamed Ashref Ben Abdallah{' '}
             <Badge ml="1" colorScheme="yellow">
               Verified
             </Badge>
-          </HStack>
-          <HStack
-            my={'1rem'}
-            spacing={3}
-            color="gray.800"
-            _dark={{
-              color: 'gray.200',
-            }}
+          </Text>
+        </HStack>
+        <HStack
+          spacing={1}
+          color="gray.700"
+          _dark={{
+            color: 'gray.200',
+          }}
+          alignSelf="start"
+          ml={{ base: '2rem', md: '2.2rem' }}
+        >
+          <HiMail size="1rem" color="#6e767f" />
+          <Text
+            fontSize={{ base: 'xs', lg: 'lg' }}
+            fontWeight={'light'}
+            textColor="gray.400"
           >
-            <HiOutlineBriefcase size={24} color="yellow" />
-            <Text
-              fontSize="2xl"
-              fontWeight="normal"
-              color="gray.800"
-              _dark={{
-                color: 'gray.200',
+            MohamedAshrefBna@gmail.com
+          </Text>{' '}
+        </HStack>
+        <Center>
+          <Grid
+            templateColumns={{
+              base: 'repeat(1, 1fr)',
+              sm: 'repeat(1, 1fr)',
+              md: 'repeat(1, 1fr)',
+              lg: 'repeat(2, 1fr)',
+            }}
+            gap={4}
+            py={{ base: '8', sm: '8' }}
+          >
+            <Button
+              h="4rem"
+              minW={'30vw'}
+              variant="outline"
+              rounded={'lg'}
+              boxShadow={'md'}
+              bgColor="#ffffff"
+              _dark={{ bgColor: '#1a202c' }}
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
               }}
             >
-              Tech Entrepreneur
-            </Text>
-          </HStack>
-          <HStack
-            my={'1rem'}
-            spacing={3}
-            color="gray.700"
-            _dark={{
-              color: 'gray.200',
-            }}
-          >
-            <HiLocationMarker size={24} color="yellow" />
-            <Text fontSize="xl">Tunis, Tunisia</Text>
-          </HStack>
-          <HStack
-            my={'1rem'}
-            spacing={3}
-            color="gray.700"
-            _dark={{
-              color: 'gray.200',
-            }}
-          >
-            <HiMail size={24} color="yellow" />
-            <Text fontSize={{base:'xl',md:'lg',lg:'xl'}} >MohamedAshrefBenAbdallah@gmail.com</Text>
-          </HStack>
-        </Box>
+              <HStack
+                my={'1rem'}
+                spacing={3}
+                color="gray.800"
+                _dark={{
+                  color: 'gray.200',
+                }}
+              >
+                <HiOutlineBriefcase
+                  size={24}
+                  color={useColorModeValue('#E3BF3E', 'yellow')}
+                />
+                <Text
+                  fontSize="lg"
+                  fontWeight="normal"
+                  color="gray.800"
+                  _dark={{
+                    color: 'gray.200',
+                  }}
+                >
+                  Tech Entrepreneur
+                </Text>
+              </HStack>
+            </Button>
+            <Button
+              h="4rem"
+              minW={'30vw'}
+              variant="outline"
+              rounded={'lg'}
+              bgColor="#ffffff"
+              _dark={{ bgColor: '#1a202c' }}
+              boxShadow={'md'}
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}
+            >
+              <HStack
+                my={'1rem'}
+                spacing={3}
+                color="gray.700"
+                _dark={{
+                  color: 'gray.200',
+                }}
+              >
+                <HiLocationMarker
+                  size={24}
+                  color={useColorModeValue('#E3BF3E', 'yellow')}
+                />
+                <Text fontSize="lg" fontWeight={'normal'}>
+                  Tunis, Tunisia
+                </Text>
+              </HStack>
+            </Button>
+          </Grid>
+        </Center>
         <Box
-          w="80%"
+          w="92%"
           display={'flex'}
           flexDir="row"
           justifyContent="space-between"
@@ -215,18 +262,36 @@ export const Profile = () => {
               color: 'white',
             }}
           >
-            Your Ongoing projects
+            Your ongoing projects
           </Text>
           <Text
             my={'1'}
-            fontSize="xl"
+            fontSize="md"
             fontWeight="light"
             color="gray.800"
             _dark={{
               color: 'white',
             }}
           >
-            My finished projects
+            <Link
+              mx={2}
+              textDecor="underline"
+              my={'1'}
+              fontSize="md"
+              fontWeight="light"
+              color="gray.900"
+              _dark={{
+                color: 'white',
+              }}
+            >
+              <Text
+                _hover={{
+                  textColor: '#E3BF3E',
+                }}
+              >
+                finished projects
+              </Text>
+            </Link>
           </Text>
         </Box>
         <Grid //!el grid elli fih el cardsss
