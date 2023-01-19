@@ -1,6 +1,9 @@
 import {
   Box,
   Button,
+  Skeleton,
+  SkeletonCircle,
+  SkeletonText,
   Center,
   Image,
   Grid,
@@ -36,6 +39,63 @@ import { Header } from '../components/Header/Header';
 import axios from 'axios';
 import './style.css';
 import data from '../sections/Landing/Map/data.json';
+
+const SkeletonCard = () => {
+  return (
+    <Center py={6}>
+      <Box
+        w={'full'}
+        maxW={{ base: '20em', sm: '26em' }}
+        h={'30em'}
+        bg={mode('white', 'gray.900')}
+        boxShadow={'2xl'}
+        rounded={'md'}
+        p={{ base: '3', sm: '6' }}
+        overflow={'hidden'}
+      >
+        <Skeleton w="full" h="50%" my="1rem"></Skeleton>
+        <Box>
+          <Stack>
+            <SkeletonText noOfLines={2}>
+              <Text
+                color={'green.500'}
+                textTransform={'uppercase'}
+                fontWeight={800}
+                fontSize={'sm'}
+                letterSpacing={1.1}
+                minH={{ base: '4.5em', sm: '3em' }}
+              >
+                {/* {a.subtitle} */}
+              </Text>
+            </SkeletonText>
+            <Skeleton>
+              <Heading
+                color={mode('gray.700', 'white')}
+                height="1rem"
+                fontFamily={'body'}
+              >
+                {/* {a.titre} */}
+              </Heading>
+            </Skeleton>
+          </Stack>
+
+          <Stack direction={'column'} spacing={0} fontSize={'sm'} my="1rem">
+            <SkeletonText>
+              <Text color={'gray.500'} pt="0.3em" pb={'1em'}>
+                Feb 08, 2021 · Agriculture
+              </Text>
+            </SkeletonText>
+          </Stack>
+          <Skeleton w="10rem">
+            <Button colorScheme="yellow" mx={3} right="0.8em">
+              See details
+            </Button>
+          </Skeleton>
+        </Box>
+      </Box>
+    </Center>
+  );
+};
 
 const PageProjects = () => {
   const navigate = useNavigate();
@@ -244,93 +304,106 @@ const PageProjects = () => {
                   }}
                   gap={6}
                 >
-                  {r.map((a, key) => {
-                    return (
-                      <Center py={6} key={key}>
-                        <Box
-                          w={'full'}
-                          maxW={{ base: '20em', sm: '26em' }}
-                          h={'30em'}
-                          bg={mode('white', 'gray.900')}
-                          boxShadow={'2xl'}
-                          rounded={'md'}
-                          p={{ base: '3', sm: '6' }}
-                          overflow={'hidden'}
-                        >
-                          <Box //box el taswiraaaa
-                            mt={-6}
-                            mx={-6}
-                            mb={6}
-                            pos={'relative'}
-                            bgGradient={'linear(to-r, green.200, pink.500)'}
-                            maxHeight="15em"
-                            h="15em"
-                            w={{ base: '30em', sm: '26em' }}
+                  {/* Skeleton placeholder */}
+                  {r.length === 0 && (
+                    <>
+                      <SkeletonCard />
+                      <SkeletonCard />
+                      <SkeletonCard />
+                      <SkeletonCard />
+                      <SkeletonCard />
+                      <SkeletonCard />
+                    </>
+                  )}
+                  {/* Actual cards for projects */}
+                  {r.length !== 0 &&
+                    r.map((a, key) => {
+                      return (
+                        <Center py={6} key={key}>
+                          <Box
+                            w={'full'}
+                            maxW={{ base: '20em', sm: '26em' }}
+                            h={'30em'}
+                            bg={mode('white', 'gray.900')}
+                            boxShadow={'2xl'}
+                            rounded={'md'}
+                            p={{ base: '3', sm: '6' }}
                             overflow={'hidden'}
-                            display="flex"
-                            alignItems="center"
-                            justifyContent="center"
                           >
-                            <Image
-                              src={a.img_P}
-                              objectFit={'cover'} //hethi heya elli keeps aspect ratio
-                              flexShrink="0"
-                              minWidth="100%"
-                              minHeight="100%"
-                            />
-                          </Box>
-                          <Box>
-                            <Stack>
-                              <Text
-                                color={'green.500'}
-                                textTransform={'uppercase'}
-                                fontWeight={800}
-                                fontSize={'sm'}
-                                letterSpacing={1.1}
-                                minH={{ base: '4.5em', sm: '3em' }}
-                              >
-                                {a.subtitle}
-                              </Text>
-                              <Heading
-                                color={mode('gray.700', 'white')}
-                                fontSize={'2xl'}
-                                fontFamily={'body'}
-                              >
-                                {a.titre}
-                              </Heading>
-                            </Stack>
+                            <Box //box el taswiraaaa
+                              mt={-6}
+                              mx={-6}
+                              mb={6}
+                              pos={'relative'}
+                              bgGradient={'linear(to-r, green.200, pink.500)'}
+                              maxHeight="15em"
+                              h="15em"
+                              w={{ base: '30em', sm: '26em' }}
+                              overflow={'hidden'}
+                              display="flex"
+                              alignItems="center"
+                              justifyContent="center"
+                            >
+                              <Image
+                                src={a.img_P}
+                                objectFit={'cover'} //hethi heya elli keeps aspect ratio
+                                flexShrink="0"
+                                minWidth="100%"
+                                minHeight="100%"
+                              />
+                            </Box>
+                            <Box>
+                              <Stack>
+                                <Text
+                                  color={'green.500'}
+                                  textTransform={'uppercase'}
+                                  fontWeight={800}
+                                  fontSize={'sm'}
+                                  letterSpacing={1.1}
+                                  minH={{ base: '4.5em', sm: '3em' }}
+                                >
+                                  {a.subtitle}
+                                </Text>
+                                <Heading
+                                  color={mode('gray.700', 'white')}
+                                  fontSize={'2xl'}
+                                  fontFamily={'body'}
+                                >
+                                  {a.titre}
+                                </Heading>
+                              </Stack>
 
-                            <Stack
-                              direction={'column'}
-                              spacing={0}
-                              fontSize={'sm'}
-                            >
-                              <Text fontWeight={600} py="0.1em">
-                                {a.nom_c}
-                              </Text>
-                              <Text color={'gray.500'} pt="0.3em" pb={'1em'}>
-                                Feb 08, 2021 · Agriculture
-                              </Text>
-                            </Stack>
-                            <Button
-                              colorScheme="yellow"
-                              mx={3}
-                              right="0.8em"
-                              onClick={() => {
-                                setdetails(a);
-                                navigate(
-                                  { pathname: `/project_Details/${id}` },
-                                  { state: { details: a } }
-                                );
-                              }}
-                            >
-                              See details
-                            </Button>
+                              <Stack
+                                direction={'column'}
+                                spacing={0}
+                                fontSize={'sm'}
+                              >
+                                <Text fontWeight={600} py="0.1em">
+                                  {a.nom_c}
+                                </Text>
+                                <Text color={'gray.500'} pt="0.3em" pb={'1em'}>
+                                  Feb 08, 2021 · Agriculture
+                                </Text>
+                              </Stack>
+                              <Button
+                                colorScheme="yellow"
+                                mx={3}
+                                right="0.8em"
+                                onClick={() => {
+                                  setdetails(a);
+                                  navigate(
+                                    { pathname: `/project_Details/${id}` },
+                                    { state: { details: a } }
+                                  );
+                                }}
+                              >
+                                See details
+                              </Button>
+                            </Box>
                           </Box>
-                        </Box>
-                      </Center>
-                    );
-                  })}
+                        </Center>
+                      );
+                    })}
                 </Grid>
               </Box>
             </Flex>
