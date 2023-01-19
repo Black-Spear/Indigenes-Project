@@ -49,10 +49,7 @@ const SocialButton = ({ children, label, href }) => {
 
 export default function Footer({ bg }) {
   return (
-    <Box
-      // bg={useColorModeValue("gray.100", "gray.800")}
-      color={useColorModeValue('gray.700', 'gray.200')}
-    >
+    <Box bgColor={useColorModeValue('gray.50', 'gray.800')}>
       <Container
         as={Stack}
         maxW={'6xl'}
@@ -63,7 +60,6 @@ export default function Footer({ bg }) {
         align={{ base: 'center', md: 'center' }}
       >
         <Logo />
-
         <Text>© 2023 CIN investment. All rights reserved v0.9 n030123</Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
