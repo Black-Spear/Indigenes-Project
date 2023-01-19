@@ -130,8 +130,7 @@ export const Header = () => {
           </Box>
           <LightMode>
             <Link to="/signup">
-              {' '}
-              <Button colorScheme="yellow" rounded="5">
+              <Button colorScheme="yellow" rounded="xl" px="2rem" mr="1rem">
                 Sign up
               </Button>
             </Link>
@@ -140,7 +139,7 @@ export const Header = () => {
         </HStack>
       </>
     );
-  } //!end check user sign in static
+  }
 
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
@@ -184,56 +183,23 @@ export const Header = () => {
               </Box>
             </HStack>
             <Flex>
-              {user == null && (
-                <HStack
-                  spacing="8"
-                  display={{
-                    base: 'none',
-                    md: 'flex',
-                  }}
-                >
-                  <NavLink.Desktop href="/#"> About </NavLink.Desktop>
-                  <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
-                  <NavLink.Desktop href="/#features">
-                    {' '}
-                    Features{' '}
-                  </NavLink.Desktop>
-                  <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
-                </HStack>
-              )}
-              {user !== null && (
-                <Box mx='6em' >
-                  <HStack
-                    spacing="6"
-                    display={{
-                      base: 'none',
-                      md: 'flex',
-                    }}
-                    alignSelf='center'
-                    position="fixed"
-                    top="2.5em"
-                  >
-                    <NavLink.Desktop href="/#"> About </NavLink.Desktop>
-                    <NavLink.Desktop href="/#stats">
-                      {' '}
-                      Statistics{' '}
-                    </NavLink.Desktop>
-                    <NavLink.Desktop href="/#features">
-                      {' '}
-                      Features{' '}
-                    </NavLink.Desktop>
-                    <NavLink.Desktop href="/#contact">
-                      {' '}
-                      Contact{' '}
-                    </NavLink.Desktop>
-                  </HStack>
-                </Box>
-              )}
+              <HStack
+                spacing="8"
+                display={{
+                  base: 'none',
+                  md: 'flex',
+                }}
+              >
+                <NavLink.Desktop href="/#"> About </NavLink.Desktop>
+                <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
+                <NavLink.Desktop href="/#features"> Features </NavLink.Desktop>
+                <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
+              </HStack>
             </Flex>
             <Flex alignItems="center" justify="flex-end">
               {Status}
-              <Box ml="5">
-                <MobileNav />
+              <Box>
+                <MobileNav user={user} />
               </Box>
             </Flex>
           </Flex>

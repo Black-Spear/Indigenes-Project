@@ -29,6 +29,7 @@ import logoDark from '../../logoDark.svg';
 import { NavLink } from './NavLink';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import { Link } from 'react-router-dom';
+import { UserComponentMobile } from './UserComponentMobile';
 
 const variants = {
   show: {
@@ -105,7 +106,7 @@ const Transition = props => {
   );
 };
 
-export const MobileNav = () => {
+export const MobileNav = props => {
   const [show, { toggle, off }] = useBoolean();
   const ref = React.useRef(null);
   useFocusOnShow(ref, {
@@ -209,35 +210,46 @@ export const MobileNav = () => {
                       Contact us
                     </Text>
                   </NavLink.Mobile>
+
+                  {/* signed in data */}
+                  {props.user == null && (
+                    <VStack mt="8" spacing="4">
+                      <Link to="/signin">
+                        <Button
+                          w="full"
+                          colorScheme="yellow"
+                          onClick={CloseEvent}
+                        >
+                          <Text
+                            fontWeight={'bold'}
+                            textColor={mode('gray.900', 'white.900')}
+                          >
+                            Sign in
+                          </Text>
+                        </Button>
+                      </Link>
+
+                      <Box textAlign="center" fontWeight="medium">
+                        Don't have an account?{' '}
+                        <Link to="/signup">
+                          {' '}
+                          <Box as="a">
+                            <Text
+                              fontWeight={'extrabold'}
+                              textColor={mode('black', 'white.900')}
+                            >
+                              Sign up
+                            </Text>
+                          </Box>
+                        </Link>
+                      </Box>
+                    </VStack>
+                  )}
+                  {props.user !== null && (
+                    <UserComponentMobile user={props.user} />
+                  )}
                   <ColorModeSwitcher />
                 </SimpleGrid>
-                <VStack mt="8" spacing="4">
-                  <Link to="/signin">
-                    <Button w="full" colorScheme="yellow" onClick={CloseEvent}>
-                      <Text
-                        fontWeight={'bold'}
-                        textColor={mode('gray.900', 'white.900')}
-                      >
-                        Sign in
-                      </Text>
-                    </Button>
-                  </Link>
-
-                  <Box textAlign="center" fontWeight="medium">
-                    Don't have an account?{' '}
-                    <Link to="/signup">
-                      {' '}
-                      <Box as="a">
-                        <Text
-                          fontWeight={'extrabold'}
-                          textColor={mode('black', 'white.900')}
-                        >
-                          Sign up
-                        </Text>
-                      </Box>
-                    </Link>
-                  </Box>
-                </VStack>
               </Box>
             </Box>
           </FocusLock>
