@@ -11,7 +11,7 @@ import PageProjects from './pages/pageProjects';
 //ScrollToTop Imports
 import ScrollToTop from './components/ScrollToTop';
 //profile Imports
-import Profile from './pages/profile';
+import { Profile } from './pages/Profile';
 
 function App() {
   useEffect(() => {

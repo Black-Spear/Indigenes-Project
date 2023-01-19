@@ -6,13 +6,7 @@ import {
   HStack,
   LightMode,
   useColorModeValue,
-  Menu,
-  MenuButton,
-  Avatar,
-  MenuList,
-  MenuItem,
   Image,
-  MenuDivider,
 } from '@chakra-ui/react';
 import './nav.css';
 import { MobileNav } from './MobileNav';

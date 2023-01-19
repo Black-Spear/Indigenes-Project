@@ -98,7 +98,7 @@ const Landing = () => {
         <Testimonial />
       </Box>
 
-      <Box bg="gray.50" _dark={{ bg: 'gray.800' }}>
+      <Box bg="gray.500" _dark={{ bg: 'gray.800' }}>
         <HStack align={'center'} justify="center" spacing={6} mt="2.5em">
           <Divider w={'30%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
