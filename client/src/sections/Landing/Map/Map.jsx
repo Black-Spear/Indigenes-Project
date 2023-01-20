@@ -22,19 +22,18 @@ import {
   Badge,
   HStack,
 } from '@chakra-ui/react';
+import './style.css';
 import { Tooltip1 } from '../../../components/Tooltip1/Tooltip1';
 import React, { useState } from 'react';
-import './style.css';
 import Popup from 'reactjs-popup';
 import data from './data.json';
-import { MdCheckCircle } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { MdCheckCircle } from 'react-icons/md';
 
 const Map = () => {
   const navigate = useNavigate();
   const colores = useColorModeValue('#e2e8f0', '#2d3748');
   const [sampleObject, setSampleObject] = useState({});
-  const [scrollBehavior, setScrollBehavior] = useState('inside');
   const OverlayOne = () => (
     <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
   );
@@ -716,7 +715,7 @@ const Map = () => {
         isOpen={isOpen}
         onClose={onClose}
         size="xl"
-        scrollBehavior={scrollBehavior}
+        scrollBehavior={'inside'}
       >
         {overlay}
         <ModalContent>
