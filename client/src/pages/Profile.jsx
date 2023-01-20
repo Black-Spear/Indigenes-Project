@@ -18,8 +18,9 @@ import {
 import { ColorModeSwitcher } from '../ColorModeSwitcher';
 import { Header } from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-
+// Icon imports
 import { HiOutlineBriefcase, HiLocationMarker, HiMail } from 'react-icons/hi';
+
 const SkeletonCard = () => {
   return (
     <Center py={6}>
