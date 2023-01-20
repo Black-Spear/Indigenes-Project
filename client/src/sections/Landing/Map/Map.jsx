@@ -73,8 +73,7 @@ const Map = () => {
         sector.
       </Text>
       <Flex justifyContent={'start'} alignContent="center">
-        <Tooltip1 size={{base:'4rem'} } 
-        />
+        <Tooltip1 size={{ base: '4rem' }} />
       </Flex>
       <Flex justify="center" align="center" pb={20}>
         <svg
