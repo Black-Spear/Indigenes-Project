@@ -76,8 +76,11 @@ function SignIn() {
     const response = axios.get('/getUser', request);
     console.log(response);
     const verif = users.filter(obj => {
-      return obj.email_c == form.email && obj.mot_de_passe_c == form.password;
+      return obj.email_c === form.email && obj.mot_de_passe_c === form.password;
     });
+
+    console.log(verif);
+
     if (form.email === '' || form.password === '') {
       alert('Please fill all the fields');
     } else if (verif == null) {

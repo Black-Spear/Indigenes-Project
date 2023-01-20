@@ -1,20 +1,14 @@
 import {
   Box,
+  Text,
   Button,
   Flex,
   HStack,
   LightMode,
   useColorModeValue,
-  Menu,
-  MenuButton,
-  Avatar,
-  MenuList,
-  MenuItem,
   Image,
-  MenuDivider,
 } from '@chakra-ui/react';
 import './nav.css';
-import * as React from 'react';
 import { MobileNav } from './MobileNav';
 import { NavLink } from './NavLink';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
@@ -22,6 +16,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { AddIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
+import { UserComponent } from './UserComponent';
 import logoLight from '../../logoLight.svg';
 import logoDark from '../../logoDark.svg';
 
@@ -37,17 +32,36 @@ export const Header = () => {
   let Status;
   if (user !== null) {
     Status = (
-      <>
-        <Button
-          variant={'solid'}
-          colorScheme={'yellow'}
-          size={'sm'}
-          mr={4}
-          leftIcon={<AddIcon />}
-        >
-          <Link to={'/create_project'}>Add Project</Link>
-        </Button>
-        <Menu>
+      <Box
+        display={{
+          base: 'none',
+          lg: 'flex',
+        }}
+        alignItems="center"
+      >
+        <Box size="md">
+          <Link to={'/create_project'}>
+            <Button
+              variant={'solid'}
+              colorScheme={'yellow'}
+              size={'md'}
+              leftIcon={<AddIcon color={'blackAlpha.800'} />}
+              borderRadius="11px"
+            >
+              <Text
+                fontSize="sm"
+                color="blackAlpha.800"
+                fontWeight={'medium'}
+                textAlign="left"
+              >
+                Add Project
+              </Text>
+            </Button>{' '}
+          </Link>
+        </Box>
+
+        {/* //! Here goes the old implementation */}
+        {/* <Menu>
           <MenuButton
             as={Button}
             rounded={'full'}
@@ -58,14 +72,25 @@ export const Header = () => {
             <Avatar
               size={'sm'}
               src={
-                'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
+                'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iHSc5-5mfQsAX8zA6q8&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAzRyUsAZgK0EQcmsEl70DOwqmCmCfnvIqC3IkaNaj_cA&oe=63B79C31'
               }
             />
           </MenuButton>
           <MenuList>
-            <MenuItem>{user[0].nom_c + ' ' + user[0].prenom_c}</MenuItem>
+            <MenuItem> {user[0].nom_c + ' ' + user[0].prenom_c} </MenuItem>
             <MenuDivider />
-            <MenuItem>My Profile</MenuItem>
+            <Link to="/profile">
+              <MenuItem>
+                <Text
+                  textColor={'Black'}
+                  _dark={{ textColor: '#ececec' }}
+                  fontSize="md"
+                >
+                  My Profile
+                </Text>
+              </MenuItem>
+            </Link>
+
             <MenuItem>My Projects</MenuItem>
             <MenuDivider />
             <MenuItem
@@ -77,9 +102,10 @@ export const Header = () => {
               Sign out
             </MenuItem>
           </MenuList>
-          <ColorModeSwitcher />
-        </Menu>
-      </>
+        </Menu> */}
+        <UserComponent user={user} />
+        <ColorModeSwitcher />
+      </Box>
     );
   } else {
     Status = (
@@ -98,18 +124,16 @@ export const Header = () => {
           </Box>
           <LightMode>
             <Link to="/signup">
-              {' '}
-              <Button colorScheme="yellow" rounded="5">
+              <Button colorScheme="yellow" rounded="xl" px="2rem" mr="1rem">
                 Sign up
               </Button>
             </Link>
           </LightMode>
           <ColorModeSwitcher />
-          position="fixed" //please explain
         </HStack>
       </>
     );
-  } //!end check user sign in static
+  }
 
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
@@ -121,19 +145,16 @@ export const Header = () => {
   };
   window.addEventListener('scroll', changeNavbarColor);
   return (
-    <Flex justify="space-between">
+    <Flex>
       <Flex
         as="header"
         className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
         style={{ backdropFilter: 'blur(3px)' }}
         justify="center"
-        rowGap={22}
         w="100%"
         position={'fixed'}
       >
         <Box
-          maxW="100%"
-          // mx="8"
           py="4"
           px={{
             base: '6',
@@ -141,12 +162,21 @@ export const Header = () => {
           }}
         >
           <Flex as="nav" gap="17vw">
-            <HStack spacing="8">
-              <Box as="a" href="/" rel="home" w="20vh">
-                <Image src={colorChange ? logoImg : logoDark} />
+            <HStack spacing="7">
+              <Box
+                rel="home"
+                w={{
+                  base: '9em',
+                  sm: '12em',
+                }}
+                ml="1vw"
+              >
+                <Link to="/">
+                  <Image src={colorChange ? logoImg : logoDark} />
+                </Link>
               </Box>
             </HStack>
-            <Flex align="center">
+            <Flex>
               <HStack
                 spacing="8"
                 display={{
@@ -156,14 +186,14 @@ export const Header = () => {
               >
                 <NavLink.Desktop href="/#"> About </NavLink.Desktop>
                 <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
-                <NavLink.Desktop href="/#feature"> Features </NavLink.Desktop>
+                <NavLink.Desktop href="/#features"> Features </NavLink.Desktop>
                 <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
               </HStack>
             </Flex>
             <Flex alignItems="center" justify="flex-end">
               {Status}
-              <Box ml="5">
-                <MobileNav />
+              <Box>
+                <MobileNav user={user} />
               </Box>
             </Flex>
           </Flex>

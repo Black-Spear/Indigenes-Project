@@ -1,6 +1,3 @@
-import Spline from '@splinetool/react-spline';
-
-import React from 'react';
 import { Hero } from '../sections/Landing/Hero/Hero';
 import Map from '../sections/Landing/Map/Map';
 import { Pricing } from '../sections/Landing/Pricing/Pricing';
@@ -13,23 +10,24 @@ import { About3 } from '../sections/Landing/About3/About3';
 import { Stats1 } from '../sections/Landing/Stats1/Stats1';
 import { Vision } from '../sections/Landing/Vision/Vision';
 import { QuestionCards } from '../sections/Landing/QuestionCards/QuestionCards';
+import { Contact } from '../sections/Landing/Contact/Contact';
+import { Partners } from '../sections/Landing/Partners/Partners';
 import {
   Box,
   Divider,
   HStack,
   Text,
   useColorModeValue,
-  Center,
 } from '@chakra-ui/react';
-import Contact from '../sections/Landing/Contact/Contact';
 
 const Landing = () => {
   const colors = '#1a202c';
   return (
     <>
       <Hero />
+      <Box bg="gray.50" _dark={{ bg: colors }}>
+        <Partners />
 
-      <Box bg="gray.50" _dark={{ bg: colors }} mt="3%">
         <Map />
 
         <HStack align={'center'} justify="center" spacing={6}>
@@ -55,14 +53,6 @@ const Landing = () => {
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
-
-        {/* <Center
-        //SPline 3d model
-        >
-          <Box h={'3xl'} width="100%" my="50px" border-borderRadius={'md'}>
-            <Spline scene="https://prod.spline.design/LEJ8OXadAkb16iFY/scene.splinecode" />
-          </Box>
-        </Center> */}
 
         <About //Two pictures and 2 description paragraphs
         />
@@ -106,9 +96,7 @@ const Landing = () => {
         />
 
         <Testimonial />
-      </Box>
 
-      <Box bg="gray.50" _dark={{ bg: 'gray.800' }}>
         <HStack align={'center'} justify="center" spacing={6} mt="2.5em">
           <Divider w={'30%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>

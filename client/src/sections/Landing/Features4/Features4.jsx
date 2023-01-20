@@ -11,10 +11,15 @@ import {
 import { motion } from 'framer-motion';
 
 const variants = {
-  open: { 
-    opacity: 1, scale: 1,
-    transition:{ 
-    type: 'spring', duration: 1, bounce: 0.3  }},
+  open: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      duration: 1,
+      bounce: 0.3,
+    },
+  },
   closed: { opacity: 0, scale: 0.5 },
 };
 const features = [
@@ -89,7 +94,12 @@ const features = [
 const Features4 = () => {
   const color = useColorModeValue('gray.100', 'gray.700');
   return (
-    <Container maxW="6xl" p={{ base: 5, md: 10 }}>
+    <Container
+      maxW="6xl"
+      p={{ base: 5, md: 10 }}
+      id="features"
+      scrollMarginTop={'20vh'}
+    >
       <chakra.h3 fontSize="4xl" fontWeight="bold" mb={20} textAlign="center">
         Everything your project needs and more
       </chakra.h3>
@@ -104,7 +114,6 @@ const Features4 = () => {
             initial="closed" //animation
             whileInView="open"
             viewport={{ once: true, amount: 0.2 }}
-            
             variants={variants}
           >
             <Box

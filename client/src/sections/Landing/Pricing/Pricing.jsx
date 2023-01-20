@@ -164,7 +164,6 @@ export const Pricing = () => {
                   base: '0em',
                   sm: '-3.8em',
                 }}
-                
               >
                 Starting at 30£/mo
               </Text>

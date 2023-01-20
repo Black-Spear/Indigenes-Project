@@ -16,17 +16,12 @@ import {
   Text,
   useColorModeValue,
   useToast,
-  SimpleGrid,
-  Heading,
 } from '@chakra-ui/react';
 import { Link as RLink, useNavigate } from 'react-router-dom';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import { Popover, PopoverTrigger } from '@chakra-ui/react';
-import viddark from '../../assets/video/gold2.png';
-import vidlight from '../../assets/video/gold.png';
 import './vid.css';
 import axios from 'axios';
-
 import React, { useMemo } from 'react';
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
@@ -50,7 +45,6 @@ function SignUp() {
   const bgColor = useColorModeValue('white', 'gray.700');
   const bgIcons = useColorModeValue('#E3BF3E', 'rgba(255, 255, 255, 0.5)');
   let iconStyles = { color: useColorModeValue('black', 'white') };
-  const vid = useColorModeValue(viddark, vidlight);
 
   const options = useMemo(() => countryList().getData(), []);
 
@@ -82,10 +76,12 @@ function SignUp() {
       const request = {
         ...form,
       };
+
       const db_request = api.get('/createdb');
       console.log(db_request);
       const table_request = api.get('/createtable');
       console.log(table_request);
+
       const res = api.post('/createUser', request);
       console.log(res);
       toast({
@@ -111,9 +107,6 @@ function SignUp() {
     z-index: -1;
     transform: rotate(180deg);
   `;
-
-  // const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
-  // const animation = useAnimation();
 
   return (
     <>
@@ -201,10 +194,6 @@ function SignUp() {
           align="center"
           mt="6.5rem"
           mb="30px"
-          // initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main
-          // whileInView={{ opacity: 1, y: 0, scale: 1 }} //#foufou_kesa7 -- hethi heya animate
-          // transition={{ duration: 1.2, bounce: 0.4 }}
-          // viewport={{ once: true }}
         >
           <Text
             fontSize="6xl"
@@ -237,10 +226,6 @@ function SignUp() {
             mx={{ base: '100px' }}
             bg={bgColor}
             boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
-            // initial={{ opacity: 0, x: '-25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            // whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7 -- hethi heya animate
-            // transition={{ type: 'spring', duration: 1.5, bounce: 0.3 }}
-            // viewport={{ once: true }}
           >
             <Flex
               justify="center"

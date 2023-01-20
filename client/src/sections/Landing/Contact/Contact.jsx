@@ -17,7 +17,6 @@ import {
   InputLeftElement,
   Textarea,
   useToast,
-  Center,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { MdPhoneIphone, MdMail, MdAddLocation } from 'react-icons/md';
@@ -25,7 +24,7 @@ import { FaGithub, FaDiscord, FaPersonBooth, FaFacebook } from 'react-icons/fa';
 import axios from 'axios';
 import { useState } from 'react';
 
-export default function Contact() {
+export function Contact() {
   const api = axios.create({
     baseURL: 'http://localhost:5000',
   });

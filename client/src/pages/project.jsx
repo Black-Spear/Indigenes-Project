@@ -18,6 +18,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { Header } from '../components/Header/Header';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import { MdLocationOn } from 'react-icons/md';
 import { BiLogIn } from 'react-icons/bi';
@@ -238,27 +239,30 @@ export default function Simple() {
           </List>
         </Box>
         <Center>
-          <Button
-            rounded={'3xl'}
-            mt={8}
-            size={'md'}
-            px={'7'}
-            bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
-            color={useColorModeValue('#ffffff', '#171717')}
-            textTransform={'capitalize'} //!hethi heya elli majus awel 7arf
-            _hover={{
-              transform: 'translateY(2px)',
-              boxShadow: 'sm',
-            }}
-          >
-            Sign in
-          </Button>
+          <Link to="/signin">
+            <Button
+              rounded={'md'}
+              mt={14}
+              size={'md'}
+              px={'7'}
+              bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
+              color={useColorModeValue('#ffffff', '#171717')}
+              textTransform={'capitalize'} //!hethi heya elli majus awel 7arf
+              _hover={{
+                transform: 'translateY(2px)',
+                boxShadow: 'sm',
+              }}
+            >
+              Sign in
+            </Button>
+          </Link>
         </Center>
         <Stack
           direction="row"
           alignItems="center"
           justifyContent={'center'}
-          mb="2vh"
+          mt="3vh"
+          mb="6vh"
         >
           <BiLogIn />
           {/*// TODO: baddalha b icon ma 5ir */}

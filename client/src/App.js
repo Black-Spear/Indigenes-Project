@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import { Main } from './pages/Main';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,7 +11,7 @@ import PageProjects from './pages/pageProjects';
 //ScrollToTop Imports
 import ScrollToTop from './components/ScrollToTop';
 //profile Imports
-import Profile from './pages/Profil/Index';
+import { Profile } from './pages/Profile';
 
 function App() {
   useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
           <Route path="/projects/:id" element={<PageProjects />} />
           <Route path="/project_details/:id" element={<Simple />} />
           <Route path="/create_project" element={<CreateProject />} />
-          <Route path="/profil" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
       <ScrollToTop />
