@@ -12,6 +12,7 @@ import { Vision } from '../sections/Landing/Vision/Vision';
 import { QuestionCards } from '../sections/Landing/QuestionCards/QuestionCards';
 import { Contact } from '../sections/Landing/Contact/Contact';
 import { Partners } from '../sections/Landing/Partners/Partners';
+import { Tooltip1 } from "../components/Tooltip1/Tooltip1";
 import {
   Box,
   Divider,
@@ -27,6 +28,8 @@ const Landing = () => {
       <Hero />
       <Box bg="gray.50" _dark={{ bg: colors }}>
         <Partners />
+
+        
 
         <Map />
 

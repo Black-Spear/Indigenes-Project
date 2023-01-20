@@ -12,6 +12,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  useBreakpointValue,
   useColorModeValue,
   useDisclosure,
   ListIcon,
@@ -21,17 +22,13 @@ import {
   Badge,
   HStack,
 } from '@chakra-ui/react';
+import { Tooltip1 } from '../../../components/Tooltip1/Tooltip1';
 import React, { useState } from 'react';
 import './style.css';
 import Popup from 'reactjs-popup';
 import data from './data.json';
 import { MdCheckCircle } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
-
-// ! CODE STARTS HERE
 
 const Map = () => {
   const navigate = useNavigate();
@@ -49,26 +46,8 @@ const Map = () => {
     setSampleObject(sampleObject);
   }
 
-  const MotionButton = motion(Button);
-  const MotionFlex = motion(Flex);
-
-  const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({});
-    }
-
-    if (!inView) {
-      animation.start({
-        x: '-100vw',
-      });
-    }
-  }, [animation, inView]);
-
   return (
-    <Box textAlign="center">
+    <Box>
       <Heading
         as="h1"
         size="3xl"
@@ -77,17 +56,30 @@ const Map = () => {
         mx="auto"
         lineHeight="1.2"
         letterSpacing="tight"
+        textAlign="center"
       >
         Choose a <span>city</span>
       </Heading>
-      <Text fontSize="xl" mt="4" maxW="xl" mx="auto" opacity={0.5}>
-        Tunisia is in the north of africa, has a 24 cities with 14 milions
-        peoples
+      <Text
+        fontSize="xl"
+        textAlign="center"
+        mt="4"
+        maxW="xl"
+        mx="auto"
+        opacity={0.5}
+        p={{ base: '5', sm: '0' }}
+      >
+        Tunisia is a North African nation with 24 cities and a rich agricultural
+        sector.
       </Text>
-      <Flex justify="center" align="center" py="3%" pb={20}>
+      <Flex justifyContent={'start'} alignContent="center">
+        <Tooltip1 size={{base:'4rem'} } 
+        />
+      </Flex>
+      <Flex justify="center" align="center" pb={20}>
         <svg
           className="map"
-          height={900}
+          width={useBreakpointValue({ base: '95%', sm: '90%', lg: '32rem' })}
           baseprofile="tiny"
           stroke-linecap="round"
           version="1.2"
