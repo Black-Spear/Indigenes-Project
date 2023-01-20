@@ -1,12 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Flex,
-  keyframes,
-  useColorModeValue,
-} from '@chakra-ui/react';
-
+import { Box, Button, keyframes, useColorModeValue } from '@chakra-ui/react';
 import { FaQuestion } from 'react-icons/fa';
 
 export function Tooltip1(props) {
