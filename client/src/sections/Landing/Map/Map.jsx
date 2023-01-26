@@ -711,6 +711,8 @@ const Map = () => {
           </Popup>
         </svg>
       </Flex>
+                {/* //todo: make the desktop version of the card. */}
+
       <Modal
         isCentered
         isOpen={isOpen}
