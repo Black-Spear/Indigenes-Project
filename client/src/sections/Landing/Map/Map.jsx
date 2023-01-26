@@ -28,7 +28,8 @@ import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import data from './data.json';
 import { useNavigate } from 'react-router-dom';
-import { MdCheckCircle } from 'react-icons/md';
+import wheatIcon from '../../../assets/img/wheat.svg';
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 const Map = () => {
   const navigate = useNavigate();
@@ -714,46 +715,128 @@ const Map = () => {
         isCentered
         isOpen={isOpen}
         onClose={onClose}
-        size="xl"
-        scrollBehavior={'inside'}
+        size="2xl"
+        // scrollBehavior={'inside'}
       >
         {overlay}
-        <ModalContent>
-          <ModalHeader fontSize={28} textAlign="center">
-            <Text py={3}>{sampleObject.name}</Text>
-            <HStack>
+        <ModalContent
+          bgColor="#1a202c"
+          borderRadius={'xl'}
+          border="1px"
+          borderColor={'whiteAlpha.400'}
+          mx="2"
+        >
+          <ModalCloseButton />
+          <ModalHeader textAlign="start">
+            <Text
+              mt="3"
+              textTransform="capitalize"
+              fontFamily={'Cairo'}
+              fontWeight="bold"
+              fontSize={45}
+              color="#E3BF3E"
+            >
+              {sampleObject.name}
+            </Text>
+            {/* <HStack>
               <Divider w="50%" size={5} />
               <Badge colorScheme="yellow">Water</Badge>
               <Divider w="50%" size={5} />
-            </HStack>
+            </HStack> */}
           </ModalHeader>
-          <ModalCloseButton />
           <ModalBody>
-            <Image src={sampleObject.img}></Image>
-
-            <List spacing={3} my={5}>
-              {sampleObject.attributes &&
-                sampleObject.attributes.length > 0 &&
-                sampleObject.attributes.map(item => (
-                  <ListItem>
-                    <ListIcon as={MdCheckCircle} color="green.500" />
-                    {item.text}
-                  </ListItem>
-                ))}
-            </List>
-            <Text>Number of Districts: {sampleObject.nbrDistructs}</Text>
+            <Image
+              w="100%"
+              h="13rem"
+              borderRadius={'xl'}
+              objectFit={'cover'}
+              src={sampleObject.img}
+            ></Image>
+            <HStack mt="4">
+              <Text
+                fontSize="lg"
+                fontWeight="medium"
+                lineHeight="22px"
+                mx="5vw"
+              >
+                Prime <br /> sector
+              </Text>
+              <Box
+                h="3rem"
+                w="full"
+                borderRadius="2xl"
+                bgColor={'#E3BF3E'}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                my="1rem"
+              >
+                <Image src={wheatIcon} h="2.2rem" w="2.2rem" ml="6"></Image>
+                <Text
+                  fontSize="lg"
+                  fontWeight="medium"
+                  color="black"
+                  mr="6"
+                  ml="3"
+                >
+                  Agriculture
+                </Text>
+              </Box>
+            </HStack>
+            <HStack>
+              <Box
+                w="4.5rem"
+                h="3.1rem"
+                borderRadius="2xl"
+                bgColor={'#78D67B'}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                my="1rem"
+                mr="5vw"
+                ml="6vw"
+              >
+                <Text fontSize="2xl" fontWeight="semibold" color="black">
+                  55
+                </Text>
+              </Box>
+              <Box w="full">
+                <Text fontSize="xl" fontWeight="regular" textAlign={'center'}>
+                  Projects available
+                </Text>
+              </Box>
+            </HStack>
+            <Box px="5" mt="1" textAlign="left" mb="2">
+              <Text fontWeight={'light'} fontSize="md" mb="2">
+                This region has {sampleObject.nbrDistructs} districts. <br />
+              </Text>
+              <Text fontWeight={'light'} fontSize="sm">
+                {sampleObject.attributes &&
+                  sampleObject.attributes.length > 0 &&
+                  sampleObject.attributes[0].text}
+                {/* fyi: sampleObject has attributes array that contains two
+               blocks and under each block there's a text child that we need.  */}
+              </Text>
+            </Box>
           </ModalBody>
           <ModalFooter>
             <Button
-              colorScheme="yellow"
-              mx={3}
+              borderRadius={'xl'}
+              bgColor="#E3BF3E"
+              h="9"
+              px="5"
+              mb="3"
+              color="black"
               onClick={() => {
                 navigate({ pathname: `/projects/${sampleObject.id}` });
               }}
             >
-              See Projects
+              <Text mr="2" fontWeight="medium" fontSize="sm">
+                See More
+              </Text>
+              <HiOutlineArrowNarrowRight />
             </Button>
-            <Button onClick={onClose}>Close</Button>
+            {/* <Button onClick={onClose}>Close</Button> */}
           </ModalFooter>
         </ModalContent>
       </Modal>
