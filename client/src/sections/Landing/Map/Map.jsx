@@ -22,6 +22,7 @@ import {
   Badge,
   HStack,
 } from '@chakra-ui/react';
+import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import './style.css';
 import { Tooltip1 } from '../../../components/Tooltip1/Tooltip1';
 import React, { useState } from 'react';
@@ -711,7 +712,7 @@ const Map = () => {
           </Popup>
         </svg>
       </Flex>
-                {/* //todo: make the desktop version of the card. */}
+      {/* //todo: make the desktop version of the card. */}
 
       <Modal
         isCentered
@@ -722,10 +723,10 @@ const Map = () => {
       >
         {overlay}
         <ModalContent
-          bgColor="#1a202c"
+          bgColor={useColorModeValue('#e2e8f0', '#1a202c')}
           borderRadius={'xl'}
           border="1px"
-          borderColor={'whiteAlpha.400'}
+          borderColor="whiteAlpha.400"
           mx="2"
         >
           <ModalCloseButton />
@@ -749,7 +750,7 @@ const Map = () => {
           <ModalBody>
             <Image
               w="100%"
-              h="13rem"
+              h={{ base: '13rem' ,lg:'22rem'}}
               borderRadius={'xl'}
               objectFit={'cover'}
               src={sampleObject.img}
@@ -822,23 +823,31 @@ const Map = () => {
             </Box>
           </ModalBody>
           <ModalFooter>
-            <Button
-              borderRadius={'xl'}
-              bgColor="#E3BF3E"
-              h="9"
-              px="5"
-              mb="3"
-              color="black"
-              onClick={() => {
-                navigate({ pathname: `/projects/${sampleObject.id}` });
-              }}
-            >
-              <Text mr="2" fontWeight="medium" fontSize="sm">
-                See More
-              </Text>
-              <HiOutlineArrowNarrowRight />
-            </Button>
-            {/* <Button onClick={onClose}>Close</Button> */}
+            <Flex justifyContent={'space-between'} w="full">
+              <Button borderRadius={'xl'} h="9" px="5" mb="3" onClick={onClose}>
+                <Text fontWeight="medium" fontSize="sm">
+                  Close
+                </Text>
+              </Button>
+              <Button
+                borderRadius={'xl'}
+                bgColor="#E3BF3E"
+                h="9"
+                px="5"
+                mb="3"
+                color="black"
+                onClick={() => {
+                  navigate({ pathname: `/projects/${sampleObject.id}` });
+                }}
+              >
+                <Text mr="2" fontWeight="medium" fontSize="sm">
+                  See More
+                </Text>
+                <HiOutlineArrowNarrowRight />
+              </Button>
+
+              {/* <Button onClick={onClose}>Close</Button> */}
+            </Flex>
           </ModalFooter>
         </ModalContent>
       </Modal>
