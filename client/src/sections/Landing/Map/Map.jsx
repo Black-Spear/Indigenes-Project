@@ -15,20 +15,14 @@ import {
   useBreakpointValue,
   useColorModeValue,
   useDisclosure,
-  ListIcon,
-  ListItem,
-  List,
-  Divider,
-  Badge,
   HStack,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from '../../../ColorModeSwitcher';
 import './style.css';
 import { Tooltip1 } from '../../../components/Tooltip1/Tooltip1';
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import data from './data.json';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import wheatIcon from '../../../assets/img/wheat.svg';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
@@ -73,9 +67,11 @@ const Map = () => {
         Tunisia is a North African nation with 24 cities and a rich agricultural
         sector.
       </Text>
-      <Flex justifyContent={'start'} alignContent="center">
-        <Tooltip1 size={{ base: '4rem' }} />
-      </Flex>
+      <Link to="/#helpme">
+        <Flex justifyContent={'start'} alignContent="center">
+          <Tooltip1 size={{ base: '4rem' }} />
+        </Flex>
+      </Link>
       <Flex justify="center" align="center" pb={20}>
         <svg
           className="map"
@@ -731,7 +727,12 @@ const Map = () => {
         >
           <ModalCloseButton />
           <ModalHeader textAlign="start">
-            <Flex w="full" mt="6" justifyContent="space-between" px={{base:'1', lg:'2'}} >
+            <Flex
+              w="full"
+              mt="6"
+              justifyContent="space-between"
+              px={{ base: '1', lg: '2' }}
+            >
               <Text
                 textTransform="capitalize"
                 fontFamily={'Cairo'}
@@ -850,8 +851,6 @@ const Map = () => {
                 </Text>
                 <HiOutlineArrowNarrowRight />
               </Button>
-
-              {/* <Button onClick={onClose}>Close</Button> */}
             </Flex>
           </ModalFooter>
         </ModalContent>

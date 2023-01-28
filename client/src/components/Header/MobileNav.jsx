@@ -191,7 +191,7 @@ export const MobileNav = props => {
                       fontWeight={'normal'}
                       textColor={mode('black', 'white.900')}
                     >
-                      Features
+                      Articles
                     </Text>
                   </NavLink.Mobile>
                   <NavLink.Mobile icon={HiBookOpen}>

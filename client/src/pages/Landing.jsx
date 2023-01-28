@@ -9,9 +9,11 @@ import { About2 } from '../sections/Landing/About2/About2';
 import { About3 } from '../sections/Landing/About3/About3';
 import { Stats1 } from '../sections/Landing/Stats1/Stats1';
 import { Vision } from '../sections/Landing/Vision/Vision';
-import { QuestionCards } from '../sections/Landing/QuestionCards/QuestionCards';
+// import { QuestionCards } from '../sections/Landing/QuestionCards/QuestionCards';
 import { Contact } from '../sections/Landing/Contact/Contact';
 import { Partners } from '../sections/Landing/Partners/Partners';
+import { NewsLetter } from '../sections/Landing/NewsLetter/NewsLetter';
+import { Help } from '../sections/Landing/Help/Help';
 import {
   Box,
   Divider,
@@ -29,6 +31,19 @@ const Landing = () => {
         <Partners />
 
         <Map />
+
+        <HStack align={'center'} justify="center" spacing={6}>
+          <Divider w={'42%'}></Divider>
+          <Text
+            color={useColorModeValue('gray.500', 'gray.600')}
+            minWidth={'10.5em'}
+          >
+            Investment help
+          </Text>
+          <Divider w={'40%'}></Divider>
+        </HStack>
+
+        <Help />
 
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
@@ -96,6 +111,8 @@ const Landing = () => {
         />
 
         <Testimonial />
+
+        <NewsLetter />
 
         <HStack align={'center'} justify="center" spacing={6} mt="2.5em">
           <Divider w={'30%'}></Divider>

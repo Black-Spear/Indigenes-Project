@@ -185,7 +185,7 @@ export const Header = () => {
                 }}
               >
                 <NavLink.Desktop href="/#"> About </NavLink.Desktop>
-                <NavLink.Desktop href="/#stats"> Statistics </NavLink.Desktop>
+                <NavLink.Desktop href="/#stats"> Articles </NavLink.Desktop>
                 <NavLink.Desktop href="/#features"> Features </NavLink.Desktop>
                 <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
               </HStack>
