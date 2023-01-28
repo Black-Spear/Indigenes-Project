@@ -731,26 +731,31 @@ const Map = () => {
         >
           <ModalCloseButton />
           <ModalHeader textAlign="start">
-            <Text
-              mt="3"
-              textTransform="capitalize"
-              fontFamily={'Cairo'}
-              fontWeight="bold"
-              fontSize={45}
-              color="#E3BF3E"
-            >
-              {sampleObject.name}
-            </Text>
-            {/* <HStack>
-              <Divider w="50%" size={5} />
-              <Badge colorScheme="yellow">Water</Badge>
-              <Divider w="50%" size={5} />
-            </HStack> */}
+            <Flex w="full" mt="6" justifyContent="space-between" px={{base:'1', lg:'2'}} >
+              <Text
+                textTransform="capitalize"
+                fontFamily={'Cairo'}
+                fontWeight="bold"
+                fontSize={45}
+                color="#E3BF3E"
+              >
+                {sampleObject.name}
+              </Text>
+              <Text
+                textTransform="capitalize"
+                fontFamily={'Noto Sans Arabic'}
+                fontWeight="bold"
+                fontSize={45}
+                color="#E3BF3E"
+              >
+                {sampleObject.nameAr}
+              </Text>
+            </Flex>
           </ModalHeader>
           <ModalBody>
             <Image
               w="100%"
-              h={{ base: '13rem' ,lg:'22rem'}}
+              h={{ base: '13rem', lg: '22rem' }}
               borderRadius={'xl'}
               objectFit={'cover'}
               src={sampleObject.img}

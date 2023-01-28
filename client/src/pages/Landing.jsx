@@ -79,7 +79,7 @@ const Landing = () => {
         <About2 //what does it mean to be part of indignees?
         />
 
-        <QuestionCards />
+        {/* <QuestionCards /> */}
 
         <HStack align={'center'} justify="center" spacing={6}>
           <Divider w={'40%'}></Divider>
