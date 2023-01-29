@@ -64,32 +64,24 @@ const SkeletonCard = () => {
                 fontSize={'sm'}
                 letterSpacing={1.1}
                 minH={{ base: '4.5em', sm: '3em' }}
-              >
-                {/* {a.subtitle} */}
-              </Text>
+              ></Text>
             </SkeletonText>
             <Skeleton>
               <Heading
                 color={mode('gray.700', 'white')}
                 height="1rem"
                 fontFamily={'body'}
-              >
-                {/* {a.titre} */}
-              </Heading>
+              ></Heading>
             </Skeleton>
           </Stack>
 
           <Stack direction={'column'} spacing={0} fontSize={'sm'} my="1rem">
             <SkeletonText>
-              <Text color={'gray.500'} pt="0.3em" pb={'1em'}>
-                Feb 08, 2021 · Agriculture
-              </Text>
+              <Text color={'gray.500'} pt="0.3em" pb={'1em'}></Text>
             </SkeletonText>
           </Stack>
           <Skeleton w="10rem">
-            <Button colorScheme="yellow" mx={3} right="0.8em">
-              See details
-            </Button>
+            <Button colorScheme="yellow" mx={3} right="0.8em"></Button>
           </Skeleton>
         </Box>
       </Box>
