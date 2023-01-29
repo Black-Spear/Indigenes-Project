@@ -175,7 +175,7 @@ export default function Simple() {
               <ListItem>Tachymeter</ListItem>
             </List>
             <List spacing={2}>
-              <ListItem>Anti‑magnetic</ListItem>
+              <ListItem>Antimagnetic</ListItem>
               <ListItem>Chronometer</ListItem>
               <ListItem>Small seconds</ListItem>
             </List>
@@ -247,7 +247,6 @@ export default function Simple() {
               px={'7'}
               bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
               color={useColorModeValue('#ffffff', '#171717')}
-              textTransform={'capitalize'} //!hethi heya elli majus awel 7arf
               _hover={{
                 transform: 'translateY(2px)',
                 boxShadow: 'sm',
