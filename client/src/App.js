@@ -8,10 +8,8 @@ import CreateProject from './pages/Project/ProjectForm';
 import Simple from './pages/project';
 import axios from 'axios';
 import PageProjects from './pages/pageProjects';
-//ScrollToTop Imports
-import ScrollToTop from './components/ScrollToTop';
-//profile Imports
 import { Profile } from './pages/Profile';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {

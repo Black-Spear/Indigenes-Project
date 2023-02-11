@@ -12,32 +12,24 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  useBreakpointValue,
   useColorModeValue,
   useDisclosure,
-  ListIcon,
-  ListItem,
-  List,
-  Divider,
-  Badge,
   HStack,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
 import './style.css';
+import { Tooltip1 } from '../../../components/Tooltip1/Tooltip1';
+import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import data from './data.json';
-import { MdCheckCircle } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
-
-// ! CODE STARTS HERE
+import { Link, useNavigate } from 'react-router-dom';
+import wheatIcon from '../../../assets/img/wheat.svg';
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 const Map = () => {
   const navigate = useNavigate();
   const colores = useColorModeValue('#e2e8f0', '#2d3748');
   const [sampleObject, setSampleObject] = useState({});
-  const [scrollBehavior, setScrollBehavior] = useState('inside');
   const OverlayOne = () => (
     <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
   );
@@ -49,26 +41,8 @@ const Map = () => {
     setSampleObject(sampleObject);
   }
 
-  const MotionButton = motion(Button);
-  const MotionFlex = motion(Flex);
-
-  const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
-  const animation = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({});
-    }
-
-    if (!inView) {
-      animation.start({
-        x: '-100vw',
-      });
-    }
-  }, [animation, inView]);
-
   return (
-    <Box textAlign="center">
+    <Box>
       <Heading
         as="h1"
         size="3xl"
@@ -77,17 +51,31 @@ const Map = () => {
         mx="auto"
         lineHeight="1.2"
         letterSpacing="tight"
+        textAlign="center"
       >
         Choose a <span>city</span>
       </Heading>
-      <Text fontSize="xl" mt="4" maxW="xl" mx="auto" opacity={0.5}>
-        Tunisia is in the north of africa, has a 24 cities with 14 milions
-        peoples
+      <Text
+        fontSize="xl"
+        textAlign="center"
+        mt="4"
+        maxW="xl"
+        mx="auto"
+        opacity={0.5}
+        p={{ base: '5', sm: '0' }}
+      >
+        Tunisia is a North African nation with 24 cities and a rich agricultural
+        sector.
       </Text>
-      <Flex justify="center" align="center" py="3%" pb={20}>
+      <Link to="/#helpme">
+        <Flex justifyContent={'start'} alignContent="center">
+          <Tooltip1 size={{ base: '4rem' }} />
+        </Flex>
+      </Link>
+      <Flex justify="center" align="center" pb={20}>
         <svg
           className="map"
-          height={900}
+          width={useBreakpointValue({ base: '95%', sm: '90%', lg: '32rem' })}
           baseprofile="tiny"
           stroke-linecap="round"
           version="1.2"
@@ -720,50 +708,150 @@ const Map = () => {
           </Popup>
         </svg>
       </Flex>
+      {/* //todo: make the desktop version of the card. */}
+
       <Modal
         isCentered
         isOpen={isOpen}
         onClose={onClose}
-        size="xl"
-        scrollBehavior={scrollBehavior}
+        size="2xl"
+        // scrollBehavior={'inside'}
       >
         {overlay}
-        <ModalContent>
-          <ModalHeader fontSize={28} textAlign="center">
-            <Text py={3}>{sampleObject.name}</Text>
-            <HStack>
-              <Divider w="50%" size={5} />
-              <Badge colorScheme="yellow">Water</Badge>
-              <Divider w="50%" size={5} />
-            </HStack>
-          </ModalHeader>
+        <ModalContent
+          bgColor={useColorModeValue('#e2e8f0', '#1a202c')}
+          borderRadius={'xl'}
+          border="1px"
+          borderColor="whiteAlpha.400"
+          mx="2"
+        >
           <ModalCloseButton />
+          <ModalHeader textAlign="start">
+            <Flex
+              w="full"
+              mt="6"
+              justifyContent="space-between"
+              px={{ base: '1', lg: '2' }}
+            >
+              <Text
+                textTransform="capitalize"
+                fontFamily={'Cairo'}
+                fontWeight="bold"
+                fontSize={45}
+                color="#E3BF3E"
+              >
+                {sampleObject.name}
+              </Text>
+              <Text
+                textTransform="capitalize"
+                fontFamily={'Noto Sans Arabic'}
+                fontWeight="bold"
+                fontSize={45}
+                color="#E3BF3E"
+              >
+                {sampleObject.nameAr}
+              </Text>
+            </Flex>
+          </ModalHeader>
           <ModalBody>
-            <Image src={sampleObject.img}></Image>
-
-            <List spacing={3} my={5}>
-              {sampleObject.attributes &&
-                sampleObject.attributes.length > 0 &&
-                sampleObject.attributes.map(item => (
-                  <ListItem>
-                    <ListIcon as={MdCheckCircle} color="green.500" />
-                    {item.text}
-                  </ListItem>
-                ))}
-            </List>
-            <Text>Number of Districts: {sampleObject.nbrDistructs}</Text>
+            <Image
+              w="100%"
+              h={{ base: '13rem', lg: '22rem' }}
+              borderRadius={'xl'}
+              objectFit={'cover'}
+              src={sampleObject.img}
+            ></Image>
+            <HStack mt="4">
+              <Text
+                fontSize="lg"
+                fontWeight="medium"
+                lineHeight="22px"
+                mx="5vw"
+              >
+                Prime <br /> sector
+              </Text>
+              <Box
+                h="3rem"
+                w="full"
+                borderRadius="2xl"
+                bgColor={'#E3BF3E'}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                my="1rem"
+              >
+                <Image src={wheatIcon} h="2.2rem" w="2.2rem" ml="6"></Image>
+                <Text
+                  fontSize="lg"
+                  fontWeight="medium"
+                  color="black"
+                  mr="6"
+                  ml="3"
+                >
+                  Agriculture
+                </Text>
+              </Box>
+            </HStack>
+            <HStack>
+              <Box
+                w="4.5rem"
+                h="3.1rem"
+                borderRadius="2xl"
+                bgColor={'#78D67B'}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                my="1rem"
+                mr="5vw"
+                ml="6vw"
+              >
+                <Text fontSize="2xl" fontWeight="semibold" color="black">
+                  55
+                </Text>
+              </Box>
+              <Box w="full">
+                <Text fontSize="xl" fontWeight="regular" textAlign={'center'}>
+                  Projects available
+                </Text>
+              </Box>
+            </HStack>
+            <Box px="5" mt="1" textAlign="left" mb="2">
+              <Text fontWeight={'light'} fontSize="md" mb="2">
+                This region has {sampleObject.nbrDistructs} districts. <br />
+              </Text>
+              <Text fontWeight={'light'} fontSize="sm">
+                {sampleObject.attributes &&
+                  sampleObject.attributes.length > 0 &&
+                  sampleObject.attributes[0].text}
+                {/* fyi: sampleObject has attributes array that contains two
+               blocks and under each block there's a text child that we need.  */}
+              </Text>
+            </Box>
           </ModalBody>
           <ModalFooter>
-            <Button
-              colorScheme="yellow"
-              mx={3}
-              onClick={() => {
-                navigate({ pathname: `/projects/${sampleObject.id}` });
-              }}
-            >
-              See Projects
-            </Button>
-            <Button onClick={onClose}>Close</Button>
+            <Flex justifyContent={'space-between'} w="full">
+              <Button borderRadius={'xl'} h="9" px="5" mb="3" onClick={onClose}>
+                <Text fontWeight="medium" fontSize="sm">
+                  Close
+                </Text>
+              </Button>
+              <Button
+                borderRadius={'xl'}
+                bgColor="#E3BF3E"
+                h="9"
+                px="5"
+                mb="3"
+                color="black"
+                onClick={() => {
+                  navigate({ pathname: `/projects/${sampleObject.id}` });
+                }}
+              >
+                <Text mr="2" fontWeight="medium" fontSize="sm">
+                  See More
+                </Text>
+                <HiOutlineArrowNarrowRight />
+              </Button>
+            </Flex>
           </ModalFooter>
         </ModalContent>
       </Modal>

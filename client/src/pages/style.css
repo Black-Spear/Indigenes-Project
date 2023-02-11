@@ -7,10 +7,8 @@
 .card-description:hover {
   transform: translateY(-50%);
   height: 20vh;
-  
 }
 .card-description > h2 > span {
   font-size: large;
   font-weight: bolder;
 }
-
