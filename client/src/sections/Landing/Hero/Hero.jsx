@@ -156,6 +156,7 @@ export const Hero = () => {
                   px="8"
                   mt="1.5rem"
                   fontWeight="bold"
+                  rounded="xl"
                   whileHover={{ scale: 1.1 }} // these two don't work
                   whileTap={{ scale: 0.9 }} //¯\_(ツ)_/¯
                   initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main

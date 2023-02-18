@@ -92,7 +92,7 @@ export function About3() {
             border="solid transparent"
             fontWeight="bold"
             w="full"
-            rounded="md"
+            rounded="xl"
             bg="brand.600"
             _light={{ color: 'blackAlpha.500' }}
             _dark={{ color: 'whiteAlpha.800', bg: 'yellow.500' }}

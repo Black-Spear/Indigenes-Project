@@ -53,7 +53,7 @@ const Banner = () => {
           color="white"
           variant="solid"
           size="lg"
-          rounded="lg"
+          rounded="xl"
           mb={{ base: 2, sm: 0 }}
           lineHeight={1}
           bgGradient="linear(to-tl, #efa734,#ffcc2f)"
@@ -65,7 +65,7 @@ const Banner = () => {
           as={Link}
           href="#"
           size="lg"
-          rounded="lg"
+          rounded="xl"
           mb={{ base: 2, sm: 0 }}
           bg={useColorModeValue('gray.200', 'gray.600')}
           _hover={{ bg: useColorModeValue('gray.300', 'gray.500') }}
