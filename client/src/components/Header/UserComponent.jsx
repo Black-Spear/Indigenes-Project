@@ -62,7 +62,7 @@ const UserComponent = props => {
                 <Avatar
                   size={'sm'}
                   src={
-                    'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-1/274480513_1179989572537674_7273953419814914029_n.jpg?stp=dst-jpg_p240x240&_nc_cat=108&ccb=1-7&_nc_sid=7206a8&_nc_ohc=xDTFmiBn02IAX-TQ0h7&_nc_ht=scontent.ftun10-1.fna&oh=00_AfDaA33CR6H2fWOVHdu4V-FJxvggrwqlVwzI1R09PWUFaQ&oe=63CDE473'
+                    'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=sMXzg2sg0zMAX8FhI6a&tn=zd-qKV8hRhsU3r7C&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAiWXrTh_X-2mBxi1qOjmWrhbrrovFHYC286HbAUo6ZqA&oe=63FAD8B1'
                   }
                 />
                 <VStack

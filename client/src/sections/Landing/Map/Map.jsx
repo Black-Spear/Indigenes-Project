@@ -714,7 +714,8 @@ const Map = () => {
         isCentered
         isOpen={isOpen}
         onClose={onClose}
-        size="2xl"
+        size="xl"
+        
         // scrollBehavior={'inside'}
       >
         {overlay}
@@ -724,7 +725,9 @@ const Map = () => {
           border="1px"
           borderColor="whiteAlpha.400"
           mx="2"
+          maxh='90%'
         >
+
           <ModalCloseButton />
           <ModalHeader textAlign="start">
             <Flex
