@@ -714,8 +714,9 @@ const Map = () => {
         isCentered
         isOpen={isOpen}
         onClose={onClose}
-        size="xl"
-        
+        size="2xl"
+        height="min-content"
+
         // scrollBehavior={'inside'}
       >
         {overlay}
@@ -725,9 +726,7 @@ const Map = () => {
           border="1px"
           borderColor="whiteAlpha.400"
           mx="2"
-          maxh='90%'
         >
-
           <ModalCloseButton />
           <ModalHeader textAlign="start">
             <Flex
@@ -759,7 +758,13 @@ const Map = () => {
           <ModalBody>
             <Image
               w="100%"
-              h={{ base: '13rem', lg: '22rem' }}
+              h={{
+                base: '13rem',
+                sm: '15rem',
+                md: '16rem',
+                lg: '20rem',
+                xl: '22rem',
+              }}
               borderRadius={'xl'}
               objectFit={'cover'}
               src={sampleObject.img}

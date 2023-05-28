@@ -66,9 +66,9 @@ function SignIn() {
   };
 
   const submitButton = async e => {
+    e.preventDefault();
     setPress(true);
     console.log(users);
-    e.preventDefault();
     console.log(form);
     const request = {
       ...form,
