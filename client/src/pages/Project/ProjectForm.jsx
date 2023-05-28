@@ -4,22 +4,19 @@ import {
   Button,
   Divider,
   Flex,
-  Component,
   FormControl,
   FormLabel,
   HStack,
-  Icon,
+ 
   Input,
-  Link,
+
   Select,
   Stack,
-  Switch,
   Text,
   Textarea,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Link as RLink } from 'react-router-dom';
-import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import {
   Popover,
   PopoverTrigger,

@@ -1,5 +1,5 @@
 {
-  "name": "indigenesweb",
+  "name": "indigenes-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,6 @@
     "react-dom": "^18.2.0",
     "react-icons": "^3.11.0",
     "react-intersection-observer": "^9.4.0",
-    "react-scripts": "5.0.1",
     "react-select-country-list": "^2.2.3",
     "react-svg-popover": "^1.0.10",
     "react-wavify": "^1.6.1",
@@ -29,10 +28,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,6 +48,14 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.3.0"
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.41.0",
+    "eslint-config-react-app": "^7.0.1",
+    "react-router-dom": "^6.3.0",
+    "vite": "^4.3.9",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.0"
   }
 }
