@@ -1,0 +1,23 @@
+{
+  "header": {
+    "addProject": "添加项目",
+    "signIn": "登录",
+    "signUp": "注册",
+    "about": "关于",
+    "articles": "文章",
+    "features": "特点",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "header": {
+      "first": "获得",
+      "second": "收益",
+      "third": "从投资于项目在",
+      "fourth": "突尼斯"
+    },
+    "paragraphline1": "我们的使命是帮助您进行智能投资，",
+    "paragraphline2": "为更好的突尼斯贡献一份力量。",
+    "button": "立即投资"
+  },
+  "stats": {}
+}

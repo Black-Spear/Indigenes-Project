@@ -97,6 +97,7 @@ export const Hero = () => {
                   <Button size='sm' onClick={() => i18n.changeLanguage('fr')}>FR</Button>
                   <Button size='sm' onClick={() => i18n.changeLanguage('ar')}>AR</Button>
                   <Button size='sm' onClick={() => i18n.changeLanguage('jp')}>JP</Button>
+                  <Button size='sm' onClick={() => i18n.changeLanguage('cn')}>CN</Button>
                 </Stack>
               </Center>
               <MotionHeading
