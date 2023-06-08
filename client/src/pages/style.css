@@ -1,4 +1,4 @@
-
+/* pageProjects css code  */
 .card-description {
   transition: all 0.6s;
   height: 10vh;
@@ -11,4 +11,26 @@
 .card-description > h2 > span {
   font-size: large;
   font-weight: bolder;
+}
+
+.back::after {
+  display: block;
+  position: relative;
+  background: linear-gradient(180deg, #1a202c00, #1a202c);
+  width: 100vw;
+  height: 60vh;
+  content: ' ';
+  backdrop-filter: blur(0.25px);
+}
+
+@media (orientation: portrait) {
+  .back::after {
+    display: block;
+    position: relative;
+    background: linear-gradient(180deg, #1a202c00, #1a202c);
+    width: 100vw;
+    height: 100vh;
+    content: ' ';
+    backdrop-filter: blur(3px);
+  }
 }

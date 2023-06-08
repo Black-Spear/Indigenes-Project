@@ -15,7 +15,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import '../Map/style.css';
-import vid from '../../../assets/video/cover.mp4';
+import vid from '../../../assets/video/cover_small.mp4';
 import { Stats } from './Stats';
 
 export const Hero = () => {
@@ -65,7 +65,7 @@ export const Hero = () => {
   //! RETURN IS HERE :
   return (
     <Box>
-      <video autoPlay loop>
+      <video autoPlay muted loop playsinline>
         <source src={vid} type="video/mp4"></source>
       </video>
       <Flex as="section">

@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Skeleton,
-  SkeletonCircle,
   SkeletonText,
   Center,
   Image,
@@ -31,7 +30,6 @@ import {
 } from '@chakra-ui/react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import '../sections/Projects/Banner/style.css';
 import React, { useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import img from '../assets/img/projects/test.png';
@@ -150,7 +148,7 @@ const PageProjects = () => {
         console.log(response.data);
       });
     };
-  }, []);
+  });
   // hethi tejbed donee
   useEffect(() => {
     return () => {
@@ -159,7 +157,7 @@ const PageProjects = () => {
         console.log(response.data);
       });
     };
-  }, []);
+  });
   let gouvv = gouv.filter(gouv => gouv.libelle === id.toLowerCase());
   console.log('gouv', gouvv);
 
