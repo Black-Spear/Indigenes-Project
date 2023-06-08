@@ -2,21 +2,13 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import eslint from 'vite-plugin-eslint';
 import svgrPlugin from 'vite-plugin-svgr';
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
   server: {
     port: 3000,
     open: true,
   },
-  plugins: [
-    react(),
-    svgrPlugin(),
-    eslint(),
-    nodePolyfills({
-      protocolImports: true,
-    }),
-  ],
+  plugins: [react(), svgrPlugin(), eslint()],
   esbuild: {
     loader: 'jsx',
     include: [

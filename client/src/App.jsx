@@ -13,7 +13,6 @@ import ScrollToTop from './components/ScrollToTop';
 // TODO: localization suspense investigation
 import { Suspense } from 'react';
 
-
 function App() {
   useEffect(() => {
     return () => {
