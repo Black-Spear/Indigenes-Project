@@ -18,7 +18,16 @@ import '../Map/style.css';
 import vid from '../../../assets/video/cover_small.mp4';
 import { Stats } from './Stats';
 
+import { useTranslation } from 'react-i18next';
+
+// localization variables
+const locales = {
+  en: { title: 'English' },
+  fr: { title: 'Francais' },
+};
 export const Hero = () => {
+  const { t, i18n } = useTranslation();
+
   const MotionGrid = motion(SimpleGrid);
   const MotionText = motion(Text);
   const MotionButton = motion(Button);
@@ -40,8 +49,8 @@ export const Hero = () => {
   }, [animation, inView]);
 
   // ! #FOUFOUUUUUUU KESA77777777777
-  const line1 = 'Our mission is to help you invest intelligently,';
-  const line2 = 'for a better Tunisia.';
+  const line1 = t('hero.paragraphline1');
+  const line2 = t('hero.paragraphline2');
 
   const sentence = {
     hidden: { opacity: 1 },
@@ -82,6 +91,14 @@ export const Hero = () => {
             }}
           >
             <Box textAlign="center">
+              <Center>
+                <Stack direction="row" spacing="1">
+                  <Button size='sm' onClick={() => i18n.changeLanguage('en')}>EN</Button>
+                  <Button size='sm' onClick={() => i18n.changeLanguage('fr')}>FR</Button>
+                  <Button size='sm' onClick={() => i18n.changeLanguage('ar')}>AR</Button>
+                  <Button size='sm' onClick={() => i18n.changeLanguage('jp')}>JP</Button>
+                </Stack>
+              </Center>
               <MotionHeading
                 as="h1"
                 color="white"
@@ -97,9 +114,10 @@ export const Hero = () => {
                 transition={{ duration: 2 }}
                 viewport={{ once: true }}
               >
-                Earn <span className="gradientspan">Benefits</span> from
-                investing in projects in{' '}
-                <span className="gradientspan">Tunisia</span>
+                {t('hero.header.first')}{' '}
+                <span className="gradientspan">{t('hero.header.second')}</span>{' '}
+                {t('hero.header.third')}{' '}
+                <span className="gradientspan">{t('hero.header.fourth')}</span>
               </MotionHeading>
 
               <MotionText
@@ -161,16 +179,17 @@ export const Hero = () => {
                   whileTap={{ scale: 0.9 }} //¯\_(ツ)_/¯
                   initial={{ opacity: 0, y: '0', scale: 0.9 }} //animation inizaiale lel ktiba main
                   animate={{ opacity: 1, y: 0, scale: 1 }} //#foufou_kesa7 -- hethi heya animate
-                  transition={{ duration: 2, delay: 5.5 }}
+                  transition={{ duration: 1.5, delay: 3 }}
                   viewport={{ once: true }}
                 >
-                  <RLink to="#">Invest now</RLink>
+                  <RLink to="#">{t('hero.button')}</RLink>
                 </MotionButton>
               </LightMode>
             </Stack>
           </Box>
         </Center>
       </Flex>
+      {/* statistics component under the hero */}
       <Stats />
     </Box>
   );

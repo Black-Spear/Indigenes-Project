@@ -10,6 +10,9 @@ import axios from 'axios';
 import PageProjects from './pages/pageProjects';
 import { Profile } from './pages/Profile';
 import ScrollToTop from './components/ScrollToTop';
+// TODO: localization suspense investigation
+import { Suspense } from 'react';
+
 
 function App() {
   useEffect(() => {
@@ -21,20 +24,22 @@ function App() {
   }, []);
 
   return (
-    <ChakraProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" exact element={<Main />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignupCard />} />
-          <Route path="/projects/:id" element={<PageProjects />} />
-          <Route path="/project_details/:id" element={<Simple />} />
-          <Route path="/create_project" element={<CreateProject />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </Router>
-      <ScrollToTop />
-    </ChakraProvider>
+    <Suspense fallback="Loading...">
+      <ChakraProvider theme={theme}>
+        <Router>
+          <Routes>
+            <Route path="/" exact element={<Main />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignupCard />} />
+            <Route path="/projects/:id" element={<PageProjects />} />
+            <Route path="/project_details/:id" element={<Simple />} />
+            <Route path="/create_project" element={<CreateProject />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </Router>
+        <ScrollToTop />
+      </ChakraProvider>
+    </Suspense>
   );
 }
 

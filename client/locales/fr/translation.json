@@ -1,0 +1,23 @@
+{
+  "header": {
+    "addProject": "Ajouter un projet",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "about": "À propos",
+    "articles": "Articles",
+    "features": "Fonctionnalités",
+    "contact": "Contact"
+  },
+  "hero": {
+    "header": {
+      "first": "Gagnez",
+      "second": "Avantages",
+      "third": "en investissant dans des projets en",
+      "fourth": "Tunisie"
+    },
+    "paragraphline1": "Notre mission est de vous aider à investir intelligemment,",
+    "paragraphline2": "pour une meilleure Tunisie.",
+    "button": "Investir maintenant"
+  },
+  "stats": {}
+}

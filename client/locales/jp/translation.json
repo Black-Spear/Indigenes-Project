@@ -1,0 +1,23 @@
+{
+  "header": {
+    "addProject": "プロジェクト追加",
+    "signIn": "ログイン",
+    "signUp": "新規登録",
+    "about": "紹介",
+    "articles": "記事",
+    "features": "特長",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "header": {
+      "first": "収益を得る",
+      "second": "メリット",
+      "third": "チュニジアのプロジェクト投資から",
+      "fourth": "利益を得る"
+    },
+    "paragraphline1": "賢明な投資をサポートし、",
+    "paragraphline2": "より良いチュニジアへ。",
+    "button": "今すぐ投資"
+  },
+  "stats": {}
+}

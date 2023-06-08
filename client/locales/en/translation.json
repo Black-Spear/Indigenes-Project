@@ -1,0 +1,23 @@
+{
+  "header": {
+    "addProject": "Add Project",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "about": "About",
+    "articles": "Articles",
+    "features": "Features",
+    "contact": "Contact"
+  },
+  "hero": {
+    "header": {
+      "first": "Earn",
+      "second": "Benefits",
+      "third": "from investing in projects in",
+      "fourth": "Tunisia"
+    },
+    "paragraphline1": "Our mission is to help you invest intelligently,",
+    "paragraphline2": "for a better Tunisia.",
+    "button": "Invest now"
+  },
+  "stats": {}
+}

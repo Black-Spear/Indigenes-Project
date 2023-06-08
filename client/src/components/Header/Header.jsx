@@ -20,7 +20,11 @@ import { UserComponent } from './UserComponent';
 import logoLight from '../../logoLight.svg';
 import logoDark from '../../logoDark.svg';
 
+import { useTranslation } from 'react-i18next';
+
 export const Header = () => {
+  const { t } = useTranslation();
+
   const theme = useColorModeValue('light', 'dark');
   const logoImg = useColorModeValue(logoLight, logoDark);
   let user = JSON.parse(localStorage.getItem('current_user'));
@@ -28,8 +32,9 @@ export const Header = () => {
     return () => {
       console.log(user);
     };
-  }, []);
+  });
   let Status;
+
   if (user !== null) {
     Status = (
       <Box
@@ -54,55 +59,11 @@ export const Header = () => {
                 fontWeight={'medium'}
                 textAlign="left"
               >
-                Add Project
+                {t('header.addProject')}
               </Text>
             </Button>{' '}
           </Link>
         </Box>
-
-        {/* //! Here goes the old implementation */}
-        {/* <Menu>
-          <MenuButton
-            as={Button}
-            rounded={'full'}
-            variant={'link'}
-            cursor={'pointer'}
-            minW={0}
-          >
-            <Avatar
-              size={'sm'}
-              src={
-                'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iHSc5-5mfQsAX8zA6q8&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAzRyUsAZgK0EQcmsEl70DOwqmCmCfnvIqC3IkaNaj_cA&oe=63B79C31'
-              }
-            />
-          </MenuButton>
-          <MenuList>
-            <MenuItem> {user[0].nom_c + ' ' + user[0].prenom_c} </MenuItem>
-            <MenuDivider />
-            <Link to="/profile">
-              <MenuItem>
-                <Text
-                  textColor={'Black'}
-                  _dark={{ textColor: '#ececec' }}
-                  fontSize="md"
-                >
-                  My Profile
-                </Text>
-              </MenuItem>
-            </Link>
-
-            <MenuItem>My Projects</MenuItem>
-            <MenuDivider />
-            <MenuItem
-              onClick={() => {
-                localStorage.clear();
-                window.location.reload(true);
-              }}
-            >
-              Sign out
-            </MenuItem>
-          </MenuList>
-        </Menu> */}
         <UserComponent user={user} />
         <ColorModeSwitcher />
       </Box>
@@ -117,15 +78,14 @@ export const Header = () => {
             md: 'flex',
           }}
         >
-          <Box w="4vw">
-            <NavLink.Desktop>
-              <Link to="/signin">Sign in</Link>{' '}
-            </NavLink.Desktop>
-          </Box>
+          <NavLink.Desktop>
+            <Link to="/signin">{t('header.signIn')}</Link>{' '}
+          </NavLink.Desktop>
+
           <LightMode>
             <Link to="/signup">
               <Button colorScheme="yellow" rounded="xl" px="2rem" mr="1rem">
-                Sign up
+                {t('header.signUp')}
               </Button>
             </Link>
           </LightMode>
@@ -136,6 +96,7 @@ export const Header = () => {
   }
 
   const [colorChange, setColorchange] = useState(false);
+
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
       setColorchange(true);
@@ -143,13 +104,16 @@ export const Header = () => {
       setColorchange(false);
     }
   };
+
   window.addEventListener('scroll', changeNavbarColor);
+
   return (
     <Flex>
       <Flex
         as="header"
         className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
         style={{ backdropFilter: 'blur(3px)' }}
+        py={'1vh'}
         justify="center"
         w="100%"
         position={'fixed'}
@@ -184,10 +148,16 @@ export const Header = () => {
                   md: 'flex',
                 }}
               >
-                <NavLink.Desktop href="/#"> About </NavLink.Desktop>
-                <NavLink.Desktop href="/#stats"> Articles </NavLink.Desktop>
-                <NavLink.Desktop href="/#features"> Features </NavLink.Desktop>
-                <NavLink.Desktop href="/#contact"> Contact </NavLink.Desktop>
+                <NavLink.Desktop href="/#">{t('header.about')}</NavLink.Desktop>
+                <NavLink.Desktop href="/#stats">
+                  {t('header.articles')}
+                </NavLink.Desktop>
+                <NavLink.Desktop href="/#features">
+                  {t('header.features')}
+                </NavLink.Desktop>
+                <NavLink.Desktop href="/#contact">
+                  {t('header.contact')}
+                </NavLink.Desktop>
               </HStack>
             </Flex>
             <Flex alignItems="center" justify="flex-end">
