@@ -58,6 +58,7 @@
     "vite": "^4.3.9",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-html": "^3.2.0",
+    "vite-plugin-node-polyfills": "^0.8.2",
     "vite-plugin-svgr": "^3.2.0",
     "vite-tsconfig-paths": "^4.2.0"
   }

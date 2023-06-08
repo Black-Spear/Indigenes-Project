@@ -2,8 +2,8 @@ import i18n from 'i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
-
-const path = require('path');
+// I assume it's because i imported the node polyfills in vite config
+import { resolve } from 'path';
 
 i18n
   .use(Backend)
@@ -11,7 +11,8 @@ i18n
   .use(initReactI18next)
   .init({
     backend: {
-      loadPath: path.resolve('../locales/{{lng}}/translation.json'),
+      // loadPath: '../locales/{{lng}}/translation.json',
+      loadPath: resolve('../locales/{{lng}}/translation.json'),
     },
     fallbackLng: 'en',
     detection: {
