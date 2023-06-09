@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  Box,
-  Button,
-  chakra,
-  Heading,
-  SimpleGrid,
-  Image,
-} from '@chakra-ui/react';
+import { Box, chakra, Heading, SimpleGrid, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const variants = {
   open: {
@@ -21,13 +15,10 @@ const variants = {
   },
   closed: { opacity: 0, scale: 0.5 },
 };
+
 export const About = () => {
   const MotionGrid = motion(SimpleGrid);
-  
-  
-  
-
-  
+  const { t } = useTranslation();
 
   return (
     <Box maxW={'7xl'} px={8} mx="auto" id="about">
@@ -42,7 +33,7 @@ export const About = () => {
         textAlign="center"
         py={10}
       >
-        About <span>us</span>
+        {t('about.about')} <span>{t('about.us')}</span>
       </Heading>
       <MotionGrid
         alignItems="start"
@@ -52,8 +43,8 @@ export const About = () => {
         spacingX={{ base: 10, md: 24 }}
         initial="closed"
         whileInView="open"
-        viewport={{ once: true ,amount: 0.2 }}
-       variants={variants}
+        viewport={{ once: true, amount: 0.2 }}
+        variants={variants}
       >
         <Box mt={'12vh'}>
           <chakra.h2
@@ -65,7 +56,7 @@ export const About = () => {
             _dark={{ color: 'gray.400' }}
             lineHeight={{ md: 'shorter' }}
           >
-            Investment made easy.
+            {t('about.investmentTitle')}
           </chakra.h2>
           <chakra.p
             mb={5}
@@ -74,10 +65,7 @@ export const About = () => {
             _dark={{ color: 'gray.400' }}
             fontSize={{ md: 'lg' }}
           >
-            Indigenes is an investment platform that helps investors find and
-            reach out to projects across Tunisia, so you can invest with ease
-            and support the noble cause of aiding African development at the
-            same time.
+            {t('about.investmentText')}
           </chakra.p>
         </Box>
         <Box
@@ -100,7 +88,7 @@ export const About = () => {
         mb={24}
         spacingY={{ base: 10, md: 32 }}
         spacingX={{ base: 10, md: 24 }}
-        initial="closed"//second box animation
+        initial="closed" //second box animation
         whileInView="open"
         viewport={{ once: true }}
         variants={variants}
@@ -116,7 +104,7 @@ export const About = () => {
             _dark={{ color: 'gray.400' }}
             lineHeight={{ md: 'shorter' }}
           >
-            Better technology, less risk.
+            {t('about.technologyTitle')}
           </chakra.h2>
           <chakra.p
             mb={5}
@@ -125,10 +113,7 @@ export const About = () => {
             _dark={{ color: 'gray.400' }}
             fontSize={{ md: 'lg' }}
           >
-            We want to be as straightforward and transparent as possible, so our
-            fees and rates are clearly stated upfront, we never charge any
-            hidden fees or commissions. You don't need to worry about anything
-            but investing.
+            {t('about.technologyText')}
           </chakra.p>
         </Box>
         <Box

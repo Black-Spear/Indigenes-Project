@@ -7,8 +7,10 @@ import {
   Text,
   Button,
 } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 const Banner = () => {
+  const { t } = useTranslation();
   return (
     <Stack
       direction={{ base: 'column', md: 'row' }}
@@ -29,7 +31,7 @@ const Banner = () => {
           lineHeight={1.2}
           fontWeight="bold"
         >
-          Don't know where to invest?
+          {t('banner.headline')}
         </Text>
         <Text
           fontSize={{ base: 'xl', md: '2xl' }}
@@ -39,7 +41,7 @@ const Banner = () => {
           color={useColorModeValue('#cca000', '#faf089')}
           border="none"
         >
-          Try our recommended selection.
+          {t('banner.subheadline')}
         </Text>
       </Box>
       <Stack
@@ -59,7 +61,7 @@ const Banner = () => {
           bgGradient="linear(to-tl, #efa734,#ffcc2f)"
           _hover={{ bgGradient: 'linear(to-tl, #ef5734,#ffcc2f)' }}
         >
-          Get Started
+          {t('banner.getStarted')}
         </Button>
         <Button
           as={Link}
@@ -71,7 +73,7 @@ const Banner = () => {
           _hover={{ bg: useColorModeValue('gray.300', 'gray.500') }}
           lineHeight={1}
         >
-          Learn more
+          {t('banner.learnMore')}
         </Button>
       </Stack>
     </Stack>

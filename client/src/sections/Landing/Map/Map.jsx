@@ -25,6 +25,7 @@ import data from './data.json';
 import { Link, useNavigate } from 'react-router-dom';
 import wheatIcon from '../../../assets/img/wheat.svg';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
+import { t } from 'i18next';
 
 const Map = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Map = () => {
         letterSpacing="tight"
         textAlign="center"
       >
-        Choose a <span>city</span>
+        {t('map.choose')} <span>{t('map.city')}</span>
       </Heading>
       <Text
         fontSize="xl"
@@ -64,8 +65,7 @@ const Map = () => {
         opacity={0.5}
         p={{ base: '5', sm: '0' }}
       >
-        Tunisia is a North African nation with 24 cities and a rich agricultural
-        sector.
+        {t('map.description')}
       </Text>
       <Link to="/#helpme">
         <Flex justifyContent={'start'} alignContent="center">
@@ -708,7 +708,10 @@ const Map = () => {
           </Popup>
         </svg>
       </Flex>
+
       {/* //todo: make the desktop version of the card. */}
+
+      {/* //!card code here */}
 
       <Modal
         isCentered
@@ -776,7 +779,7 @@ const Map = () => {
                 lineHeight="22px"
                 mx="5vw"
               >
-                Prime <br /> sector
+                {t('map.card.sector')}
               </Text>
               <Box
                 h="3rem"
@@ -796,7 +799,7 @@ const Map = () => {
                   mr="6"
                   ml="3"
                 >
-                  Agriculture
+                  {t('map.card.sectorvalue')}
                 </Text>
               </Box>
             </HStack>
@@ -819,20 +822,24 @@ const Map = () => {
               </Box>
               <Box w="full">
                 <Text fontSize="xl" fontWeight="regular" textAlign={'center'}>
-                  Projects available
+                  {t('map.card.projectsavailable')}
                 </Text>
               </Box>
             </HStack>
             <Box px="5" mt="1" textAlign="left" mb="2">
               <Text fontWeight={'light'} fontSize="md" mb="2">
-                This region has {sampleObject.nbrDistructs} districts. <br />
+                {t('map.card.thisregionhas')} {sampleObject.nbrDistructs}{' '}
+                {t('map.card.districts')}
+                <br />
               </Text>
               <Text fontWeight={'light'} fontSize="sm">
                 {sampleObject.attributes &&
                   sampleObject.attributes.length > 0 &&
                   sampleObject.attributes[0].text}
                 {/* fyi: sampleObject has attributes array that contains two
-               blocks and under each block there's a text child that we need.  */}
+               blocks and under each block there's a text child that we need. 
+               //TODO: this is not translatable, needs a fix in backend
+               */}
               </Text>
             </Box>
           </ModalBody>
@@ -840,7 +847,7 @@ const Map = () => {
             <Flex justifyContent={'space-between'} w="full">
               <Button borderRadius={'xl'} h="9" px="5" mb="3" onClick={onClose}>
                 <Text fontWeight="medium" fontSize="sm">
-                  Close
+                  {t('map.card.close')}
                 </Text>
               </Button>
               <Button
@@ -855,7 +862,7 @@ const Map = () => {
                 }}
               >
                 <Text mr="2" fontWeight="medium" fontSize="sm">
-                  See More
+                  {t('map.card.seemore')}
                 </Text>
                 <HiOutlineArrowNarrowRight />
               </Button>

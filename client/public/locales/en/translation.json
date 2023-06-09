@@ -19,5 +19,121 @@
     "paragraphline2": "for a better Tunisia.",
     "button": "Invest now"
   },
-  "stats": {}
+  "stats": {
+    "safeInvestment": "Safe Investment",
+    "accessible": "Accessible to everyone",
+    "moreProfit": "More profit on average for every adhering business.",
+    "lessRisk": "Less risk compared to traditional investment methods."
+  },
+  "partners": "Trusted by partners worldwide",
+  "map": {
+    "choose": "Choose a",
+    "city": "city",
+    "description": "Tunisia is a North African nation with 24 cities and a rich agricultural sector.",
+    "card": {
+      "sector": "Prime sector",
+      "sectorvalue": "Agriculture",
+      "projectsavailable": "Projects available",
+      "thisregionhas": "This region has",
+      "districts": "districts.",
+      "close": "Close",
+      "seemore": "See More"
+    }
+  },
+
+  "banner": {
+    "headline": "Don't know where to invest?",
+    "subheadline": "Try our recommended selection.",
+    "getStarted": "Get Started",
+    "learnMore": "Learn more"
+  },
+
+  "popular": {
+    "heading1": "The most exquisite olives",
+    "heading2": "Excellent wheat crops production",
+    "heading3": "World's best date industry",
+    "heading4": "The finest citrus species",
+    "category1": "Sfax",
+    "category2": "Beja",
+    "category3": "Tozeur",
+    "category4": "Nabeul"
+  },
+
+  "about": {
+    "about": "About",
+    "us": "us",
+    "investmentTitle": "Investment made easy.",
+    "investmentText": "Indigenes is an investment platform that helps investors find and reach out to projects across Tunisia, so you can invest with ease and support the noble cause of aiding African development at the same time.",
+    "technologyTitle": "Better technology, less risk.",
+    "technologyText": "We want to be as straightforward and transparent as possible, so our fees and rates are clearly stated upfront, we never charge any hidden fees or commissions. You don't need to worry about anything but investing."
+  },
+
+  "about3": {
+    "supportText": "Award winning support",
+    "helpTitle": "We're here to help",
+    "helpText": "We are a platform that does all the heavy lifting for you. With just a few taps, you can invest in projects all around Tunisia by reaching out to them and provide insights or ask pre-sales questions through our chat function.",
+    "helpButton": "Visit the Help Centre"
+  },
+
+  "features4": {
+    "heading": "Everything your project needs and more",
+    "learnMore": "Learn more →"
+  },
+
+  "featuresCardsTitle": "Everything your project needs and more",
+  "featurescards": [
+    {
+      "heading": "Investments",
+      "content": "Get access to the entirety of the Tunisian investment community and find your match."
+    },
+    {
+      "heading": "Analysis",
+      "content": "Our team of curated experts will help in perfecting every aspect of your project study."
+    },
+    {
+      "heading": "Statistics",
+      "content": "Follow your project in real-time with our advanced statistics and information system."
+    }
+  ],
+  "featurescardslearnMore": "Learn more →",
+
+  "vision": {
+    "text": "Our vision here at Indignes is to help people invest in the future of Tunisia, because we will all benefit from it and feel the impact it will hopefully do for the next generations of Tunisian youth.",
+    "author": "Rayen Fassatoui",
+    "position": "Developer, CIN group™"
+  },
+
+  "about2": {
+    "header": "What does it mean to be part of CIN group™ ?",
+    "descriptionline1": "Reaching out to a project is simple and can be done in just a fewminutes !",
+    "descriptionline2": "Plus, we help you make more money by reducing risk using analysis ofprojects and guidance from our specialized unit.",
+    "cardheader": "Success is best when it's shared.",
+    "cardbutton": "Learn more"
+  },
+
+  "statscards": {
+    "data": [
+      {
+        "id": 1,
+        "label": "Total successful investments",
+        "percentage": "10%"
+      },
+      {
+        "id": 2,
+        "label": "Total projects views",
+        "percentage": "30%"
+      },
+      {
+        "id": 3,
+        "label": "Total investors that contacted",
+        "percentage": "25%"
+      }
+    ],
+    "icons": {
+      "AiOutlineLike": "AiOutlineLike",
+      "AiOutlineEye": "AiOutlineEye",
+      "HiOutlineMail": "HiOutlineMail",
+      "BsArrowUpShort": "BsArrowUpShort"
+    }
+  }
 }

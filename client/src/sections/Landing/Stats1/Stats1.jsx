@@ -15,14 +15,14 @@ import {
 import { motion } from 'framer-motion';
 // Here we have used react-icons package for the icons
 import { HiOutlineMail } from 'react-icons/hi';
-import { BsArrowUpShort, BsArrowDownShort } from 'react-icons/bs';
+import { BsArrowUpShort } from 'react-icons/bs';
 import { AiOutlineLike, AiOutlineEye } from 'react-icons/ai';
 
 const statData = [
   {
     id: 1,
     label: 'Total successful investments',
-    score:87,
+    score: 87,
     icon: AiOutlineLike,
     percentage: '10%',
   },
@@ -122,4 +122,4 @@ const Card = ({ data }) => {
   );
 };
 
-export { Stats1};
+export { Stats1 };

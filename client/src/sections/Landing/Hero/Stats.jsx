@@ -13,7 +13,11 @@ import CountUp from 'react-countup';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+import { useTranslation } from 'react-i18next';
+
 const Stats = () => {
+  const { t } = useTranslation();
+
   const MotionGrid = motion(SimpleGrid);
   const MotionText = motion(Text);
   const MotionButton = motion(Button);
@@ -47,10 +51,11 @@ const Stats = () => {
             // viewport={{ once: true }}
           >
             <Heading width={'100%'} mb={3}>
-              Safe <span fontWeight="">Investment</span>
+              {t('stats.safeInvestment')}
+
               <br />
             </Heading>
-            <Heading width={'100%'}>Accessible to everyone</Heading>
+            <Heading width={'100%'}>{t('stats.accessible')}</Heading>
           </MotionGridItem>
           <MotionGridItem
             w="100%"
@@ -65,9 +70,7 @@ const Stats = () => {
                 <CountUp start={0} end={25} enableScrollSpy />
                 <span>%</span>
               </Text>
-              <Box fontSize={'sm'}>
-                More profit on average for every adhering business.
-              </Box>
+              <Box fontSize={'sm'}>{t('stats.moreProfit')}</Box>
             </Flex>
           </MotionGridItem>
           <MotionGridItem
@@ -83,9 +86,7 @@ const Stats = () => {
                 <CountUp start={0} end={55} duration={2.5} enableScrollSpy />
                 <span>%</span>
               </Text>
-              <Box fontSize={'sm'}>
-                Less risk compared to traditional investment methods.
-              </Box>
+              <Box fontSize={'sm'}>{t('stats.lessRisk')}</Box>
             </Flex>
           </MotionGridItem>
         </Grid>

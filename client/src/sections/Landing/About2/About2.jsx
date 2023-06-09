@@ -3,18 +3,14 @@ import {
   chakra,
   Box,
   GridItem,
-  Button,
-  Center,
-  Flex,
-  Icon,
   SimpleGrid,
-  VisuallyHidden,
-  Input,
-  useColorModeValue
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { Features2 } from '../Features2/Features2';
+import { useTranslation } from 'react-i18next';
 
 export function About2() {
+  const { t } = useTranslation();
   return (
     <Box px={8} py={24} mx="auto">
       <SimpleGrid
@@ -37,7 +33,7 @@ export function About2() {
             _dark={{ color: 'gray.200' }}
             letterSpacing={{ base: 'normal', md: 'normal' }}
           >
-            What does it mean to be part of Indigenes™ ?
+            {t('about2.header')}
           </chakra.h1>
           <chakra.p
             mb={{ base: 10, md: 4 }}
@@ -46,10 +42,9 @@ export function About2() {
             color={useColorModeValue('blackAlpha.600', 'whiteAlpha.800')}
             letterSpacing="wider"
           >
-            Reaching out to a project is simple and can be done in just a few
-            minutes !<br />
-            Plus, we help you make more money by reducing risk using analysis of
-            projects and guidance from our specialized unit.
+            {t('about2.descriptionline1')}
+            <br />
+            {t('about2.descriptionline2')}
           </chakra.p>
         </GridItem>
         <GridItem colSpan={{ base: 'auto', md: 4 }}>

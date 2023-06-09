@@ -8,10 +8,12 @@ import {
   Icon,
   Image,
 } from '@chakra-ui/react';
-
 import { FiExternalLink } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 export function About3() {
+  const { t } = useTranslation('en');
+
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={0} py="10vh">
       <Grid
@@ -55,7 +57,7 @@ export function About3() {
           textTransform="uppercase"
           fontWeight="extrabold"
         >
-          Award winning support
+          {t('about3.supportText')}
         </chakra.span>
         <chakra.h1
           mb={4}
@@ -66,7 +68,7 @@ export function About3() {
           lineHeight="shorter"
           textShadow="2px 0 currentcolor"
         >
-          We&apos;re here to help
+          {t('about3.helpTitle')}
         </chakra.h1>
         <chakra.p
           pr={{ base: 0, lg: 16 }}
@@ -76,10 +78,7 @@ export function About3() {
           _dark={{ color: 'gray.400' }}
           letterSpacing="wider"
         >
-          We are a platform that does all the heavy lifting for you. With just a
-          few taps, you can invest in projects all around Tunisia by reaching
-          out to them and provide insights or ask pre-sales questions through
-          our chat function.
+          {t('about3.helpText')}
         </chakra.p>
         <Box display="inline-flex" rounded="md" shadow="lg">
           <chakra.a
@@ -101,7 +100,7 @@ export function About3() {
               _dark: { bg: 'brand.600' },
             }}
           >
-            Visit the Help Centre
+            {t('about3.helpButton')}
             <Icon as={FiExternalLink} ml={2} />
           </chakra.a>
         </Box>

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Container, Text, Wrap, WrapItem, Image } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 const Partners = () => {
+  const { t } = useTranslation();
+
   return (
     <Container
       maxW="container.2xl"
@@ -17,7 +20,7 @@ const Partners = () => {
         textAlign={'center'}
         fontWeight="medium"
       >
-        Trusted by partners worldwide
+        {t('partners')}
       </Text>
 
       <Wrap spacing={[10, 20]} mt={8} align="center" justify="center" w="full">
