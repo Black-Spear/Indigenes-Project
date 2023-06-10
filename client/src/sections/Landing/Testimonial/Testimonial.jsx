@@ -45,21 +45,12 @@ function TestimonialCard(props) {
         textAlign={'left'}
         justifyContent={'space-between'}
       >
-        <chakra.p
-          fontFamily={'Poppins'}
-          fontWeight={'medium'}
-          fontSize={'15px'}
-          pb={4}
-        >
+        <chakra.p fontWeight={'medium'} fontSize={'15px'} pb={4}>
           {content}
         </chakra.p>
-        <chakra.p fontFamily={'Poppins'} fontWeight={'bold'} fontSize={14}>
+        <chakra.p fontWeight={'bold'} fontSize={14}>
           {name}
-          <chakra.span
-            fontFamily={'Poppins'}
-            fontWeight={'medium'}
-            color={'gray.500'}
-          >
+          <chakra.span fontWeight={'medium'} color={'gray.500'}>
             {' '}
             - {role}
           </chakra.span>
@@ -117,7 +108,6 @@ export function Testimonial() {
         <chakra.h1
           py={5}
           fontSize={48}
-          fontFamily={'Poppins'}
           fontWeight={'bold'}
           color={useColorModeValue('gray.700', 'gray.50')}
         >
@@ -126,7 +116,6 @@ export function Testimonial() {
         <chakra.h2
           margin={'auto'}
           width={'70%'}
-          fontFamily={'Poppins'}
           fontWeight={'medium'}
           color={useColorModeValue('gray.500', 'gray.400')}
         >
