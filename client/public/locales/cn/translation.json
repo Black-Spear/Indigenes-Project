@@ -8,16 +8,199 @@
     "features": "特点",
     "contact": "联系我们"
   },
+  "landing": {
+    "investmentHelp": "投资帮助",
+    "popularInvestments": "热门投资",
+    "whoWeAre": "我们是谁？",
+    "ourVision": "我们的愿景",
+    "ourResults": "我们的成果",
+    "doYouWantToBeAMember": "您想成为会员吗？",
+    "needHelp": "需要帮助吗？"
+  },
   "hero": {
     "header": {
-      "first": "获得",
-      "second": "收益",
-      "third": "从投资于项目在",
-      "fourth": "突尼斯"
+      "first": "投资",
+      "second": "获得收益",
+      "third": "来自突尼斯的项目",
+      "fourth": ""
     },
-    "paragraphline1": "我们的使命是帮助您进行智能投资，",
-    "paragraphline2": "为更好的突尼斯贡献一份力量。",
+    "paragraphline1": "我们的使命是帮助您智能投资，",
+    "paragraphline2": "为了更美好的突尼斯。",
     "button": "立即投资"
   },
-  "stats": {}
+  "stats": {
+    "safeInvestment": "安全投资",
+    "accessible": "面向所有人",
+    "moreProfit": "相对于传统投资方法，每个依附业务的平均利润更高。",
+    "lessRisk": "相比传统投资方法，风险较小。"
+  },
+  "partners": "得到全球合作伙伴的信任",
+  "map": {
+    "choose": "选择",
+    "city": "城市",
+    "description": "突尼斯是一个拥有24个城市和丰富农业部门的北非国家。",
+    "card": {
+      "sector": "主要行业",
+      "sectorvalue": "农业",
+      "projectsavailable": "可用项目",
+      "thisregionhas": "该地区有",
+      "districts": "个区。",
+      "close": "关闭",
+      "seemore": "查看更多"
+    }
+  },
+  "banner": {
+    "headline": "不知道在哪里投资？",
+    "subheadline": "尝试我们的推荐选择。",
+    "getStarted": "开始",
+    "learnMore": "了解更多"
+  },
+  "popular": {
+    "heading1": "最精美的橄榄",
+    "heading2": "出色的小麦产量",
+    "heading3": "世界上最好的枣业",
+    "heading4": "最好的柑橘品种",
+    "category1": "斯法克斯",
+    "category2": "贝贾",
+    "category3": "托泽尔",
+    "category4": "纳布勒"
+  },
+  "about": {
+    "about": "关于",
+    "us": "我们",
+    "investmentTitle": "轻松投资。",
+    "investmentText": "CIN group是一个投资平台，帮助投资者找到并接触突尼斯各地的项目，让您能够轻松投资并支持援助非洲发展的崇高事业。",
+    "technologyTitle": "更好的技术，更少的风险。",
+    "technologyText": "我们希望尽可能直接和透明，因此我们的费用和利率在一开始就明确说明，我们绝不收取任何隐藏费用或佣金。您只需专注于投资，无需担心其他事情。"
+  },
+  "about3": {
+    "supportText": "屡获殊荣的支持",
+    "helpTitle": "我们在这里帮助您",
+    "helpText": "我们是一个为您做所有繁重工作的平台。只需轻点几下，您就可以通过我们的聊天功能与突尼斯各地的项目取得联系、提供见解或咨询售前问题。",
+    "helpButton": "访问帮助中心"
+  },
+  "features4": {
+    "heading": "满足您的项目需求及更多",
+    "learnMore": "了解更多 →"
+  },
+  "featuresCardsTitle": "满足您的项目需求及更多",
+  "featurescards": [
+    {
+      "heading": "投资",
+      "content": "获得突尼斯投资社区的全部资源，找到适合您的项目。"
+    },
+    {
+      "heading": "分析",
+      "content": "我们精心挑选的专家团队将帮助您完善项目研究的各个方面。"
+    },
+    {
+      "heading": "统计",
+      "content": "通过我们先进的统计和信息系统实时跟踪您的项目。"
+    }
+  ],
+  "featurescardslearnMore": "了解更多 →",
+  "vision": {
+    "text": "我们在Indignes的愿景是帮助人们投资突尼斯的未来，因为我们都会从中受益，并为突尼斯青年的下一代带来希望。",
+    "author": "Rayen Fassatoui",
+    "position": "开发人员，CIN group™"
+  },
+  "about2": {
+    "header": "成为CIN group™的一部分意味着什么？",
+    "descriptionline1": "与项目取得联系非常简单，只需几分钟！",
+    "descriptionline2": "此外，我们通过项目分析和我们专门团队的指导，帮助您减少风险，赚更多钱。",
+    "cardheader": "成功最好是共享的。",
+    "cardbutton": "了解更多"
+  },
+  "statscards": {
+    "header1": "成功投资总数",
+    "header2": "项目总浏览量",
+    "header3": "联系的投资者总数",
+    "button": "查看全部"
+  },
+  "testimonial": {
+    "sub": "人们喜欢我们",
+    "header": "基于信任的关系",
+    "p1": "看看为什么有超过",
+    "p2": "50个项目",
+    "p3": "选择CIN group计划来为他们的项目筹资！",
+    "name": "Mohamed Ashref Ben Abdallah",
+    "role": "创业者",
+    "content": "CIN group计划对我们筹资项目至关重要，多亏了这个平台，我们能够找到来自突尼斯各地的投资者！",
+    "name2": "Ahmed Attafi",
+    "role2": "农民",
+    "content2": "我甚至不需要培训。我们过去五年一直使用CIN group。从CIN group那里得到的价值至少是我投入的50倍。"
+  },
+  "newsletter": {
+    "heading": "最好的投资者了解新闻，请加入我们的通讯。",
+    "description": "获取有关即将到来的会议、新闻、文章、法律和农业项目的通知。",
+    "emailPlaceholder": "输入您的电子邮件",
+    "subscribeButton": "订阅",
+    "articlesSectionButton": "文章栏目",
+    "category1": "农业",
+    "category2": "经济",
+    "article1": {
+      "title": "2023年乌克兰农业将会是什么样子？",
+      "content": "2023年的粮食产量预计将比2022年减少37％，比2021年减少60％。油籽的总收获量预计为1930万吨..."
+    },
+    "article2": {
+      "title": "突尼斯奶业市场因饲料价格飙升而崩溃",
+      "content": "突尼斯乳制品部门的困境由多年的干旱所加剧。北非国家的农业联盟表示牲畜价格..."
+    }
+  },
+  "membershipPlan": {
+    "heading": "会员计划",
+    "subheading": "成为会员以获得CIN group™平台的所有功能。",
+    "investWithLessRisk": "以更低的风险投资"
+  },
+  "platformDescription": "CIN group是一个在线投资平台，使您能够轻松投资项目，并帮助您找到并联系突尼斯各地的项目，以便您获得更好的机会。",
+  "becomeMember": "成为会员以访问",
+  "features": {
+    "exclusiveGuidesTraining": "独家指南和培训",
+    "realTimeProjectAnalytics": "实时项目分析",
+    "diverseInvestments": "多元化投资",
+    "highlyVettedExpertNetwork": "100+经过严格审核的专家网络"
+  },
+  "startingPrice": "起价30£/月",
+  "termsOfService": "服务条款",
+
+  "pricing": {
+    "membership": "会员资格",
+    "plan": "计划",
+    "accessFeatures": "成为会员以获得CIN group™平台的所有功能。",
+    "investRisk": "以更低的风险投资",
+    "investmentPlatform": "CIN group是一个在线投资平台，使您能够轻松投资项目，并帮助您找到并联系突尼斯各地的项目，以便您获得更好的机会。",
+    "becomeMember": "成为会员以访问",
+    "exclusiveGuides": "独家指南和培训",
+    "projectAnalytics": "实时项目分析",
+    "diverseInvestments": "多元化投资",
+    "expertNetwork": "100+经过严格审核的专家网络",
+    "startingPrice": "起价30£/月",
+    "termsOfService": "服务条款"
+  },
+  "pricingCard": {
+    "signUp": "注册并成为会员",
+    "joinNow": "立即加入",
+    "enjoyBenefits": "并享受CIN group计划的所有好处。"
+  },
+  "contact": {
+    "heading": "联系我们",
+    "formDescription": "填写下面的表格以提问",
+    "phoneNumber": "+216 99 999 222",
+    "emailAddress": "hello@CIN group.com",
+    "location": "突尼斯，突尼斯",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "discord": "Discord",
+    "yourName": "您的姓名",
+    "email": "电子邮件",
+    "message": "留言",
+    "sendMessage": "发送消息",
+    "formWarningTitle": "请填写表格！",
+    "formWarningDescription": "所有字段都是必填项",
+    "messageSentTitle": "消息已发送！",
+    "messageSentDescription": "我们将尽快回复。"
+  },
+  "footer": {
+    "allRightsReserved": "© 2023 CIN投资。保留所有权利"
+  }
 }

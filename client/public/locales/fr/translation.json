@@ -8,10 +8,19 @@
     "features": "Fonctionnalités",
     "contact": "Contact"
   },
+  "landing": {
+    "investmentHelp": "Aide à l'investissement",
+    "popularInvestments": "Investissements populaires",
+    "whoWeAre": "Qui sommes-nous ?",
+    "ourVision": "Notre vision",
+    "ourResults": "Nos résultats",
+    "doYouWantToBeAMember": "Voulez-vous devenir membre ?",
+    "needHelp": "Besoin d'aide ?"
+  },
   "hero": {
     "header": {
       "first": "Gagnez",
-      "second": "Avantages",
+      "second": "des avantages",
       "third": "en investissant dans des projets en",
       "fourth": "Tunisie"
     },
@@ -19,5 +28,179 @@
     "paragraphline2": "pour une meilleure Tunisie.",
     "button": "Investir maintenant"
   },
-  "stats": {}
+  "stats": {
+    "safeInvestment": "Investissement sûr",
+    "accessible": "Accessible à tous",
+    "moreProfit": "Plus de profit en moyenne pour chaque entreprise adhérente.",
+    "lessRisk": "Moins de risques par rapport aux méthodes d'investissement traditionnelles."
+  },
+  "partners": "Fait confiance par des partenaires du monde entier",
+  "map": {
+    "choose": "Choisissez une",
+    "city": "ville",
+    "description": "La Tunisie est un pays d'Afrique du Nord avec 24 villes et un secteur agricole riche.",
+    "card": {
+      "sector": "Secteur principal",
+      "sectorvalue": "Agriculture",
+      "projectsavailable": "Projets disponibles",
+      "thisregionhas": "Cette région compte",
+      "districts": "districts.",
+      "close": "Fermer",
+      "seemore": "Voir plus"
+    }
+  },
+  "banner": {
+    "headline": "Vous ne savez pas où investir ?",
+    "subheadline": "Essayez notre sélection recommandée.",
+    "getStarted": "Commencer",
+    "learnMore": "En savoir plus"
+  },
+  "popular": {
+    "heading1": "Les olives les plus exquises",
+    "heading2": "Production excellente de cultures de blé",
+    "heading3": "Meilleure industrie de dattes au monde",
+    "heading4": "Les plus fines espèces d'agrumes",
+    "category1": "Sfax",
+    "category2": "Beja",
+    "category3": "Tozeur",
+    "category4": "Nabeul"
+  },
+  "about": {
+    "about": "À propos",
+    "us": "nous",
+    "investmentTitle": "L'investissement facilité.",
+    "investmentText": "CIN group est une plateforme d'investissement qui aide les investisseurs à trouver et à contacter des projets dans toute la Tunisie, afin que vous puissiez investir facilement et soutenir la noble cause de l'aide au développement africain en même temps.",
+    "technologyTitle": "Une meilleure technologie, moins de risques.",
+    "technologyText": "Nous voulons être aussi clairs et transparents que possible, donc nos frais et nos taux sont clairement indiqués dès le départ, nous ne facturons jamais de frais cachés ou de commissions. Vous n'avez pas à vous soucier de quoi que ce soit, sauf de l'investissement."
+  },
+  "about3": {
+    "supportText": "Support primé",
+    "helpTitle": "Nous sommes là pour vous aider",
+    "helpText": "Nous sommes une plateforme qui fait tout le travail difficile pour vous. En quelques clics seulement, vous pouvez investir dans des projets partout en Tunisie en les contactant et en fournissant des informations ou en posant des questions avant-vente via notre fonction de chat.",
+    "helpButton": "Visitez le Centre d'aide"
+  },
+  "features4": {
+    "heading": "Tout ce dont votre projet a besoin et plus encore",
+    "learnMore": "En savoir plus →"
+  },
+  "featuresCardsTitle": "Tout ce dont votre projet a besoin et plus encore",
+  "featurescards": [
+    {
+      "heading": "Investissements",
+      "content": "Accédez à l'ensemble de la communauté d'investisseurs tunisiens et trouvez votre partenaire idéal."
+    },
+    {
+      "heading": "Analyse",
+      "content": "Notre équipe d'experts sélectionnés vous aidera à perfectionner chaque aspect de l'étude de votre projet."
+    },
+    {
+      "heading": "Statistiques",
+      "content": "Suivez votre projet en temps réel grâce à notre système avancé de statistiques et d'informations."
+    }
+  ],
+  "featurescardslearnMore": "En savoir plus →",
+  "vision": {
+    "text": "Notre vision chez CIN group est d'aider les gens à investir dans l'avenir de la Tunisie, car nous en bénéficierons tous et ressentirons l'impact qu'il aura, espérons-le, pour les prochaines générations de jeunes tunisiens.",
+    "author": "Rayen Fassatoui",
+    "position": "Développeur, Groupe CIN™"
+  },
+  "about2": {
+    "header": "Que signifie faire partie du Groupe CIN™ ?",
+    "descriptionline1": "Contacter un projet est simple et peut se faire en quelques minutes seulement !",
+    "descriptionline2": "De plus, nous vous aidons à gagner plus d'argent en réduisant les risques grâce à l'analyse des projets et aux conseils de notre unité spécialisée.",
+    "cardheader": "Le succès est meilleur lorsqu'il est partagé.",
+    "cardbutton": "En savoir plus"
+  },
+  "statscards": {
+    "header1": "Investissements réussis au total",
+    "header2": "Nombre total de projets consultés",
+    "header3": "Nombre total d'investisseurs contactés",
+    "button": "Voir tout"
+  },
+  "testimonial": {
+    "sub": "LES GENS NOUS AIMENT",
+    "header": "Des relations basées sur la confiance",
+    "p1": "Découvrez pourquoi plus de",
+    "p2": "50 projets",
+    "p3": "ont choisi le programme CIN group pour financer leurs projets !",
+    "name": "Mohamed Ashref Ben Abdallah",
+    "role": "Entrepreneur",
+    "content": "Le programme CIN group a été essentiel pour nous financer notre projet, nous avons pu trouver des investisseurs de toute la Tunisie grâce à la plateforme !",
+    "name2": "Ahmed Attafi",
+    "role2": "Agriculteur",
+    "content2": "Je n'ai même pas besoin de formation. Nous utilisons CIN group depuis cinq ans. J'ai obtenu au moins 50 fois la valeur d'CIN group."
+  },
+
+  "newsletter": {
+    "heading": "Les meilleurs investisseurs sont au courant des actualités, rejoignez notre newsletter.",
+    "description": "Soyez informé des prochaines sessions, des actualités, des articles, des lois et des projets agricoles.",
+    "emailPlaceholder": "Entrez votre adresse e-mail",
+    "subscribeButton": "S'abonner",
+    "articlesSectionButton": "Section Articles",
+    "category1": "Agriculture",
+    "category2": "Économie",
+    "article1": {
+      "title": "À quoi ressemblera l'agriculture ukrainienne en 2023 ?",
+      "content": "On prévoit que la quantité de grains en 2023 sera de 37 % de moins qu'en 2022 et de 60 % de moins qu'en 2021. Une récolte brute de 19,3 millions de tonnes est attendue pour les oléagineux..."
+    },
+    "article2": {
+      "title": "Effondrement du marché laitier en Tunisie avec la flambée des prix des aliments pour animaux",
+      "content": "Les problèmes du secteur laitier en Tunisie ont été exacerbés par des années de sécheresse. Le syndicat agricole du pays d'Afrique du Nord affirme que le prix des bovins..."
+    }
+  },
+  "membershipPlan": {
+    "heading": "Plan d'adhésion",
+    "subheading": "Devenez membre pour accéder à toutes les fonctionnalités de la plateforme CIN group™.",
+    "investWithLessRisk": "Investissez avec moins de risques"
+  },
+  "platformDescription": "CIN group est une plateforme d'investissement en ligne qui facilite l'investissement dans des projets et vous aide à trouver et à contacter des projets à travers la Tunisie, afin que vous puissiez accéder à de meilleures opportunités.",
+  "becomeMember": "Devenez membre pour accéder à",
+  "features": {
+    "exclusiveGuidesTraining": "Guides exclusifs et formations",
+    "realTimeProjectAnalytics": "Analyse en temps réel des projets",
+    "diverseInvestments": "Investissements diversifiés",
+    "highlyVettedExpertNetwork": "Réseau d'experts hautement qualifiés (100+)"
+  },
+  "startingPrice": "À partir de 30£/mois",
+  "termsOfService": "Conditions d'utilisation",
+  "pricing": {
+    "membership": "Adhésion",
+    "plan": "Plan",
+    "accessFeatures": "Devenez membre pour accéder à toutes les fonctionnalités de la plateforme CIN group™.",
+    "investRisk": "Investissez avec moins de risques",
+    "investmentPlatform": "CIN group est une plateforme d'investissement en ligne qui facilite l'investissement dans des projets et vous aide à trouver et à contacter des projets à travers la Tunisie, afin que vous puissiez accéder à de meilleures opportunités.",
+    "becomeMember": "Devenez membre pour accéder à",
+    "exclusiveGuides": "Guides exclusifs et formations",
+    "projectAnalytics": "Analyse en temps réel des projets",
+    "diverseInvestments": "Investissements diversifiés",
+    "expertNetwork": "Réseau d'experts hautement qualifiés (100+)",
+    "startingPrice": "À partir de 30£/mois",
+    "termsOfService": "Conditions d'utilisation"
+  },
+  "pricingCard": {
+    "signUp": "Inscrivez-vous et devenez membre",
+    "joinNow": "Savoir plus",
+    "enjoyBenefits": "et profitez de tous les avantages du programme CIN group."
+  },
+  "contact": {
+    "heading": "Contact",
+    "formDescription": "Remplissez le formulaire ci-dessous pour toute question",
+    "phoneNumber": "+216 99 999 222",
+    "emailAddress": "hello@CIN group.com",
+    "location": "Tunis, Tunisie",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "discord": "Discord",
+    "yourName": "Votre nom",
+    "email": "E-mail",
+    "message": "Message",
+    "sendMessage": "Envoyer le message",
+    "formWarningTitle": "Veuillez remplir le formulaire !",
+    "formWarningDescription": "Tous les champs sont obligatoires",
+    "messageSentTitle": "Message envoyé !",
+    "messageSentDescription": "Nous vous répondrons dès que possible."
+  },
+  "footer": {
+    "allRightsReserved": "© 2023 CIN investment. Tous droits réservés"
+  }
 }

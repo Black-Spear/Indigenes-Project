@@ -1,14 +1,18 @@
-import { Box, Text, useColorModeValue } from '@chakra-ui/react';
-import React from 'react';
-
+import { Text, useColorModeValue } from '@chakra-ui/react';
 import './CardCTA.css';
+import { useTranslation } from 'react-i18next';
 
 export const CardCTA = () => {
+  const { t } = useTranslation();
+
   return (
     <div class="cardCTA">
       <div class="cardCTA-content">
-        <Text className="cardCTA-title" color={useColorModeValue('black','white')}>
-          Sign up and become a member
+        <Text
+          className="cardCTA-title"
+          color={useColorModeValue('black', 'white')}
+        >
+          {t('pricingCard.signUp')}
         </Text>
         <Text
           className="pricetext"
@@ -16,16 +20,11 @@ export const CardCTA = () => {
           py="1.7vh"
           fontSize={'7vh'}
           fontWeight="extrabold"
-          
         >
-          Join Now
+          {t('pricingCard.joinNow')}
         </Text>
 
-        <Text class="cardCTA-title">
-          and enjoy all the benefits of the Indigenes program.
-        </Text>
-
-        <h4 class="cardCTA-subtitle"></h4>
+        <Text class="cardCTA-title">{t('pricingCard.enjoyBenefits')}</Text>
       </div>
       <i class="fa-solid fa-hat-witch cardCTA-icon"></i>
     </div>

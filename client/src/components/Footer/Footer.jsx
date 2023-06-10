@@ -10,8 +10,9 @@ import {
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import logoLight from '../../logoLight.svg';
 import logoDark from '../../logoDark.svg';
+import { useTranslation } from 'react-i18next';
 
-const Logo = props => {
+const Logo = () => {
   return (
     <>
       <img
@@ -47,7 +48,8 @@ const SocialButton = ({ children, label, href }) => {
   );
 };
 
-export default function Footer({ bg }) {
+export default function Footer() {
+  const { t } = useTranslation();
   return (
     <Box bgColor={useColorModeValue('gray.50', 'gray.800')}>
       <Container
@@ -60,7 +62,7 @@ export default function Footer({ bg }) {
         align={{ base: 'center', md: 'center' }}
       >
         <Logo />
-        <Text>© 2023 CIN investment. All rights reserved v0.9 n030123</Text>
+        <Text>{t('footer.allRightsReserved')} v0.6 n100623</Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
             <FaTwitter />

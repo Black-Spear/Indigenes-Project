@@ -21,8 +21,10 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 const Landing = () => {
+  const { t } = useTranslation();
   const colors = '#1a202c';
   return (
     <>
@@ -38,7 +40,7 @@ const Landing = () => {
             color={useColorModeValue('gray.500', 'gray.600')}
             minWidth={'10.5em'}
           >
-            Investment help
+            {t('landing.investmentHelp')}
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
@@ -51,7 +53,7 @@ const Landing = () => {
             color={useColorModeValue('gray.500', 'gray.600')}
             minWidth={'10.5em'}
           >
-            Popular investments
+            {t('landing.popularInvestments')}
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
@@ -64,7 +66,7 @@ const Landing = () => {
             color={useColorModeValue('gray.500', 'gray.600')}
             minWidth={'7em'}
           >
-            Who we are ?
+            {t('landing.whoWeAre')}
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
@@ -84,7 +86,7 @@ const Landing = () => {
             minWidth={'5em'}
             color={useColorModeValue('gray.500', 'gray.600')}
           >
-            Our vision
+            {t('landing.ourVision')}
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
@@ -102,7 +104,7 @@ const Landing = () => {
             color={useColorModeValue('gray.500', 'gray.600')}
             minWidth={'6em'}
           >
-            Our results
+            {t('landing.ourResults')}
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>
@@ -117,7 +119,7 @@ const Landing = () => {
         <HStack align={'center'} justify="center" spacing={6} mt="2.5em">
           <Divider w={'30%'}></Divider>
           <Text color={useColorModeValue('gray.500', 'gray.600')}>
-            Do you want to be a member?
+            {t('landing.doYouWantToBeAMember')}
           </Text>
           <Divider w={'30%'}></Divider>
         </HStack>
@@ -130,7 +132,7 @@ const Landing = () => {
             color={useColorModeValue('gray.500', 'gray.600')}
             minWidth={'6em'}
           >
-            Need Help ?
+            {t('landing.needHelp')}
           </Text>
           <Divider w={'40%'}></Divider>
         </HStack>

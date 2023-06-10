@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import * as React from 'react';
 import { CardCTA } from '../../../components/CardCTA';
+import { useTranslation } from 'react-i18next';
 
 const Arrow = createIcon({
   displayName: 'Arrow',
@@ -27,6 +28,8 @@ const Arrow = createIcon({
 });
 
 export const Pricing = () => {
+  const { t } = useTranslation();
+
   return (
     <Box as="section" pt="5em">
       <Box
@@ -41,7 +44,7 @@ export const Pricing = () => {
         }}
       >
         <Heading as="h1" size="2xl" fontWeight="bold" textAlign={'center'}>
-          Membership <span>Plan</span>
+          {t('pricing.membership')} <span>{t('pricing.plan')}</span>
         </Heading>
 
         <Text
@@ -55,8 +58,7 @@ export const Pricing = () => {
             sm: 'center',
           }}
         >
-          Become a member in order to gain access to all the features of the
-          Indigenes™ platform.
+          {t('pricing.accessFeatures')}
         </Text>
 
         <Box mt={8}>
@@ -86,7 +88,7 @@ export const Pricing = () => {
                   sm: 'left',
                 }}
               >
-                Invest with less risk
+                {t('pricing.investRisk')}
               </Text>
               <Text
                 fontSize={['sm', 'md']}
@@ -99,9 +101,7 @@ export const Pricing = () => {
                   color: 'gray.400',
                 }}
               >
-                Indigenes is an online investment platform that makes it easy to
-                invest in projects, and helps you find and reach out to projects
-                across Tunisia, so you can access better opportunities
+                {t('pricing.investmentPlatform')}
               </Text>
               <Flex align="center">
                 <Text
@@ -119,15 +119,15 @@ export const Pricing = () => {
                     sm: '1.2em',
                   }}
                 >
-                  Become a member to access
+                  {t('pricing.becomeMember')}
                 </Text>
                 <Flex ml="15px" w="full" borderTopWidth="1px" h="3px" />
               </Flex>
               <SimpleGrid columns={[1, 2, 1, 2]} spacingY={4}>
-                <Text>Exclusive guides & training</Text>
-                <Text>Real-time project analytics </Text>
-                <Text>Diverse investments</Text>
-                <Text>100+ highly vetted expert network</Text>
+                <Text>{t('pricing.exclusiveGuides')}</Text>
+                <Text>{t('pricing.projectAnalytics')}</Text>
+                <Text>{t('pricing.diverseInvestments')}</Text>
+                <Text>{t('pricing.expertNetwork')}</Text>
               </SimpleGrid>
             </Stack>
             <Box>
@@ -165,7 +165,7 @@ export const Pricing = () => {
                   sm: '-3.8em',
                 }}
               >
-                Starting at 30£/mo
+                {t('pricing.startingPrice')}
               </Text>
             </Box>
             <Stack
@@ -183,8 +183,7 @@ export const Pricing = () => {
             >
               <CardCTA />
               <Text fontSize="xs" textAlign="center" color="gray.600">
-                By signing up you agree to our{' '}
-                <Text color="gray.600">Terms of Service</Text>
+                {t('pricing.termsOfService')}
               </Text>
             </Stack>
           </Flex>

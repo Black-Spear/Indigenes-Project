@@ -9,25 +9,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import quote from '../../../assets/img/quote.svg';
-
-const testimonials = [
-  {
-    name: 'Mohamed Ashref Ben Abdallah',
-    role: 'Entrepreneur',
-    content:
-      'The Indigenes program has been critical to us for funding our project, we were able to find investors from all around Tunisia thanks to the platform !',
-    avatar:
-      'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iHSc5-5mfQsAX8zA6q8&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAzRyUsAZgK0EQcmsEl70DOwqmCmCfnvIqC3IkaNaj_cA&oe=63B79C31',
-  },
-  {
-    name: 'Ahmed Attafi',
-    role: 'Agriculteur',
-    content:
-      "I didn't even need training. We've used Indigenes for the last five years. I have gotten at least 50 times the value from Indigenes.",
-    avatar:
-      'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-1/305129813_3273454626302518_7407516586219852141_n.jpg?stp=dst-jpg_s320x320&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=YkoP-HI1co4AX9djEm3&_nc_ht=scontent.ftun10-1.fna&oh=00_AfD69Em_ZaxplmBmUkBa8OuCq-1SmZeYke34R_ujEtciVQ&oe=63B68DD5',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 function TestimonialCard(props) {
   const { name, role, content, avatar } = props;
@@ -95,6 +77,25 @@ function TestimonialCard(props) {
 }
 
 export function Testimonial() {
+  const { t } = useTranslation();
+
+  const testimonials = [
+    {
+      name: t('testimonial.name'),
+      role: t('testimonial.role'),
+      content: t('testimonial.content'),
+      avatar:
+        'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=q50JTnqT9AwAX-PA-Cu&_nc_ht=scontent.ftun10-1.fna&oh=00_AfCJ2H-cY30QVGE7DUCFv47F7W_Q1u10LV5TqPeJ8caaeQ&oe=64893AB1',
+    },
+    {
+      name: t('testimonial.name2'),
+      role: t('testimonial.role2'),
+      content: t('testimonial.content2'),
+      avatar:
+        'https://scontent.xx.fbcdn.net/v/t39.30808-1/316423311_3343456529302327_1008911770140546791_n.jpg?stp=dst-jpg_p100x100&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=Vv7tiA_kgQEAX_r7bh_&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=00_AfBw5C_3sPXXJVbYJlYxC5vEK1-7NwJQTiIPTpHcO93N5g&oe=64852396',
+    },
+  ];
+
   return (
     <Flex
       textAlign={'center'}
@@ -111,7 +112,7 @@ export function Testimonial() {
           textTransform={'uppercase'}
           color={'yellow.400'}
         >
-          People love us
+          {t('testimonial.sub')}
         </chakra.h3>
         <chakra.h1
           py={5}
@@ -120,7 +121,7 @@ export function Testimonial() {
           fontWeight={'bold'}
           color={useColorModeValue('gray.700', 'gray.50')}
         >
-          Relationships based on trust
+          {t('testimonial.header')}
         </chakra.h1>
         <chakra.h2
           margin={'auto'}
@@ -129,11 +130,11 @@ export function Testimonial() {
           fontWeight={'medium'}
           color={useColorModeValue('gray.500', 'gray.400')}
         >
-          See why over{' '}
+          {t('testimonial.p1')}{' '}
           <chakra.strong color={useColorModeValue('gray.700', 'gray.50')}>
-            50 projects
+            {t('testimonial.p2')}
           </chakra.strong>{' '}
-          chose the Indigenes program to fund their projects !
+          {t('testimonial.p3')}
         </chakra.h2>
       </Box>
       <SimpleGrid

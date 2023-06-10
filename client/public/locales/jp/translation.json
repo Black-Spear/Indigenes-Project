@@ -1,23 +1,207 @@
 {
   "header": {
-    "addProject": "プロジェクト追加",
-    "signIn": "ログイン",
-    "signUp": "新規登録",
-    "about": "紹介",
+    "addProject": "プロジェクトを追加する",
+    "signIn": "サインイン",
+    "signUp": "サインアップ",
+    "about": "について",
     "articles": "記事",
-    "features": "特長",
+    "features": "特徴",
     "contact": "お問い合わせ"
+  },
+  "landing": {
+    "investmentHelp": "投資のサポート",
+    "popularInvestments": "人気のある投資",
+    "whoWeAre": "私たちは誰ですか？",
+    "ourVision": "私たちのビジョン",
+    "ourResults": "私たちの結果",
+    "doYouWantToBeAMember": "メンバーになりたいですか？",
+    "needHelp": "お手伝いが必要ですか？"
   },
   "hero": {
     "header": {
-      "first": "収益を得る",
-      "second": "メリット",
-      "third": "チュニジアのプロジェクト投資から",
-      "fourth": "利益を得る"
+      "first": "チュニジアで",
+      "second": "投資から受益する",
+      "third": "利益を得る",
+      "fourth": "ことができます"
     },
-    "paragraphline1": "賢明な投資をサポートし、",
-    "paragraphline2": "より良いチュニジアへ。",
-    "button": "今すぐ投資"
+    "paragraphline1": "私たちの使命は、あなたが賢明に投資することを助けることです。",
+    "paragraphline2": "より良いチュニジアのために。",
+    "button": "今すぐ投資する"
   },
-  "stats": {}
+  "stats": {
+    "safeInvestment": "安全な投資",
+    "accessible": "誰にでもアクセス可能",
+    "moreProfit": "参加する事業に対して平均的により多くの利益があります。",
+    "lessRisk": "従来の投資方法と比較してリスクが少ないです。"
+  },
+  "partners": "世界中のパートナーに信頼されています",
+  "map": {
+    "choose": "選択してください",
+    "city": "都市",
+    "description": "チュニジアは北アフリカの国で、24の都市と豊かな農業部門を持っています。",
+    "card": {
+      "sector": "主要な部門",
+      "sectorvalue": "農業",
+      "projectsavailable": "利用可能なプロジェクト",
+      "thisregionhas": "この地域には",
+      "districts": "地区があります。",
+      "close": "閉じる",
+      "seemore": "詳細を見る"
+    }
+  },
+  "banner": {
+    "headline": "どこに投資すべきか分からないですか？",
+    "subheadline": "おすすめの選択肢をお試しください。",
+    "getStarted": "はじめる",
+    "learnMore": "詳細を見る"
+  },
+  "popular": {
+    "heading1": "最も美味しいオリーブ",
+    "heading2": "優れた小麦の生産",
+    "heading3": "世界最高のデーツ産業",
+    "heading4": "最高品質の柑橘類",
+    "category1": "スファックス",
+    "category2": "ベージャ",
+    "category3": "トーゼール",
+    "category4": "ナブール"
+  },
+
+  "about": {
+    "about": "について",
+    "us": "私たち",
+    "investmentTitle": "簡単な投資。",
+    "investmentText": "CIN groupは、投資家がチュニジア全土のプロジェクトを見つけてアクセスし、簡単に投資できるよう支援する投資プラットフォームです。同時に、アフリカの発展を支援する高貴な目的をサポートします。",
+    "technologyTitle": "より良い技術、より少ないリスク。",
+    "technologyText": "私たちはできるだけわかりやすく、透明性を持つことを目指しています。手数料やレートは明確に事前に表示されており、隠れた手数料や手数料は一切請求しません。投資すること以外に心配する必要はありません。"
+  },
+  "about3": {
+    "supportText": "受賞歴のあるサポート",
+    "helpTitle": "お手伝いします",
+    "helpText": "私たちはあなたのために全ての重労働を行うプラットフォームです。数回のタップで、チュニジア全土のプロジェクトに投資し、チャット機能を通じて洞察を提供したり、プレセールスの質問をしたりすることができます。",
+    "helpButton": "ヘルプセンターを訪問する"
+  },
+  "features4": {
+    "heading": "プロジェクトに必要なすべてともっと",
+    "learnMore": "詳細を見る →"
+  },
+  "featuresCardsTitle": "プロジェクトに必要なすべてともっと",
+  "featurescards": [
+    {
+      "heading": "投資",
+      "content": "チュニジアの投資コミュニティ全体にアクセスし、マッチングを見つけます。"
+    },
+    {
+      "heading": "分析",
+      "content": "キュレーションされた専門家チームが、プロジェクト研究のあらゆる側面を洗練させるのをサポートします。"
+    },
+    {
+      "heading": "統計",
+      "content": "高度な統計情報システムを使用して、プロジェクトをリアルタイムで追跡します。"
+    }
+  ],
+  "featurescardslearnMore": "詳細を見る →",
+  "vision": {
+    "text": "CIN groupのビジョンは、チュニジアの未来に投資する人々を支援することです。それによって私たちは皆利益を受け、チュニジアの若者たちにとっての次世代への影響を感じることができるでしょう。",
+    "author": "Rayen Fassatoui",
+    "position": "開発者、CIN group™"
+  },
+  "about2": {
+    "header": "CIN group™の一員であることの意味は何ですか？",
+    "descriptionline1": "プロジェクトへのアプローチは簡単で、数分で完了できます！",
+    "descriptionline2": "さらに、プロジェクトの分析と専門ユニットからのガイダンスにより、リスクを低減して収益を最大化するお手伝いをします。",
+    "cardheader": "成功は共有すると最高です。",
+    "cardbutton": "詳細を見る"
+  },
+  "statscards": {
+    "header1": "成功した総投資数",
+    "header2": "プロジェクトの総閲覧数",
+    "header3": "コンタクトされた投資家の総数",
+    "button": "すべて表示"
+  },
+  "testimonial": {
+    "sub": "人々は私たちが大好きです",
+    "header": "信頼に基づく関係",
+    "p1": "なぜ",
+    "p2": "50以上のプロジェクト",
+    "p3": "が自分たちのプロジェクトの資金調達のためにCIN groupプログラムを選んだのか、ご覧ください！",
+    "name": "モハメド・アシュラフ・ベン・アブダラ",
+    "role": "起業家",
+    "content": "CIN groupプログラムは、私たちのプロジェクトの資金調達にとって重要でした。プラットフォームのおかげで、チュニジア全土から投資家を見つけることができました！",
+    "name2": "アフメド・アッタフィ",
+    "role2": "農家",
+    "content2": "私はトレーニングすら必要ありませんでした。私たちは過去5年間、CIN groupを利用してきました。CINグループから少なくとも50倍の価値を得ました。"
+  },
+
+  "newsletter": {
+    "heading": "最高の投資家はニュースを知っています、ニュースレターに参加しましょう。",
+    "description": "今後のセッション、ニュース、記事、法律、農業プロジェクトについての通知を受け取ることができます。",
+    "emailPlaceholder": "メールアドレスを入力してください",
+    "subscribeButton": "購読する",
+    "articlesSectionButton": "記事セクション",
+    "category1": "農業",
+    "category2": "経済",
+    "article1": {
+      "title": "2023年のウクライナの農業はどのようになるでしょうか？",
+      "content": "2023年の穀物の量は、2022年の37％減少し、2021年の60％減少する見込みです。油糧作物については、総収穫量が19.3百万トンと予想されています..."
+    },
+    "article2": {
+      "title": "飼料価格の上昇でチュニジアの乳製品市場が崩壊",
+      "content": "チュニジアの乳製品セクターは、数年にわたる干ばつの影響を受けています。北アフリカの国の農業組合によると、牛の価格は..."
+    }
+  },
+  "membershipPlan": {
+    "heading": "会員プラン",
+    "subheading": "CIN group™プラットフォームのすべての機能にアクセスするためにメンバーになりましょう。",
+    "investWithLessRisk": "リスクを最小限に投資"
+  },
+  "platformDescription": "CIN groupは、プロジェクトに投資しやすくし、チュニジア全土のプロジェクトを見つけてアクセスできるオンライン投資プラットフォームです。より良い機会にアクセスできます。",
+  "becomeMember": "アクセスするためにメンバーになる",
+  "features": {
+    "exclusiveGuidesTraining": "専用ガイドとトレーニング",
+    "realTimeProjectAnalytics": "リアルタイムプロジェクト分析",
+    "diverseInvestments": "多様な投資",
+    "highlyVettedExpertNetwork": "100以上の高度に審査された専門家ネットワーク"
+  },
+  "startingPrice": "30£/月から",
+  "termsOfService": "利用規約",
+  "pricing": {
+    "membership": "メンバーシップ",
+    "plan": "プラン",
+    "accessFeatures": "CIN group™プラットフォームのすべての機能にアクセスするためにメンバーになりましょう。",
+    "investRisk": "リスクを最小限に投資",
+    "investmentPlatform": "CIN groupは、プロジェクトに投資しやすくし、チュニジア全土のプロジェクトを見つけてアクセスできるオンライン投資プラットフォームです。より良い機会にアクセスできます。",
+    "becomeMember": "アクセスするためにメンバーになる",
+    "exclusiveGuides": "専用ガイドとトレーニング",
+    "projectAnalytics": "リアルタイムプロジェクト分析",
+    "diverseInvestments": "多様な投資",
+    "expertNetwork": "100以上の高度に審査された専門家ネットワーク",
+    "startingPrice": "30£/月から",
+    "termsOfService": "利用規約"
+  },
+  "pricingCard": {
+    "signUp": "サインアップしてメンバーになる",
+    "joinNow": "今すぐ参加",
+    "enjoyBenefits": "CIN groupプログラムのすべての特典をご利用ください。"
+  },
+  "contact": {
+    "heading": "お問い合わせ",
+    "formDescription": "質問のために以下のフォームに記入してください",
+    "phoneNumber": "+216 99 999 222",
+    "emailAddress": "hello@CIN group.com",
+    "location": "チュニス、チュニジア",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "discord": "Discord",
+    "yourName": "お名前",
+    "email": "メール",
+    "message": "メッセージ",
+    "sendMessage": "メッセージを送信",
+    "formWarningTitle": "フォームを記入してください！",
+    "formWarningDescription": "すべてのフィールドが必要です",
+    "messageSentTitle": "メッセージが送信されました！",
+    "messageSentDescription": "できるだけ早く返信いたします。"
+  },
+  "footer": {
+    "allRightsReserved": "© 2023 CIN investment. 全著作権所有"
+  }
 }

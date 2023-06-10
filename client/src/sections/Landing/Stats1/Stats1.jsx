@@ -17,32 +17,35 @@ import { motion } from 'framer-motion';
 import { HiOutlineMail } from 'react-icons/hi';
 import { BsArrowUpShort } from 'react-icons/bs';
 import { AiOutlineLike, AiOutlineEye } from 'react-icons/ai';
-
-const statData = [
-  {
-    id: 1,
-    label: 'Total successful investments',
-    score: 87,
-    icon: AiOutlineLike,
-    percentage: '10%',
-  },
-  {
-    id: 2,
-    label: 'Total projects views',
-    score: 3245,
-    icon: AiOutlineEye,
-    percentage: '30%',
-  },
-  {
-    id: 3,
-    label: 'Total investors that contacted',
-    score: 248,
-    icon: HiOutlineMail,
-    percentage: '25%',
-  },
-];
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 const Stats1 = () => {
+  const { t } = useTranslation();
+
+  const statData = [
+    {
+      id: 1,
+      label: t('statscards.header1'),
+      score: 87,
+      icon: AiOutlineLike,
+      percentage: '10%',
+    },
+    {
+      id: 2,
+      label: t('statscards.header2'),
+      score: 3245,
+      icon: AiOutlineEye,
+      percentage: '30%',
+    },
+    {
+      id: 3,
+      label: t('statscards.header3'),
+      score: 248,
+      icon: HiOutlineMail,
+      percentage: '25%',
+    },
+  ];
   return (
     <Container maxW="7xl" p={{ base: 5, md: 10 }}>
       <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={5} mt={6} mb={4}>
@@ -115,7 +118,7 @@ const Card = ({ data }) => {
           </VStack>
         </HStack>
         <Flex py={3} px={5} d="none" _groupHover={{ d: 'flex' }}>
-          <Link fontSize="md">View All</Link>
+          <Link fontSize="md">{t('statscards.button')} </Link>
         </Flex>
       </Stack>
     </motion.div>

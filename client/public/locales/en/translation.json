@@ -8,6 +8,17 @@
     "features": "Features",
     "contact": "Contact"
   },
+
+  "landing": {
+    "investmentHelp": "Investment help",
+    "popularInvestments": "Popular investments",
+    "whoWeAre": "Who we are?",
+    "ourVision": "Our vision",
+    "ourResults": "Our results",
+    "doYouWantToBeAMember": "Do you want to be a member?",
+    "needHelp": "Need Help?"
+  },
+
   "hero": {
     "header": {
       "first": "Earn",
@@ -63,7 +74,7 @@
     "about": "About",
     "us": "us",
     "investmentTitle": "Investment made easy.",
-    "investmentText": "Indigenes is an investment platform that helps investors find and reach out to projects across Tunisia, so you can invest with ease and support the noble cause of aiding African development at the same time.",
+    "investmentText": "CIN group is an investment platform that helps investors find and reach out to projects across Tunisia, so you can invest with ease and support the noble cause of aiding African development at the same time.",
     "technologyTitle": "Better technology, less risk.",
     "technologyText": "We want to be as straightforward and transparent as possible, so our fees and rates are clearly stated upfront, we never charge any hidden fees or commissions. You don't need to worry about anything but investing."
   },
@@ -112,28 +123,98 @@
   },
 
   "statscards": {
-    "data": [
-      {
-        "id": 1,
-        "label": "Total successful investments",
-        "percentage": "10%"
-      },
-      {
-        "id": 2,
-        "label": "Total projects views",
-        "percentage": "30%"
-      },
-      {
-        "id": 3,
-        "label": "Total investors that contacted",
-        "percentage": "25%"
-      }
-    ],
-    "icons": {
-      "AiOutlineLike": "AiOutlineLike",
-      "AiOutlineEye": "AiOutlineEye",
-      "HiOutlineMail": "HiOutlineMail",
-      "BsArrowUpShort": "BsArrowUpShort"
+    "header1": "Total successful investments",
+    "header2": "Total projects views",
+    "header3": "Total contacted investors",
+    "button": "View All"
+  },
+
+  "testimonial": {
+    "sub": "PEOPLE LOVE US",
+    "header": "Relationships based on trust",
+    "p1": "See why over",
+    "p2": "50 projects",
+    "p3": "chose the CIN group program to fund their projects !",
+    "name": "Mohamed Ashref Ben Abdallah",
+    "role": "Entrepreneur",
+    "content": "The CIN group program has been critical to us for funding our project, we were able to find investors from all around Tunisia thanks to the platform !",
+    "name2": "Ahmed Attafi",
+    "role2": "Agriculteur",
+    "content2": "I didn't even need training. We've used CIN group for the last five years. I have gotten at least 50 times the value from CIN group."
+  },
+
+  "newsletter": {
+    "heading": "The best investors know the news, join our newsletter.",
+    "description": "Get notified about upcoming sessions, news, articles, laws, and agricultural projects.",
+    "emailPlaceholder": "Enter your email",
+    "subscribeButton": "Subscribe",
+    "articlesSectionButton": "Articles section",
+    "category1": "Agriculture",
+    "category2": "Economy",
+    "article1": {
+      "title": "What will Ukrainian agriculture look like in 2023?",
+      "content": "The amount of grain in 2023 is projected to be 37% less than 2022 and 60% less than 2021. A gross harvest of 19.3 million tons is expected for oilseeds..."
+    },
+    "article2": {
+      "title": "Tunisia milk market collapsing as feed prices soar",
+      "content": "The dairy sector's woes in Tunisia have been exacerbated by years of drought. The North African country's farming union says the price of cattle ..."
     }
+  },
+
+  "membershipPlan": {
+    "heading": "Membership Plan",
+    "subheading": "Become a member in order to gain access to all the features of the CIN group™ platform.",
+    "investWithLessRisk": "Invest with less risk"
+  },
+  "platformDescription": "CIN group is an online investment platform that makes it easy to invest in projects, and helps you find and reach out to projects across Tunisia, so you can access better opportunities",
+  "becomeMember": "Become a member to access",
+  "features": {
+    "exclusiveGuidesTraining": "Exclusive guides & training",
+    "realTimeProjectAnalytics": "Real-time project analytics",
+    "diverseInvestments": "Diverse investments",
+    "highlyVettedExpertNetwork": "100+ highly vetted expert network"
+  },
+  "startingPrice": "Starting at 30£/mo",
+  "termsOfService": "Terms of Service",
+
+  "pricing": {
+    "membership": "Membership",
+    "plan": "Plan",
+    "accessFeatures": "Become a member in order to gain access to all the features of the CIN group™ platform.",
+    "investRisk": "Invest with less risk",
+    "investmentPlatform": "CIN group is an online investment platform that makes it easy to invest in projects, and helps you find and reach out to projects across Tunisia, so you can access better opportunities",
+    "becomeMember": "Become a member to access",
+    "exclusiveGuides": "Exclusive guides & training",
+    "projectAnalytics": "Real-time project analytics",
+    "diverseInvestments": "Diverse investments",
+    "expertNetwork": "100+ highly vetted expert network",
+    "startingPrice": "Starting at 30£/mo",
+    "termsOfService": "Terms of Service"
+  },
+  "pricingCard": {
+    "signUp": "Sign up and become a member",
+    "joinNow": "Join Now",
+    "enjoyBenefits": "and enjoy all the benefits of the CIN group program."
+  },
+  "contact": {
+    "heading": "Contact",
+    "formDescription": "Fill in the form below for questions",
+    "phoneNumber": "+216 99 999 222",
+    "emailAddress": "hello@CIN group.com",
+    "location": "Tunis, Tunisia",
+    "facebook": "Facebook",
+    "github": "GitHub",
+    "discord": "Discord",
+    "yourName": "Your Name",
+    "email": "Mail",
+    "message": "Message",
+    "sendMessage": "Send Message",
+    "formWarningTitle": "Please fill the form!",
+    "formWarningDescription": "All fields are required",
+    "messageSentTitle": "Message Sent!",
+    "messageSentDescription": "We will respond as soon as possible."
+  },
+  "footer": {
+    "allRightsReserved": "© 2023 CIN investment. All rights reserved"
   }
 }

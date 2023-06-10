@@ -13,27 +13,30 @@ import {
   Icon,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { FaRegNewspaper } from 'react-icons/fa';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 const articles = [
   {
     id: 1,
-    categories: ['Agriculture'],
-    title: 'What will Ukrainian agriculture look like in 2023?',
-    content: `The amount of grain in 2023 is projected to be 37% less than 2022 and 60% less than 2021. A gross harvest of 19.3 million tons is expected for oilseeds...`,
+    categories: ['newsletter.category1'],
+    title: 'newsletter.article1.title',
+    content: 'newsletter.article1.content',
     created_at: 'January 29, 2023',
   },
   {
     id: 2,
-    categories: ['Agriculture'],
-    title: 'Tunisia milk market collapsing as feed prices soar',
-    content: `The dairy sector's woes in Tunisia have been exacerbated by years of drought. The North African country's farming union says the price of cattle ...`,
+    categories: ['newsletter.category2'],
+    title: 'newsletter.article2.title',
+    content: 'newsletter.article2.content',
     created_at: 'January 28, 2023',
   },
 ];
 
 const Card = ({ title, categories, content, created_at }) => {
+  const { t } = useTranslation();
+
   return (
     <HStack
       p={{ base: 3, sm: 6 }}
@@ -62,7 +65,7 @@ const Card = ({ title, categories, content, created_at }) => {
         <HStack spacing={2} mb={2}>
           {categories.map(cat => (
             <Text fontSize="sm" key={cat}>
-              {cat}
+              {t(cat)}
             </Text>
           ))}
         </HStack>
@@ -70,16 +73,15 @@ const Card = ({ title, categories, content, created_at }) => {
           <chakra.h1
             as={Link}
             _hover={{ color: '#e3bf3e' }}
-            // fontSize="2xl"
             fontSize={{ base: 'lg', md: '2xl' }}
             lineHeight={1.2}
             fontWeight="bold"
             w="100%"
           >
-            {title}
+            {t(title)}
           </chakra.h1>
           <Text fontSize="md" noOfLines={2}>
-            {content}
+            {t(content)}
           </Text>
         </VStack>
         <Text fontSize="sm">{created_at}</Text>
@@ -123,6 +125,8 @@ const LineWithDot = () => {
 };
 
 const NewsLetter = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Container maxWidth="4xl" p={{ base: 2, sm: 10 }}>
@@ -132,8 +136,7 @@ const NewsLetter = () => {
             mb="15px"
             textAlign={{ base: 'center', sm: 'left' }}
           >
-            The best <span>investors</span> know the news, <br />
-            join our <span>newsletter</span>.
+            {t('newsletter.heading')}
           </Heading>
           <Text
             color="gray.400"
@@ -141,8 +144,7 @@ const NewsLetter = () => {
             fontSize={'md'}
             textAlign={{ base: 'center', sm: 'left' }}
           >
-            Get notified about upcoming sessions, news, articles, laws, and
-            agricultural projects.
+            {t('newsletter.description')}
           </Text>
 
           <form action="#">
@@ -156,7 +158,7 @@ const NewsLetter = () => {
                 rounded="50px"
                 bg={useColorModeValue('gray.900', 'gray.600')}
                 _placeholder={{ color: 'gray.300' }}
-                placeholder="Enter your email"
+                placeholder={t('newsletter.emailPlaceholder')}
                 _focus={{ outline: 0 }}
                 color="gray.100"
                 borderWidth={0}
@@ -173,7 +175,7 @@ const NewsLetter = () => {
                 rounded="50px"
                 px="25px"
               >
-                Subscribe
+                {t('newsletter.subscribeButton')}
               </Button>
             </Box>
           </form>
@@ -194,10 +196,11 @@ const NewsLetter = () => {
           borderRadius={'xl'}
           mb="4"
         >
-          Articles section
+          {t('newsletter.articlesSectionButton')}
         </Button>
       </Flex>
     </>
   );
 };
+
 export { NewsLetter };

@@ -23,8 +23,11 @@ import { MdPhoneIphone, MdMail, MdAddLocation } from 'react-icons/md';
 import { FaGithub, FaDiscord, FaPersonBooth, FaFacebook } from 'react-icons/fa';
 import axios from 'axios';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function Contact() {
+  const { t } = useTranslation();
+
   const api = axios.create({
     baseURL: 'http://localhost:5000',
   });
@@ -46,8 +49,8 @@ export function Contact() {
 
     if (form.fname === '' || form.email === '' || form.message === '') {
       toast({
-        title: 'Please fill the form ! ',
-        description: 'All field are obligation',
+        title: t('contact.formWarningTitle'),
+        description: t('contact.formWarningDescription'),
         status: 'warning',
         duration: 2000,
         isClosable: true,
@@ -60,8 +63,8 @@ export function Contact() {
       const res = api.post('/contact', request);
       console.log(res);
       toast({
-        title: 'Message Sent! ',
-        description: 'We will responde as soon as possible.',
+        title: t('contact.messageSentTitle'),
+        description: t('contact.messageSentDescription'),
         status: 'success',
         duration: 2000,
         isClosable: true,
@@ -69,6 +72,7 @@ export function Contact() {
       });
     }
   };
+
   return (
     <Container
       id="contact"
@@ -92,9 +96,9 @@ export function Contact() {
               <WrapItem>
                 <Box>
                   <Box m="2">
-                    <Heading>Contact</Heading>
+                    <Heading>{t('contact.heading')}</Heading>
                     <Text mt="2" color="whiteAlpha.800">
-                      Fill in the form below for questions
+                      {t('contact.formDescription')}
                     </Text>
                   </Box>
                   <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
@@ -108,7 +112,7 @@ export function Contact() {
                         _hover={{ border: '2px solid #1C6FEB' }}
                         leftIcon={<MdPhoneIphone color="#E3BF3E" size="20px" />}
                       >
-                        +216 99 999 222
+                        {t('contact.phoneNumber')}
                       </Button>
                       <Button
                         size="md"
@@ -119,7 +123,7 @@ export function Contact() {
                         _hover={{ border: '2px solid #1C6FEB' }}
                         leftIcon={<MdMail color="#E3BF3E" size="20px" />}
                       >
-                        hello@indigenes.com
+                        {t('contact.emailAddress')}
                       </Button>
                       <Button
                         size="md"
@@ -130,12 +134,12 @@ export function Contact() {
                         _hover={{ border: '2px solid #1C6FEB' }}
                         leftIcon={<MdAddLocation color="#E3BF3E" size="20px" />}
                       >
-                        Tunis, Tunisia
+                        {t('contact.location')}
                       </Button>
 
                       <HStack mt={{ lg: 10, md: 10 }} spacing={5} px={5}>
                         <IconButton
-                          aria-label="facebook"
+                          aria-label={t('contact.facebook')}
                           variant="ghost"
                           size="lg"
                           isRound={true}
@@ -143,7 +147,7 @@ export function Contact() {
                           icon={<FaFacebook size="28px" />}
                         />
                         <IconButton
-                          aria-label="github"
+                          aria-label={t('contact.github')}
                           variant="ghost"
                           size="lg"
                           isRound={true}
@@ -151,7 +155,7 @@ export function Contact() {
                           icon={<FaGithub size="28px" />}
                         />
                         <IconButton
-                          aria-label="discord"
+                          aria-label={t('contact.discord')}
                           variant="ghost"
                           size="lg"
                           isRound={true}
@@ -168,7 +172,7 @@ export function Contact() {
                   <Box m={8} color="#0B0E3F">
                     <VStack spacing={5}>
                       <FormControl>
-                        <FormLabel>Your Name</FormLabel>
+                        <FormLabel>{t('contact.yourName')}</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement
                             pointerEvents="none"
@@ -185,7 +189,7 @@ export function Contact() {
                         </InputGroup>
                       </FormControl>
                       <FormControl>
-                        <FormLabel>Mail</FormLabel>
+                        <FormLabel>{t('contact.email')}</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement
                             pointerEvents="none"
@@ -202,7 +206,7 @@ export function Contact() {
                         </InputGroup>
                       </FormControl>
                       <FormControl>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel>{t('contact.message')}</FormLabel>
                         <Textarea
                           borderColor="gray.300"
                           _hover={{
@@ -223,7 +227,7 @@ export function Contact() {
                           _hover={{}}
                           onClick={submitButton}
                         >
-                          Send Message
+                          {t('contact.sendMessage')}
                         </Button>
                       </FormControl>
                     </VStack>
