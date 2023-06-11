@@ -16,7 +16,6 @@ i18n
       order: ['queryString', 'cookie'],
       cache: ['cookie'],
     },
-    debug: true,
     interpolation: {
       escapeValue: false,
     },

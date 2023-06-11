@@ -81,12 +81,12 @@ export const Header = () => {
           }}
         >
           <NavLink.Desktop>
-            <Link to="/signin">{t('header.signIn')}</Link>{' '}
+            <Link to="/signin">{t('header.signIn')}</Link>
           </NavLink.Desktop>
 
           <LightMode>
             <Link to="/signup">
-              <Button colorScheme="yellow" rounded="xl" px="2rem" mr="1rem">
+              <Button colorScheme="yellow" rounded="xl" px="1.8rem">
                 {t('header.signUp')}
               </Button>
             </Link>

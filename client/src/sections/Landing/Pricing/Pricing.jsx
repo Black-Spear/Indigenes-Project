@@ -130,6 +130,8 @@ export const Pricing = () => {
                 <Text>{t('pricing.expertNetwork')}</Text>
               </SimpleGrid>
             </Stack>
+            {/* 
+            //TODO: fix the little arrow with price on it 
             <Box>
               <Icon
                 as={Arrow}
@@ -167,7 +169,7 @@ export const Pricing = () => {
               >
                 {t('pricing.startingPrice')}
               </Text>
-            </Box>
+            </Box> */}
             <Stack
               pt="4vh"
               pb="2vh"

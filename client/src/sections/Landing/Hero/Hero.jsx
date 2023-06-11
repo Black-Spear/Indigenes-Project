@@ -71,14 +71,14 @@ export const Hero = () => {
     },
   };
 
-  //! RETURN IS HERE :
+  //! RETURN IS HERE
   return (
     <Box>
       <video autoPlay muted loop playsinline>
         <source src={vid} type="video/mp4"></source>
       </video>
       <Flex as="section">
-        <Center h="100vh" w="100%">
+        <Center h="100vh" w="100%" pt={{ base: '8em', xl: '3em' }}>
           <Box
             maxW={{
               base: 'xl',
@@ -90,20 +90,30 @@ export const Hero = () => {
               md: '8',
             }}
           >
+            <Center>
+              <Stack direction="row" spacing="1">
+                <Button size="sm" onClick={() => i18n.changeLanguage('en')}>
+                  EN
+                </Button>
+                <Button size="sm" onClick={() => i18n.changeLanguage('fr')}>
+                  FR
+                </Button>
+                <Button size="sm" onClick={() => i18n.changeLanguage('ar')}>
+                  AR
+                </Button>
+                <Button size="sm" onClick={() => i18n.changeLanguage('jp')}>
+                  JP
+                </Button>
+                <Button size="sm" onClick={() => i18n.changeLanguage('cn')}>
+                  CN
+                </Button>
+              </Stack>
+            </Center>
             <Box textAlign="center">
-              <Center>
-                <Stack direction="row" spacing="1">
-                  <Button size='sm' onClick={() => i18n.changeLanguage('en')}>EN</Button>
-                  <Button size='sm' onClick={() => i18n.changeLanguage('fr')}>FR</Button>
-                  <Button size='sm' onClick={() => i18n.changeLanguage('ar')}>AR</Button>
-                  <Button size='sm' onClick={() => i18n.changeLanguage('jp')}>JP</Button>
-                  <Button size='sm' onClick={() => i18n.changeLanguage('cn')}>CN</Button>
-                </Stack>
-              </Center>
               <MotionHeading
                 as="h1"
                 color="white"
-                size="3xl"
+                size={{ base: '2xl', sm: '3xl' }}
                 fontWeight="bold"
                 maxW="48rem"
                 mx="auto"

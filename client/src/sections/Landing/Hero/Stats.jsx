@@ -12,7 +12,6 @@ import {
 import CountUp from 'react-countup';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
 import { useTranslation } from 'react-i18next';
 
 const Stats = () => {
@@ -28,7 +27,7 @@ const Stats = () => {
 
   return (
     <Box w={'100%'} bgColor="#f7fafc" _dark={{ bgColor: '#1a202c' }}>
-      <Container py={5} maxW={'container.lg'} scrollBehavior="smooth">
+      <Container py={5} maxW={'container.lg'}>
         <Grid
           id="stats"
           scrollMarginTop={'15vh'}
@@ -50,21 +49,10 @@ const Stats = () => {
             // transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
             // viewport={{ once: true }}
           >
-            <Heading width={'100%'} mb={3}>
-              {t('stats.safeInvestment')}
-
-              <br />
-            </Heading>
-            <Heading width={'100%'}>{t('stats.accessible')}</Heading>
+            <Heading mb={3}>{t('stats.safeInvestment')}</Heading>
+            <Heading>{t('stats.accessible')}</Heading>
           </MotionGridItem>
-          <MotionGridItem
-            w="100%"
-            ml={'4vw'}
-            // initial={{ opacity: 0, x: '25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            // whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-            // transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
-            // viewport={{ once: true }}
-          >
+          <MotionGridItem>
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
                 <CountUp start={0} end={25} enableScrollSpy />
@@ -73,14 +61,7 @@ const Stats = () => {
               <Box fontSize={'sm'}>{t('stats.moreProfit')}</Box>
             </Flex>
           </MotionGridItem>
-          <MotionGridItem
-            w="100%"
-            ml={'4vw'}
-            // initial={{ opacity: 0, x: '25vw', scale: 1 }} //animation inizaiale lel ktiba main
-            // whileInView={{ opacity: 1, x: 0, scale: 1 }} //#foufou_kesa7
-            // transition={{ type: 'spring', duration: 2, bounce: 0.1 }}
-            // viewport={{ once: true }}
-          >
+          <MotionGridItem>
             <Flex flexDirection={'column'}>
               <Text fontSize={'4xl'} fontWeight={'bold'}>
                 <CountUp start={0} end={55} duration={2.5} enableScrollSpy />
