@@ -211,7 +211,7 @@ export const MobileNav = props => {
                     </Text>
                   </NavLink.Mobile>
 
-                  {/* signed in data */}
+                  {/* If there us no user signed in, show this element */}
                   {props.user == null && (
                     <VStack mt="8" spacing="4">
                       <Link to="/signin">
@@ -245,6 +245,7 @@ export const MobileNav = props => {
                       </Box>
                     </VStack>
                   )}
+                  {/* If there IS a user signed in, show this instead */}
                   {props.user !== null && (
                     <UserComponentMobile user={props.user} />
                   )}

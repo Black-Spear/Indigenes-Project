@@ -33,10 +33,11 @@ export const Header = () => {
       console.log(user);
     };
   });
-  let Status;
 
+  let userStatusComponent;
+  // !header when USER = TRUE
   if (user !== null) {
-    Status = (
+    userStatusComponent = (
       <Box
         display={{
           base: 'none',
@@ -69,7 +70,8 @@ export const Header = () => {
       </Box>
     );
   } else {
-    Status = (
+    // !header when USER = false
+    userStatusComponent = (
       <>
         <HStack
           spacing="3"
@@ -97,77 +99,62 @@ export const Header = () => {
 
   const [colorChange, setColorchange] = useState(false);
 
-  const changeNavbarColor = () => {
+  //change navbar color on scroll
+  window.addEventListener('scroll', () => {
     if (window.scrollY >= 80) {
       setColorchange(true);
     } else {
       setColorchange(false);
     }
-  };
+  });
 
-  window.addEventListener('scroll', changeNavbarColor);
-
+  // !Static return
   return (
-    <Flex>
-      <Flex
-        as="header"
-        className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
-        style={{ backdropFilter: 'blur(3px)' }}
-        py={'1vh'}
-        justify="center"
-        w="100%"
-        position={'fixed'}
+    <Flex
+      as="header"
+      className={colorChange ? `navbar colorChange ${theme}` : 'navbar'}
+      style={{ backdropFilter: 'blur(3px)' }}
+      py="4"
+      justify="space-around"
+      w="100%"
+      position={'fixed'}
+    >
+      {/* 1 site logo  */}
+      <Box
+        rel="home"
+        w={{
+          base: '9em',
+          sm: '12em',
+        }}
       >
-        <Box
-          py="4"
-          px={{
-            base: '6',
-            md: '8',
-          }}
-        >
-          <Flex as="nav" gap="17vw">
-            <HStack spacing="7">
-              <Box
-                rel="home"
-                w={{
-                  base: '9em',
-                  sm: '12em',
-                }}
-                ml="1vw"
-              >
-                <Link to="/">
-                  <Image src={colorChange ? logoImg : logoDark} />
-                </Link>
-              </Box>
-            </HStack>
-            <Flex>
-              <HStack
-                spacing="8"
-                display={{
-                  base: 'none',
-                  md: 'flex',
-                }}
-              >
-                <NavLink.Desktop href="/#">{t('header.about')}</NavLink.Desktop>
-                <NavLink.Desktop href="/#stats">
-                  {t('header.articles')}
-                </NavLink.Desktop>
-                <NavLink.Desktop href="/#features">
-                  {t('header.features')}
-                </NavLink.Desktop>
-                <NavLink.Desktop href="/#contact">
-                  {t('header.contact')}
-                </NavLink.Desktop>
-              </HStack>
-            </Flex>
-            <Flex alignItems="center" justify="flex-end">
-              {Status}
-              <Box>
-                <MobileNav user={user} />
-              </Box>
-            </Flex>
-          </Flex>
-        </Box>
+        <Link to="/">
+          <Image src={colorChange ? logoImg : logoDark} />
+        </Link>
+      </Box>
+
+      {/* 2 navigation liinks in center  */}
+
+      <HStack
+        spacing="8"
+        display={{
+          base: 'none',
+          md: 'flex',
+        }}
+      >
+        <NavLink.Desktop href="/#">{t('header.about')}</NavLink.Desktop>
+        <NavLink.Desktop href="/#stats">{t('header.articles')}</NavLink.Desktop>
+        <NavLink.Desktop href="/#features">
+          {t('header.features')}
+        </NavLink.Desktop>
+        <NavLink.Desktop href="/#contact">
+          {t('header.contact')}
+        </NavLink.Desktop>
+      </HStack>
+
+      {/* 3 buttons on right of screen for login / user  */}
+      <Flex alignItems="center" justify="flex-end">
+        <Box display={{ base: 'none', lg: 'block' }}>{userStatusComponent}</Box>
+        <MobileNav user={user} />
       </Flex>
     </Flex>
   );
