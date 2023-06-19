@@ -34,7 +34,6 @@ Together, let's empower African investors and drive agricultural growth. Join us
 - [Vite](https://vitejs.dev/): A fast build tool for modern web applications.
 - [React](https://reactjs.org/): A JavaScript library for building user interfaces.
 - [Chakra UI](https://chakra-ui.com/): a simple, modular and accessible component library for React.
-- [Prisma](https://www.prisma.io/): A modern database toolkit for TypeScript and Node.js.
-- [PlanetScale](https://www.planetscale.com/): A serverless MySQL-compatible database platform.
+- Railway for hosting SQL
 
 We appreciate your support and dedication. Happy investing! 🌱💼
