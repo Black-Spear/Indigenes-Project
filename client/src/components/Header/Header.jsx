@@ -35,7 +35,7 @@ export const Header = () => {
   });
 
   let userStatusComponent;
-  // !header when USER = TRUE
+  // ! header state code when USER = TRUE
   if (user !== null) {
     userStatusComponent = (
       <Box

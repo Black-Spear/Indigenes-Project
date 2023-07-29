@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 // Chakra imports
-import { BsArrowReturnLeft } from 'react-icons/bs';
 
 import {
   Box,
   Flex,
   Button,
-  ButtonGroup,
   FormControl,
   FormLabel,
   Heading,
@@ -20,16 +18,15 @@ import {
   Spinner,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
-import { Link as RLink, Navigate, useNavigate } from 'react-router-dom';
+import { Link as RLink, useNavigate } from 'react-router-dom';
 // Assets
+import { BsArrowReturnLeft } from 'react-icons/bs';
 import signInImage from '../../assets/img/signInImage.png';
 import axios from 'axios';
 
-import Wave from 'react-wavify';
-import styled from '@emotion/styled';
 import Footer from '../../components/Footer/Footer';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
+// import { useInView } from 'react-intersection-observer';
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -102,66 +99,12 @@ function SignIn() {
     }
   };
 
-  const WaveContainer = styled.div`
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 75vh;
-    height: ${props => props.level + 'vh'};
-    display: flex;
-    z-index: -1;
-    transform: rotate(360deg);
-  `;
-
   const MotionBox = motion(Box);
-
-  const line1 = " 'and the abyss gazes back...' ";
-  const line2 = " gazes into you...'";
 
   //! RETURN IS HERE :
   return (
     <>
       <Flex position="relative" mb="40px">
-        {/* // ! these are the waves */}
-        <WaveContainer level={90}>
-          <Wave
-            fill="#E3BF3E"
-            paused={false}
-            opacity="0.30"
-            options={{
-              height: 25,
-              amplitude: 15,
-              speed: 0.3,
-              points: 3,
-            }}
-          />
-        </WaveContainer>
-        <WaveContainer level={90}>
-          <Wave
-            fill="#E3BF3E"
-            opacity="0.80"
-            paused={false}
-            options={{
-              height: 80,
-              amplitude: 25,
-              speed: 0.4,
-              points: 2,
-            }}
-          />
-        </WaveContainer>
-        <WaveContainer level={90}>
-          <Wave
-            fill="#E3BF3E"
-            paused={false}
-            opacity="0.5"
-            options={{
-              height: 50,
-              amplitude: 35,
-              speed: 0.2,
-              points: 4,
-            }}
-          />
-        </WaveContainer>
         <Flex
           h={{ sm: 'initial', md: '75vh', lg: '85vh' }}
           w="100%"
