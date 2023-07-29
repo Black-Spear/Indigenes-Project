@@ -41,12 +41,10 @@ function SignIn() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    return () => {
-      axios.get(baseURL + '/getall').then(res => {
-        setUsers(res.data);
-        console.log(res.data);
-      });
-    };
+    axios.get(baseURL + '/getall').then(res => {
+      setUsers(res.data);
+      console.log(res.data);
+    });
   }, []);
 
   const [form, setform] = useState({

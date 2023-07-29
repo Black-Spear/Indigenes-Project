@@ -142,22 +142,18 @@ const PageProjects = () => {
   console.log('search', r);
   console.log('idddd', idd);
   useEffect(() => {
-    return () => {
-      api.get('/getDelegation').then(response => {
-        setGouv(response.data);
-        console.log(response.data);
-      });
-    };
+    api.get('/getDelegation').then(response => {
+      setGouv(response.data);
+      console.log(response.data);
+    });
   }, []);
 
-  // hethi tejbed donee
+  // * hethi tejbed donee
   useEffect(() => {
-    return () => {
-      api.get('/getproject').then(response => {
-        setProj(response.data);
-        console.log(response.data);
-      });
-    };
+    api.get('/getproject').then(response => {
+      setProj(response.data);
+      console.log(response.data);
+    });
   }, []);
 
   let gouvv = gouv.filter(gouv => gouv.libelle === id.toLowerCase());
