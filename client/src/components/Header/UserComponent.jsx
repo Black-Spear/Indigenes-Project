@@ -16,7 +16,7 @@ import {
   MenuList,
 } from '@chakra-ui/react';
 import { FiBell, FiChevronDown } from 'react-icons/fi';
-import { img } from '../../assets/img/avatars/ashref.jpg';
+import img from '../../assets/img/avatars/ashref.jpg';
 
 const UserComponent = props => {
   const toast = useToast();
