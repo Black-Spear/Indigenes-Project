@@ -102,7 +102,7 @@ const PageProjects = () => {
   const [details, setdetails] = useState([]);
 
   const api = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: import.meta.env.VITE_API_URL,
   });
 
   const { id } = useParams();
@@ -148,7 +148,8 @@ const PageProjects = () => {
         console.log(response.data);
       });
     };
-  });
+  }, []);
+
   // hethi tejbed donee
   useEffect(() => {
     return () => {
@@ -157,7 +158,8 @@ const PageProjects = () => {
         console.log(response.data);
       });
     };
-  });
+  }, []);
+
   let gouvv = gouv.filter(gouv => gouv.libelle === id.toLowerCase());
   console.log('gouv', gouvv);
 
@@ -290,7 +292,8 @@ const PageProjects = () => {
                     base: 'repeat(1, 1fr)',
                     sm: 'repeat(1, 1fr)',
                     md: 'repeat(1, 1fr)',
-                    lg: 'repeat(3, 1fr)',
+                    lg: 'repeat(2, 1fr)',
+                    xl: 'repeat(3, 1fr)',
                   }}
                   gap={6}
                 >
@@ -312,7 +315,7 @@ const PageProjects = () => {
                         <Center py={6} key={key}>
                           <Box
                             w={'full'}
-                            maxW={{ base: '20em', sm: '26em' }}
+                            maxW={{ base: '20em', sm: '24em', lg: '26em' }}
                             h={'30em'}
                             bg={mode('white', 'gray.900')}
                             boxShadow={'2xl'}
@@ -335,7 +338,7 @@ const PageProjects = () => {
                               justifyContent="center"
                             >
                               <Image
-                                src={a.img_P}
+                                src={a.img_p}
                                 objectFit={'cover'} //hethi heya elli keeps aspect ratio
                                 flexShrink="0"
                                 minWidth="100%"

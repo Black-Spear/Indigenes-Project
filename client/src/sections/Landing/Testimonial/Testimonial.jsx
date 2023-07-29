@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react';
 import quote from '../../../assets/img/quote.svg';
 import { useTranslation } from 'react-i18next';
+import balti from '../../../assets/img/avatars/Balti.jpg';
+import ashref from '../../../assets/img/avatars/ashref.jpg';
 
 function TestimonialCard(props) {
   const { name, role, content, avatar } = props;
@@ -75,15 +77,13 @@ export function Testimonial() {
       name: t('testimonial.name'),
       role: t('testimonial.role'),
       content: t('testimonial.content'),
-      avatar:
-        'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=q50JTnqT9AwAX-PA-Cu&_nc_ht=scontent.ftun10-1.fna&oh=00_AfCJ2H-cY30QVGE7DUCFv47F7W_Q1u10LV5TqPeJ8caaeQ&oe=64893AB1',
+      avatar: balti,
     },
     {
       name: t('testimonial.name2'),
       role: t('testimonial.role2'),
       content: t('testimonial.content2'),
-      avatar:
-        'https://scontent.xx.fbcdn.net/v/t39.30808-1/316423311_3343456529302327_1008911770140546791_n.jpg?stp=dst-jpg_p100x100&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=Vv7tiA_kgQEAX_r7bh_&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=00_AfBw5C_3sPXXJVbYJlYxC5vEK1-7NwJQTiIPTpHcO93N5g&oe=64852396',
+      avatar: ashref,
     },
   ];
 

@@ -1,21 +1,15 @@
-const mysql = require("mysql");
+const { Pool } = require("pg");
 const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 
-// connexion to MySQL
-const db = mysql.createConnection({
-  host: "be7iarfugnyxhtu5a2xr-mysql.services.clever-cloud.com",
-  user: "ucvpubcs8gkq1xex",
-  password: "BIauf3iTjq1YVZTBaJw1",
-  database: "be7iarfugnyxhtu5a2xr",
-});
-
-db.connect((err) => {
-  if (err) {
-    throw err;
-  }
-  console.log("MySql Connected...");
+// Connection pool to PostgreSQL
+const pool = new Pool({
+  user: "postgres",
+  password: "kDlILhyCvz3Ism3IL4Ue",
+  host: "containers-us-west-193.railway.app",
+  port: 6164,
+  database: "railway",
 });
 
 const app = express();
@@ -34,92 +28,94 @@ app.listen(5000, () => {
   console.log("Server started on port 5000");
 });
 
-app.get("/createdb", (req, res) => {
-  let sql = "CREATE DATABASE IF NOT EXISTS indigenes";
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send("Database created...");
-  });
-});
-
-app.get("/createtable", (req, res) => {
-  let sql =
-    "CREATE TABLE IF NOT EXISTS client(id_c int AUTO_INCREMENT, nom_c VARCHAR(255),prenom_c VARCHAR(255), email_c VARCHAR(255), mot_de_passe_c VARCHAR(255), pays_c VARCHAR(255), PRIMARY KEY(id_c))";
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send("table created...");
-  });
-});
-
-app.get("/getall", (req, res) => {
+app.get("/getall", async (req, res) => {
   let sql = "SELECT * FROM client";
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send(result);
-  });
+  try {
+    const result = await pool.query(sql);
+    console.log(result.rows);
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching data");
+  }
 });
 
-app.get("/getUser", (req, res) => {
+app.get("/getUser", async (req, res) => {
   let form = req.body;
-  let sql = `SELECT * FROM client where email_c like '${form.email}' and mot_de_pass_c like '${form.password}`;
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send(result);
-  });
+  let sql = `SELECT * FROM client WHERE email_c LIKE $1 AND mot_de_pass_c LIKE $2`;
+  const values = [`%${form.email}%`, `%${form.password}%`];
+  try {
+    const result = await pool.query(sql, values);
+    console.log(result.rows);
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching user");
+  }
 });
 
-app.get("/getDelegation", (req, res) => {
+app.get("/getDelegation", async (req, res) => {
   let sql = `SELECT DISTINCT id_g, libelle, id_d, libelle_d FROM gouvernorat JOIN delegation USING (id_g)`;
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send(result);
-  });
+  try {
+    const result = await pool.query(sql);
+    console.log(result.rows);
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching delegation data");
+  }
 });
 
-app.get("/getproject", (req, res) => {
-  let sql = `SELECT projet.id_P, client.nom_c, projet.titre, projet.subtitle ,projet.categorie ,projet.id_g, gouvernorat.libelle, projet.img_P,projet.decription,projet.id_d ,delegation.libelle_d FROM projet,client,delegation,gouvernorat where projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g`;
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-
-    res.send(result);
-  });
+app.get("/getproject", async (req, res) => {
+  let sql = `SELECT projet.id_P, client.nom_c, projet.titre, projet.subtitle, projet.categorie, projet.id_g, gouvernorat.libelle, projet.img_P, projet.description, projet.id_d, delegation.libelle_d FROM projet, client, delegation, gouvernorat WHERE projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g`;
+  try {
+    const result = await pool.query(sql);
+    console.log(result.rows);
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching project data");
+  }
 });
 
-app.post("/createUser", (req, res) => {
+app.post("/createUser", async (req, res) => {
   console.log(req.body);
   let form = req.body;
-  let sql = `INSERT INTO client(nom_c,prenom_c,email_c,mot_de_passe_c,pays_c) VALUES ('${form.fname}', '${form.lname}', '${form.email}', '${form.password}', '${form.country}')`;
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
+  let sql = `INSERT INTO client(nom_c, prenom_c, email_c, mot_de_passe_c, pays_c) VALUES ($1, $2, $3, $4, $5)`;
+  const values = [
+    form.fname,
+    form.lname,
+    form.email,
+    form.password,
+    form.country,
+  ];
+  try {
+    await pool.query(sql, values);
     res.send("User created...");
-  });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error creating user");
+  }
 });
 
-app.post("/contact", (req, res) => {
+app.post("/createProject", async (req, res) => {
   console.log(req.body);
   let form = req.body;
-  let sql = `INSERT INTO contact(full_name,email,message) VALUES ('${form.fname}', '${form.email}', '${form.message}')`;
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send("Sent mail contact...");
-  });
-});
-
-app.post("/createProject", (req, res) => {
-  console.log(req.body);
-  let form = req.body;
-  let sql = `INSERT INTO projet(titre,subtitle,categorie,gouvernorat,delegation,img_P,description) VALUES ('${form.titre}', '${form.subtitle}', '${form.category}', '${form.gouv}', '${form.deleg}', '${form.img}', '${form.description}')`;
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send("User created...");
-  });
+  let sql = `INSERT INTO projet(titre, subtitle, categorie, gouvernorat, delegation, img_P, description) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+  const values = [
+    form.titre,
+    form.subtitle,
+    form.category,
+    form.gouv,
+    form.deleg,
+    form.img,
+    form.description,
+  ];
+  try {
+    await pool.query(sql, values);
+    res.send("Project created...");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error creating project");
+  }
 });

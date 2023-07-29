@@ -14,9 +14,9 @@ import { Link as RLink } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
-import '../Map/style.css';
-import vid from '../../../assets/video/cover_small.mp4';
 import { Stats } from './Stats';
+import vid from '../../../assets/video/cover_small.mp4';
+import '../Map/style.css';
 
 import { useTranslation } from 'react-i18next';
 

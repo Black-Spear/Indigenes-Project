@@ -34,7 +34,7 @@ import countryList from 'react-select-country-list';
 
 // ! Code starts here
 const api = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 function SignUp() {

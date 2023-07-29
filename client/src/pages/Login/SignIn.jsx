@@ -31,7 +31,7 @@ import Footer from '../../components/Footer/Footer';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const baseURL = 'http://localhost:5000/getall';
+const baseURL = import.meta.env.VITE_API_URL;
 
 function SignIn() {
   // Chakra color mode
@@ -45,7 +45,7 @@ function SignIn() {
 
   useEffect(() => {
     return () => {
-      axios.get(baseURL).then(res => {
+      axios.get(baseURL + '/getall').then(res => {
         setUsers(res.data);
         console.log(res.data);
       });
