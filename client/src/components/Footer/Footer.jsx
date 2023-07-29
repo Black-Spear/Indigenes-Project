@@ -62,7 +62,7 @@ export default function Footer() {
         align={{ base: 'center', md: 'center' }}
       >
         <Logo />
-        <Text>{t('footer.allRightsReserved')} v0.6 n100623</Text>
+        <Text>{t('footer.allRightsReserved')} v0.7 n072923</Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
             <FaTwitter />
