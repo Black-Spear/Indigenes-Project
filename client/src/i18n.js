@@ -11,10 +11,10 @@ i18n
     backend: {
       loadPath: './locales/{{lng}}/translation.json',
     },
-    fallbackLng: 'en',
+    fallbackLng: 'ar',
     detection: {
-      order: ['queryString', 'cookie'],
-      cache: ['cookie'],
+      order: ['localStorage', 'cookie', 'queryString'],
+      cache: ['localStorage'],
     },
     interpolation: {
       escapeValue: false,

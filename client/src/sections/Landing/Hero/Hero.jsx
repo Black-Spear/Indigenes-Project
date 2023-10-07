@@ -20,11 +20,6 @@ import '../Map/style.css';
 
 import { useTranslation } from 'react-i18next';
 
-// localization variables
-const locales = {
-  en: { title: 'English' },
-  fr: { title: 'Francais' },
-};
 export const Hero = () => {
   const { t, i18n } = useTranslation();
 
@@ -92,19 +87,49 @@ export const Hero = () => {
           >
             <Center>
               <Stack direction="row" spacing="1">
-                <Button size="sm" onClick={() => i18n.changeLanguage('en')}>
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    i18n.changeLanguage('en');
+                    window.localStorage.setItem('lang', 'en');
+                  }}
+                >
                   EN
                 </Button>
-                <Button size="sm" onClick={() => i18n.changeLanguage('fr')}>
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    i18n.changeLanguage('fr');
+                    window.localStorage.setItem('lang', 'fr');
+                  }}
+                >
                   FR
                 </Button>
-                <Button size="sm" onClick={() => i18n.changeLanguage('ar')}>
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    i18n.changeLanguage('ar');
+                    window.localStorage.setItem('lang', 'ar');
+                  }}
+                >
                   AR
                 </Button>
-                <Button size="sm" onClick={() => i18n.changeLanguage('jp')}>
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    i18n.changeLanguage('jp');
+                    window.localStorage.setItem('lang', 'jp');
+                  }}
+                >
                   JP
                 </Button>
-                <Button size="sm" onClick={() => i18n.changeLanguage('cn')}>
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    i18n.changeLanguage('cn');
+                    window.localStorage.setItem('lang', 'cn');
+                  }}
+                >
                   CN
                 </Button>
               </Stack>
