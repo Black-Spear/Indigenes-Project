@@ -35,7 +35,6 @@ function SignIn() {
   const titleColor = useColorModeValue('E3BF3E', 'E3BF3E');
   const textColor = useColorModeValue('gray.500', 'gray.400');
   let [users, setUsers] = useState([]);
-  let [user, setUser] = useState([]);
   let [press, setPress] = useState(false);
   const toast = useToast();
   const navigate = useNavigate();
@@ -63,13 +62,9 @@ function SignIn() {
   const submitButton = async e => {
     e.preventDefault();
     setPress(true);
+
     console.log(users);
-    console.log(form);
-    const request = {
-      ...form,
-    };
-    const response = axios.get('/getUser', request);
-    console.log(response);
+
     const verif = users.filter(obj => {
       return obj.email_c === form.email && obj.mot_de_passe_c === form.password;
     });
@@ -78,12 +73,12 @@ function SignIn() {
 
     if (form.email === '' || form.password === '') {
       alert('Please fill all the fields');
-    } else if (verif == null) {
-      alert('wrong');
+      setPress(false);
+    } else if (verif.length === 0) {
+      alert('Email or password is incorrect, please try again.');
+      setPress(false);
     } else {
       localStorage.setItem('current_user', JSON.stringify(verif));
-      setUser(verif);
-
       setTimeout(() => {
         toast({
           title: 'Connected!',
