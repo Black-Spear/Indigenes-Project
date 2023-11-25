@@ -181,7 +181,7 @@ export default function Simple() {
                     >
                       {' '}
                       <span style={{ fontSize: '50px', fontWeight: 'bold' }}>
-                        {data.somme_membres}
+                        {data.somme_membres + 1}
                       </span>
                       /12 Local
                     </Text>
@@ -361,33 +361,38 @@ export default function Simple() {
             </Text>
           </VStack>
         </Box>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent={'center'}
-          mt="16"
-        >
-          <BiLogIn />
-          {/*// TODO: baddalha b icon ma 5ir */}
-          <Text>Sign in to access more information.</Text>
-        </Stack>
-        <Center my="4" mb="20">
-          <Link to="/signin">
-            <Button
-              rounded={'md'}
-              size={'md'}
-              px={'7'}
-              bg={useColorModeValue('#E3BF3E', '#E3BF3E')}
-              color={useColorModeValue('#ffffff', '#171717')}
-              _hover={{
-                transform: 'translateY(2px)',
-                boxShadow: 'sm',
-              }}
+
+        {current_user == null && (
+          <>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent={'center'}
+              mt="16"
             >
-              Sign in
-            </Button>
-          </Link>
-        </Center>
+              <BiLogIn />
+              {/*// TODO: baddalha b icon ma 5ir */}
+              <Text>Sign in to access more information.</Text>
+            </Stack>
+            <Center my="4" mb="20">
+              <Link to="/signin">
+                <Button
+                  rounded={'md'}
+                  size={'md'}
+                  px={'7'}
+                  bg={'#E3BF3E'}
+                  color={buttonColor}
+                  _hover={{
+                    transform: 'translateY(2px)',
+                    boxShadow: 'sm',
+                  }}
+                >
+                  Sign in
+                </Button>
+              </Link>
+            </Center>
+          </>
+        )}
       </Container>
       <Footer />
     </>
