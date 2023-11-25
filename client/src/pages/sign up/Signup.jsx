@@ -1,5 +1,3 @@
-// Chakra imports
-
 import {
   Box,
   Button,
@@ -14,6 +12,7 @@ import {
   Select,
   Switch,
   Text,
+  textDecoration,
   useColorModeValue,
   useToast,
 } from '@chakra-ui/react';
@@ -25,8 +24,6 @@ import axios from 'axios';
 import React, { useMemo } from 'react';
 import { FaApple, FaFacebook, FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
-import Wave from 'react-wavify';
-import styled from '@emotion/styled';
 import { BsArrowReturnLeft } from 'react-icons/bs';
 import Footer from '../../components/Footer/Footer';
 
@@ -77,36 +74,31 @@ function SignUp() {
         ...form,
       };
 
-      const db_request = api.get('/createdb');
-      console.log(db_request);
-      const table_request = api.get('/createtable');
-      console.log(table_request);
+      api.post('/createUser', request).then(result => {
+        if (result.status === 200) {
+          toast({
+            title: 'Account created.',
+            description: "We've created your account for you.",
+            status: 'success',
+            duration: 7000,
+            isClosable: true,
+            colorScheme: 'yellow',
+          });
 
-      const res = api.post('/createUser', request);
-      console.log(res);
-      toast({
-        title: 'Account created.',
-        description: "We've created your account for you.",
-        status: 'success',
-        duration: 2000,
-        isClosable: true,
-        colorScheme: 'yellow',
+          setTimeout(navigate('/signin'), 5000);
+        } else {
+          toast({
+            title: 'Error creating account.',
+            description: 'There was an error, please try again.',
+            status: 'error',
+            duration: 7000,
+            isClosable: true,
+            colorScheme: 'yellow',
+          });
+        }
       });
-
-      setTimeout(navigate('/signin'), 5000);
     }
   };
-
-  const WaveContainer = styled.div`
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: -5px;
-    height: ${props => props.level + 'vh'};
-    display: flex;
-    z-index: -1;
-    transform: rotate(180deg);
-  `;
 
   return (
     <>
@@ -144,48 +136,7 @@ function SignUp() {
           // bgSize="cover"
           mx={{ md: 'auto' }}
           mt={{ md: '14px' }}
-        >
-          {/* // ! these are the waves */}
-          <WaveContainer level={90}>
-            <Wave
-              fill="#E3BF3E"
-              paused={false}
-              opacity="0.30"
-              options={{
-                height: 25,
-                amplitude: 15,
-                speed: 0.3,
-                points: 3,
-              }}
-            />
-          </WaveContainer>
-          <WaveContainer level={90}>
-            <Wave
-              fill="#E3BF3E"
-              opacity="0.80"
-              paused={false}
-              options={{
-                height: 80,
-                amplitude: 25,
-                speed: 0.4,
-                points: 2,
-              }}
-            />
-          </WaveContainer>
-          <WaveContainer level={90}>
-            <Wave
-              fill="#E3BF3E"
-              paused={false}
-              opacity="0.5"
-              options={{
-                height: 50,
-                amplitude: 35,
-                speed: 0.2,
-                points: 4,
-              }}
-            />
-          </WaveContainer>
-        </Box>
+        ></Box>
 
         <Flex
           direction="column"
@@ -399,13 +350,18 @@ function SignUp() {
                 onChange={inputHandler}
               >
                 {options.map(option => (
-                  <option value={option.label}>{option.label}</option>
+                  <option key={option.key} value={option.label}>
+                    {option.label}
+                  </option>
                 ))}
               </Select>
               <FormControl display="flex" alignItems="center" mb="24px">
                 <Switch id="remember-login" colorScheme="yellow" me="10px" />
                 <FormLabel htmlFor="remember-login" mb="0" fontWeight="normal">
-                  Remember me
+                  I accept the{' '}
+                  <a href="/" style={{ textDecoration: 'underline' }}>
+                    terms of service
+                  </a>
                 </FormLabel>
               </FormControl>
 

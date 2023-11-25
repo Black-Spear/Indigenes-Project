@@ -17,6 +17,9 @@ import {
   useColorModeValue as mode,
   Modal,
   ModalContent,
+  Tag,
+  TagLabel,
+  TagRightIcon,
   ModalHeader,
   HStack,
   Divider,
@@ -27,16 +30,20 @@ import {
   ModalOverlay,
   useDisclosure,
   SimpleGrid,
+  useColorModeValue,
 } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import React, { useEffect, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
 import img from '../assets/img/projects/test.png';
 import { Header } from '../components/Header/Header';
 import axios from 'axios';
 import './style.css';
 import data from '../sections/Landing/Map/data.json';
+//Icons
+import { FiSearch } from 'react-icons/fi';
+import { FiUsers } from 'react-icons/fi';
 
 const SkeletonCard = () => {
   return (
@@ -88,6 +95,8 @@ const SkeletonCard = () => {
 };
 
 const PageProjects = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const OverlayOne = () => (
@@ -106,7 +115,14 @@ const PageProjects = () => {
   });
 
   const { id } = useParams();
-  console.log(id);
+
+  // * hethi tejbed projects list
+  useEffect(() => {
+    api.get('/getproject').then(response => {
+      setProj(response.data);
+    });
+  }, []);
+
   console.log('leee', proj);
 
   console.log('details', details);
@@ -148,14 +164,6 @@ const PageProjects = () => {
     });
   }, []);
 
-  // * hethi tejbed donee
-  useEffect(() => {
-    api.get('/getproject').then(response => {
-      setProj(response.data);
-      console.log(response.data);
-    });
-  }, []);
-
   let gouvv = gouv.filter(gouv => gouv.libelle === id.toLowerCase());
   console.log('gouv', gouvv);
 
@@ -177,9 +185,8 @@ const PageProjects = () => {
             bgImage={dataid.img} // sa7a rayen
             bgSize="cover"
             mx={{ md: 'auto' }}
-            className="back"
+            className={useColorModeValue('back-light', 'back-dark')}
           ></Box>
-
           <Flex
             direction="column"
             textAlign="center"
@@ -229,7 +236,7 @@ const PageProjects = () => {
                     onOpen();
                   }}
                 >
-                  <Text>Choose a District</Text>
+                  <Text>{t("projects.districtButton")}</Text>
                   {console.log(
                     gouv
                       .filter(gouv => gouv.libelle === id.toLowerCase())
@@ -343,16 +350,35 @@ const PageProjects = () => {
                             </Box>
                             <Box>
                               <Stack>
-                                <Text
-                                  color={'green.500'}
-                                  textTransform={'uppercase'}
-                                  fontWeight={800}
-                                  fontSize={'sm'}
-                                  letterSpacing={1.1}
-                                  minH={{ base: '4.5em', sm: '3em' }}
-                                >
-                                  {a.subtitle}
-                                </Text>
+                                <Flex justifyContent={'space-between'}>
+                                  <Text
+                                    color={'green.500'}
+                                    textTransform={'uppercase'}
+                                    fontWeight={800}
+                                    fontSize={'sm'}
+                                    letterSpacing={1.1}
+                                    minH={{ base: '4.5em', sm: '3em' }}
+                                  >
+                                    {a.subtitle}
+                                  </Text>
+                                  <Tag
+                                    size={'md'}
+                                    variant="subtle"
+                                    colorScheme="yellow"
+                                    height="fit-content"
+                                    py="2"
+                                  >
+                                    <TagLabel>
+                                      <Text
+                                        fontWeight="semibold"
+                                        color={mode('#a3814b', '#c7c073')}
+                                      >
+                                        {a.somme_membres + 1}/25
+                                      </Text>
+                                    </TagLabel>
+                                    <TagRightIcon boxSize="12px" as={FiUsers} />
+                                  </Tag>
+                                </Flex>
                                 <Heading
                                   color={mode('gray.700', 'white')}
                                   fontSize={'2xl'}
@@ -386,7 +412,7 @@ const PageProjects = () => {
                                   );
                                 }}
                               >
-                                See details
+                                {t("projects.detailsButton")}
                               </Button>
                             </Box>
                           </Box>

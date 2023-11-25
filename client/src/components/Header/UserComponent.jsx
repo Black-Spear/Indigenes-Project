@@ -17,9 +17,14 @@ import {
 } from '@chakra-ui/react';
 import { FiBell, FiChevronDown } from 'react-icons/fi';
 import img from '../../assets/img/avatars/ashref.jpg';
+import { useTranslation } from 'react-i18next';
 
 const UserComponent = props => {
+  const { t } = useTranslation();
+
   const toast = useToast();
+  let textColor = useColorModeValue('black', 'white');
+
   return (
     <Box
       minWidth={'17vw'}
@@ -38,8 +43,10 @@ const UserComponent = props => {
           icon={<FiBell />}
           onClick={() =>
             toast({
-              title: 'No new notifications.',
-              description: 'You have no new notifications.',
+              title: t('userComponent.notifications.noNewNotifications'),
+              description: t(
+                'userComponent.notifications.youHaveNoNotifications'
+              ),
               position: 'top-right',
               status: 'warning',
               variant: 'subtle',
@@ -95,25 +102,31 @@ const UserComponent = props => {
             >
               <Link to="/profile">
                 <MenuItem>
-                  {' '}
-                  <Text fontSize={'md'}>Profile</Text>{' '}
+                  <Text fontSize={'md'} color={textColor}>
+                    {t('userComponent.menu.profile')}
+                  </Text>
                 </MenuItem>
               </Link>
-
               <MenuItem>
-                <Text fontSize={'md'}>Projects</Text>
+                <Text fontSize={'md'} color={textColor}>
+                  {t('userComponent.menu.projects')}
+                </Text>
               </MenuItem>
               <MenuItem>
-                <Text fontSize={'md'}>Settings</Text>
+                <Text fontSize={'md'} color={textColor}>
+                  {t('userComponent.menu.settings')}
+                </Text>
               </MenuItem>
               <MenuDivider />
               <MenuItem
                 onClick={() => {
-                  localStorage.clear();
+                  localStorage.removeItem('current_user');
                   window.location.reload(true);
                 }}
               >
-                Sign out
+                <Text fontSize={'md'} color={textColor}>
+                  {t('userComponent.menu.signOut')}
+                </Text>
               </MenuItem>
             </MenuList>
           </Menu>
@@ -122,5 +135,4 @@ const UserComponent = props => {
     </Box>
   );
 };
-
 export { UserComponent };

@@ -54,14 +54,7 @@ const UserComponentMobile = props => {
               _focus={{ boxShadow: 'none' }}
             >
               <HStack>
-                <Avatar
-                  mx="1"
-                  h={'2.7rem'}
-                  w={'2.7rem'}
-                  src={
-                    'https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=sMXzg2sg0zMAX8FhI6a&tn=zd-qKV8hRhsU3r7C&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAiWXrTh_X-2mBxi1qOjmWrhbrrovFHYC286HbAUo6ZqA&oe=63FAD8B1'
-                  }
-                />
+                <Avatar mx="1" h={'2.7rem'} w={'2.7rem'} src={''} />
                 <VStack alignItems="flex-start">
                   <Text
                     fontSize="sm"

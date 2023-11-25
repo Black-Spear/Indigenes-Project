@@ -122,7 +122,7 @@ export const Profile = () => {
               justifyContent={'space-between'}
             >
               <Image
-                src="https://scontent.ftun9-1.fna.fbcdn.net/v/t39.30808-6/274480513_1179989572537674_7273953419814914029_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xDTFmiBn02IAX-1XDnG&_nc_ht=scontent.ftun9-1.fna&oh=00_AfAQwJNV-oFibY1QuFnKW-h045deGOYtRf13x0WuONUUBA&oe=63CF5731"
+                src=""
                 alt="Profile Picture"
                 borderRadius="full"
                 boxSize="150px"

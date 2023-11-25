@@ -13,7 +13,7 @@ export const Popular = () => {
               className="cardPopular__background"
               style={{
                 backgroundImage:
-                  'url(https://sp-ao.shortpixel.ai/client/q_glossy,ret_img,w_696,h_522/https://www.selection.ca/wp-content/uploads/2019/03/bienfaits-de-l-huile-d-olive-bon-pour-la-sante-gras.jpg?fit=696,522)',
+                  'url(https://static.destinationflorence.com/immagini/fc/56/91/0c/blog_scheda_20210928154418.jpg)',
               }}
             />
             <div className="cardPopular__content">
@@ -26,7 +26,7 @@ export const Popular = () => {
               className="cardPopular__background"
               style={{
                 backgroundImage:
-                  'url(https://ak9.picdn.net/shutterstock/videos/6604289/thumb/1.jpg?ip=x480)',
+                  'url(https://images.unsplash.com/photo-1511735643442-503bb3bd348a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2hlYXQlMjBjcm9wfGVufDB8fDB8fHww&w=1000&q=80)',
               }}
             />
             <div className="cardPopular__content">

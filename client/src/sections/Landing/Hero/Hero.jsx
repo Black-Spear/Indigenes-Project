@@ -6,9 +6,7 @@ import {
   Text,
   LightMode,
   Flex,
-  SimpleGrid,
   Center,
-  GridItem,
 } from '@chakra-ui/react';
 import { Link as RLink } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
@@ -16,6 +14,8 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { Stats } from './Stats';
 import vid from '../../../assets/video/cover_small.mp4';
+import img from '../../../assets/img/Video_Placeholder.jpg';
+
 import '../Map/style.css';
 
 import { useTranslation } from 'react-i18next';
@@ -23,25 +23,22 @@ import { useTranslation } from 'react-i18next';
 export const Hero = () => {
   const { t, i18n } = useTranslation();
 
-  const MotionGrid = motion(SimpleGrid);
   const MotionText = motion(Text);
   const MotionButton = motion(Button);
   const MotionHeading = motion(Heading);
-  const MotionGridItem = motion(GridItem);
-  const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
-  const animation = useAnimation();
 
-  useEffect(() => {
-    if (inView) {
-      animation.start({});
-    }
-
-    if (!inView) {
-      animation.start({
-        x: '-100vw',
-      });
-    }
-  }, [animation, inView]);
+  // const animation = useAnimation();
+  // const { ref, inView } = useInView({ threshold: 0.1 }); //variable of useInView declaration
+  // useEffect(() => {
+  //   if (inView) {
+  //     animation.start({});
+  //   }
+  //   if (!inView) {
+  //     animation.start({
+  //       x: '-100vw',
+  //     });
+  //   }
+  // }, [animation, inView]);
 
   // ! #FOUFOUUUUUUU KESA77777777777
   const line1 = t('hero.paragraphline1');
@@ -69,9 +66,22 @@ export const Hero = () => {
   //! RETURN IS HERE
   return (
     <Box>
+      <img
+        src={img}
+        alt=""
+        srcset=""
+        style={{
+          position: 'absolute',
+          aspectRatio: '16/9',
+          height: '100vh',
+          width: '100%',
+          zIndex: '-10',
+        }}
+      />
       <video autoPlay muted loop playsinline>
         <source src={vid} type="video/mp4"></source>
       </video>
+
       <Flex as="section">
         <Center h="100vh" w="100%" pt={{ base: '8em', xl: '3em' }}>
           <Box

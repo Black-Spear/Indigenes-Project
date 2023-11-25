@@ -2,14 +2,15 @@ const { Pool } = require("pg");
 const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
+require("dotenv").config();
 
 // Connection pool to PostgreSQL
 const pool = new Pool({
-  user: "postgres",
-  password: "kDlILhyCvz3Ism3IL4Ue",
-  host: "containers-us-west-193.railway.app",
-  port: 6164,
-  database: "railway",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
 });
 
 const app = express();
@@ -68,7 +69,7 @@ app.get("/getDelegation", async (req, res) => {
 });
 
 app.get("/getproject", async (req, res) => {
-  let sql = `SELECT projet.id_P, client.nom_c, projet.titre, projet.subtitle, projet.categorie, projet.id_g, gouvernorat.libelle, projet.img_P, projet.description, projet.id_d, delegation.libelle_d FROM projet, client, delegation, gouvernorat WHERE projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g`;
+  let sql = `SELECT projet.id_P, client.nom_c, client.id_c, projet.titre, projet.subtitle, projet.categorie, projet.id_g, gouvernorat.libelle, projet.img_P, projet.description, projet.id_d, projet.somme_membres , delegation.libelle_d FROM projet, client, delegation, gouvernorat WHERE projet.id_c = client.id_c AND projet.id_d = delegation.id_d AND projet.id_g = gouvernorat.id_g order by projet.id_p ASC`;
   try {
     const result = await pool.query(sql);
     console.log(result.rows);
@@ -80,7 +81,6 @@ app.get("/getproject", async (req, res) => {
 });
 
 app.post("/createUser", async (req, res) => {
-  console.log(req.body);
   let form = req.body;
   let sql = `INSERT INTO client(nom_c, prenom_c, email_c, mot_de_passe_c, pays_c) VALUES ($1, $2, $3, $4, $5)`;
   const values = [
@@ -92,7 +92,7 @@ app.post("/createUser", async (req, res) => {
   ];
   try {
     await pool.query(sql, values);
-    res.send("User created...");
+    res.status(200).send("User created");
   } catch (err) {
     console.error(err);
     res.status(500).send("Error creating user");
@@ -118,5 +118,56 @@ app.post("/createProject", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send("Error creating project");
+  }
+});
+
+// ! Project memebership management and adding members section
+
+app.get("/isProjectMember", async (req, res) => {
+  const project_id = req.query.project_id;
+  const user_id = req.query.user_id;
+
+  try {
+    // Ahem, use parameterized queries to prevent SQL injection
+    const query = {
+      text: "SELECT * FROM membres WHERE id_p = $1 AND id_c = $2",
+      values: [project_id, user_id],
+    };
+
+    const result = await pool.query(query);
+
+    if (result.rows.length > 0) {
+      res.status(200).json(result.rows);
+    } else {
+      res.status(204).json({ message: "User is not a member of the project" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+});
+
+app.post("/addProjectMember", async (req, res) => {
+  const project_id = req.body.project_id;
+  const user_id = req.body.user_id;
+
+  try {
+    const query = {
+      text: "SELECT insert_member_and_update_project($1, $2);",
+      values: [project_id, user_id],
+    };
+
+    const result = await pool.query(query);
+
+    if (result.rowCount > 0) {
+      res.status(201).json(result.rows);
+    } else {
+      res
+        .status(404)
+        .json({ message: "Error, did not insert user as member." });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
   }
 });

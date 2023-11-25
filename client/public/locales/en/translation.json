@@ -9,6 +9,19 @@
     "contact": "Contact"
   },
 
+  "userComponent": {
+    "notifications": {
+      "noNewNotifications": "No new notifications.",
+      "youHaveNoNotifications": "You have no new notifications."
+    },
+    "menu": {
+      "profile": "Profile",
+      "projects": "Projects",
+      "settings": "Settings",
+      "signOut": "Sign out"
+    }
+  },
+
   "landing": {
     "investmentHelp": "Investment help",
     "popularInvestments": "Popular investments",
@@ -216,5 +229,12 @@
   },
   "footer": {
     "allRightsReserved": "© 2023 CIN investment. All rights reserved"
+  },
+
+  "comment": "-------------------------BELOW IS THE PROJECT BROWSER TRANSLATIONS------------------------------------------------",
+
+  "projects": {
+    "districtButton": "Choose a district",
+    "detailsButton": "See details"
   }
 }
